@@ -16,7 +16,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Hive Omni Erp. If not, see <http://www.gnu.org/licenses/>.
 
-// __author__    = Jo√£o Magalh√£es <joamag@hive.pt>
+// __author__    = João Magalhães <joamag@hive.pt>
 // __version__   = 1.0.0
 // __revision__  = $LastChangedRevision: 2390 $
 // __date__      = $LastChangedDate: 2009-04-02 08:36:50 +0100 (qui, 02 Abr 2009) $
@@ -32,10 +32,13 @@
 @synthesize navigationController = _navigationController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    // Add the navigation controller's view to the window and display.
+    // sets the window root view controller as the navigation controller
     self.window.rootViewController = self.navigationController;
+    
+    // sets the window as the key one and visible
     [self.window makeKeyAndVisible];
+    
+    // returns valid
     return YES;
 }
 

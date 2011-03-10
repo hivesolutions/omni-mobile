@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C2195CA113298CD800B3E365 /* UserView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2195CA013298CD800B3E365 /* UserView.m */; };
+		C284F7A31329878800F213E8 /* UserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C284F7A21329878800F213E8 /* UserView.xib */; };
 		C28EFF3B13295A31007CBA34 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3A13295A31007CBA34 /* UIKit.framework */; };
 		C28EFF3D13295A31007CBA34 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3C13295A31007CBA34 /* Foundation.framework */; };
 		C28EFF3F13295A31007CBA34 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3E13295A31007CBA34 /* CoreGraphics.framework */; };
@@ -35,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C2195C9F13298CD800B3E365 /* UserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserView.h; sourceTree = "<group>"; };
+		C2195CA013298CD800B3E365 /* UserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserView.m; sourceTree = "<group>"; };
+		C284F7A21329878800F213E8 /* UserView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserView.xib; sourceTree = "<group>"; };
 		C28EFF3613295A31007CBA34 /* omni_mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = omni_mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28EFF3A13295A31007CBA34 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C28EFF3C13295A31007CBA34 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -119,7 +124,10 @@
 				C28EFF4F13295A31007CBA34 /* RootViewController.h */,
 				C28EFF5013295A31007CBA34 /* RootViewController.m */,
 				C28EFF5213295A31007CBA34 /* RootViewController.xib */,
+				C284F7A21329878800F213E8 /* UserView.xib */,
 				C28EFF4113295A31007CBA34 /* Supporting Files */,
+				C2195C9F13298CD800B3E365 /* UserView.h */,
+				C2195CA013298CD800B3E365 /* UserView.m */,
 			);
 			path = omni_mobile;
 			sourceTree = "<group>";
@@ -225,6 +233,7 @@
 				C28EFF4513295A31007CBA34 /* InfoPlist.strings in Resources */,
 				C28EFF4E13295A31007CBA34 /* MainWindow.xib in Resources */,
 				C28EFF5413295A31007CBA34 /* RootViewController.xib in Resources */,
+				C284F7A31329878800F213E8 /* UserView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +272,7 @@
 				C28EFF4813295A31007CBA34 /* main.m in Sources */,
 				C28EFF4B13295A31007CBA34 /* omni_mobileAppDelegate.m in Sources */,
 				C28EFF5113295A31007CBA34 /* RootViewController.m in Sources */,
+				C2195CA113298CD800B3E365 /* UserView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,7 +342,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -346,7 +356,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 			};
@@ -361,6 +371,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "omni_mobile/omni_mobile-Prefix.pch";
 				INFOPLIST_FILE = "omni_mobile/omni_mobile-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -374,6 +385,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "omni_mobile/omni_mobile-Prefix.pch";
 				INFOPLIST_FILE = "omni_mobile/omni_mobile-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
@@ -443,6 +455,7 @@
 				C28EFF6F13295A32007CBA34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C28EFF7013295A32007CBA34 /* Build configuration list for PBXNativeTarget "omni_mobileTests" */ = {
 			isa = XCConfigurationList;
@@ -451,6 +464,7 @@
 				C28EFF7213295A32007CBA34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -16,7 +16,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Hive Omni Erp. If not, see <http://www.gnu.org/licenses/>.
 
-// __author__    = Jo√£o Magalh√£es <joamag@hive.pt>
+// __author__    = João Magalhães <joamag@hive.pt>
 // __version__   = 1.0.0
 // __revision__  = $LastChangedRevision: 2390 $
 // __date__      = $LastChangedDate: 2009-04-02 08:36:50 +0100 (qui, 02 Abr 2009) $
@@ -24,6 +24,7 @@
 // __license__   = GNU General Public License (GPL), Version 3
 
 #import "RootViewController.h"
+#import "UserView.h"
 
 @implementation RootViewController
 
@@ -61,7 +62,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return 1;
 }
 
 // Customize the appearance of table view cells.
@@ -128,13 +129,14 @@
 */
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    /*
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-    // ...
-    // Pass the selected object to the new view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-    [detailViewController release];
-	*/
+    // initializes the user view
+    UserView *userView = [[UserView alloc] initWithNibName:@"UserView" bundle:nil];
+    
+    // pushes the view controller into the navigation controller
+    [self.navigationController pushViewController:userView animated:YES];
+    
+    // releases the user view reference
+    [userView release];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -151,6 +153,9 @@
     // For example: self.myOutlet = nil;
 }
 
+/**
+ * Destructor of the class.
+ */
 - (void)dealloc {
     [super dealloc];
 }
