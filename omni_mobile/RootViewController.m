@@ -66,14 +66,23 @@
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    // creates the cell identifier
     static NSString *CellIdentifier = @"Cell";
     
+    // tries to retrives the cell from cache (reusable)
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    // in case the cell is not defined in the cuurrent cache
+    // need to create a new cell
     if (cell == nil) {
+        // creates the new cell with the given reuse identifier
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
+    
+    // sets the text label text
+    cell.textLabel.text = @"Tobias";
 
-    // Configure the cell.
+    // returns the cell
     return cell;
 }
 

@@ -25,7 +25,6 @@
 
 #import "omni_mobileTests.h"
 
-
 @implementation omni_mobileTests
 
 - (void)setUp {
