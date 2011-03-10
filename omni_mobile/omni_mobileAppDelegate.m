@@ -73,6 +73,9 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
 }
 
+/**
+ * Destructor of the class.
+ */
 - (void)dealloc {
     // releases the window
     [_window release];
