@@ -37,8 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C2195C9F13298CD800B3E365 /* UserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserView.h; sourceTree = "<group>"; };
-		C2195CA013298CD800B3E365 /* UserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserView.m; sourceTree = "<group>"; };
+		C2195C9F13298CD800B3E365 /* UserView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = UserView.h; sourceTree = "<group>"; };
+		C2195CA013298CD800B3E365 /* UserView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = UserView.m; sourceTree = "<group>"; };
 		C284F7A21329878800F213E8 /* UserView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserView.xib; sourceTree = "<group>"; };
 		C28EFF3613295A31007CBA34 /* omni_mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = omni_mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28EFF3A13295A31007CBA34 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -90,7 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				C28EFF4013295A31007CBA34 /* omni_mobile */,
-				C28EFF6013295A32007CBA34 /* omni_mobileTests */,
+				C28EFF6013295A32007CBA34 /* omni_mobile_tests */,
 				C28EFF3913295A31007CBA34 /* Frameworks */,
 				C28EFF3713295A31007CBA34 /* Products */,
 			);
@@ -143,13 +143,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C28EFF6013295A32007CBA34 /* omni_mobileTests */ = {
+		C28EFF6013295A32007CBA34 /* omni_mobile_tests */ = {
 			isa = PBXGroup;
 			children = (
 				C28EFF6713295A32007CBA34 /* omni_mobileTests.h */,
 				C28EFF6913295A32007CBA34 /* omni_mobileTests.m */,
 				C28EFF6113295A32007CBA34 /* Supporting Files */,
 			);
+			name = omni_mobile_tests;
 			path = omni_mobileTests;
 			sourceTree = "<group>";
 		};
