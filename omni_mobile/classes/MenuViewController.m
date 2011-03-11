@@ -36,12 +36,14 @@
 @interface ButtonItem : Item {
     @private NSString *_icon;
     @private int _accessoryType;
+    @private UIView *_accessoryView;
     @private id _scope;
     @private SEL _handler;
 }
 
 @property (retain) NSString *icon;
 @property int accessoryType;
+@property (retain) UIView *accessoryView;
 @property (retain) id scope;
 @property SEL handler;
 
@@ -70,6 +72,7 @@
 @implementation ButtonItem
 
 @synthesize accessoryType = _accessoryType;
+@synthesize accessoryView = _accessoryView;
 @synthesize icon = _icon;
 @synthesize scope = _scope;
 @synthesize handler = _handler;
@@ -80,11 +83,12 @@
     return self;
 }
 
-- (id)initWithName:(NSString *)aName icon:(NSString *)anIcon accessoryType:(int) anAccessoryType scope:(id)aScope handler:(SEL)aHandler {
+- (id)initWithName:(NSString *)aName icon:(NSString *)anIcon accessoryType:(int)anAccessoryType accessoryView:(UIView *)anAccessoryView scope:(id)aScope handler:(SEL)aHandler {
     self = [super initWithName:aName];
     
     // sets the attributes
     self.accessoryType = anAccessoryType;
+    self.accessoryView = anAccessoryView;
     self.icon = anIcon;
     self.scope = aScope;
     self.handler = aHandler;
@@ -104,11 +108,14 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
     if (self) {
+        // creates a notifications switch
+        UISwitch *notificationsSwitch = [[UISwitch alloc] init];
+        
         // creates the cells
-        Item *usersItem = [[ButtonItem alloc] initWithName:@"users" icon:@"disk_32x36.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator scope:self handler:@selector(didSelectUsersButton)];
-        Item *salesItem = [[ButtonItem alloc] initWithName:@"sales" icon:@"disk_32x36.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator scope:self handler:@selector(didSelectSalesButton)];
-        Item *highlightsItem = [[ButtonItem alloc] initWithName:@"highlights" icon:@"disk_32x36.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator scope:self handler:@selector(didSelectHighlightsButton)];
-        Item *notificationsItem = [[ButtonItem alloc] initWithName:@"notifications" icon:@"disk_32x36.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator scope:self handler:@selector(didSelectNotificationsButton)];
+        Item *usersItem = [[ButtonItem alloc] initWithName:@"users" icon:@"disk_32x36.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectUsersButton)];
+        Item *salesItem = [[ButtonItem alloc] initWithName:@"sales" icon:@"disk_32x36.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectSalesButton)];
+        Item *highlightsItem = [[ButtonItem alloc] initWithName:@"highlights" icon:@"disk_32x36.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectHighlightsButton)];
+        Item *notificationsItem = [[ButtonItem alloc] initWithName:@"notifications" icon:@"disk_32x36.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:notificationsSwitch scope:self handler:@selector(didSelectNotificationsButton)];
         
         // creates the table structure
         NSArray *firstSectionArray = [NSArray arrayWithObjects: usersItem, salesItem, highlightsItem, nil];
@@ -207,7 +214,8 @@
     cell.accessoryType = buttonItem.accessoryType;
     cell.textLabel.text = buttonItem.name;
     cell.imageView.image = [UIImage imageNamed:buttonItem.icon];
-    
+    cell.accessoryView = buttonItem.accessoryView;
+
     // returns the cell
     return cell;
 }
