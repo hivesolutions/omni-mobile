@@ -83,15 +83,15 @@
     return self;
 }
 
-- (id)initWithName:(NSString *)aName icon:(NSString *)anIcon accessoryType:(int)anAccessoryType accessoryView:(UIView *)anAccessoryView scope:(id)aScope handler:(SEL)aHandler {
-    self = [super initWithName:aName];
+- (id)initWithName:(NSString *)name icon:(NSString *)icon accessoryType:(int)accessoryType accessoryView:(UIView *)accessoryView scope:(id)scope handler:(SEL)handler {
+    self = [super initWithName:name];
     
     // sets the attributes
-    self.accessoryType = anAccessoryType;
-    self.accessoryView = anAccessoryView;
-    self.icon = anIcon;
-    self.scope = aScope;
-    self.handler = aHandler;
+    self.accessoryType = accessoryType;
+    self.accessoryView = accessoryView;
+    self.icon = icon;
+    self.scope = scope;
+    self.handler = handler;
     
     return self;
 }
