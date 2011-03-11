@@ -19,6 +19,8 @@
 		C212D8D3132A488200E2A078 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C212D8CC132A484700E2A078 /* InfoPlist.strings */; };
 		C226C242132A781B00427656 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C226C241132A781B00427656 /* MenuViewController.m */; };
 		C226C244132A782500427656 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C226C243132A782500427656 /* MenuViewController.xib */; };
+		C226C254132A7DE800427656 /* disk_48x48.png in Resources */ = {isa = PBXBuildFile; fileRef = C226C252132A7DE800427656 /* disk_48x48.png */; };
+		C226C255132A7DE800427656 /* disk_64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = C226C253132A7DE800427656 /* disk_64x64.png */; };
 		C28EFF3B13295A31007CBA34 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3A13295A31007CBA34 /* UIKit.framework */; };
 		C28EFF3D13295A31007CBA34 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3C13295A31007CBA34 /* Foundation.framework */; };
 		C28EFF3F13295A31007CBA34 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3E13295A31007CBA34 /* CoreGraphics.framework */; };
@@ -59,6 +61,8 @@
 		C226C240132A781B00427656 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = classes/MenuViewController.h; sourceTree = "<group>"; };
 		C226C241132A781B00427656 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = classes/MenuViewController.m; sourceTree = "<group>"; };
 		C226C243132A782500427656 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuViewController.xib; path = nibs/MenuViewController.xib; sourceTree = "<group>"; };
+		C226C252132A7DE800427656 /* disk_48x48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = disk_48x48.png; path = resources/images/disk_48x48.png; sourceTree = "<group>"; };
+		C226C253132A7DE800427656 /* disk_64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = disk_64x64.png; path = resources/images/disk_64x64.png; sourceTree = "<group>"; };
 		C28EFF3613295A31007CBA34 /* omni_mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = omni_mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28EFF3A13295A31007CBA34 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C28EFF3C13295A31007CBA34 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -144,6 +148,23 @@
 			path = support/en.lproj;
 			sourceTree = "<group>";
 		};
+		C226C24D132A7D6800427656 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C226C24F132A7D7100427656 /* Images */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		C226C24F132A7D7100427656 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C226C252132A7DE800427656 /* disk_48x48.png */,
+				C226C253132A7DE800427656 /* disk_64x64.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		C28EFF2B13295A31007CBA34 = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +197,7 @@
 		C28EFF4013295A31007CBA34 /* Omni Mobile */ = {
 			isa = PBXGroup;
 			children = (
+				C226C24D132A7D6800427656 /* Resources */,
 				C212D8C0132A481C00E2A078 /* Nibs */,
 				C212D89A132A469800E2A078 /* Classes */,
 				C28EFF4113295A31007CBA34 /* Support */,
@@ -286,6 +308,8 @@
 				C212D8C5132A482800E2A078 /* RootViewController.xib in Resources */,
 				C212D8C6132A482800E2A078 /* UserView.xib in Resources */,
 				C226C244132A782500427656 /* MenuViewController.xib in Resources */,
+				C226C254132A7DE800427656 /* disk_48x48.png in Resources */,
+				C226C255132A7DE800427656 /* disk_64x64.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

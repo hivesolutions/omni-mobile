@@ -25,6 +25,7 @@
 
 #import "RootViewController.h"
 #import "UserViewController.h"
+#import "MenuViewController.h"
 
 @implementation RootViewController
 
@@ -129,14 +130,14 @@
 */
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // initializes the user view controller
-    UserViewController *userViewController = [[UserViewController alloc] initWithNibName:@"UserView" bundle:[NSBundle mainBundle]];
+    // initializes the menu view controller
+    MenuViewController *menuViewController = [[MenuViewController alloc] initWithNibName:@"MenuViewController" bundle:[NSBundle mainBundle]];
     
-    // pushes the view controller into the navigation controller
-    [self.navigationController pushViewController:userViewController animated:YES];
+    // pushes the menu view controller into the navigation controller
+    [self.navigationController pushViewController:menuViewController animated:YES];
     
-    // releases the user view controller reference
-    [userViewController release];
+    // releases the menu view controller reference
+    [menuViewController release];
 }
 
 - (void)didReceiveMemoryWarning {
