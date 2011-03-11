@@ -32,6 +32,9 @@
     if (self) {
     }
     
+    // sets the view title
+    self.title = @"Tobias";
+    
     // returns the instance
     return self;
 }

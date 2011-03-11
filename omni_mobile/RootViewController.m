@@ -130,7 +130,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // initializes the user view
-    UserView *userView = [[UserView alloc] initWithNibName:@"UserView" bundle:nil];
+    UserView *userView = [[UserView alloc] initWithNibName:@"UserView" bundle:[NSBundle mainBundle]];
     
     // pushes the view controller into the navigation controller
     [self.navigationController pushViewController:userView animated:YES];
