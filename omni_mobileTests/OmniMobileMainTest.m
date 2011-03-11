@@ -23,47 +23,20 @@
 // __copyright__ = Copyright (c) 2008 Hive Solutions Lda.
 // __license__   = GNU General Public License (GPL), Version 3
 
-#import "UserView.h"
+#import "OmniMobileMainTest.h"
 
-@implementation UserView
+@implementation OmniMobileMainTest
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-    }
-    
-    // sets the view title
-    self.title = @"Tobias";
-    
-    // returns the instance
-    return self;
+- (void)setUp {
+    [super setUp];
 }
 
-- (void)dealloc {
-    [super dealloc];
+- (void)tearDown {
+    [super tearDown];
 }
 
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // returns yes for autorotation
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+- (void)testExample {
+    STFail(@"Unit tests are not implemented yet in omni_mobileTests");
 }
 
 @end

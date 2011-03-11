@@ -14,7 +14,7 @@
 		C28EFF3F13295A31007CBA34 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3E13295A31007CBA34 /* CoreGraphics.framework */; };
 		C28EFF4513295A31007CBA34 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C28EFF4313295A31007CBA34 /* InfoPlist.strings */; };
 		C28EFF4813295A31007CBA34 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C28EFF4713295A31007CBA34 /* main.m */; };
-		C28EFF4B13295A31007CBA34 /* omni_mobileAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C28EFF4A13295A31007CBA34 /* omni_mobileAppDelegate.m */; };
+		C28EFF4B13295A31007CBA34 /* OmniMobileAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C28EFF4A13295A31007CBA34 /* OmniMobileAppDelegate.m */; };
 		C28EFF4E13295A31007CBA34 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28EFF4C13295A31007CBA34 /* MainWindow.xib */; };
 		C28EFF5113295A31007CBA34 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28EFF5013295A31007CBA34 /* RootViewController.m */; };
 		C28EFF5413295A31007CBA34 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28EFF5213295A31007CBA34 /* RootViewController.xib */; };
@@ -22,8 +22,8 @@
 		C28EFF5C13295A32007CBA34 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3C13295A31007CBA34 /* Foundation.framework */; };
 		C28EFF5D13295A32007CBA34 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3E13295A31007CBA34 /* CoreGraphics.framework */; };
 		C28EFF6513295A32007CBA34 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C28EFF6313295A32007CBA34 /* InfoPlist.strings */; };
-		C28EFF6813295A32007CBA34 /* omni_mobileTests.h in Resources */ = {isa = PBXBuildFile; fileRef = C28EFF6713295A32007CBA34 /* omni_mobileTests.h */; };
-		C28EFF6A13295A32007CBA34 /* omni_mobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C28EFF6913295A32007CBA34 /* omni_mobileTests.m */; };
+		C28EFF6813295A32007CBA34 /* OmniMobileMainTest.h in Resources */ = {isa = PBXBuildFile; fileRef = C28EFF6713295A32007CBA34 /* OmniMobileMainTest.h */; };
+		C28EFF6A13295A32007CBA34 /* OmniMobileMainTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C28EFF6913295A32007CBA34 /* OmniMobileMainTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,8 +48,8 @@
 		C28EFF4413295A31007CBA34 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C28EFF4613295A31007CBA34 /* omni_mobile-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "omni_mobile-Prefix.pch"; sourceTree = "<group>"; };
 		C28EFF4713295A31007CBA34 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C28EFF4913295A31007CBA34 /* omni_mobileAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = omni_mobileAppDelegate.h; sourceTree = "<group>"; };
-		C28EFF4A13295A31007CBA34 /* omni_mobileAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = omni_mobileAppDelegate.m; sourceTree = "<group>"; };
+		C28EFF4913295A31007CBA34 /* OmniMobileAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OmniMobileAppDelegate.h; sourceTree = "<group>"; };
+		C28EFF4A13295A31007CBA34 /* OmniMobileAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OmniMobileAppDelegate.m; sourceTree = "<group>"; };
 		C28EFF4D13295A31007CBA34 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		C28EFF4F13295A31007CBA34 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		C28EFF5013295A31007CBA34 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
@@ -58,8 +58,8 @@
 		C28EFF6213295A32007CBA34 /* omni_mobileTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "omni_mobileTests-Info.plist"; sourceTree = "<group>"; };
 		C28EFF6413295A32007CBA34 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C28EFF6613295A32007CBA34 /* omni_mobileTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "omni_mobileTests-Prefix.pch"; sourceTree = "<group>"; };
-		C28EFF6713295A32007CBA34 /* omni_mobileTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = omni_mobileTests.h; sourceTree = "<group>"; };
-		C28EFF6913295A32007CBA34 /* omni_mobileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = omni_mobileTests.m; sourceTree = "<group>"; };
+		C28EFF6713295A32007CBA34 /* OmniMobileMainTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OmniMobileMainTest.h; sourceTree = "<group>"; };
+		C28EFF6913295A32007CBA34 /* OmniMobileMainTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OmniMobileMainTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,8 +118,8 @@
 		C28EFF4013295A31007CBA34 /* omni_mobile */ = {
 			isa = PBXGroup;
 			children = (
-				C28EFF4913295A31007CBA34 /* omni_mobileAppDelegate.h */,
-				C28EFF4A13295A31007CBA34 /* omni_mobileAppDelegate.m */,
+				C28EFF4913295A31007CBA34 /* OmniMobileAppDelegate.h */,
+				C28EFF4A13295A31007CBA34 /* OmniMobileAppDelegate.m */,
 				C28EFF4C13295A31007CBA34 /* MainWindow.xib */,
 				C28EFF4F13295A31007CBA34 /* RootViewController.h */,
 				C28EFF5013295A31007CBA34 /* RootViewController.m */,
@@ -146,8 +146,8 @@
 		C28EFF6013295A32007CBA34 /* omni_mobile_tests */ = {
 			isa = PBXGroup;
 			children = (
-				C28EFF6713295A32007CBA34 /* omni_mobileTests.h */,
-				C28EFF6913295A32007CBA34 /* omni_mobileTests.m */,
+				C28EFF6713295A32007CBA34 /* OmniMobileMainTest.h */,
+				C28EFF6913295A32007CBA34 /* OmniMobileMainTest.m */,
 				C28EFF6113295A32007CBA34 /* Supporting Files */,
 			);
 			name = omni_mobile_tests;
@@ -243,7 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C28EFF6513295A32007CBA34 /* InfoPlist.strings in Resources */,
-				C28EFF6813295A32007CBA34 /* omni_mobileTests.h in Resources */,
+				C28EFF6813295A32007CBA34 /* OmniMobileMainTest.h in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C28EFF4813295A31007CBA34 /* main.m in Sources */,
-				C28EFF4B13295A31007CBA34 /* omni_mobileAppDelegate.m in Sources */,
+				C28EFF4B13295A31007CBA34 /* OmniMobileAppDelegate.m in Sources */,
 				C28EFF5113295A31007CBA34 /* RootViewController.m in Sources */,
 				C2195CA113298CD800B3E365 /* UserView.m in Sources */,
 			);
@@ -281,7 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C28EFF6A13295A32007CBA34 /* omni_mobileTests.m in Sources */,
+				C28EFF6A13295A32007CBA34 /* OmniMobileMainTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
