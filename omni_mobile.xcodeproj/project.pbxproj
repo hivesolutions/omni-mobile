@@ -18,16 +18,16 @@
 		C28EFF4E13295A31007CBA34 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28EFF4C13295A31007CBA34 /* MainWindow.xib */; };
 		C28EFF5113295A31007CBA34 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28EFF5013295A31007CBA34 /* RootViewController.m */; };
 		C28EFF5413295A31007CBA34 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28EFF5213295A31007CBA34 /* RootViewController.xib */; };
-		C28EFF5B13295A32007CBA34 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3A13295A31007CBA34 /* UIKit.framework */; };
-		C28EFF5C13295A32007CBA34 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3C13295A31007CBA34 /* Foundation.framework */; };
-		C28EFF5D13295A32007CBA34 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3E13295A31007CBA34 /* CoreGraphics.framework */; };
-		C28EFF6513295A32007CBA34 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C28EFF6313295A32007CBA34 /* InfoPlist.strings */; };
-		C28EFF6813295A32007CBA34 /* OmniMobileMainTest.h in Resources */ = {isa = PBXBuildFile; fileRef = C28EFF6713295A32007CBA34 /* OmniMobileMainTest.h */; };
-		C28EFF6A13295A32007CBA34 /* OmniMobileMainTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C28EFF6913295A32007CBA34 /* OmniMobileMainTest.m */; };
+		C2DBDC14132A42D5006C6E07 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3A13295A31007CBA34 /* UIKit.framework */; };
+		C2DBDC15132A42D5006C6E07 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3C13295A31007CBA34 /* Foundation.framework */; };
+		C2DBDC16132A42D5006C6E07 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3E13295A31007CBA34 /* CoreGraphics.framework */; };
+		C2DBDC1C132A42D5006C6E07 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2DBDC1A132A42D5006C6E07 /* InfoPlist.strings */; };
+		C2DBDC1F132A42D5006C6E07 /* OmniMobileTest.h in Resources */ = {isa = PBXBuildFile; fileRef = C2DBDC1E132A42D5006C6E07 /* OmniMobileTest.h */; };
+		C2DBDC21132A42D5006C6E07 /* OmniMobileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C2DBDC20132A42D5006C6E07 /* OmniMobileTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C28EFF5E13295A32007CBA34 /* PBXContainerItemProxy */ = {
+		C2DBDC25132A42DB006C6E07 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C28EFF2D13295A31007CBA34 /* Project object */;
 			proxyType = 1;
@@ -54,12 +54,12 @@
 		C28EFF4F13295A31007CBA34 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		C28EFF5013295A31007CBA34 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		C28EFF5313295A31007CBA34 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
-		C28EFF5A13295A32007CBA34 /* omni_mobileTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = omni_mobileTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C28EFF6213295A32007CBA34 /* omni_mobileTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "omni_mobileTests-Info.plist"; sourceTree = "<group>"; };
-		C28EFF6413295A32007CBA34 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C28EFF6613295A32007CBA34 /* omni_mobileTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "omni_mobileTests-Prefix.pch"; sourceTree = "<group>"; };
-		C28EFF6713295A32007CBA34 /* OmniMobileMainTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OmniMobileMainTest.h; sourceTree = "<group>"; };
-		C28EFF6913295A32007CBA34 /* OmniMobileMainTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OmniMobileMainTest.m; sourceTree = "<group>"; };
+		C2DBDC13132A42D5006C6E07 /* omni_mobile_test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = omni_mobile_test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2DBDC19132A42D5006C6E07 /* omni_mobile_test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "omni_mobile_test-Info.plist"; sourceTree = "<group>"; };
+		C2DBDC1B132A42D5006C6E07 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C2DBDC1D132A42D5006C6E07 /* omni_mobile_test-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "omni_mobile_test-Prefix.pch"; sourceTree = "<group>"; };
+		C2DBDC1E132A42D5006C6E07 /* OmniMobileTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OmniMobileTest.h; sourceTree = "<group>"; };
+		C2DBDC20132A42D5006C6E07 /* OmniMobileTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OmniMobileTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,13 +73,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C28EFF5613295A32007CBA34 /* Frameworks */ = {
+		C2DBDC0F132A42D5006C6E07 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C28EFF5B13295A32007CBA34 /* UIKit.framework in Frameworks */,
-				C28EFF5C13295A32007CBA34 /* Foundation.framework in Frameworks */,
-				C28EFF5D13295A32007CBA34 /* CoreGraphics.framework in Frameworks */,
+				C2DBDC14132A42D5006C6E07 /* UIKit.framework in Frameworks */,
+				C2DBDC15132A42D5006C6E07 /* Foundation.framework in Frameworks */,
+				C2DBDC16132A42D5006C6E07 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				C28EFF4013295A31007CBA34 /* omni_mobile */,
-				C28EFF6013295A32007CBA34 /* omni_mobile_tests */,
+				C2DBDC17132A42D5006C6E07 /* omni_mobile_test */,
 				C28EFF3913295A31007CBA34 /* Frameworks */,
 				C28EFF3713295A31007CBA34 /* Products */,
 			);
@@ -100,7 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				C28EFF3613295A31007CBA34 /* omni_mobile.app */,
-				C28EFF5A13295A32007CBA34 /* omni_mobileTests.octest */,
+				C2DBDC13132A42D5006C6E07 /* omni_mobile_test.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,23 +143,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C28EFF6013295A32007CBA34 /* omni_mobile_tests */ = {
+		C2DBDC17132A42D5006C6E07 /* omni_mobile_test */ = {
 			isa = PBXGroup;
 			children = (
-				C28EFF6713295A32007CBA34 /* OmniMobileMainTest.h */,
-				C28EFF6913295A32007CBA34 /* OmniMobileMainTest.m */,
-				C28EFF6113295A32007CBA34 /* Supporting Files */,
+				C2DBDC1E132A42D5006C6E07 /* OmniMobileTest.h */,
+				C2DBDC20132A42D5006C6E07 /* OmniMobileTest.m */,
+				C2DBDC18132A42D5006C6E07 /* Supporting Files */,
 			);
-			name = omni_mobile_tests;
-			path = omni_mobileTests;
+			path = omni_mobile_test;
 			sourceTree = "<group>";
 		};
-		C28EFF6113295A32007CBA34 /* Supporting Files */ = {
+		C2DBDC18132A42D5006C6E07 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C28EFF6213295A32007CBA34 /* omni_mobileTests-Info.plist */,
-				C28EFF6313295A32007CBA34 /* InfoPlist.strings */,
-				C28EFF6613295A32007CBA34 /* omni_mobileTests-Prefix.pch */,
+				C2DBDC19132A42D5006C6E07 /* omni_mobile_test-Info.plist */,
+				C2DBDC1A132A42D5006C6E07 /* InfoPlist.strings */,
+				C2DBDC1D132A42D5006C6E07 /* omni_mobile_test-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -184,23 +183,23 @@
 			productReference = C28EFF3613295A31007CBA34 /* omni_mobile.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C28EFF5913295A32007CBA34 /* omni_mobileTests */ = {
+		C2DBDC12132A42D5006C6E07 /* omni_mobile_test */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C28EFF7013295A32007CBA34 /* Build configuration list for PBXNativeTarget "omni_mobileTests" */;
+			buildConfigurationList = C2DBDC22132A42D5006C6E07 /* Build configuration list for PBXNativeTarget "omni_mobile_test" */;
 			buildPhases = (
-				C28EFF5513295A32007CBA34 /* Sources */,
-				C28EFF5613295A32007CBA34 /* Frameworks */,
-				C28EFF5713295A32007CBA34 /* Resources */,
-				C28EFF5813295A32007CBA34 /* ShellScript */,
+				C2DBDC0E132A42D5006C6E07 /* Sources */,
+				C2DBDC0F132A42D5006C6E07 /* Frameworks */,
+				C2DBDC10132A42D5006C6E07 /* Resources */,
+				C2DBDC11132A42D5006C6E07 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C28EFF5F13295A32007CBA34 /* PBXTargetDependency */,
+				C2DBDC26132A42DB006C6E07 /* PBXTargetDependency */,
 			);
-			name = omni_mobileTests;
-			productName = omni_mobileTests;
-			productReference = C28EFF5A13295A32007CBA34 /* omni_mobileTests.octest */;
+			name = omni_mobile_test;
+			productName = omni_mobile_test;
+			productReference = C2DBDC13132A42D5006C6E07 /* omni_mobile_test.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -221,7 +220,7 @@
 			projectRoot = "";
 			targets = (
 				C28EFF3513295A31007CBA34 /* omni_mobile */,
-				C28EFF5913295A32007CBA34 /* omni_mobileTests */,
+				C2DBDC12132A42D5006C6E07 /* omni_mobile_test */,
 			);
 		};
 /* End PBXProject section */
@@ -238,19 +237,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C28EFF5713295A32007CBA34 /* Resources */ = {
+		C2DBDC10132A42D5006C6E07 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C28EFF6513295A32007CBA34 /* InfoPlist.strings in Resources */,
-				C28EFF6813295A32007CBA34 /* OmniMobileMainTest.h in Resources */,
+				C2DBDC1C132A42D5006C6E07 /* InfoPlist.strings in Resources */,
+				C2DBDC1F132A42D5006C6E07 /* OmniMobileTest.h in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C28EFF5813295A32007CBA34 /* ShellScript */ = {
+		C2DBDC11132A42D5006C6E07 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -277,21 +276,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C28EFF5513295A32007CBA34 /* Sources */ = {
+		C2DBDC0E132A42D5006C6E07 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C28EFF6A13295A32007CBA34 /* OmniMobileMainTest.m in Sources */,
+				C2DBDC21132A42D5006C6E07 /* OmniMobileTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C28EFF5F13295A32007CBA34 /* PBXTargetDependency */ = {
+		C2DBDC26132A42DB006C6E07 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C28EFF3513295A31007CBA34 /* omni_mobile */;
-			targetProxy = C28EFF5E13295A32007CBA34 /* PBXContainerItemProxy */;
+			targetProxy = C2DBDC25132A42DB006C6E07 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -320,10 +319,10 @@
 			name = RootViewController.xib;
 			sourceTree = "<group>";
 		};
-		C28EFF6313295A32007CBA34 /* InfoPlist.strings */ = {
+		C2DBDC1A132A42D5006C6E07 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C28EFF6413295A32007CBA34 /* en */,
+				C2DBDC1B132A42D5006C6E07 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -393,46 +392,44 @@
 			};
 			name = Release;
 		};
-		C28EFF7113295A32007CBA34 /* Debug */ = {
+		C2DBDC23132A42D5006C6E07 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/omni_mobile.app/omni_mobile";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "omni_mobileTests/omni_mobileTests-Prefix.pch";
-				INFOPLIST_FILE = "omni_mobileTests/omni_mobileTests-Info.plist";
+				GCC_PREFIX_HEADER = "omni_mobile_test/omni_mobile_test-Prefix.pch";
+				INFOPLIST_FILE = "omni_mobile_test/omni_mobile_test-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SenTestingKit,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
-		C28EFF7213295A32007CBA34 /* Release */ = {
+		C2DBDC24132A42D5006C6E07 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/omni_mobile.app/omni_mobile";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "omni_mobileTests/omni_mobileTests-Prefix.pch";
-				INFOPLIST_FILE = "omni_mobileTests/omni_mobileTests-Info.plist";
+				GCC_PREFIX_HEADER = "omni_mobile_test/omni_mobile_test-Prefix.pch";
+				INFOPLIST_FILE = "omni_mobile_test/omni_mobile_test-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SenTestingKit,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
@@ -458,11 +455,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C28EFF7013295A32007CBA34 /* Build configuration list for PBXNativeTarget "omni_mobileTests" */ = {
+		C2DBDC22132A42D5006C6E07 /* Build configuration list for PBXNativeTarget "omni_mobile_test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C28EFF7113295A32007CBA34 /* Debug */,
-				C28EFF7213295A32007CBA34 /* Release */,
+				C2DBDC23132A42D5006C6E07 /* Debug */,
+				C2DBDC24132A42D5006C6E07 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
