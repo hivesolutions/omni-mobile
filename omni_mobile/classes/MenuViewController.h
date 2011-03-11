@@ -26,6 +26,9 @@
 #import <UIKit/UIKit.h>
 
 @interface MenuViewController : UITableViewController {
+   
 }
+
+@property(nonatomic, retain) NSMutableDictionary *menuDictionary;
 
 @end

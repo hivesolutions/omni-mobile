@@ -27,10 +27,24 @@
 
 @implementation MenuViewController
 
+@synthesize menuDictionary;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
     if (self) {
+        // defines the cell arrays
+        NSArray *usersArray = [NSArray arrayWithObjects: @"Utilizadores", @"disk_32x36.png", nil];
+        NSArray *salesArray = [NSArray arrayWithObjects: @"Vendas", @"disk_32x36.png", nil];
+        NSArray *highlightsArray = [NSArray arrayWithObjects: @"Destaques", @"disk_32x36.png", nil];
+        NSArray *notificationsArray = [NSArray arrayWithObjects: @"Notificações", @"disk_32x36.png", nil];
+        
+        // populates the menu dictionary
+        self.menuDictionary = [NSMutableDictionary dictionary];
+        [menuDictionary setValue:usersArray forKey:@"0,0"];
+        [menuDictionary setValue:salesArray forKey:@"0,1"];
+        [menuDictionary setValue:highlightsArray forKey:@"0,2"];
+        [menuDictionary setValue:notificationsArray forKey:@"1,0"];
     }
     
     return self;
@@ -57,32 +71,46 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 2;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if(section == 0) {
+        return 3;
+    } else {
+        return 1;
+    }
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // creates the cell identifier
-    static NSString *CellIdentifier = @"Cell";
+    // retrieves the section and row
+    NSUInteger section = [indexPath section];
+    NSUInteger row = [indexPath row];
+    
+    // defines the cell identifier
+    NSString *cellIdentifier = [NSString stringWithFormat:@"%d,%d", section, row];
+    
+    // retrieves the cell values
+    NSArray *cellArray = [menuDictionary objectForKey:cellIdentifier];
+    NSString *cellValue = [cellArray objectAtIndex:0]; 
+    NSString *cellImage = [cellArray objectAtIndex:1]; 
     
     // tries to retrives the cell from cache (reusable)
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     // in case the cell is not defined in the cuurrent cache
     // need to create a new cell
     if (cell == nil) {
         // creates the new cell with the given reuse identifier
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
     }
     
     // sets the text label text
-    cell.textLabel.text = @"Matias";
+    cell.textLabel.text = cellValue;
     
-    cell.imageView.image = [UIImage imageNamed:@"disk_48x48.png"];    
-    
+    // sets the image view image
+    cell.imageView.image = [UIImage imageNamed:cellImage];
+        
     // returns the cell
     return cell;
 }
