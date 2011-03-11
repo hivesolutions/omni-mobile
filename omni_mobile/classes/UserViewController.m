@@ -42,13 +42,13 @@
     self.navigationItem.rightBarButtonItem = editUiBarButton;
     
     // sets the selector for the editr ui bar button action
-    editUiBarButton.action = @selector(buttonClickedWithSender:tobias:);
+    editUiBarButton.action = @selector(buttonClickedWithSender:extra:);
 
     // returns the instance
     return self;
 }
 
-- (void)buttonClickedWithSender:(id)sender tobias:(id)tobias {
+- (void)buttonClickedWithSender:(id)sender extra:(id)extra {
     printf("carregou %d\r", (int) sender);
 }
 
