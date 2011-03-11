@@ -81,7 +81,7 @@
     }
     
     // sets the text label text
-    cell.textLabel.text = @"Tobias";
+    cell.textLabel.text = @"Matias";
 
     // returns the cell
     return cell;
