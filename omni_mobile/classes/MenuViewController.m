@@ -35,11 +35,13 @@
 
 @interface ButtonItem : Item {
     @private NSString *_icon;
+    @private int _accessoryType;
     @private id _scope;
     @private SEL _handler;
 }
 
 @property (retain) NSString *icon;
+@property int accessoryType;
 @property (retain) id scope;
 @property SEL handler;
 
@@ -67,6 +69,7 @@
 
 @implementation ButtonItem
 
+@synthesize accessoryType = _accessoryType;
 @synthesize icon = _icon;
 @synthesize scope = _scope;
 @synthesize handler = _handler;
@@ -77,10 +80,11 @@
     return self;
 }
 
-- (id)initWithName:(NSString *)aName icon:(NSString *)anIcon scope:(id)aScope handler:(SEL)aHandler {
+- (id)initWithName:(NSString *)aName icon:(NSString *)anIcon accessoryType:(int) anAccessoryType scope:(id)aScope handler:(SEL)aHandler {
     self = [super initWithName:aName];
     
     // sets the attributes
+    self.accessoryType = anAccessoryType;
     self.icon = anIcon;
     self.scope = aScope;
     self.handler = aHandler;
@@ -94,38 +98,23 @@
 
 @implementation MenuViewController
 
-@synthesize menuDictionary;
+@synthesize sectionsArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
     if (self) {
-        // defines the cell arrays
-        Item *usersItem = [[ButtonItem alloc] initWithName:@"users" icon:@"disk_32x36.png" scope:self handler:@selector(handleUsersButton)];
-        Item *salesItem = [[ButtonItem alloc] initWithName:@"sales" icon:@"disk_32x36.png" scope:self handler:@selector(handleSalesButton)];
-        Item *highlightsItem = [[ButtonItem alloc] initWithName:@"highlights" icon:@"disk_32x36.png" scope:self handler:@selector(handleHighlightsButton)];
-        Item *notificationsItem = [[ButtonItem alloc] initWithName:@"notifications" icon:@"disk_32x36.png" scope:self handler:@selector(handleNotificationsButton)];
+        // creates the cells
+        Item *usersItem = [[ButtonItem alloc] initWithName:@"users" icon:@"disk_32x36.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator scope:self handler:@selector(didSelectUsersButton)];
+        Item *salesItem = [[ButtonItem alloc] initWithName:@"sales" icon:@"disk_32x36.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator scope:self handler:@selector(didSelectSalesButton)];
+        Item *highlightsItem = [[ButtonItem alloc] initWithName:@"highlights" icon:@"disk_32x36.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator scope:self handler:@selector(didSelectHighlightsButton)];
+        Item *notificationsItem = [[ButtonItem alloc] initWithName:@"notifications" icon:@"disk_32x36.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator scope:self handler:@selector(didSelectNotificationsButton)];
         
-        
-        NSArray *salesArray = [NSArray arrayWithObjects: @"Vendas", @"disk_32x36.png", nil];
-        NSArray *highlightsArray = [NSArray arrayWithObjects: @"Destaques", @"disk_32x36.png", nil];
-        NSArray *notificationsArray = [NSArray arrayWithObjects: @"Notificações", @"disk_32x36.png", nil];
-        
-        //NSDictionary *usersArray = [NSDictionary dictionaryWithObjectsAndKeys:, nil];
-        
-        // defines the sections array
-        NSMutableArray *sectionsArray = [NSMutableArray array];
-        
-        
-        
-        
-        // populates the menu dictionary
-        /*self.menuDictionary = [NSMutableDictionary dictionary];
-        [menuDictionary setValue:usersArray forKey:@"0,0"];
-        [menuDictionary setValue:salesArray forKey:@"0,1"];
-        [menuDictionary setValue:highlightsArray forKey:@"0,2"];
-        [menuDictionary setValue:notificationsArray forKey:@"1,0"];*/
-    }
+        // creates the table structure
+        NSArray *firstSectionArray = [NSArray arrayWithObjects: usersItem, salesItem, highlightsItem, nil];
+        NSArray *secondSectionArray = [NSArray arrayWithObjects: notificationsItem, nil];
+        self.sectionsArray = [NSArray arrayWithObjects: firstSectionArray, secondSectionArray, nil];
+    } 
     
     return self;
 }
@@ -150,16 +139,50 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)didSelectUsersButton {
+    NSLog(@"USERS!");
+}
+
+- (void)didSelectSalesButton {
+    NSLog(@"SALES!");
+}
+
+- (void)didSelectHighlightsButton {
+    NSLog(@"HIGHLIGHTS!");
+}
+
+- (void)didSelectNotificationsButton {
+    NSLog(@"NOTIFICATIONS!");
+}
+
+- (ButtonItem *)buttonItemAtSection:(NSUInteger)section atRow:(NSUInteger)row {
+    // retrieves the specified section array
+    NSArray *sectionArray = [self.sectionsArray objectAtIndex:section];
+    
+    // retrieves the button item at the specified row
+    ButtonItem *buttonItem = [sectionArray objectAtIndex:row];
+    
+    // returns the specified button item
+    return buttonItem;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    // retrieves the sections array size
+    NSInteger sectionsArraySize = [self.sectionsArray count];
+    
+    // returns the sections array size
+    return sectionsArraySize;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if(section == 0) {
-        return 3;
-    } else {
-        return 1;
-    }
+    // retrieves the section array
+    NSArray *sectionArray = [self.sectionsArray objectAtIndex:section];
+                             
+    // retrieves the sections array size
+    NSInteger sectionArraySize = [sectionArray count];
+    
+    // returns the section array size
+    return sectionArraySize;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -167,32 +190,38 @@
     NSUInteger section = [indexPath section];
     NSUInteger row = [indexPath row];
     
-    // defines the cell identifier
-    NSString *cellIdentifier = [NSString stringWithFormat:@"%d,%d", section, row];
-    
-    // retrieves the cell values
-    NSArray *cellArray = [menuDictionary objectForKey:cellIdentifier];
-    NSString *cellValue = [cellArray objectAtIndex:0]; 
-    NSString *cellImage = [cellArray objectAtIndex:1]; 
+    // retrieves the button item
+    ButtonItem *buttonItem = [self buttonItemAtSection:section atRow:row];
     
     // tries to retrives the cell from cache (reusable)
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:buttonItem.name];
     
     // in case the cell is not defined in the cuurrent cache
     // need to create a new cell
     if (cell == nil) {
         // creates the new cell with the given reuse identifier
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:buttonItem.name] autorelease];
     }
     
-    // sets the text label text
-    cell.textLabel.text = cellValue;
+    // sets the button item's attributes in the cell
+    cell.accessoryType = buttonItem.accessoryType;
+    cell.textLabel.text = buttonItem.name;
+    cell.imageView.image = [UIImage imageNamed:buttonItem.icon];
     
-    // sets the image view image
-    cell.imageView.image = [UIImage imageNamed:cellImage];
-        
     // returns the cell
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // retrieves the section and row
+    NSUInteger section = [indexPath section];
+    NSUInteger row = [indexPath row];
+    
+    // retrieves the button item
+    ButtonItem *buttonItem = [self buttonItemAtSection:section atRow:row];
+    
+    // invokes the button's handler
+    [buttonItem.scope performSelector:buttonItem.handler];
 }
 
 @end

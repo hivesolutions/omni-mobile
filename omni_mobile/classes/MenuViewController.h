@@ -28,6 +28,6 @@
 @interface MenuViewController : UITableViewController {
 }
 
-@property(nonatomic, retain) NSMutableDictionary *menuDictionary;
+@property(nonatomic, retain) NSArray *sectionsArray;
 
 @end
