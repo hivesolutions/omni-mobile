@@ -40,9 +40,16 @@
     
     // sets the edit ui bar button
     self.navigationItem.rightBarButtonItem = editUiBarButton;
+    
+    // sets the selector for the editr ui bar button action
+    editUiBarButton.action = @selector(buttonClickedWithSender:tobias:);
 
     // returns the instance
     return self;
+}
+
+- (void)buttonClickedWithSender:(id)sender tobias:(id)tobias {
+    printf("carregou %d\r", (int) sender);
 }
 
 - (void)dealloc {
