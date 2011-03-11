@@ -24,7 +24,7 @@
 // __license__   = GNU General Public License (GPL), Version 3
 
 #import "RootViewController.h"
-#import "UserView.h"
+#import "UserViewController.h"
 
 @implementation RootViewController
 
@@ -129,14 +129,14 @@
 */
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // initializes the user view
-    UserView *userView = [[UserView alloc] initWithNibName:@"UserView" bundle:[NSBundle mainBundle]];
+    // initializes the user view controller
+    UserViewController *userViewController = [[UserViewController alloc] initWithNibName:@"UserView" bundle:[NSBundle mainBundle]];
     
     // pushes the view controller into the navigation controller
-    [self.navigationController pushViewController:userView animated:YES];
+    [self.navigationController pushViewController:userViewController animated:YES];
     
-    // releases the user view reference
-    [userView release];
+    // releases the user view controller reference
+    [userViewController release];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -23,9 +23,9 @@
 // __copyright__ = Copyright (c) 2008 Hive Solutions Lda.
 // __license__   = GNU General Public License (GPL), Version 3
 
-#import "UserView.h"
+#import "UserViewController.h"
 
-@implementation UserView
+@implementation UserViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -35,10 +35,11 @@
     // sets the view title
     self.title = @"Matias";
     
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"asdasdasd" style:UIBarButtonItemStylePlain target:self action:nil];
+    // creates the edit ui bar button
+    UIBarButtonItem *editUiBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:nil];
     
-    self.navigationItem.rightBarButtonItem = item;
-    self.navigationController.navigationItem.rightBarButtonItem = item;
+    // sets the edit ui bar button
+    self.navigationItem.rightBarButtonItem = editUiBarButton;
 
     // returns the instance
     return self;

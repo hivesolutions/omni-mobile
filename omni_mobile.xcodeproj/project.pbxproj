@@ -10,7 +10,7 @@
 		C212D8AE132A47CE00E2A078 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C212D8A5132A47CE00E2A078 /* main.m */; };
 		C212D8B0132A47CE00E2A078 /* OmniMobileAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C212D8A9132A47CE00E2A078 /* OmniMobileAppDelegate.m */; };
 		C212D8B1132A47CE00E2A078 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C212D8AB132A47CE00E2A078 /* RootViewController.m */; };
-		C212D8B2132A47CE00E2A078 /* UserView.m in Sources */ = {isa = PBXBuildFile; fileRef = C212D8AD132A47CE00E2A078 /* UserView.m */; };
+		C212D8B2132A47CE00E2A078 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C212D8AD132A47CE00E2A078 /* UserViewController.m */; };
 		C212D8BC132A47E700E2A078 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C212D8B4132A47E700E2A078 /* InfoPlist.strings */; };
 		C212D8C4132A482800E2A078 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C212D8C1132A482800E2A078 /* MainWindow.xib */; };
 		C212D8C5132A482800E2A078 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C212D8C2132A482800E2A078 /* RootViewController.xib */; };
@@ -41,8 +41,8 @@
 		C212D8A9132A47CE00E2A078 /* OmniMobileAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OmniMobileAppDelegate.m; path = classes/OmniMobileAppDelegate.m; sourceTree = "<group>"; };
 		C212D8AA132A47CE00E2A078 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = classes/RootViewController.h; sourceTree = "<group>"; };
 		C212D8AB132A47CE00E2A078 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = classes/RootViewController.m; sourceTree = "<group>"; };
-		C212D8AC132A47CE00E2A078 /* UserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserView.h; path = classes/UserView.h; sourceTree = "<group>"; };
-		C212D8AD132A47CE00E2A078 /* UserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserView.m; path = classes/UserView.m; sourceTree = "<group>"; };
+		C212D8AC132A47CE00E2A078 /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserViewController.h; path = classes/UserViewController.h; sourceTree = "<group>"; };
+		C212D8AD132A47CE00E2A078 /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserViewController.m; path = classes/UserViewController.m; sourceTree = "<group>"; };
 		C212D8B5132A47E700E2A078 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		C212D8BA132A47E700E2A078 /* omni_mobile-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "omni_mobile-Info.plist"; path = "support/omni_mobile-Info.plist"; sourceTree = "<group>"; };
 		C212D8BB132A47E700E2A078 /* omni_mobile-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "omni_mobile-Prefix.pch"; path = "support/omni_mobile-Prefix.pch"; sourceTree = "<group>"; };
@@ -93,8 +93,8 @@
 				C212D8A9132A47CE00E2A078 /* OmniMobileAppDelegate.m */,
 				C212D8AA132A47CE00E2A078 /* RootViewController.h */,
 				C212D8AB132A47CE00E2A078 /* RootViewController.m */,
-				C212D8AC132A47CE00E2A078 /* UserView.h */,
-				C212D8AD132A47CE00E2A078 /* UserView.m */,
+				C212D8AC132A47CE00E2A078 /* UserViewController.h */,
+				C212D8AD132A47CE00E2A078 /* UserViewController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -314,7 +314,7 @@
 				C212D8AE132A47CE00E2A078 /* main.m in Sources */,
 				C212D8B0132A47CE00E2A078 /* OmniMobileAppDelegate.m in Sources */,
 				C212D8B1132A47CE00E2A078 /* RootViewController.m in Sources */,
-				C212D8B2132A47CE00E2A078 /* UserView.m in Sources */,
+				C212D8B2132A47CE00E2A078 /* UserViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
