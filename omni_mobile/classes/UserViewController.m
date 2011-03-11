@@ -35,6 +35,11 @@
     // sets the view title
     self.title = @"Matias";
     
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"asdasdasd" style:UIBarButtonItemStylePlain target:self action:nil];
+    
+    self.navigationItem.rightBarButtonItem = item;
+    self.navigationController.navigationItem.rightBarButtonItem = item;
+
     // returns the instance
     return self;
 }

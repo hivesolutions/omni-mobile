@@ -32,9 +32,6 @@
 @synthesize navigationController = _navigationController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // sets the window root view controller as the navigation controller
-    self.window.rootViewController = self.navigationController;
-    
     // sets the window as the key one and visible
     [self.window makeKeyAndVisible];
     
