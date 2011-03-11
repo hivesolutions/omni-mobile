@@ -33,7 +33,7 @@
     }
     
     // sets the view title
-    self.title = @"Tobias";
+    self.title = @"Matias";
     
     // returns the instance
     return self;
