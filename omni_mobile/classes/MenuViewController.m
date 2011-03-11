@@ -121,8 +121,15 @@
         NSArray *firstSectionArray = [NSArray arrayWithObjects: usersItem, salesItem, highlightsItem, nil];
         NSArray *secondSectionArray = [NSArray arrayWithObjects: notificationsItem, nil];
         self.sectionsArray = [NSArray arrayWithObjects: firstSectionArray, secondSectionArray, nil];
-    } 
-    
+        
+        // releases the objects
+        [notificationsSwitch release];
+        [usersItem release];
+        [salesItem release];
+        [highlightsItem release];
+        [notificationsItem release];
+    }
+
     return self;
 }
 
