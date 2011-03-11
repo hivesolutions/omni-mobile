@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5DEAEC4132AA7D60071D848 /* disk_32x36.png in Resources */ = {isa = PBXBuildFile; fileRef = A5DEAEC3132AA7D60071D848 /* disk_32x36.png */; };
 		C212D8AE132A47CE00E2A078 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C212D8A5132A47CE00E2A078 /* main.m */; };
 		C212D8B0132A47CE00E2A078 /* OmniMobileAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C212D8A9132A47CE00E2A078 /* OmniMobileAppDelegate.m */; };
 		C212D8B1132A47CE00E2A078 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C212D8AB132A47CE00E2A078 /* RootViewController.m */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A5DEAEC3132AA7D60071D848 /* disk_32x36.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = disk_32x36.png; path = resources/images/disk_32x36.png; sourceTree = "<group>"; };
 		C212D8A5132A47CE00E2A078 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = classes/main.m; sourceTree = "<group>"; };
 		C212D8A8132A47CE00E2A078 /* OmniMobileAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OmniMobileAppDelegate.h; path = classes/OmniMobileAppDelegate.h; sourceTree = "<group>"; };
 		C212D8A9132A47CE00E2A078 /* OmniMobileAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OmniMobileAppDelegate.m; path = classes/OmniMobileAppDelegate.m; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 		C226C24F132A7D7100427656 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A5DEAEC3132AA7D60071D848 /* disk_32x36.png */,
 				C226C252132A7DE800427656 /* disk_48x48.png */,
 				C226C253132A7DE800427656 /* disk_64x64.png */,
 			);
@@ -310,6 +313,7 @@
 				C226C244132A782500427656 /* MenuViewController.xib in Resources */,
 				C226C254132A7DE800427656 /* disk_48x48.png in Resources */,
 				C226C255132A7DE800427656 /* disk_64x64.png in Resources */,
+				A5DEAEC4132AA7D60071D848 /* disk_32x36.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
