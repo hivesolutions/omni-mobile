@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A5DEAEC4132AA7D60071D848 /* disk_32x36.png in Resources */ = {isa = PBXBuildFile; fileRef = A5DEAEC3132AA7D60071D848 /* disk_32x36.png */; };
+		C20DE8FB132BC6FC0028EAD7 /* libjson_mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C20DE8FA132BC6FC0028EAD7 /* libjson_mobile.a */; };
 		C212D8AE132A47CE00E2A078 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C212D8A5132A47CE00E2A078 /* main.m */; };
 		C212D8B0132A47CE00E2A078 /* OmniMobileAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C212D8A9132A47CE00E2A078 /* OmniMobileAppDelegate.m */; };
 		C212D8B1132A47CE00E2A078 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C212D8AB132A47CE00E2A078 /* RootViewController.m */; };
@@ -31,6 +32,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C20DE8F5132BC6EE0028EAD7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C20DE8F1132BC6EE0028EAD7 /* json_mobile.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C2935B9B132AD9A600B39BE2;
+			remoteInfo = json_mobile;
+		};
+		C20DE8F8132BC6F80028EAD7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C20DE8F1132BC6EE0028EAD7 /* json_mobile.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C2935B9A132AD9A600B39BE2;
+			remoteInfo = json_mobile;
+		};
 		C2DBDC25132A42DB006C6E07 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C28EFF2D13295A31007CBA34 /* Project object */;
@@ -42,6 +57,8 @@
 
 /* Begin PBXFileReference section */
 		A5DEAEC3132AA7D60071D848 /* disk_32x36.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = disk_32x36.png; path = resources/images/disk_32x36.png; sourceTree = "<group>"; };
+		C20DE8F1132BC6EE0028EAD7 /* json_mobile.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = json_mobile.xcodeproj; path = ../json_mobile/json_mobile.xcodeproj; sourceTree = "<group>"; };
+		C20DE8FA132BC6FC0028EAD7 /* libjson_mobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libjson_mobile.a; sourceTree = SOURCE_ROOT; };
 		C212D8A5132A47CE00E2A078 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = classes/main.m; sourceTree = "<group>"; };
 		C212D8A8132A47CE00E2A078 /* OmniMobileAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OmniMobileAppDelegate.h; path = classes/OmniMobileAppDelegate.h; sourceTree = "<group>"; };
 		C212D8A9132A47CE00E2A078 /* OmniMobileAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OmniMobileAppDelegate.m; path = classes/OmniMobileAppDelegate.m; sourceTree = "<group>"; };
@@ -77,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C20DE8FB132BC6FC0028EAD7 /* libjson_mobile.a in Frameworks */,
 				C28EFF3B13295A31007CBA34 /* UIKit.framework in Frameworks */,
 				C28EFF3D13295A31007CBA34 /* Foundation.framework in Frameworks */,
 				C28EFF3F13295A31007CBA34 /* CoreGraphics.framework in Frameworks */,
@@ -96,6 +114,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C20DE8F2132BC6EE0028EAD7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C20DE8F6132BC6EE0028EAD7 /* libjson_mobile.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C212D89A132A469800E2A078 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +197,7 @@
 		C28EFF2B13295A31007CBA34 = {
 			isa = PBXGroup;
 			children = (
+				C20DE8F1132BC6EE0028EAD7 /* json_mobile.xcodeproj */,
 				C28EFF4013295A31007CBA34 /* Omni Mobile */,
 				C2DBDC17132A42D5006C6E07 /* Omni Mobile Test */,
 				C28EFF3913295A31007CBA34 /* Frameworks */,
@@ -193,6 +220,7 @@
 				C28EFF3A13295A31007CBA34 /* UIKit.framework */,
 				C28EFF3C13295A31007CBA34 /* Foundation.framework */,
 				C28EFF3E13295A31007CBA34 /* CoreGraphics.framework */,
+				C20DE8FA132BC6FC0028EAD7 /* libjson_mobile.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -253,6 +281,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C20DE8F9132BC6F80028EAD7 /* PBXTargetDependency */,
 			);
 			name = omni_mobile;
 			productName = omni_mobile;
@@ -293,6 +322,12 @@
 			mainGroup = C28EFF2B13295A31007CBA34;
 			productRefGroup = C28EFF3713295A31007CBA34 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C20DE8F2132BC6EE0028EAD7 /* Products */;
+					ProjectRef = C20DE8F1132BC6EE0028EAD7 /* json_mobile.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C28EFF3513295A31007CBA34 /* omni_mobile */,
@@ -300,6 +335,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C20DE8F6132BC6EE0028EAD7 /* libjson_mobile.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libjson_mobile.a;
+			remoteRef = C20DE8F5132BC6EE0028EAD7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C28EFF3413295A31007CBA34 /* Resources */ = {
@@ -367,6 +412,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C20DE8F9132BC6F80028EAD7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = json_mobile;
+			targetProxy = C20DE8F8132BC6F80028EAD7 /* PBXContainerItemProxy */;
+		};
 		C2DBDC26132A42DB006C6E07 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C28EFF3513295A31007CBA34 /* omni_mobile */;
@@ -436,6 +486,10 @@
 				GCC_PREFIX_HEADER = "omni_mobile/support/omni_mobile-Prefix.pch";
 				INFOPLIST_FILE = "omni_mobile/support/omni_mobile-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -451,6 +505,10 @@
 				GCC_PREFIX_HEADER = "omni_mobile/support/omni_mobile-Prefix.pch";
 				INFOPLIST_FILE = "omni_mobile/support/omni_mobile-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
