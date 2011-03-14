@@ -31,6 +31,8 @@
 		C23F3D5C132E3BA8003155EE /* omni@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C23F3D5B132E3BA8003155EE /* omni@2x.png */; };
 		C23F3D5E132E3BB7003155EE /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C23F3D5D132E3BB7003155EE /* Default.png */; };
 		C23F3D60132E3BBD003155EE /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C23F3D5F132E3BBD003155EE /* Default@2x.png */; };
+		C23F3D63132E4494003155EE /* omni_icon_sales.png in Resources */ = {isa = PBXBuildFile; fileRef = C23F3D61132E4493003155EE /* omni_icon_sales.png */; };
+		C23F3D64132E4494003155EE /* omni_icon_sales@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C23F3D62132E4493003155EE /* omni_icon_sales@2x.png */; };
 		C28EFF3B13295A31007CBA34 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3A13295A31007CBA34 /* UIKit.framework */; };
 		C28EFF3D13295A31007CBA34 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3C13295A31007CBA34 /* Foundation.framework */; };
 		C28EFF3F13295A31007CBA34 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3E13295A31007CBA34 /* CoreGraphics.framework */; };
@@ -105,6 +107,8 @@
 		C23F3D5B132E3BA8003155EE /* omni@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "omni@2x.png"; path = "../omni@2x.png"; sourceTree = "<group>"; };
 		C23F3D5D132E3BB7003155EE /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		C23F3D5F132E3BBD003155EE /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
+		C23F3D61132E4493003155EE /* omni_icon_sales.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = omni_icon_sales.png; path = resources/images/omni_icon_sales.png; sourceTree = "<group>"; };
+		C23F3D62132E4493003155EE /* omni_icon_sales@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "omni_icon_sales@2x.png"; path = "resources/images/omni_icon_sales@2x.png"; sourceTree = "<group>"; };
 		C24323F2132E2D2800BB72E0 /* commons_mobile.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = commons_mobile.xcodeproj; path = ../commons_mobile/commons_mobile.xcodeproj; sourceTree = "<group>"; };
 		C28EFF3613295A31007CBA34 /* omni_mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = omni_mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28EFF3A13295A31007CBA34 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -211,6 +215,8 @@
 		C226C24F132A7D7100427656 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C23F3D61132E4493003155EE /* omni_icon_sales.png */,
+				C23F3D62132E4493003155EE /* omni_icon_sales@2x.png */,
 				C23F3D59132E3B90003155EE /* omni.png */,
 				C23F3D55132E3B5B003155EE /* omni.png */,
 				C23F3D56132E3B5B003155EE /* omni@2x.png */,
@@ -419,6 +425,8 @@
 				C23F3D5C132E3BA8003155EE /* omni@2x.png in Resources */,
 				C23F3D5E132E3BB7003155EE /* Default.png in Resources */,
 				C23F3D60132E3BBD003155EE /* Default@2x.png in Resources */,
+				C23F3D63132E4494003155EE /* omni_icon_sales.png in Resources */,
+				C23F3D64132E4494003155EE /* omni_icon_sales@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
