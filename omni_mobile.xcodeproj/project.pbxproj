@@ -39,10 +39,10 @@
 		C23F3DA7132E737B003155EE /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23F3DA6132E737B003155EE /* MainWindow-iPad.xib */; };
 		C23F3DAF132E7480003155EE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A57BEA56132E72F0000478F7 /* QuartzCore.framework */; };
 		C23F3DB3132E756B003155EE /* omni-72.png in Resources */ = {isa = PBXBuildFile; fileRef = C23F3DB2132E756B003155EE /* omni-72.png */; };
-		C23F3DB9132E75D8003155EE /* omni_launch_ipad_landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = C23F3DB7132E75D8003155EE /* omni_launch_ipad_landscape.png */; };
-		C23F3DBA132E75D8003155EE /* omni_launch_ipad_portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = C23F3DB8132E75D8003155EE /* omni_launch_ipad_portrait.png */; };
-		C23F3DBC132E75E3003155EE /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C23F3DBB132E75E3003155EE /* Default-Portrait~ipad.png */; };
-		C23F3DBE132E75FC003155EE /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C23F3DBD132E75FC003155EE /* Default-Landscape~ipad.png */; };
+		C23F3DC0132E7768003155EE /* header_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C23F3DBF132E7768003155EE /* header_logo@2x.png */; };
+		C24ED0A8132E795A00E3DFF5 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C24ED0A7132E795A00E3DFF5 /* Default-Portrait~ipad.png */; };
+		C24ED0A9132E7B8400E3DFF5 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C24ED0A5132E793300E3DFF5 /* Default-Landscape~ipad.png */; };
+		C24ED0AB132E7C7F00E3DFF5 /* header_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C24ED0AA132E7C7F00E3DFF5 /* header_logo.png */; };
 		C28EFF3B13295A31007CBA34 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3A13295A31007CBA34 /* UIKit.framework */; };
 		C28EFF3D13295A31007CBA34 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3C13295A31007CBA34 /* Foundation.framework */; };
 		C28EFF3F13295A31007CBA34 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3E13295A31007CBA34 /* CoreGraphics.framework */; };
@@ -132,11 +132,11 @@
 		C23F3D89132E5965003155EE /* libcommons_mobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libcommons_mobile.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C23F3DA6132E737B003155EE /* MainWindow-iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "ipad/nibs/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		C23F3DB2132E756B003155EE /* omni-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "omni-72.png"; path = "ipad/resources/images/omni-72.png"; sourceTree = "<group>"; };
-		C23F3DB7132E75D8003155EE /* omni_launch_ipad_landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = omni_launch_ipad_landscape.png; path = ipad/resources/images/omni_launch_ipad_landscape.png; sourceTree = "<group>"; };
-		C23F3DB8132E75D8003155EE /* omni_launch_ipad_portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = omni_launch_ipad_portrait.png; path = ipad/resources/images/omni_launch_ipad_portrait.png; sourceTree = "<group>"; };
-		C23F3DBB132E75E3003155EE /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
-		C23F3DBD132E75FC003155EE /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		C23F3DBF132E7768003155EE /* header_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "header_logo@2x.png"; path = "resources/images/header_logo@2x.png"; sourceTree = "<group>"; };
 		C24323F2132E2D2800BB72E0 /* commons_mobile.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = commons_mobile.xcodeproj; path = ../commons_mobile/commons_mobile.xcodeproj; sourceTree = "<group>"; };
+		C24ED0A5132E793300E3DFF5 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		C24ED0A7132E795A00E3DFF5 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		C24ED0AA132E7C7F00E3DFF5 /* header_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = header_logo.png; path = resources/images/header_logo.png; sourceTree = "<group>"; };
 		C28EFF3613295A31007CBA34 /* omni_mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = omni_mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28EFF3A13295A31007CBA34 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C28EFF3C13295A31007CBA34 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -244,6 +244,8 @@
 		C226C24F132A7D7100427656 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C24ED0AA132E7C7F00E3DFF5 /* header_logo.png */,
+				C23F3DBF132E7768003155EE /* header_logo@2x.png */,
 				C23F3D7F132E57FF003155EE /* Default.png */,
 				C23F3D80132E5800003155EE /* Default@2x.png */,
 				C23F3D69132E4861003155EE /* omni_icon_highlights.png */,
@@ -291,8 +293,6 @@
 		C23F3DB5132E757E003155EE /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				C23F3DB7132E75D8003155EE /* omni_launch_ipad_landscape.png */,
-				C23F3DB8132E75D8003155EE /* omni_launch_ipad_portrait.png */,
 				C23F3DB2132E756B003155EE /* omni-72.png */,
 			);
 			name = Images;
@@ -309,8 +309,8 @@
 		C28EFF2B13295A31007CBA34 = {
 			isa = PBXGroup;
 			children = (
-				C23F3DBD132E75FC003155EE /* Default-Landscape~ipad.png */,
-				C23F3DBB132E75E3003155EE /* Default-Portrait~ipad.png */,
+				C24ED0A7132E795A00E3DFF5 /* Default-Portrait~ipad.png */,
+				C24ED0A5132E793300E3DFF5 /* Default-Landscape~ipad.png */,
 				C24323F2132E2D2800BB72E0 /* commons_mobile.xcodeproj */,
 				C20DE8F1132BC6EE0028EAD7 /* json_mobile.xcodeproj */,
 				C28EFF4013295A31007CBA34 /* Omni Mobile */,
@@ -503,10 +503,10 @@
 				C23F3D82132E5800003155EE /* Default@2x.png in Resources */,
 				C23F3DA7132E737B003155EE /* MainWindow-iPad.xib in Resources */,
 				C23F3DB3132E756B003155EE /* omni-72.png in Resources */,
-				C23F3DB9132E75D8003155EE /* omni_launch_ipad_landscape.png in Resources */,
-				C23F3DBA132E75D8003155EE /* omni_launch_ipad_portrait.png in Resources */,
-				C23F3DBC132E75E3003155EE /* Default-Portrait~ipad.png in Resources */,
-				C23F3DBE132E75FC003155EE /* Default-Landscape~ipad.png in Resources */,
+				C23F3DC0132E7768003155EE /* header_logo@2x.png in Resources */,
+				C24ED0A8132E795A00E3DFF5 /* Default-Portrait~ipad.png in Resources */,
+				C24ED0A9132E7B8400E3DFF5 /* Default-Landscape~ipad.png in Resources */,
+				C24ED0AB132E7C7F00E3DFF5 /* header_logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -638,7 +638,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "omni_mobile/support/omni_mobile-Prefix.pch";
 				INFOPLIST_FILE = "omni_mobile/support/omni_mobile-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -657,7 +657,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "omni_mobile/support/omni_mobile-Prefix.pch";
 				INFOPLIST_FILE = "omni_mobile/support/omni_mobile-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",

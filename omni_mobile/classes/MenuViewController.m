@@ -156,8 +156,8 @@
     
     if (self) {
         // changes the title's image view
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,32,32)];
-        UIImage *logoImage = [UIImage imageNamed:@"disk_32x36.png"];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 101, 30)];
+        UIImage *logoImage = [UIImage imageNamed:@"header_logo.png"];
         [imageView setImage:logoImage];
         self.navigationItem.titleView = imageView;
         
