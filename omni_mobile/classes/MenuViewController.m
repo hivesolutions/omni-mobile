@@ -132,11 +132,13 @@
     
     // retrieves the first user
     NSMutableDictionary *user = [jsonData objectAtIndex:1];
-
+    
     // retrieves the username for the first user
     NSMutableString *username = [user objectForKey:@"username"];
      
     printf("username: %s\n", [username cStringUsingEncoding:NSUTF8StringEncoding]);
+    
+    [jsonParser release];
     
     // release the connection, and the data object
     //[connection release];
