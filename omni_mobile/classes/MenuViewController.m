@@ -202,7 +202,7 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
 }
 
 - (void)didSelectUsersButton {
@@ -292,9 +292,13 @@
     //[selectedBackgroundView.layer insertSublayer:gradient atIndex:0];
     
     UIView *selectedBackgroundView = [[[UIView alloc] initWithFrame:cell.bounds] autorelease];
+    selectedBackgroundView.autoresizesSubviews = true;
+    selectedBackgroundView.contentMode = UIViewContentModeScaleToFill;
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = selectedBackgroundView.bounds;
+    [gradient setMasksToBounds:true];
     gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor blackColor] CGColor], (id)[[UIColor whiteColor] CGColor], nil];
+    [selectedBackgroundView.layer insertSublayer:gradient atIndex:0];
     cell.selectedBackgroundView = selectedBackgroundView;
 
     // returns the cell
