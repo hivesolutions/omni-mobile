@@ -16,6 +16,7 @@
 	<array>
 		<string>omni.png</string>
 		<string>omni@2x.png</string>
+		<string>omni-72.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
 	<string>pt.hive.${PRODUCT_NAME:rfc1034identifier}</string>
