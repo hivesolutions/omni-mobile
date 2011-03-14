@@ -34,4 +34,5 @@
     #import <Foundation/Foundation.h>
 
     #import "../../../commons_mobile/commons_mobile/headers/commons_mobile.h"
+    #import "../../../json_mobile/json_mobile/headers/json_mobile.h"
 #endif
