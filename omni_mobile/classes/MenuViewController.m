@@ -291,15 +291,10 @@
     //gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor greenColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
     //[selectedBackgroundView.layer insertSublayer:gradient atIndex:0];
     
-    UIView *selectedBackgroundView = [[[UIView alloc] initWithFrame:cell.bounds] autorelease];
-    selectedBackgroundView.autoresizesSubviews = true;
-    selectedBackgroundView.contentMode = UIViewContentModeScaleToFill;
-    CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame = selectedBackgroundView.bounds;
-    [gradient setMasksToBounds:true];
-    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor blackColor] CGColor], (id)[[UIColor whiteColor] CGColor], nil];
-    [selectedBackgroundView.layer insertSublayer:gradient atIndex:0];
-    cell.selectedBackgroundView = selectedBackgroundView;
+    UIImage *image = [UIImage imageNamed:@"gradient.png"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    imageView.contentMode = UIViewContentModeScaleToFill;
+    cell.selectedBackgroundView = imageView;
 
     // returns the cell
     return cell;
