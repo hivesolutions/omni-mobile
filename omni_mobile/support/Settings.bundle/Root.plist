@@ -6,9 +6,9 @@
 	<array>
 		<dict>
 			<key>Title</key>
-			<string>General</string>
+			<string>Group</string>
 			<key>Type</key>
-			<string>PSGroupSpecifier</string>
+			<string>General</string>
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
