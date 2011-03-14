@@ -35,8 +35,8 @@
  */
 int main(int argc, char *argv[]) {
     // keeps the classes available at runtime
-    [MBRemoteTableView _keepAtLinkTime];
-    [MBRemoteTableViewDataSource _keepAtLinkTime];
+    [HMRemoteTableView _keepAtLinkTime];
+    [HMRemoteTableViewDataSource _keepAtLinkTime];
     
     // creates a new auto release pool
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
