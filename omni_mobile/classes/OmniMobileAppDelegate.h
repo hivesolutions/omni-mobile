@@ -32,4 +32,7 @@
 
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 
+-(void)loadSettings;
+-(void)saveSettings:(NSString *)data;
+
 @end

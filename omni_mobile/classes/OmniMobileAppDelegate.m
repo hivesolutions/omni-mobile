@@ -35,6 +35,9 @@
     // sets the window as the key one and visible
     [self.window makeKeyAndVisible];
     
+    // loads the settgins
+    [self loadSettings];
+    
     // returns valid
     return YES;
 }
@@ -51,6 +54,7 @@
      Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
      If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
      */
+    [self saveSettings:@"tobias"];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -71,6 +75,7 @@
  * @param application The application to be terminated.
  */
 - (void)applicationWillTerminate:(UIApplication *)application {
+    [self saveSettings:@"tobias"];
 }
 
 /**
@@ -85,6 +90,22 @@
     
     // calls the super
     [super dealloc];
+}
+
+-(void)loadSettings {
+    // retrieves the preferences
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+    
+    // retrieves the notifications value
+    BOOL notifications = (BOOL) [preferences objectForKey:@"notifications"];
+}
+
+-(void)saveSettings:(NSString *)data {
+    // retrieves the preferences
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+
+    // syncs the preferences
+    [preferences synchronize];
 }
 
 @end
