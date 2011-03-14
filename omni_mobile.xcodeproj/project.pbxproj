@@ -46,6 +46,13 @@
 			remoteGlobalIDString = C2935B9A132AD9A600B39BE2;
 			remoteInfo = json_mobile;
 		};
+		C24323F6132E2D2800BB72E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C24323F2132E2D2800BB72E0 /* commons_mobile.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C295F924132E265A00BC1B93;
+			remoteInfo = commons_mobile;
+		};
 		C2DBDC25132A42DB006C6E07 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C28EFF2D13295A31007CBA34 /* Project object */;
@@ -82,6 +89,7 @@
 		C226C243132A782500427656 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuViewController.xib; path = nibs/MenuViewController.xib; sourceTree = "<group>"; };
 		C226C252132A7DE800427656 /* disk_48x48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = disk_48x48.png; path = resources/images/disk_48x48.png; sourceTree = "<group>"; };
 		C226C253132A7DE800427656 /* disk_64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = disk_64x64.png; path = resources/images/disk_64x64.png; sourceTree = "<group>"; };
+		C24323F2132E2D2800BB72E0 /* commons_mobile.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = commons_mobile.xcodeproj; path = ../commons_mobile/commons_mobile.xcodeproj; sourceTree = "<group>"; };
 		C28EFF3613295A31007CBA34 /* omni_mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = omni_mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28EFF3A13295A31007CBA34 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C28EFF3C13295A31007CBA34 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -194,9 +202,18 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		C24323F3132E2D2800BB72E0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C24323F7132E2D2800BB72E0 /* libcommons_mobile.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C28EFF2B13295A31007CBA34 = {
 			isa = PBXGroup;
 			children = (
+				C24323F2132E2D2800BB72E0 /* commons_mobile.xcodeproj */,
 				C20DE8F1132BC6EE0028EAD7 /* json_mobile.xcodeproj */,
 				C28EFF4013295A31007CBA34 /* Omni Mobile */,
 				C2DBDC17132A42D5006C6E07 /* Omni Mobile Test */,
@@ -324,6 +341,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = C24323F3132E2D2800BB72E0 /* Products */;
+					ProjectRef = C24323F2132E2D2800BB72E0 /* commons_mobile.xcodeproj */;
+				},
+				{
 					ProductGroup = C20DE8F2132BC6EE0028EAD7 /* Products */;
 					ProjectRef = C20DE8F1132BC6EE0028EAD7 /* json_mobile.xcodeproj */;
 				},
@@ -342,6 +363,13 @@
 			fileType = archive.ar;
 			path = libjson_mobile.a;
 			remoteRef = C20DE8F5132BC6EE0028EAD7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C24323F7132E2D2800BB72E0 /* libcommons_mobile.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libcommons_mobile.a;
+			remoteRef = C24323F6132E2D2800BB72E0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
