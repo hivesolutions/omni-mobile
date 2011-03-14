@@ -24,6 +24,7 @@
 // __license__   = GNU General Public License (GPL), Version 3
 
 #import "MenuViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface Item : NSObject {
     @private NSString *_name;
@@ -35,6 +36,7 @@
 
 @interface ButtonItem : Item {
     @private NSString *_icon;
+    @private NSString *_selectedIcon;
     @private int _accessoryType;
     @private UIView *_accessoryView;
     @private id _scope;
@@ -43,6 +45,7 @@
 }
 
 @property (retain) NSString *icon;
+@property (retain) NSString *selectedIcon;
 @property int accessoryType;
 @property (retain) UIView *accessoryView;
 @property (retain) id scope;
@@ -73,9 +76,10 @@
 
 @implementation ButtonItem
 
+@synthesize icon = _icon;
+@synthesize selectedIcon = _selectedIcon;
 @synthesize accessoryType = _accessoryType;
 @synthesize accessoryView = _accessoryView;
-@synthesize icon = _icon;
 @synthesize scope = _scope;
 @synthesize handler = _handler;
 @synthesize receivedData = _receivedData;
@@ -86,13 +90,14 @@
     return self;
 }
 
-- (id)initWithName:(NSString *)name icon:(NSString *)icon accessoryType:(int)accessoryType accessoryView:(UIView *)accessoryView scope:(id)scope handler:(SEL)handler {
+- (id)initWithName:(NSString *)name icon:(NSString *)icon selectedIcon:(NSString *)selectedIcon accessoryType:(int)accessoryType accessoryView:(UIView *)accessoryView scope:(id)scope handler:(SEL)handler {
     self = [super initWithName:name];
     
     // sets the attributes
+    self.icon = icon;
+    self.selectedIcon = selectedIcon;
     self.accessoryType = accessoryType;
     self.accessoryView = accessoryView;
-    self.icon = icon;
     self.scope = scope;
     self.handler = handler;
     
@@ -143,7 +148,6 @@
 
 @end
 
-
 @implementation MenuViewController
 
 @synthesize sectionsArray;
@@ -152,14 +156,20 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
     if (self) {
+        // changes the title's image view
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,32,32)];
+        UIImage *logoImage = [UIImage imageNamed:@"disk_32x36.png"];
+        [imageView setImage:logoImage];
+        self.navigationItem.titleView = imageView;
+        
         // creates a notifications switch
         UISwitch *notificationsSwitch = [[UISwitch alloc] init];
         
         // creates the cells
-        Item *usersItem = [[ButtonItem alloc] initWithName:@"users" icon:@"omni_icon_users.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectUsersButton)];
-        Item *salesItem = [[ButtonItem alloc] initWithName:@"sales" icon:@"omni_icon_sales.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectSalesButton)];
-        Item *highlightsItem = [[ButtonItem alloc] initWithName:@"highlights" icon:@"omni_icon_highlights.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectHighlightsButton)];
-        Item *notificationsItem = [[ButtonItem alloc] initWithName:@"notifications" icon:@"disk_32x36.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:notificationsSwitch scope:self handler:@selector(didSelectNotificationsButton)];
+        Item *usersItem = [[ButtonItem alloc] initWithName:@"users" icon:@"omni_icon_users.png" selectedIcon:@"omni_icon_users.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectUsersButton)];
+        Item *salesItem = [[ButtonItem alloc] initWithName:@"sales" icon:@"omni_icon_sales.png" selectedIcon:@"omni_icon_sales.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectSalesButton)];
+        Item *highlightsItem = [[ButtonItem alloc] initWithName:@"highlights" icon:@"omni_icon_highlights.png" selectedIcon:@"omni_icon_highlights.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectHighlightsButton)];
+        Item *notificationsItem = [[ButtonItem alloc] initWithName:@"notifications" icon:@"disk_32x36.png" selectedIcon:@"disk_32x36.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:notificationsSwitch scope:self handler:@selector(didSelectNotificationsButton)];
         
         // creates the table structure
         NSArray *firstSectionArray = [NSArray arrayWithObjects: usersItem, salesItem, highlightsItem, nil];
@@ -266,9 +276,34 @@
     cell.textLabel.text = buttonItem.name;
     cell.imageView.image = [UIImage imageNamed:buttonItem.icon];
     cell.accessoryView = buttonItem.accessoryView;
-
+    cell.backgroundColor = [UIColor colorWithRed:0.96 green:0.96 blue:0.96 alpha:1];
+    
+    // disables cell selection
+    //cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    // creates a bacground view and sets it in the cell
+    UIView *selectedBackgroundView = [[UIImageView alloc] init];
+    selectedBackgroundView.frame = cell.bounds;
+    [selectedBackgroundView.layer setCornerRadius:5.0f];
+    [selectedBackgroundView.layer setMasksToBounds:YES];
+    cell.selectedBackgroundView = selectedBackgroundView;
+    
+    // adds a gradient to the background view
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = selectedBackgroundView.bounds;
+    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor greenColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
+    [selectedBackgroundView.layer insertSublayer:gradient atIndex:0];
+    
     // returns the cell
     return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+    if(section == 1) {
+        return @"New data will be pushed to your phone from the server";
+    } else {
+        return @"";
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
