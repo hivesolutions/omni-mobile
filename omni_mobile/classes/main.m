@@ -34,6 +34,9 @@
  * @return The application return code.
  */
 int main(int argc, char *argv[]) {
+    // keeps the class available at runtime
+    [MBRemoteTableViewDataSource _keepAtLinkTime];
+    
     // creates a new auto release pool
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
