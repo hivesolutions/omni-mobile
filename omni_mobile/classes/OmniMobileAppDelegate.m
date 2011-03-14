@@ -84,10 +84,10 @@
 - (void)dealloc {
     // releases the window
     [_window release];
-    
+
     // releases the navigation controller
     [_navigationController release];
-    
+
     // calls the super
     [super dealloc];
 }
@@ -95,7 +95,7 @@
 -(void)loadSettings {
     // retrieves the preferences
     NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
-    
+
     // retrieves the notifications value
     BOOL notifications = (BOOL) [preferences objectForKey:@"notifications"];
 }
