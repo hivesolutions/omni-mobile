@@ -37,6 +37,7 @@
 		C23F3D82132E5800003155EE /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C23F3D80132E5800003155EE /* Default@2x.png */; };
 		C23F3D86132E5932003155EE /* libjson_mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C23F3D85132E5932003155EE /* libjson_mobile.a */; };
 		C23F3D8A132E5965003155EE /* libcommons_mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C23F3D89132E5965003155EE /* libcommons_mobile.a */; };
+		C23F3DA7132E737B003155EE /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23F3DA6132E737B003155EE /* MainWindow-iPad.xib */; };
 		C28EFF3B13295A31007CBA34 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3A13295A31007CBA34 /* UIKit.framework */; };
 		C28EFF3D13295A31007CBA34 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3C13295A31007CBA34 /* Foundation.framework */; };
 		C28EFF3F13295A31007CBA34 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3E13295A31007CBA34 /* CoreGraphics.framework */; };
@@ -125,6 +126,7 @@
 		C23F3D80132E5800003155EE /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "resources/images/Default@2x.png"; sourceTree = "<group>"; };
 		C23F3D85132E5932003155EE /* libjson_mobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libjson_mobile.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C23F3D89132E5965003155EE /* libcommons_mobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libcommons_mobile.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C23F3DA6132E737B003155EE /* MainWindow-iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "ipad/nibs/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		C24323F2132E2D2800BB72E0 /* commons_mobile.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = commons_mobile.xcodeproj; path = ../commons_mobile/commons_mobile.xcodeproj; sourceTree = "<group>"; };
 		C28EFF3613295A31007CBA34 /* omni_mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = omni_mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28EFF3A13295A31007CBA34 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -252,6 +254,22 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		C23F3DA4132E735C003155EE /* IPad */ = {
+			isa = PBXGroup;
+			children = (
+				C23F3DA5132E7372003155EE /* Nibs */,
+			);
+			name = IPad;
+			sourceTree = "<group>";
+		};
+		C23F3DA5132E7372003155EE /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				C23F3DA6132E737B003155EE /* MainWindow-iPad.xib */,
+			);
+			name = Nibs;
+			sourceTree = "<group>";
+		};
 		C24323F3132E2D2800BB72E0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +316,7 @@
 		C28EFF4013295A31007CBA34 /* Omni Mobile */ = {
 			isa = PBXGroup;
 			children = (
+				C23F3DA4132E735C003155EE /* IPad */,
 				C226C24D132A7D6800427656 /* Resources */,
 				C212D8C0132A481C00E2A078 /* Nibs */,
 				C212D89A132A469800E2A078 /* Classes */,
@@ -453,6 +472,7 @@
 				C23F3D6C132E4865003155EE /* omni_icon_highlights@2x.png in Resources */,
 				C23F3D81132E5800003155EE /* Default.png in Resources */,
 				C23F3D82132E5800003155EE /* Default@2x.png in Resources */,
+				C23F3DA7132E737B003155EE /* MainWindow-iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,13 +604,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "omni_mobile/support/omni_mobile-Prefix.pch";
 				INFOPLIST_FILE = "omni_mobile/support/omni_mobile-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -603,13 +623,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "omni_mobile/support/omni_mobile-Prefix.pch";
 				INFOPLIST_FILE = "omni_mobile/support/omni_mobile-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
