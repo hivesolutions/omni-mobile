@@ -32,4 +32,6 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+
+    #import "../../../commons_mobile/commons_mobile/headers/commons_mobile.h"
 #endif
