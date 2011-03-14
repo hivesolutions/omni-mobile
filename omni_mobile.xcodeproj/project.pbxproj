@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5156524132E8937000FAC25 /* gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = A5156522132E8936000FAC25 /* gradient.png */; };
+		A5156525132E8937000FAC25 /* gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5156523132E8936000FAC25 /* gradient@2x.png */; };
 		A5DEAEC4132AA7D60071D848 /* disk_32x36.png in Resources */ = {isa = PBXBuildFile; fileRef = A5DEAEC3132AA7D60071D848 /* disk_32x36.png */; };
 		C212D8AE132A47CE00E2A078 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C212D8A5132A47CE00E2A078 /* main.m */; };
 		C212D8B0132A47CE00E2A078 /* OmniMobileAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C212D8A9132A47CE00E2A078 /* OmniMobileAppDelegate.m */; };
@@ -93,6 +95,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A5156522132E8936000FAC25 /* gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gradient.png; path = resources/images/gradient.png; sourceTree = "<group>"; };
+		A5156523132E8936000FAC25 /* gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gradient@2x.png"; path = "resources/images/gradient@2x.png"; sourceTree = "<group>"; };
 		A57BEA56132E72F0000478F7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A5DEAEC3132AA7D60071D848 /* disk_32x36.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = disk_32x36.png; path = resources/images/disk_32x36.png; sourceTree = "<group>"; };
 		C20DE8F1132BC6EE0028EAD7 /* json_mobile.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = json_mobile.xcodeproj; path = ../json_mobile/json_mobile.xcodeproj; sourceTree = "<group>"; };
@@ -250,6 +254,8 @@
 		C226C24F132A7D7100427656 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A5156522132E8936000FAC25 /* gradient.png */,
+				A5156523132E8936000FAC25 /* gradient@2x.png */,
 				C24ED0AA132E7C7F00E3DFF5 /* header_logo.png */,
 				C23F3DBF132E7768003155EE /* header_logo@2x.png */,
 				C23F3D7F132E57FF003155EE /* Default.png */,
@@ -518,6 +524,8 @@
 				C24ED0B1132E7D6E00E3DFF5 /* Default-Portrait~ipad.png in Resources */,
 				C24ED0B2132E7D6E00E3DFF5 /* omni_launch_ipad_landscape.png in Resources */,
 				C24ED0B3132E7D6E00E3DFF5 /* omni_launch_ipad_portrait.png in Resources */,
+				A5156524132E8937000FAC25 /* gradient.png in Resources */,
+				A5156525132E8937000FAC25 /* gradient@2x.png in Resources */,
 				C2558421132E8CA8008B3F10 /* settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
