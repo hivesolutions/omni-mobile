@@ -144,7 +144,6 @@
     //[receivedData release];
 }
 
-
 @end
 
 @implementation MenuViewController
@@ -203,7 +202,7 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
 }
 
 - (void)didSelectUsersButton {
@@ -280,19 +279,28 @@
     // disables cell selection
     //cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    // creates a bacground view and sets it in the cell
-    UIView *selectedBackgroundView = [[UIImageView alloc] init];
-    selectedBackgroundView.frame = cell.bounds;
-    [selectedBackgroundView.layer setCornerRadius:5.0f];
-    [selectedBackgroundView.layer setMasksToBounds:YES];
-    cell.selectedBackgroundView = selectedBackgroundView;
+    // creates a background view and sets it in the cell
+    //UIView *selectedBackgroundView = [[UIView alloc] init];
+    //selectedBackgroundView.frame = cell.bounds;
+    //[selectedBackgroundView.layer setCornerRadius:5.0f];
+    //[selectedBackgroundView.layer setMasksToBounds:YES];
     
     // adds a gradient to the background view
+    //CAGradientLayer *gradient = [CAGradientLayer layer];
+    //gradient.frame = cell.bounds;
+    //gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor greenColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
+    //[selectedBackgroundView.layer insertSublayer:gradient atIndex:0];
+    
+    UIView *selectedBackgroundView = [[[UIView alloc] initWithFrame:cell.bounds] autorelease];
+    selectedBackgroundView.autoresizesSubviews = true;
+    selectedBackgroundView.contentMode = UIViewContentModeScaleToFill;
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = selectedBackgroundView.bounds;
-    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor greenColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
+    [gradient setMasksToBounds:true];
+    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor blackColor] CGColor], (id)[[UIColor whiteColor] CGColor], nil];
     [selectedBackgroundView.layer insertSublayer:gradient atIndex:0];
-    
+    cell.selectedBackgroundView = selectedBackgroundView;
+
     // returns the cell
     return cell;
 }
