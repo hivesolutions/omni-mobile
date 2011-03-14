@@ -24,10 +24,10 @@
 // __license__   = GNU General Public License (GPL), Version 3
 
 #import "MenuViewController.h"
-
+ 
 @interface Item : NSObject {
     @private NSString *_name;
-}
+} 
 
 @property (retain) NSString *name;
 
