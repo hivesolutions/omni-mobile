@@ -111,7 +111,6 @@
         self.receivedData = [[NSMutableData data] retain];
     } else {
     }
-    
 
     return self;
 }
