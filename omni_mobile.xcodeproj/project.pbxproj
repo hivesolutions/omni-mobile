@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A5B3412F132E4B92009021FE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B3412E132E4B92009021FE /* QuartzCore.framework */; };
+		A57BEA57132E72F0000478F7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A57BEA56132E72F0000478F7 /* QuartzCore.framework */; };
 		A5DEAEC4132AA7D60071D848 /* disk_32x36.png in Resources */ = {isa = PBXBuildFile; fileRef = A5DEAEC3132AA7D60071D848 /* disk_32x36.png */; };
 		C212D8AE132A47CE00E2A078 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C212D8A5132A47CE00E2A078 /* main.m */; };
 		C212D8B0132A47CE00E2A078 /* OmniMobileAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C212D8A9132A47CE00E2A078 /* OmniMobileAppDelegate.m */; };
@@ -84,6 +84,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A57BEA56132E72F0000478F7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A5B3412E132E4B92009021FE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A5DEAEC3132AA7D60071D848 /* disk_32x36.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = disk_32x36.png; path = resources/images/disk_32x36.png; sourceTree = "<group>"; };
 		C20DE8F1132BC6EE0028EAD7 /* json_mobile.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = json_mobile.xcodeproj; path = ../json_mobile/json_mobile.xcodeproj; sourceTree = "<group>"; };
@@ -137,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A57BEA57132E72F0000478F7 /* QuartzCore.framework in Frameworks */,
 				C23F3D8A132E5965003155EE /* libcommons_mobile.a in Frameworks */,
 				C23F3D86132E5932003155EE /* libjson_mobile.a in Frameworks */,
 				C28EFF3B13295A31007CBA34 /* UIKit.framework in Frameworks */,
@@ -261,7 +263,7 @@
 		C28EFF2B13295A31007CBA34 = {
 			isa = PBXGroup;
 			children = (
-				A5B3412E132E4B92009021FE /* QuartzCore.framework */,
+				A57BEA56132E72F0000478F7 /* QuartzCore.framework */,
 				C24323F2132E2D2800BB72E0 /* commons_mobile.xcodeproj */,
 				C20DE8F1132BC6EE0028EAD7 /* json_mobile.xcodeproj */,
 				C28EFF4013295A31007CBA34 /* Omni Mobile */,
@@ -283,6 +285,7 @@
 		C28EFF3913295A31007CBA34 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A5B3412E132E4B92009021FE /* QuartzCore.framework */,
 				C28EFF3A13295A31007CBA34 /* UIKit.framework */,
 				C28EFF3C13295A31007CBA34 /* Foundation.framework */,
 				C28EFF3E13295A31007CBA34 /* CoreGraphics.framework */,
