@@ -47,6 +47,7 @@
 		C24ED0B1132E7D6E00E3DFF5 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C24ED0AD132E7D6E00E3DFF5 /* Default-Portrait~ipad.png */; };
 		C24ED0B2132E7D6E00E3DFF5 /* omni_launch_ipad_landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = C24ED0AE132E7D6E00E3DFF5 /* omni_launch_ipad_landscape.png */; };
 		C24ED0B3132E7D6E00E3DFF5 /* omni_launch_ipad_portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = C24ED0AF132E7D6E00E3DFF5 /* omni_launch_ipad_portrait.png */; };
+		C2558421132E8CA8008B3F10 /* settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C2558420132E8CA8008B3F10 /* settings.bundle */; };
 		C28EFF3B13295A31007CBA34 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3A13295A31007CBA34 /* UIKit.framework */; };
 		C28EFF3D13295A31007CBA34 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3C13295A31007CBA34 /* Foundation.framework */; };
 		C28EFF3F13295A31007CBA34 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3E13295A31007CBA34 /* CoreGraphics.framework */; };
@@ -145,6 +146,7 @@
 		C24ED0AD132E7D6E00E3DFF5 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait~ipad.png"; path = "ipad/resources/images/Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		C24ED0AE132E7D6E00E3DFF5 /* omni_launch_ipad_landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = omni_launch_ipad_landscape.png; path = ipad/resources/images/omni_launch_ipad_landscape.png; sourceTree = "<group>"; };
 		C24ED0AF132E7D6E00E3DFF5 /* omni_launch_ipad_portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = omni_launch_ipad_portrait.png; path = ipad/resources/images/omni_launch_ipad_portrait.png; sourceTree = "<group>"; };
+		C2558420132E8CA8008B3F10 /* settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = settings.bundle; path = support/settings.bundle; sourceTree = "<group>"; };
 		C28EFF3613295A31007CBA34 /* omni_mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = omni_mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28EFF3A13295A31007CBA34 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C28EFF3C13295A31007CBA34 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -370,6 +372,7 @@
 		C28EFF4113295A31007CBA34 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				C2558420132E8CA8008B3F10 /* settings.bundle */,
 				C212D8B3132A47E700E2A078 /* en.lproj */,
 				C212D8BA132A47E700E2A078 /* omni_mobile-Info.plist */,
 				C212D8BB132A47E700E2A078 /* omni_mobile-Prefix.pch */,
@@ -523,6 +526,7 @@
 				C24ED0B3132E7D6E00E3DFF5 /* omni_launch_ipad_portrait.png in Resources */,
 				A5156524132E8937000FAC25 /* gradient.png in Resources */,
 				A5156525132E8937000FAC25 /* gradient@2x.png in Resources */,
+				C2558421132E8CA8008B3F10 /* settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
