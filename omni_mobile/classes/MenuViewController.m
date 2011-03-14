@@ -41,6 +41,7 @@
     @private UIView *_accessoryView;
     @private id _scope;
     @private SEL _handler;
+    @private NSMutableData *_receivedData;
 }
 
 @property (retain) NSString *icon;
@@ -49,6 +50,7 @@
 @property (retain) UIView *accessoryView;
 @property (retain) id scope;
 @property SEL handler;
+@property (retain) NSMutableData *receivedData;
 
 @end
 
@@ -80,6 +82,7 @@
 @synthesize accessoryView = _accessoryView;
 @synthesize scope = _scope;
 @synthesize handler = _handler;
+@synthesize receivedData = _receivedData;
 
 - (id)init {
     self = [super init];
@@ -98,8 +101,50 @@
     self.scope = scope;
     self.handler = handler;
     
+    // creates the request
+    NSURLRequest *theRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://tsilva.hive:8080/colony_mod_python/rest/mvc/omni/users/"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+
+    // create the connection with the request
+    // and start loading the data
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if (theConnection) {
+        self.receivedData = [[NSMutableData data] retain];
+    } else {
+    }
+    
+
     return self;
 }
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    [self.receivedData appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    // do something with the data
+    // receivedData is declared as a method instance elsewhere
+    NSLog(@"Succeeded! Received %d bytes of data", [self.receivedData length]);
+    
+    // creates a new json parser
+    SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
+
+    // parses the received data
+    NSMutableArray *jsonData = [jsonParser objectWithData:self.receivedData];
+    
+    // retrieves the first user
+    NSMutableDictionary *user = [jsonData objectAtIndex:1];
+
+    // retrieves the username for the first user
+    NSMutableString *username = [user objectForKey:@"username"];
+     
+    printf("username: %s\n", [username cStringUsingEncoding:NSUTF8StringEncoding]);
+    
+    // release the connection, and the data object
+    //[connection release];
+    //[receivedData release];
+}
+
 
 @end
 
@@ -121,10 +166,10 @@
         UISwitch *notificationsSwitch = [[UISwitch alloc] init];
         
         // creates the cells
-        Item *usersItem = [[ButtonItem alloc] initWithName:@"users" icon:@"disk_32x36.png" selectedIcon:@"disk_32x36.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectUsersButton)];
-        Item *salesItem = [[ButtonItem alloc] initWithName:@"sales" icon:@"disk_32x36.png" selectedIcon:@"disk_32x36.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectSalesButton)];
-        Item *highlightsItem = [[ButtonItem alloc] initWithName:@"highlights" icon:@"disk_32x36.png" selectedIcon:@"disk_32x36.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectHighlightsButton)];
-        Item *notificationsItem = [[ButtonItem alloc] initWithName:@"notifications" icon:@"disk_32x36.png" selectedIcon:@"disk_32x36.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:notificationsSwitch scope:self handler:@selector(didSelectNotificationsButton)];
+        Item *usersItem = [[ButtonItem alloc] initWithName:@"users" icon:@"omni_icon_users.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectUsersButton)];
+        Item *salesItem = [[ButtonItem alloc] initWithName:@"sales" icon:@"omni_icon_sales.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectSalesButton)];
+        Item *highlightsItem = [[ButtonItem alloc] initWithName:@"highlights" icon:@"omni_icon_highlights.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectHighlightsButton)];
+        Item *notificationsItem = [[ButtonItem alloc] initWithName:@"notifications" icon:@"disk_32x36.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:notificationsSwitch scope:self handler:@selector(didSelectNotificationsButton)];
         
         // creates the table structure
         NSArray *firstSectionArray = [NSArray arrayWithObjects: usersItem, salesItem, highlightsItem, nil];
