@@ -30,7 +30,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     // calls the super
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    
+
     // creates the edit ui bar button
     UIBarButtonItem *editUiBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:nil];
 
@@ -39,18 +39,17 @@
 
     // sets the selector for the editr ui bar button action
     editUiBarButton.action = @selector(buttonClickedWithSender:extra:);
-    
+
     UIView *headerView = [[[[[self view] subviews] objectAtIndex:0] subviews] objectAtIndex:0];
-    
+
+    // retrieves the header image
     UIImageView *headerImage = [[headerView subviews] objectAtIndex:0];
-    
+
+    // sets the header image rounded corners
     headerImage.layer.cornerRadius = 4.0;
     headerImage.layer.masksToBounds = YES;
     headerImage.layer.borderColor = [UIColor lightGrayColor].CGColor;
     headerImage.layer.borderWidth = 1.0;
-   
-    
-//    headerImage = [[UIImage alloc] initWithContentsOfFile:@"disk_48x48.png"];
 
     // returns the instance
     return self;
@@ -63,6 +62,15 @@
 - (void)changeUser:(NSString *)username {
     // sets the view title
     self.title = username;
+
+    // retrieves the header view
+    UIView *headerView = [[[[[self view] subviews] objectAtIndex:0] subviews] objectAtIndex:0];
+
+    // retrieves the header label
+    UILabel *headerLabel = [[headerView subviews] objectAtIndex:1];
+
+    // sets the username in the header label
+    headerLabel.text = username;
 }
 
 - (void)buttonClickedWithSender:(id)sender extra:(id)extra {
