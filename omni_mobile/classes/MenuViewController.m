@@ -82,9 +82,9 @@
     HMButtonItem *notificationsItem = [[HMButtonItem alloc] initWithName:@"notifications" icon:@"disk_32x36.png" selectedIcon:@"disk_32x36.png" handler:@selector(didSelectNotificationsButton) scope:self];
 
     // creates the item groups
-    HMItemGroup *menuItemGroup = [[HMItemGroup alloc] init];
-    HMItemGroup *firstSectionItemGroup = [[HMItemGroup alloc] init];
-    HMItemGroup *secondSectionItemGroup = [[HMItemGroup alloc] init];
+    HMItemGroup *menuItemGroup = [[HMItemGroup alloc] initWithName:@"menu" description:nil];
+    HMItemGroup *firstSectionItemGroup = [[HMItemGroup alloc] initWithName:@"first_section" description:nil];
+    HMItemGroup *secondSectionItemGroup = [[HMItemGroup alloc] initWithName:@"second_section" description:@"New data will be pushed to your phone from the server"];
 
     // populates the menu
     [menuItemGroup addItem:firstSectionItemGroup];
@@ -201,11 +201,14 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
-    if(section == 1) {
-        return @"New data will be pushed to your phone from the server";
-    } else {
-        return @"";
-    }
+    // creates an index path
+    NSIndexPath *indexPath = [[NSIndexPath alloc] initWithIndex:section];
+
+    // retrieves the section item group
+    HMItemGroup *sectionItemGroup = (HMItemGroup *) [self.menuItemGroup getItem:indexPath];
+
+    // returns the section's description
+    return sectionItemGroup.description;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
