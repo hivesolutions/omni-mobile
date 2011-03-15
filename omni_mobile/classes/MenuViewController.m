@@ -76,10 +76,10 @@
     self.navigationItem.titleView = imageView;
 
     // creates the button items
-    HMButtonItem *usersItem = [[HMButtonItem alloc] initWithName:@"users" icon:@"omni_icon_users.png" selectedIcon:@"omni_icon_users.png" handler:@selector(didSelectUsersButton) scope:self];
-    HMButtonItem *salesItem = [[HMButtonItem alloc] initWithName:@"sales" icon:@"omni_icon_sales.png" selectedIcon:@"omni_icon_sales.png" handler:@selector(didSelectSalesButton) scope:self];
-    HMButtonItem *highlightsItem = [[HMButtonItem alloc] initWithName:@"highlights" icon:@"omni_icon_highlights.png" selectedIcon:@"omni_icon_highlights.png" handler:@selector(didSelectHighlightsButton) scope:self];
-    HMButtonItem *notificationsItem = [[HMButtonItem alloc] initWithName:@"notifications" icon:@"disk_32x36.png" selectedIcon:@"disk_32x36.png" handler:@selector(didSelectNotificationsButton) scope:self];
+    HMButtonItem *usersItem = [[HMButtonItem alloc] initWithName:@"users" icon:@"omni_icon_users.png" selectedIcon:@"omni_icon_users_white.png" handler:@selector(didSelectUsersButton) scope:self];
+    HMButtonItem *salesItem = [[HMButtonItem alloc] initWithName:@"sales" icon:@"omni_icon_sales.png" selectedIcon:@"omni_icon_sales_white.png" handler:@selector(didSelectSalesButton) scope:self];
+    HMButtonItem *highlightsItem = [[HMButtonItem alloc] initWithName:@"highlights" icon:@"omni_icon_highlights.png" selectedIcon:@"omni_icon_highlights_white.png" handler:@selector(didSelectHighlightsButton) scope:self];
+    HMButtonItem *notificationsItem = [[HMButtonItem alloc] initWithName:@"notifications" icon:nil selectedIcon:nil handler:@selector(didSelectNotificationsButton) scope:self];
 
     // creates the item groups
     HMItemGroup *menuItemGroup = [[HMItemGroup alloc] initWithName:@"menu" description:nil];
@@ -185,8 +185,13 @@
     // sets the button item's attributes in the cell
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.text = buttonItem.name;
-    cell.imageView.image = [UIImage imageNamed:buttonItem.icon];
+
     cell.backgroundColor = [UIColor colorWithRed:0.96 green:0.96 blue:0.96 alpha:1];
+
+    // sets the icon in case it is defined
+    if(buttonItem.icon) {
+        cell.imageView.image = [UIImage imageNamed:buttonItem.icon];
+    }
 
     // sets the notifications switch
     if(indexPath.section == 1) {
@@ -215,8 +220,27 @@
     // retrieves the button item
     HMButtonItem *buttonItem = (HMButtonItem *) [self.menuItemGroup getItem:indexPath];
 
+    // retrieves the selected cell
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+
+    // changes the cell's icon
+    UIImage *iconImage = [UIImage imageNamed:buttonItem.selectedIcon];
+    cell.imageView.image = iconImage;
+
     // invokes the button's handler
     [buttonItem.scope performSelector:buttonItem.handler];
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // retrieves the button item
+    HMButtonItem *buttonItem = (HMButtonItem *) [self.menuItemGroup getItem:indexPath];
+
+    // retrieves the deselected cell
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+
+    // changes the cell's icon
+    UIImage *iconImage = [UIImage imageNamed:buttonItem.icon];
+    cell.imageView.image = iconImage;
 }
 
 @end
