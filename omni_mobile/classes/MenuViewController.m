@@ -27,83 +27,6 @@
 
 #import "MenuViewController.h"
 
-@interface Item : NSObject {
-    @private NSString *_name;
-}
-
-@property (retain) NSString *name;
-
-@end
-
-@interface ButtonItem : Item {
-    @private NSString *_icon;
-    @private NSString *_selectedIcon;
-    @private int _accessoryType;
-    @private UIView *_accessoryView;
-    @private id _scope;
-    @private SEL _handler;
-}
-
-@property (retain) NSString *icon;
-@property (retain) NSString *selectedIcon;
-@property int accessoryType;
-@property (retain) UIView *accessoryView;
-@property (retain) id scope;
-@property SEL handler;
-
-@end
-
-@implementation Item
-
-@synthesize name = _name;
-
-- (id)init {
-
-    return self;
-}
-
-- (id)initWithName:(NSString *)aName {
-    [self init];
-
-    // sets the attributes
-    self.name = aName;
-
-    return self;
-}
-
-@end
-
-@implementation ButtonItem
-
-@synthesize icon = _icon;
-@synthesize selectedIcon = _selectedIcon;
-@synthesize accessoryType = _accessoryType;
-@synthesize accessoryView = _accessoryView;
-@synthesize scope = _scope;
-@synthesize handler = _handler;
-
-- (id)init {
-    self = [super init];
-
-    return self;
-}
-
-- (id)initWithName:(NSString *)name icon:(NSString *)icon selectedIcon:(NSString *)selectedIcon accessoryType:(int)accessoryType accessoryView:(UIView *)accessoryView scope:(id)scope handler:(SEL)handler {
-    self = [super initWithName:name];
-
-    // sets the attributes
-    self.icon = icon;
-    self.selectedIcon = selectedIcon;
-    self.accessoryType = accessoryType;
-    self.accessoryView = accessoryView;
-    self.scope = scope;
-    self.handler = handler;
-
-    return self;
-}
-
-@end
-
 @implementation MenuViewController
 
 @synthesize sectionsArray;
@@ -156,10 +79,10 @@
     UISwitch *notificationsSwitch = [[UISwitch alloc] init];
 
     // creates the cells
-    Item *usersItem = [[ButtonItem alloc] initWithName:@"users" icon:@"omni_icon_users.png" selectedIcon:@"omni_icon_users.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectUsersButton)];
-    Item *salesItem = [[ButtonItem alloc] initWithName:@"sales" icon:@"omni_icon_sales.png" selectedIcon:@"omni_icon_sales.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectSalesButton)];
-    Item *highlightsItem = [[ButtonItem alloc] initWithName:@"highlights" icon:@"omni_icon_highlights.png" selectedIcon:@"omni_icon_highlights.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectHighlightsButton)];
-    Item *notificationsItem = [[ButtonItem alloc] initWithName:@"notifications" icon:@"disk_32x36.png" selectedIcon:@"disk_32x36.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:notificationsSwitch scope:self handler:@selector(didSelectNotificationsButton)];
+    HMButtonItem *usersItem = [[HMButtonItem alloc] initWithName:@"users" icon:@"omni_icon_users.png" selectedIcon:@"omni_icon_users.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectUsersButton)];
+    HMButtonItem *salesItem = [[HMButtonItem alloc] initWithName:@"sales" icon:@"omni_icon_sales.png" selectedIcon:@"omni_icon_sales.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectSalesButton)];
+    HMButtonItem *highlightsItem = [[HMButtonItem alloc] initWithName:@"highlights" icon:@"omni_icon_highlights.png" selectedIcon:@"omni_icon_highlights.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectHighlightsButton)];
+    HMButtonItem *notificationsItem = [[HMButtonItem alloc] initWithName:@"notifications" icon:@"disk_32x36.png" selectedIcon:@"disk_32x36.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:notificationsSwitch scope:self handler:@selector(didSelectNotificationsButton)];
 
     // creates the table structure
     NSArray *firstSectionArray = [NSArray arrayWithObjects: usersItem, salesItem, highlightsItem, nil];
@@ -213,12 +136,12 @@
     NSLog(@"NOTIFICATIONS!");
 }
 
-- (ButtonItem *)buttonItemAtSection:(NSUInteger)section atRow:(NSUInteger)row {
+- (HMButtonItem *)buttonItemAtSection:(NSUInteger)section atRow:(NSUInteger)row {
     // retrieves the specified section array
     NSArray *sectionArray = [self.sectionsArray objectAtIndex:section];
 
     // retrieves the button item at the specified row
-    ButtonItem *buttonItem = [sectionArray objectAtIndex:row];
+    HMButtonItem *buttonItem = [sectionArray objectAtIndex:row];
 
     // returns the specified button item
     return buttonItem;
@@ -249,7 +172,7 @@
     NSUInteger row = [indexPath row];
 
     // retrieves the button item
-    ButtonItem *buttonItem = [self buttonItemAtSection:section atRow:row];
+    HMButtonItem *buttonItem = [self buttonItemAtSection:section atRow:row];
 
     // tries to retrives the cell from cache (reusable)
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:buttonItem.name];
@@ -289,7 +212,7 @@
     NSUInteger row = [indexPath row];
 
     // retrieves the button item
-    ButtonItem *buttonItem = [self buttonItemAtSection:section atRow:row];
+    HMButtonItem *buttonItem = [self buttonItemAtSection:section atRow:row];
 
     // invokes the button's handler
     [buttonItem.scope performSelector:buttonItem.handler];
