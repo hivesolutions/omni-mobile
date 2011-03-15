@@ -28,6 +28,11 @@
 @interface MenuViewController : UITableViewController {
 }
 
-@property(nonatomic, retain) NSArray *sectionsArray;
+@property (nonatomic, retain) NSArray *sectionsArray;
+
+/**
+ * Starts the internal data structures.
+ */
+- (void)startStructures;
 
 @end

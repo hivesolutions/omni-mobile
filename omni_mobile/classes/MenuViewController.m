@@ -151,43 +151,70 @@
 
 @synthesize sectionsArray;
 
+- (id)init {
+    // calls the super
+    self = [super init];
+
+    // starts the structures
+    [self startStructures];
+    
+    // returns self
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    // calls the super
+    self = [super initWithCoder:aDecoder];
+    
+    // starts the structures
+    [self startStructures];
+    
+    // returns self
+    return self;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    // calls the super
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
-    if (self) {
-        // changes the title's image view
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 81, 24)];
-        UIImage *logoImage = [UIImage imageNamed:@"header_logo.png"];
-        [imageView setImage:logoImage];
-        self.navigationItem.titleView = imageView;
-        
-        // creates a notifications switch
-        UISwitch *notificationsSwitch = [[UISwitch alloc] init];
-        
-        // creates the cells
-        Item *usersItem = [[ButtonItem alloc] initWithName:@"users" icon:@"omni_icon_users.png" selectedIcon:@"omni_icon_users.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectUsersButton)];
-        Item *salesItem = [[ButtonItem alloc] initWithName:@"sales" icon:@"omni_icon_sales.png" selectedIcon:@"omni_icon_sales.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectSalesButton)];
-        Item *highlightsItem = [[ButtonItem alloc] initWithName:@"highlights" icon:@"omni_icon_highlights.png" selectedIcon:@"omni_icon_highlights.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectHighlightsButton)];
-        Item *notificationsItem = [[ButtonItem alloc] initWithName:@"notifications" icon:@"disk_32x36.png" selectedIcon:@"disk_32x36.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:notificationsSwitch scope:self handler:@selector(didSelectNotificationsButton)];
-        
-        // creates the table structure
-        NSArray *firstSectionArray = [NSArray arrayWithObjects: usersItem, salesItem, highlightsItem, nil];
-        NSArray *secondSectionArray = [NSArray arrayWithObjects: notificationsItem, nil];
-        self.sectionsArray = [NSArray arrayWithObjects: firstSectionArray, secondSectionArray, nil];
-        
-        // releases the objects
-        [notificationsSwitch release];
-        [usersItem release];
-        [salesItem release];
-        [highlightsItem release];
-        [notificationsItem release];
-    }
+    // starts the structures
+    [self startStructures];
 
+    // returns self
     return self;
 }
 
 - (void)dealloc {
     [super dealloc];
+}
+
+- (void)startStructures {
+    // changes the title's image view
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 81, 24)];
+    UIImage *logoImage = [UIImage imageNamed:@"header_logo.png"];
+    [imageView setImage:logoImage];
+    self.navigationItem.titleView = imageView;
+    
+    // creates a notifications switch
+    UISwitch *notificationsSwitch = [[UISwitch alloc] init];
+    
+    // creates the cells
+    Item *usersItem = [[ButtonItem alloc] initWithName:@"users" icon:@"omni_icon_users.png" selectedIcon:@"omni_icon_users.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectUsersButton)];
+    Item *salesItem = [[ButtonItem alloc] initWithName:@"sales" icon:@"omni_icon_sales.png" selectedIcon:@"omni_icon_sales.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectSalesButton)];
+    Item *highlightsItem = [[ButtonItem alloc] initWithName:@"highlights" icon:@"omni_icon_highlights.png" selectedIcon:@"omni_icon_highlights.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectHighlightsButton)];
+    Item *notificationsItem = [[ButtonItem alloc] initWithName:@"notifications" icon:@"disk_32x36.png" selectedIcon:@"disk_32x36.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:notificationsSwitch scope:self handler:@selector(didSelectNotificationsButton)];
+    
+    // creates the table structure
+    NSArray *firstSectionArray = [NSArray arrayWithObjects: usersItem, salesItem, highlightsItem, nil];
+    NSArray *secondSectionArray = [NSArray arrayWithObjects: notificationsItem, nil];
+    self.sectionsArray = [NSArray arrayWithObjects: firstSectionArray, secondSectionArray, nil];
+    
+    // releases the objects
+    [notificationsSwitch release];
+    [usersItem release];
+    [salesItem release];
+    [highlightsItem release];
+    [notificationsItem release];
 }
 
 - (void)didReceiveMemoryWarning {
