@@ -51,10 +51,10 @@
 - (void)newUser {
     // initializes the users view controller
     UserViewController *userViewController = [[UserViewController alloc] initWithNibName:@"UserViewController" bundle:[NSBundle mainBundle]];
-    
+
     // pushes the user view controller into the navigation controller
     [self.navigationController pushViewController:userViewController animated:YES];
-    
+
     // releases the user view controller reference
     [userViewController release];
 }
