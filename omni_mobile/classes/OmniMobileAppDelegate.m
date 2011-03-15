@@ -92,7 +92,7 @@
     [super dealloc];
 }
 
--(void)loadSettings {
+- (void)loadSettings {
     // retrieves the preferences
     NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
 
@@ -100,7 +100,7 @@
     BOOL notifications = (BOOL) [preferences objectForKey:@"notifications"];
 }
 
--(void)saveSettings:(NSString *)data {
+- (void)saveSettings:(NSString *)data {
     // retrieves the preferences
     NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
 

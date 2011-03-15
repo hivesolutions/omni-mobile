@@ -16,7 +16,7 @@
 		C212D8B2132A47CE00E2A078 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C212D8AD132A47CE00E2A078 /* UserViewController.m */; };
 		C212D8BC132A47E700E2A078 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C212D8B4132A47E700E2A078 /* InfoPlist.strings */; };
 		C212D8C4132A482800E2A078 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C212D8C1132A482800E2A078 /* MainWindow.xib */; };
-		C212D8C5132A482800E2A078 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C212D8C2132A482800E2A078 /* RootViewController.xib */; };
+		C212D8C5132A482800E2A078 /* UsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C212D8C2132A482800E2A078 /* UsersViewController.xib */; };
 		C212D8C6132A482800E2A078 /* UserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C212D8C3132A482800E2A078 /* UserView.xib */; };
 		C212D8D2132A487A00E2A078 /* OmniMobileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C212D8C9132A483D00E2A078 /* OmniMobileTest.m */; };
 		C212D8D3132A488200E2A078 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C212D8CC132A484700E2A078 /* InfoPlist.strings */; };
@@ -126,7 +126,7 @@
 		C212D8BA132A47E700E2A078 /* omni_mobile-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "omni_mobile-Info.plist"; path = "support/omni_mobile-Info.plist"; sourceTree = "<group>"; };
 		C212D8BB132A47E700E2A078 /* omni_mobile-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "omni_mobile-Prefix.pch"; path = "support/omni_mobile-Prefix.pch"; sourceTree = "<group>"; };
 		C212D8C1132A482800E2A078 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindow.xib; path = nibs/MainWindow.xib; sourceTree = "<group>"; };
-		C212D8C2132A482800E2A078 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RootViewController.xib; path = nibs/RootViewController.xib; sourceTree = "<group>"; };
+		C212D8C2132A482800E2A078 /* UsersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UsersViewController.xib; path = nibs/UsersViewController.xib; sourceTree = "<group>"; };
 		C212D8C3132A482800E2A078 /* UserView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserView.xib; path = nibs/UserView.xib; sourceTree = "<group>"; };
 		C212D8C8132A483D00E2A078 /* OmniMobileTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OmniMobileTest.h; path = classes/OmniMobileTest.h; sourceTree = "<group>"; };
 		C212D8C9132A483D00E2A078 /* OmniMobileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OmniMobileTest.m; path = classes/OmniMobileTest.m; sourceTree = "<group>"; };
@@ -237,7 +237,7 @@
 			children = (
 				C226C243132A782500427656 /* MenuViewController.xib */,
 				C212D8C1132A482800E2A078 /* MainWindow.xib */,
-				C212D8C2132A482800E2A078 /* RootViewController.xib */,
+				C212D8C2132A482800E2A078 /* UsersViewController.xib */,
 				C212D8C3132A482800E2A078 /* UserView.xib */,
 			);
 			name = Nibs;
@@ -538,7 +538,7 @@
 			files = (
 				C212D8BC132A47E700E2A078 /* InfoPlist.strings in Resources */,
 				C212D8C4132A482800E2A078 /* MainWindow.xib in Resources */,
-				C212D8C5132A482800E2A078 /* RootViewController.xib in Resources */,
+				C212D8C5132A482800E2A078 /* UsersViewController.xib in Resources */,
 				C212D8C6132A482800E2A078 /* UserView.xib in Resources */,
 				C226C244132A782500427656 /* MenuViewController.xib in Resources */,
 				C226C254132A7DE800427656 /* disk_48x48.png in Resources */,
