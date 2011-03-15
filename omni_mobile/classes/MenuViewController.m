@@ -147,7 +147,7 @@
 
 - (void)startStructures {
     // changes the title's image view
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 81, 24)];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 74, 22)];
     UIImage *logoImage = [UIImage imageNamed:@"header_logo.png"];
     [imageView setImage:logoImage];
     self.navigationItem.titleView = imageView;

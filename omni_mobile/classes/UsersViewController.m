@@ -35,6 +35,10 @@
     
     // sets the attributes
     self.title = @"Users";
+
+    // sets the new bar button in the navigation item
+    UIBarButtonItem *newBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newUser)];
+    self.navigationItem.rightBarButtonItem = newBarButton;
     
     // returns self
     return self;
@@ -42,6 +46,10 @@
 
 - (void)dealloc {
     [super dealloc];
+}
+
+- (void)newUser {
+    printf("New user");
 }
 
 - (void)viewDidLoad {

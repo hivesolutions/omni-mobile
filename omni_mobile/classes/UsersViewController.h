@@ -28,4 +28,9 @@
 @interface UsersViewController : UITableViewController<HMRemoteTableViewProvider> {
 }
 
+/**
+ * Shows the new user view.
+ */
+- (void)newUser;
+
 @end
