@@ -23,9 +23,9 @@
 // __copyright__ = Copyright (c) 2008 Hive Solutions Lda.
 // __license__   = GNU General Public License (GPL), Version 3
 
-#import "UsersViewController.h"
 #import "UserViewController.h"
-#import "MenuViewController.h"
+
+#import "UsersViewController.h"
 
 @implementation UsersViewController
 
@@ -49,7 +49,14 @@
 }
 
 - (void)newUser {
-    printf("New user");
+    // initializes the users view controller
+    UserViewController *userViewController = [[UserViewController alloc] initWithNibName:@"UserViewController" bundle:[NSBundle mainBundle]];
+    
+    // pushes the user view controller into the navigation controller
+    [self.navigationController pushViewController:userViewController animated:YES];
+    
+    // releases the user view controller reference
+    [userViewController release];
 }
 
 - (void)viewDidLoad {
@@ -77,14 +84,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // initializes the menu view controller
-    MenuViewController *menuViewController = [[MenuViewController alloc] initWithNibName:@"MenuViewController" bundle:[NSBundle mainBundle]];
-
-    // pushes the menu view controller into the navigation controller
-    [self.navigationController pushViewController:menuViewController animated:YES];
-
-    // releases the menu view controller reference
-    [menuViewController release];
 }
 
 - (void)didReceiveMemoryWarning {
