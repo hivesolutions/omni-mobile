@@ -26,9 +26,10 @@
 #import <UIKit/UIKit.h>
 
 @interface MenuViewController : UITableViewController {
+    @private HMItemGroup *_menuItemGroup;
 }
 
-@property (nonatomic, retain) NSArray *sectionsArray;
+@property (retain) HMItemGroup *menuItemGroup;
 
 /**
  * Starts the internal data structures.

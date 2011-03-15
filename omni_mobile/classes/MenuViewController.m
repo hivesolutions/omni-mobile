@@ -29,7 +29,7 @@
 
 @implementation MenuViewController
 
-@synthesize sectionsArray;
+@synthesize menuItemGroup = _menuItemGroup;
 
 - (id)init {
     // calls the super
@@ -75,22 +75,32 @@
     [imageView setImage:logoImage];
     self.navigationItem.titleView = imageView;
 
-    // creates a notifications switch
-    UISwitch *notificationsSwitch = [[UISwitch alloc] init];
+    // creates the button items
+    HMButtonItem *usersItem = [[HMButtonItem alloc] initWithName:@"users" icon:@"omni_icon_users.png" selectedIcon:@"omni_icon_users.png" handler:@selector(didSelectUsersButton) scope:self];
+    HMButtonItem *salesItem = [[HMButtonItem alloc] initWithName:@"sales" icon:@"omni_icon_sales.png" selectedIcon:@"omni_icon_sales.png" handler:@selector(didSelectSalesButton) scope:self];
+    HMButtonItem *highlightsItem = [[HMButtonItem alloc] initWithName:@"highlights" icon:@"omni_icon_highlights.png" selectedIcon:@"omni_icon_highlights.png" handler:@selector(didSelectHighlightsButton) scope:self];
+    HMButtonItem *notificationsItem = [[HMButtonItem alloc] initWithName:@"notifications" icon:@"disk_32x36.png" selectedIcon:@"disk_32x36.png" handler:@selector(didSelectNotificationsButton) scope:self];
 
-    // creates the cells
-    HMButtonItem *usersItem = [[HMButtonItem alloc] initWithName:@"users" icon:@"omni_icon_users.png" selectedIcon:@"omni_icon_users.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectUsersButton)];
-    HMButtonItem *salesItem = [[HMButtonItem alloc] initWithName:@"sales" icon:@"omni_icon_sales.png" selectedIcon:@"omni_icon_sales.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectSalesButton)];
-    HMButtonItem *highlightsItem = [[HMButtonItem alloc] initWithName:@"highlights" icon:@"omni_icon_highlights.png" selectedIcon:@"omni_icon_highlights.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:nil scope:self handler:@selector(didSelectHighlightsButton)];
-    HMButtonItem *notificationsItem = [[HMButtonItem alloc] initWithName:@"notifications" icon:@"disk_32x36.png" selectedIcon:@"disk_32x36.png" accessoryType:UITableViewCellAccessoryDisclosureIndicator accessoryView:notificationsSwitch scope:self handler:@selector(didSelectNotificationsButton)];
+    // creates the item groups
+    HMItemGroup *menuItemGroup = [[HMItemGroup alloc] init];
+    HMItemGroup *firstSectionItemGroup = [[HMItemGroup alloc] init];
+    HMItemGroup *secondSectionItemGroup = [[HMItemGroup alloc] init];
 
-    // creates the table structure
-    NSArray *firstSectionArray = [NSArray arrayWithObjects: usersItem, salesItem, highlightsItem, nil];
-    NSArray *secondSectionArray = [NSArray arrayWithObjects: notificationsItem, nil];
-    self.sectionsArray = [NSArray arrayWithObjects: firstSectionArray, secondSectionArray, nil];
+    // populates the menu
+    [menuItemGroup addItem:firstSectionItemGroup];
+    [menuItemGroup addItem:secondSectionItemGroup];
+    [firstSectionItemGroup addItem:usersItem];
+    [firstSectionItemGroup addItem:salesItem];
+    [firstSectionItemGroup addItem:highlightsItem];
+    [secondSectionItemGroup addItem:notificationsItem];
+
+    // stores the menu item group
+    self.menuItemGroup = menuItemGroup;
 
     // releases the objects
-    [notificationsSwitch release];
+    [menuItemGroup release];
+    [firstSectionItemGroup release];
+    [secondSectionItemGroup release];
     [usersItem release];
     [salesItem release];
     [highlightsItem release];
@@ -136,43 +146,31 @@
     NSLog(@"NOTIFICATIONS!");
 }
 
-- (HMButtonItem *)buttonItemAtSection:(NSUInteger)section atRow:(NSUInteger)row {
-    // retrieves the specified section array
-    NSArray *sectionArray = [self.sectionsArray objectAtIndex:section];
-
-    // retrieves the button item at the specified row
-    HMButtonItem *buttonItem = [sectionArray objectAtIndex:row];
-
-    // returns the specified button item
-    return buttonItem;
-}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // retrieves the sections array size
-    NSInteger sectionsArraySize = [self.sectionsArray count];
+    // retrieves the menu item group items size
+    NSInteger menuItemGroupItemsSize = [self.menuItemGroup.items count];
 
-    // returns the sections array size
-    return sectionsArraySize;
+    // returns the menu item group items size
+    return menuItemGroupItemsSize;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // retrieves the section array
-    NSArray *sectionArray = [self.sectionsArray objectAtIndex:section];
+    // creates an index path
+    NSIndexPath *indexPath = [[NSIndexPath alloc] initWithIndex:section];
 
-    // retrieves the sections array size
-    NSInteger sectionArraySize = [sectionArray count];
+    // retrieves the section item group
+    HMItemGroup *sectionItemGroup = (HMItemGroup *) [self.menuItemGroup getItem:indexPath];
 
-    // returns the section array size
-    return sectionArraySize;
+    // retrieves the section item group items count
+    NSInteger sectionItemGroupItemsCount = [sectionItemGroup.items count];
+
+    // returns the section item group items count
+    return sectionItemGroupItemsCount;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // retrieves the section and row
-    NSUInteger section = [indexPath section];
-    NSUInteger row = [indexPath row];
-
     // retrieves the button item
-    HMButtonItem *buttonItem = [self buttonItemAtSection:section atRow:row];
+    HMButtonItem *buttonItem = (HMButtonItem *) [self.menuItemGroup getItem:indexPath];
 
     // tries to retrives the cell from cache (reusable)
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:buttonItem.name];
@@ -185,14 +183,18 @@
     }
 
     // sets the button item's attributes in the cell
-    cell.accessoryType = buttonItem.accessoryType;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.text = buttonItem.name;
     cell.imageView.image = [UIImage imageNamed:buttonItem.icon];
-    cell.accessoryView = buttonItem.accessoryView;
     cell.backgroundColor = [UIColor colorWithRed:0.96 green:0.96 blue:0.96 alpha:1];
 
-    // disables cell selection
-    //cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    // sets the notifications switch
+    if(indexPath.section == 1) {
+        UISwitch *notificationsSwitch = [[UISwitch alloc] init];
+        cell.accessoryView = notificationsSwitch;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [notificationsSwitch release];
+    }
 
     // returns the cell
     return cell;
@@ -207,12 +209,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // retrieves the section and row
-    NSUInteger section = [indexPath section];
-    NSUInteger row = [indexPath row];
-
     // retrieves the button item
-    HMButtonItem *buttonItem = [self buttonItemAtSection:section atRow:row];
+    HMButtonItem *buttonItem = (HMButtonItem *) [self.menuItemGroup getItem:indexPath];
 
     // invokes the button's handler
     [buttonItem.scope performSelector:buttonItem.handler];
