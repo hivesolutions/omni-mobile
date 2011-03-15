@@ -30,6 +30,7 @@
 @implementation MenuViewController
 
 @synthesize menuItemGroup = _menuItemGroup;
+@synthesize lastSelectedIndexPath = _lastSelectedIndexPath;
 
 - (id)init {
     // calls the super
@@ -111,12 +112,14 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
+- (void)viewWillAppear:(BOOL)animated {
+    // invokes the parent function
+    [super viewWillAppear:animated];
+    
+    // deselects the last selected cell
+    if(self.lastSelectedIndexPath) {
+        [self tableView:self.tableView didDeselectRowAtIndexPath:self.lastSelectedIndexPath];
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -164,6 +167,9 @@
     // retrieves the section item group items count
     NSInteger sectionItemGroupItemsCount = [sectionItemGroup.items count];
 
+    // releases the index path
+    [indexPath release];
+    
     // returns the section item group items count
     return sectionItemGroupItemsCount;
 }
@@ -211,12 +217,18 @@
 
     // retrieves the section item group
     HMItemGroup *sectionItemGroup = (HMItemGroup *) [self.menuItemGroup getItem:indexPath];
-
+    
+    // releases the index path
+    [indexPath release];
+    
     // returns the section's description
     return sectionItemGroup.description;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // stores this as the last selected index path
+    self.lastSelectedIndexPath = indexPath;
+    
     // retrieves the button item
     HMButtonItem *buttonItem = (HMButtonItem *) [self.menuItemGroup getItem:indexPath];
 
@@ -232,6 +244,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // clears the last selected index path
+    self.lastSelectedIndexPath = nil;
+    
     // retrieves the button item
     HMButtonItem *buttonItem = (HMButtonItem *) [self.menuItemGroup getItem:indexPath];
 
