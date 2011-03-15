@@ -29,6 +29,17 @@
 
 @implementation UsersViewController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    // calls the super
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+    // sets the attributes
+    self.title = @"Users";
+    
+    // returns self
+    return self;
+}
+
 - (void)dealloc {
     [super dealloc];
 }

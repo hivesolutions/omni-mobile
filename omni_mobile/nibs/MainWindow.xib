@@ -204,7 +204,7 @@
 							<reference ref="394667715"/>
 						</object>
 						<reference key="parent" ref="701001926"/>
-						<string key="objectName">Root View Controller</string>
+						<string key="objectName">Menu View Controller</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">14</int>
@@ -213,7 +213,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 						</object>
 						<reference key="parent" ref="619226028"/>
-						<string key="objectName">Navigation Item - Users</string>
+						<string key="objectName">Navigation Item - Menu</string>
 					</object>
 				</object>
 			</object>

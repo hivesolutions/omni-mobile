@@ -48,35 +48,28 @@
     return self;
 }
 
-- (void)buttonClickedWithSender:(id)sender extra:(id)extra {
-    printf("carregou %d\r", (int) sender);
-}
-
 - (void)dealloc {
     [super dealloc];
 }
 
+- (void)buttonClickedWithSender:(id)sender extra:(id)extra {
+    printf("carregou %d\r", (int) sender);
+}
+
 - (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // returns yes for autorotation
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
 }
 
 @end

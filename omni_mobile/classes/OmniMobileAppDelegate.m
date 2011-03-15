@@ -31,6 +31,17 @@
 
 @synthesize navigationController = _navigationController;
 
+- (void)dealloc {
+    // releases the window
+    [_window release];
+    
+    // releases the navigation controller
+    [_navigationController release];
+    
+    // calls the super
+    [super dealloc];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // sets the window as the key one and visible
     [self.window makeKeyAndVisible];
@@ -55,27 +66,8 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 }
 
-/**
- * Called upon application termination.
- *
- * @param application The application to be terminated.
- */
 - (void)applicationWillTerminate:(UIApplication *)application {
     [self saveSettings:@"tobias"];
-}
-
-/**
- * Destructor of the class.
- */
-- (void)dealloc {
-    // releases the window
-    [_window release];
-
-    // releases the navigation controller
-    [_navigationController release];
-
-    // calls the super
-    [super dealloc];
 }
 
 - (void)loadSettings {

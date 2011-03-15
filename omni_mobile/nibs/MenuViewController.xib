@@ -39,9 +39,10 @@
 			<object class="IBUITableView" id="269900635">
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
-				<string key="NSFrameSize">{320, 247}</string>
+				<string key="NSFrameSize">{247, 320}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
+				<reference key="NSNextKeyView"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
 					<bytes key="NSRGB">MC45MTI5NzU0MTc0IDAuOTIzNDY5Mzg3OCAwLjkyMzQ2OTM4NzgAA</bytes>
@@ -54,8 +55,8 @@
 				<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
 				<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
 				<float key="IBUIRowHeight">44</float>
-				<float key="IBUISectionHeaderHeight">10</float>
-				<float key="IBUISectionFooterHeight">10</float>
+				<float key="IBUISectionHeaderHeight">22</float>
+				<float key="IBUISectionFooterHeight">22</float>
 			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -110,6 +111,7 @@
 						<int key="objectID">6</int>
 						<reference key="object" ref="269900635"/>
 						<reference key="parent" ref="0"/>
+						<string key="objectName">Menu View</string>
 					</object>
 				</object>
 			</object>
