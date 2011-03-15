@@ -271,21 +271,6 @@
     // disables cell selection
     //cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
-    if(section == 0) {
-        if(row == 0) {
-            [cell setCellPosition:HMTableCellBackgroundViewPositionGroupedTop];
-        }
-        else if(row == 1) {
-            [cell setCellPosition:HMTableCellBackgroundViewPositionGroupedMiddle];
-        }
-        else {
-            [cell setCellPosition:HMTableCellBackgroundViewPositionGroupedBottom];
-        }
-    }
-    else {
-        [cell setCellPosition:HMTableCellBackgroundViewPositionGroupedSingle];
-    }
-
     // returns the cell
     return cell;
 }
