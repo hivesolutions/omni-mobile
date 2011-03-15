@@ -30,9 +30,10 @@
 
 /**
  * Changes the user in the user view.
+ * The argument is a map with all the user attributes.
  *
- * @param username The username to change to.
+ * @param user The user to change to.
  */
-- (void)changeUser:(NSString *)username;
+- (void)changeUser:(NSDictionary *)user;
 
 @end

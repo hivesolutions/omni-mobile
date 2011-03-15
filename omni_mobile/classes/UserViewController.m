@@ -59,7 +59,14 @@
     [super dealloc];
 }
 
-- (void)changeUser:(NSString *)username {
+- (void)changeUser:(NSDictionary *)user {
+    // retrieves the user attributes
+    NSString *username = [user objectForKey:@"username"];
+    NSDictionary *person = [user objectForKey:@"person"];
+
+    // retrieves the person attributes
+    NSString *personName = [person objectForKey:@"name"];
+
     // sets the view title
     self.title = username;
 
