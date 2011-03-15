@@ -260,7 +260,7 @@
         // creates the new cell with the given reuse identifier
         cell = [[[HMTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:buttonItem.name] autorelease];
     }
-     
+
     // sets the button item's attributes in the cell
     cell.accessoryType = buttonItem.accessoryType;
     cell.textLabel.text = buttonItem.name;
