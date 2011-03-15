@@ -28,4 +28,11 @@
 @interface UserViewController : UIViewController {
 }
 
+/**
+ * Changes the user in the user view.
+ *
+ * @param username The username to change to.
+ */
+- (void)changeUser:(NSString *)username;
+
 @end

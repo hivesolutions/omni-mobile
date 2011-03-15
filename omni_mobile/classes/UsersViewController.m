@@ -54,7 +54,7 @@
 
     // pushes the user view controller into the navigation controller
     [self.navigationController pushViewController:userViewController animated:YES];
-
+    
     // releases the user view controller reference
     [userViewController release];
 }
@@ -84,6 +84,17 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // initializes the users view controller
+    UserViewController *userViewController = [[UserViewController alloc] initWithNibName:@"UserViewController" bundle:[NSBundle mainBundle]];
+    
+    // changes the user in the user view
+    [userViewController changeUser:@"Tobias"];
+    
+    // pushes the user view controller into the navigation controller
+    [self.navigationController pushViewController:userViewController animated:YES];
+    
+    // releases the user view controller reference
+    [userViewController release];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,7 +106,7 @@
 }
 
 - (NSString *)getRemoteUrl {
-    return @"http://tsilva.hive:8080/colony_mod_python/rest/mvc/omni/users/";
+    return @"http://172.16.0.24:8080/colony_mod_python/rest/mvc/omni/users/";
 }
 
 - (HMRemoteTableViewSerialized)getRemoteType {

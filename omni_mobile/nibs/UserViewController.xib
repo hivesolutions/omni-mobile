@@ -49,26 +49,30 @@
 						<int key="NSvFlags">274</int>
 						<object class="NSMutableArray" key="NSSubviews">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBUIView" id="122343527">
+							<object class="IBUIView" id="156824066">
 								<reference key="NSNextResponder" ref="984932880"/>
 								<int key="NSvFlags">292</int>
 								<object class="NSMutableArray" key="NSSubviews">
 									<bool key="EncodedWithXMLCoder">YES</bool>
-									<object class="IBUIImageView" id="194012156">
-										<reference key="NSNextResponder" ref="122343527"/>
+									<object class="IBUIImageView" id="22444474">
+										<reference key="NSNextResponder" ref="156824066"/>
 										<int key="NSvFlags">274</int>
-										<string key="NSFrame">{{20, 7}, {64, 64}}</string>
-										<reference key="NSSuperview" ref="122343527"/>
+										<string key="NSFrame">{{20, 15}, {64, 64}}</string>
+										<reference key="NSSuperview" ref="156824066"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="379291453"/>
+										<reference key="NSNextKeyView" ref="966168335"/>
 										<bool key="IBUIUserInteractionEnabled">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+										<object class="NSCustomResource" key="IBUIImage">
+											<string key="NSClassName">NSImage</string>
+											<string key="NSResourceName">user.png</string>
+										</object>
 									</object>
-									<object class="IBUILabel" id="379291453">
-										<reference key="NSNextResponder" ref="122343527"/>
+									<object class="IBUILabel" id="966168335">
+										<reference key="NSNextResponder" ref="156824066"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{92, 28}, {77, 21}}</string>
-										<reference key="NSSuperview" ref="122343527"/>
+										<string key="NSFrame">{{103, 34}, {197, 25}}</string>
+										<reference key="NSSuperview" ref="156824066"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView"/>
 										<bool key="IBUIOpaque">NO</bool>
@@ -79,7 +83,7 @@
 										<string key="IBUIText">Accenture</string>
 										<object class="NSFont" key="IBUIFont">
 											<string key="NSName">Helvetica-Bold</string>
-											<double key="NSSize">17</double>
+											<double key="NSSize">19</double>
 											<int key="NSfFlags">16</int>
 										</object>
 										<object class="NSColor" key="IBUITextColor">
@@ -93,13 +97,14 @@
 										</object>
 										<string key="IBUIShadowOffset">{0, 1}</string>
 										<int key="IBUIBaselineAdjustment">1</int>
+										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 										<float key="IBUIMinimumFontSize">10</float>
 									</object>
 								</object>
-								<string key="NSFrameSize">{320, 78}</string>
+								<string key="NSFrameSize">{320, 94}</string>
 								<reference key="NSSuperview" ref="984932880"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="194012156"/>
+								<reference key="NSNextKeyView" ref="22444474"/>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MSAwAA</bytes>
@@ -113,7 +118,7 @@
 						<string key="NSFrameSize">{320, 436}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="122343527"/>
+						<reference key="NSNextKeyView" ref="156824066"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">10</int>
 							<object class="NSImage" key="NSImage">
@@ -156,7 +161,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 						<float key="IBUIRowHeight">44</float>
 						<float key="IBUISectionHeaderHeight">10</float>
 						<float key="IBUISectionFooterHeight">10</float>
-						<reference key="IBUITableHeaderView" ref="122343527"/>
+						<reference key="IBUITableHeaderView" ref="156824066"/>
 					</object>
 				</object>
 				<string key="NSFrameSize">{320, 436}</string>
@@ -213,30 +218,30 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 						<reference key="object" ref="984932880"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="122343527"/>
+							<reference ref="156824066"/>
 						</object>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">71</int>
-						<reference key="object" ref="122343527"/>
+						<reference key="object" ref="156824066"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="194012156"/>
-							<reference ref="379291453"/>
+							<reference ref="22444474"/>
+							<reference ref="966168335"/>
 						</object>
 						<reference key="parent" ref="984932880"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">72</int>
-						<reference key="object" ref="194012156"/>
-						<reference key="parent" ref="122343527"/>
+						<reference key="object" ref="22444474"/>
+						<reference key="parent" ref="156824066"/>
 						<string key="objectName">Image</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">73</int>
-						<reference key="object" ref="379291453"/>
-						<reference key="parent" ref="122343527"/>
+						<reference key="object" ref="966168335"/>
+						<reference key="parent" ref="156824066"/>
 						<string key="objectName">Name</string>
 					</object>
 				</object>
@@ -301,6 +306,10 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
+		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="NS.key.0">user.png</string>
+			<string key="NS.object.0">{64, 64}</string>
+		</object>
 		<string key="IBCocoaTouchPluginVersion">300</string>
 	</data>
 </archive>

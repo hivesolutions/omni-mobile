@@ -55,6 +55,8 @@
 		C2DBDC14132A42D5006C6E07 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3A13295A31007CBA34 /* UIKit.framework */; };
 		C2DBDC15132A42D5006C6E07 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3C13295A31007CBA34 /* Foundation.framework */; };
 		C2DBDC16132A42D5006C6E07 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3E13295A31007CBA34 /* CoreGraphics.framework */; };
+		C2F5F9CD132FCA4800089E4D /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = C2F5F9CB132FCA4800089E4D /* user.png */; };
+		C2F5F9CE132FCA4800089E4D /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2F5F9CC132FCA4800089E4D /* user@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +171,8 @@
 		C2C2F9FB132E94800038B41E /* commons_ui_mobile.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = commons_ui_mobile.xcodeproj; path = ../commons_ui_mobile/commons_ui_mobile.xcodeproj; sourceTree = "<group>"; };
 		C2C2FA0E132E979A0038B41E /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = support/Settings.bundle; sourceTree = "<group>"; };
 		C2DBDC13132A42D5006C6E07 /* omni_mobile_test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = omni_mobile_test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2F5F9CB132FCA4800089E4D /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = user.png; path = resources/images/user.png; sourceTree = "<group>"; };
+		C2F5F9CC132FCA4800089E4D /* user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user@2x.png"; path = "resources/images/user@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +276,8 @@
 		C226C24F132A7D7100427656 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C2F5F9CB132FCA4800089E4D /* user.png */,
+				C2F5F9CC132FCA4800089E4D /* user@2x.png */,
 				A5156522132E8936000FAC25 /* gradient.png */,
 				A5156523132E8936000FAC25 /* gradient@2x.png */,
 				C24ED0AA132E7C7F00E3DFF5 /* header_logo.png */,
@@ -567,6 +573,8 @@
 				A5156524132E8937000FAC25 /* gradient.png in Resources */,
 				A5156525132E8937000FAC25 /* gradient@2x.png in Resources */,
 				C2C2FA0F132E979B0038B41E /* Settings.bundle in Resources */,
+				C2F5F9CD132FCA4800089E4D /* user.png in Resources */,
+				C2F5F9CE132FCA4800089E4D /* user@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

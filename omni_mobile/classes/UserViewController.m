@@ -28,13 +28,9 @@
 @implementation UserViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    // calls the super
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-    }
-
-    // sets the view title
-    self.title = @"Matias";
-
+    
     // creates the edit ui bar button
     UIBarButtonItem *editUiBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:nil];
 
@@ -43,6 +39,18 @@
 
     // sets the selector for the editr ui bar button action
     editUiBarButton.action = @selector(buttonClickedWithSender:extra:);
+    
+    UIView *headerView = [[[[[self view] subviews] objectAtIndex:0] subviews] objectAtIndex:0];
+    
+    UIImageView *headerImage = [[headerView subviews] objectAtIndex:0];
+    
+    headerImage.layer.cornerRadius = 4.0;
+    headerImage.layer.masksToBounds = YES;
+    headerImage.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    headerImage.layer.borderWidth = 1.0;
+   
+    
+//    headerImage = [[UIImage alloc] initWithContentsOfFile:@"disk_48x48.png"];
 
     // returns the instance
     return self;
@@ -50,6 +58,11 @@
 
 - (void)dealloc {
     [super dealloc];
+}
+
+- (void)changeUser:(NSString *)username {
+    // sets the view title
+    self.title = username;
 }
 
 - (void)buttonClickedWithSender:(id)sender extra:(id)extra {
