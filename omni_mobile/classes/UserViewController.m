@@ -31,16 +31,16 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
     }
-    
+
     // sets the view title
     self.title = @"Matias";
-    
+
     // creates the edit ui bar button
     UIBarButtonItem *editUiBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:nil];
-    
+
     // sets the edit ui bar button
     self.navigationItem.rightBarButtonItem = editUiBarButton;
-    
+
     // sets the selector for the editr ui bar button action
     editUiBarButton.action = @selector(buttonClickedWithSender:extra:);
 

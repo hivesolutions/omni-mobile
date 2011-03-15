@@ -32,14 +32,14 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     // calls the super
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    
+
     // sets the attributes
     self.title = @"Users";
 
     // sets the new bar button in the navigation item
     UIBarButtonItem *newBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newUser)];
     self.navigationItem.rightBarButtonItem = newBarButton;
-    
+
     // returns self
     return self;
 }
@@ -65,24 +65,24 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-	[super viewWillDisappear:animated];
+    [super viewWillDisappear:animated];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-	[super viewDidDisappear:animated];
+    [super viewDidDisappear:animated];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	return YES;
+    return YES;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // initializes the menu view controller
     MenuViewController *menuViewController = [[MenuViewController alloc] initWithNibName:@"MenuViewController" bundle:[NSBundle mainBundle]];
-    
+
     // pushes the menu view controller into the navigation controller
     [self.navigationController pushViewController:menuViewController animated:YES];
-    
+
     // releases the menu view controller reference
     [menuViewController release];
 }

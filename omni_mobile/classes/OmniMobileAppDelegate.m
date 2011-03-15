@@ -34,10 +34,10 @@
 - (void)dealloc {
     // releases the window
     [_window release];
-    
+
     // releases the navigation controller
     [_navigationController release];
-    
+
     // calls the super
     [super dealloc];
 }
@@ -45,10 +45,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // sets the window as the key one and visible
     [self.window makeKeyAndVisible];
-    
+
     // loads the settgins
     [self loadSettings];
-    
+
     // returns valid
     return YES;
 }

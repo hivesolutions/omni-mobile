@@ -25,7 +25,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UserViewController : UIViewController {    
+@interface UserViewController : UIViewController {
 }
 
 @end

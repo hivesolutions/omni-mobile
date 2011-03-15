@@ -37,16 +37,16 @@ int main(int argc, char *argv[]) {
     // keeps the classes available at runtime
     [HMRemoteTableView _keepAtLinkTime];
     [HMRemoteTableViewDataSource _keepAtLinkTime];
-    
+
     // creates a new auto release pool
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    
+
     // runs the ui application main and retrieves the return value
     int returnValue = UIApplicationMain(argc, argv, nil, nil);
-    
+
     // releases the (auto release) pool
     [pool release];
-    
+
     // returns the return value
     return returnValue;
 }
