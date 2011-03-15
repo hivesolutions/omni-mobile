@@ -252,7 +252,7 @@
     ButtonItem *buttonItem = [self buttonItemAtSection:section atRow:row];
     
     // tries to retrives the cell from cache (reusable)
-    HMTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:buttonItem.name];
+    HMTableViewCell *cell = (HMTableViewCell *) [tableView dequeueReusableCellWithIdentifier:buttonItem.name];
     
     // in case the cell is not defined in the cuurrent cache
     // need to create a new cell
