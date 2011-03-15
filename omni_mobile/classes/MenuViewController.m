@@ -108,18 +108,12 @@
     [notificationsItem release];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+- (HMItemGroup *)getItemSpecification {
+    return self.menuItemGroup;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    // invokes the parent function
-    [super viewWillAppear:animated];
-
-    // deselects the last selected cell
-    if(self.lastSelectedIndexPath) {
-        [self tableView:self.tableView didDeselectRowAtIndexPath:self.lastSelectedIndexPath];
-    }
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -137,125 +131,13 @@
     [usersViewController release];
 }
 
-- (void)didSelectSalesButton {
-    NSLog(@"SALES!");
-}
-
-- (void)didSelectHighlightsButton {
-    NSLog(@"HIGHLIGHTS!");
-}
-
-- (void)didSelectNotificationsButton {
-    NSLog(@"NOTIFICATIONS!");
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // retrieves the menu item group items size
-    NSInteger menuItemGroupItemsSize = [self.menuItemGroup.items count];
-
-    // returns the menu item group items size
-    return menuItemGroupItemsSize;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // creates an index path
-    NSIndexPath *indexPath = [[NSIndexPath alloc] initWithIndex:section];
-
-    // retrieves the section item group
-    HMItemGroup *sectionItemGroup = (HMItemGroup *) [self.menuItemGroup getItem:indexPath];
-
-    // retrieves the section item group items count
-    NSInteger sectionItemGroupItemsCount = [sectionItemGroup.items count];
-
-    // releases the index path
-    [indexPath release];
-
-    // returns the section item group items count
-    return sectionItemGroupItemsCount;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // retrieves the button item
-    HMButtonItem *buttonItem = (HMButtonItem *) [self.menuItemGroup getItem:indexPath];
-
-    // tries to retrives the cell from cache (reusable)
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:buttonItem.name];
-
-    // in case the cell is not defined in the cuurrent cache
-    // need to create a new cell
-    if (cell == nil) {
-        // creates the new cell with the given reuse identifier
-        cell = [[[HMTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:buttonItem.name] autorelease];
+- (void)didSelectItemRowWidthItem:(HMItem *)item {
+    if(item.name == @"users") {
+        [self didSelectUsersButton];
     }
-
-    // sets the button item's attributes in the cell
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.textLabel.text = buttonItem.name;
-
-    cell.backgroundColor = [UIColor colorWithRed:0.96 green:0.96 blue:0.96 alpha:1];
-
-    // sets the icon in case it is defined
-    if(buttonItem.icon) {
-        cell.imageView.image = [UIImage imageNamed:buttonItem.icon];
-    }
-
-    // sets the notifications switch
-    if(indexPath.section == 1) {
-        UISwitch *notificationsSwitch = [[UISwitch alloc] init];
-        cell.accessoryView = notificationsSwitch;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        [notificationsSwitch release];
-    }
-
-    // returns the cell
-    return cell;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
-    // creates an index path
-    NSIndexPath *indexPath = [[NSIndexPath alloc] initWithIndex:section];
-
-    // retrieves the section item group
-    HMItemGroup *sectionItemGroup = (HMItemGroup *) [self.menuItemGroup getItem:indexPath];
-
-    // releases the index path
-    [indexPath release];
-
-    // returns the section's description
-    return sectionItemGroup.description;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // stores this as the last selected index path
-    self.lastSelectedIndexPath = indexPath;
-
-    // retrieves the button item
-    HMButtonItem *buttonItem = (HMButtonItem *) [self.menuItemGroup getItem:indexPath];
-
-    // retrieves the selected cell
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-
-    // changes the cell's icon
-    UIImage *iconImage = [UIImage imageNamed:buttonItem.selectedIcon];
-    cell.imageView.image = iconImage;
-
-    // invokes the button's handler
-    [buttonItem.scope performSelector:buttonItem.handler];
-}
-
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // clears the last selected index path
-    self.lastSelectedIndexPath = nil;
-
-    // retrieves the button item
-    HMButtonItem *buttonItem = (HMButtonItem *) [self.menuItemGroup getItem:indexPath];
-
-    // retrieves the deselected cell
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-
-    // changes the cell's icon
-    UIImage *iconImage = [UIImage imageNamed:buttonItem.icon];
-    cell.imageView.image = iconImage;
+- (void)didDeselectItemRowWidthItem:(HMItem *)item {
 }
 
 @end

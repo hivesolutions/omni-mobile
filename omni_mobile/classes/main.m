@@ -35,6 +35,8 @@
  */
 int main(int argc, char *argv[]) {
     // keeps the classes available at runtime
+    [HMItemTableView _keepAtLinkTime];
+    [HMItemTableViewDataSource _keepAtLinkTime];
     [HMRemoteTableView _keepAtLinkTime];
     [HMRemoteTableViewDataSource _keepAtLinkTime];
 

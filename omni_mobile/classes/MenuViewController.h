@@ -25,7 +25,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MenuViewController : UITableViewController {
+@interface MenuViewController : UITableViewController<HMItemTableViewProvider, HMItemTableViewDelegate> {
     @private HMItemGroup *_menuItemGroup;
     @private NSIndexPath *_lastSelectedIndexPath;
 }
