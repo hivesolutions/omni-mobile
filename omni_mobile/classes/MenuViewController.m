@@ -26,7 +26,7 @@
 #import "UsersViewController.h"
 
 #import "MenuViewController.h"
- 
+
 @interface Item : NSObject {
     @private NSString *_name;
 } 
@@ -252,15 +252,15 @@
     ButtonItem *buttonItem = [self buttonItemAtSection:section atRow:row];
     
     // tries to retrives the cell from cache (reusable)
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:buttonItem.name];
+    HMTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:buttonItem.name];
     
     // in case the cell is not defined in the cuurrent cache
     // need to create a new cell
     if (cell == nil) {
         // creates the new cell with the given reuse identifier
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:buttonItem.name] autorelease];
+        cell = [[[HMTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:buttonItem.name] autorelease];
     }
-    
+     
     // sets the button item's attributes in the cell
     cell.accessoryType = buttonItem.accessoryType;
     cell.textLabel.text = buttonItem.name;
@@ -271,23 +271,21 @@
     // disables cell selection
     //cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    // creates a background view and sets it in the cell
-    //UIView *selectedBackgroundView = [[UIView alloc] init];
-    //selectedBackgroundView.frame = cell.bounds;
-    //[selectedBackgroundView.layer setCornerRadius:5.0f];
-    //[selectedBackgroundView.layer setMasksToBounds:YES];
+    if(section == 0) {
+        if(row == 0) {
+            [cell setCellPosition:HMTableCellBackgroundViewPositionGroupedTop];
+        }
+        else if(row == 1) {
+            [cell setCellPosition:HMTableCellBackgroundViewPositionGroupedMiddle];
+        }
+        else {
+            [cell setCellPosition:HMTableCellBackgroundViewPositionGroupedBottom];
+        }
+    }
+    else {
+        [cell setCellPosition:HMTableCellBackgroundViewPositionGroupedSingle];
+    }
     
-    // adds a gradient to the background view
-    //CAGradientLayer *gradient = [CAGradientLayer layer];
-    //gradient.frame = cell.bounds;
-    //gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor greenColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
-    //[selectedBackgroundView.layer insertSublayer:gradient atIndex:0];
-    
-    UIImage *image = [UIImage imageNamed:@"gradient.png"];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    imageView.contentMode = UIViewContentModeScaleToFill;
-    cell.selectedBackgroundView = imageView;
-
     // returns the cell
     return cell;
 }
