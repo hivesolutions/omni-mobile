@@ -29,10 +29,18 @@
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 
+/**
+ * Loads the current user settings.
+ */
 -(void)loadSettings;
+
+/**
+ * Saves the current user settings.
+ *
+ * @param data The data to be used in the saving.
+ */
 -(void)saveSettings:(NSString *)data;
 
 @end

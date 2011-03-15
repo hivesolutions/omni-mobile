@@ -25,7 +25,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RootViewController : UITableViewController {
+@interface UsersViewController : UITableViewController<HMRemoteTableViewProvider> {
 }
 
 @end
