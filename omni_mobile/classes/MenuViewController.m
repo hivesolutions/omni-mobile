@@ -111,10 +111,10 @@
 - (void)didSelectUsersButton {
     // initializes the users view controller
     UsersViewController *usersViewController = [[UsersViewController alloc] initWithNibName:@"UsersViewController" bundle:[NSBundle mainBundle]];
-    
+
     // pushes the users view controller into the navigation controller
     [self.navigationController pushViewController:usersViewController animated:YES];
-    
+
     // releases the users view controller reference
     [usersViewController release];
 }
