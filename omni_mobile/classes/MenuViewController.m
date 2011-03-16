@@ -85,7 +85,7 @@
     // creates the item groups
     HMItemGroup *menuItemGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu" name:nil description:nil];
     HMItemGroup *firstSectionItemGroup = [[HMItemGroup alloc] initWithIdentifier:@"first_section" name:nil description:nil];
-    HMItemGroup *secondSectionItemGroup = [[HMItemGroup alloc] initWithIdentifier:@"second_section" name:nil description:@"New data will be pushed to your phone from the server"];
+    HMItemGroup *secondSectionItemGroup = [[HMItemGroup alloc] initWithIdentifier:@"second_section" name:nil description:NSLocalizedString(@"Sentence000001", @"Sentence000001")];
 
     // populates the menu
     [menuItemGroup addItem:firstSectionItemGroup];

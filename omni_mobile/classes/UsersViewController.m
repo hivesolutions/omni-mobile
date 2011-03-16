@@ -34,7 +34,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 
     // sets the attributes
-    self.title = @"Users";
+    self.title = NSLocalizedString(@"Users", @"Users");
 
     // sets the new bar button in the navigation item
     UIBarButtonItem *newBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newUser)];
