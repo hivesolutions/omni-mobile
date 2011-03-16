@@ -58,12 +58,13 @@
 		C28EFF3F13295A31007CBA34 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3E13295A31007CBA34 /* CoreGraphics.framework */; };
 		C29A2E34132E9DE8005EAB37 /* libcommons_ui_mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C29A2E33132E9DE8005EAB37 /* libcommons_ui_mobile.a */; };
 		C2C2FA0F132E979B0038B41E /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C2C2FA0E132E979A0038B41E /* Settings.bundle */; };
+		C2D176051330464D00095322 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2D176071330464D00095322 /* Localizable.strings */; };
+		C2D1760B133046D000095322 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2D1760D133046D000095322 /* InfoPlist.strings */; };
 		C2DBDC14132A42D5006C6E07 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3A13295A31007CBA34 /* UIKit.framework */; };
 		C2DBDC15132A42D5006C6E07 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3C13295A31007CBA34 /* Foundation.framework */; };
 		C2DBDC16132A42D5006C6E07 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3E13295A31007CBA34 /* CoreGraphics.framework */; };
 		C2F5F9CD132FCA4800089E4D /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = C2F5F9CB132FCA4800089E4D /* user.png */; };
 		C2F5F9CE132FCA4800089E4D /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2F5F9CC132FCA4800089E4D /* user@2x.png */; };
-		C2F5FA7513303D80001A5EB3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2F5FA7713303D80001A5EB3 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,7 +138,6 @@
 		C212D8AB132A47CE00E2A078 /* UsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UsersViewController.m; path = classes/UsersViewController.m; sourceTree = "<group>"; };
 		C212D8AC132A47CE00E2A078 /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserViewController.h; path = classes/UserViewController.h; sourceTree = "<group>"; };
 		C212D8AD132A47CE00E2A078 /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserViewController.m; path = classes/UserViewController.m; sourceTree = "<group>"; };
-		C212D8B5132A47E700E2A078 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		C212D8BA132A47E700E2A078 /* omni_mobile-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "omni_mobile-Info.plist"; path = "support/omni_mobile-Info.plist"; sourceTree = "<group>"; };
 		C212D8BB132A47E700E2A078 /* omni_mobile-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "omni_mobile-Prefix.pch"; path = "support/omni_mobile-Prefix.pch"; sourceTree = "<group>"; };
 		C212D8C1132A482800E2A078 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindow.xib; path = nibs/MainWindow.xib; sourceTree = "<group>"; };
@@ -183,11 +183,13 @@
 		C29A2E33132E9DE8005EAB37 /* libcommons_ui_mobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libcommons_ui_mobile.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2C2F9FB132E94800038B41E /* commons_ui_mobile.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = commons_ui_mobile.xcodeproj; path = ../commons_ui_mobile/commons_ui_mobile.xcodeproj; sourceTree = "<group>"; };
 		C2C2FA0E132E979A0038B41E /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = support/Settings.bundle; sourceTree = "<group>"; };
+		C2D176061330464D00095322 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C2D176081330465200095322 /* pt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C2D1760C133046D000095322 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C2D1760E133046DB00095322 /* pt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = pt; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C2DBDC13132A42D5006C6E07 /* omni_mobile_test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = omni_mobile_test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F5F9CB132FCA4800089E4D /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = user.png; path = resources/images/user.png; sourceTree = "<group>"; };
 		C2F5F9CC132FCA4800089E4D /* user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user@2x.png"; path = "resources/images/user@2x.png"; sourceTree = "<group>"; };
-		C2F5FA7613303D80001A5EB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C2F5FA7813303D89001A5EB3 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,15 +242,6 @@
 				C212D8AD132A47CE00E2A078 /* UserViewController.m */,
 			);
 			name = Classes;
-			sourceTree = "<group>";
-		};
-		C212D8B3132A47E700E2A078 /* en.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				C212D8B4132A47E700E2A078 /* InfoPlist.strings */,
-			);
-			name = en.lproj;
-			path = support/en.lproj;
 			sourceTree = "<group>";
 		};
 		C212D8C0132A481C00E2A078 /* Nibs */ = {
@@ -419,11 +412,11 @@
 		C28EFF4113295A31007CBA34 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				C2D1760D133046D000095322 /* InfoPlist.strings */,
+				C2D176071330464D00095322 /* Localizable.strings */,
 				C2C2FA0E132E979A0038B41E /* Settings.bundle */,
-				C212D8B3132A47E700E2A078 /* en.lproj */,
 				C212D8BA132A47E700E2A078 /* omni_mobile-Info.plist */,
 				C212D8BB132A47E700E2A078 /* omni_mobile-Prefix.pch */,
-				C2F5FA7713303D80001A5EB3 /* Localizable.strings */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -604,7 +597,8 @@
 				A54EEDF5132FE21C001CAE49 /* omni_icon_sales_white@2x.png in Resources */,
 				A54EEDF6132FE21C001CAE49 /* omni_icon_users_white.png in Resources */,
 				A54EEDF7132FE21C001CAE49 /* omni_icon_users_white@2x.png in Resources */,
-				C2F5FA7513303D80001A5EB3 /* Localizable.strings in Resources */,
+				C2D176051330464D00095322 /* Localizable.strings in Resources */,
+				C2D1760B133046D000095322 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,10 +678,10 @@
 		C212D8B4132A47E700E2A078 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C212D8B5132A47E700E2A078 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
+			path = /Users/joamag/Desktop/omni_mobile_set/omni_mobile/omni_mobile/support/en.lproj;
+			sourceTree = "<absolute>";
 		};
 		C212D8CC132A484700E2A078 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -697,13 +691,24 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		C2F5FA7713303D80001A5EB3 /* Localizable.strings */ = {
+		C2D176071330464D00095322 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C2F5FA7613303D80001A5EB3 /* en */,
-				C2F5FA7813303D89001A5EB3 /* pt */,
+				C2D176061330464D00095322 /* en */,
+				C2D176081330465200095322 /* pt */,
 			);
 			name = Localizable.strings;
+			path = support;
+			sourceTree = "<group>";
+		};
+		C2D1760D133046D000095322 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C2D1760C133046D000095322 /* en */,
+				C2D1760E133046DB00095322 /* pt */,
+			);
+			name = InfoPlist.strings;
+			path = support;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
