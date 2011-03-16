@@ -113,4 +113,7 @@
     [userViewController release];
 }
 
+- (void)didDeselectRemoteRowWidthData:(NSDictionary *)data {
+}
+
 @end
