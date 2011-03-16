@@ -80,10 +80,10 @@
     self.navigationItem.titleView = imageView;
 
     // creates the button items
-    HMTableCellItem *usersItem = [[HMTableCellItem alloc] initWithIdentifier:@"users" name:NSLocalizedString(@"Users", @"Users") icon:@"omni_icon_users.png" highlightedIcon:@"omni_icon_users_white.png" selectable:YES accessoryType:@"disclosure_indicator"];
-    HMTableCellItem *salesItem = [[HMTableCellItem alloc] initWithIdentifier:@"sales" name:NSLocalizedString(@"Sales", @"Sales") icon:@"omni_icon_sales.png" highlightedIcon:@"omni_icon_sales_white.png" selectable:YES accessoryType:@"disclosure_indicator"];
-    HMTableCellItem *highlightsItem = [[HMTableCellItem alloc] initWithIdentifier:@"highlights" name:NSLocalizedString(@"Highlights", @"Highlights") icon:@"omni_icon_highlights.png" highlightedIcon:@"omni_icon_highlights_white.png" selectable:YES accessoryType:@"disclosure_indicator"];
-    HMTableCellItem *notificationsItem = [[HMTableCellItem alloc] initWithIdentifier:@"notifications" name:NSLocalizedString(@"Notifications", @"Notifications") icon:nil highlightedIcon:nil selectable:NO accessoryType:@"switch"];
+    HMTableCellItem *usersItem = [[HMTableCellItem alloc] initWithIdentifier:@"users" name:NSLocalizedString(@"Users", @"Users") icon:@"omni_icon_users.png" highlightedIcon:@"omni_icon_users_white.png" highlightable:YES accessoryType:@"disclosure_indicator"];
+    HMTableCellItem *salesItem = [[HMTableCellItem alloc] initWithIdentifier:@"sales" name:NSLocalizedString(@"Sales", @"Sales") icon:@"omni_icon_sales.png" highlightedIcon:@"omni_icon_sales_white.png" highlightable:YES accessoryType:@"disclosure_indicator"];
+    HMTableCellItem *highlightsItem = [[HMTableCellItem alloc] initWithIdentifier:@"highlights" name:NSLocalizedString(@"Highlights", @"Highlights") icon:@"omni_icon_highlights.png" highlightedIcon:@"omni_icon_highlights_white.png" highlightable:YES accessoryType:@"disclosure_indicator"];
+    HMTableCellItem *notificationsItem = [[HMTableCellItem alloc] initWithIdentifier:@"notifications" name:NSLocalizedString(@"Notifications", @"Notifications") icon:nil highlightedIcon:nil highlightable:NO accessoryType:@"switch"];
 
     // creates the item groups
     HMItemGroup *menuItemGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu" name:nil description:nil];
@@ -115,26 +115,8 @@
     // initializes the users view controller
     UsersViewController *usersViewController = [[UsersViewController alloc] initWithNibName:@"UsersViewController" bundle:[NSBundle mainBundle]];
 
-    // fade out
-    //[UIView beginAnimations:@"Fade Out" context:nil];
-    //[UIView setAnimationDelay:0];
-    //[UIView setAnimationDuration:0.5];
-    //self.tableView.alpha = 0.0;
-    //[UIView commitAnimations];
-
-    // fade in
-    //[UIView beginAnimations:@"Fade In" context:nil];
-    //[UIView setAnimationDelay:0.5];
-    //[UIView setAnimationDuration:0.5];
-    //self.tableView.alpha = 1.0;
-    //[UIView commitAnimations];
-
-    [UIView beginAnimations:@"animation" context:nil];
-    [UIView setAnimationDuration:0.5];
-    [self.navigationController pushViewController:usersViewController animated:NO];
-    [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.navigationController.view cache:NO];
-    //[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:NO];
-    [UIView commitAnimations];
+    // pushes the user view controller
+    [self.navigationController pushViewController:usersViewController animated:YES];
 
     // releases the users view controller reference
     [usersViewController release];
