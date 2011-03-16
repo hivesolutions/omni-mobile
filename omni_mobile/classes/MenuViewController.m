@@ -132,7 +132,7 @@
 }
 
 - (void)didSelectItemRowWithItem:(HMItem *)item {
-    if(item.name == @"users") {
+    if(item.identifier == @"users") {
         [self didSelectUsersButton];
     }
 }
