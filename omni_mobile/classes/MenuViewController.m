@@ -131,13 +131,13 @@
     return YES;
 }
 
-- (void)didSelectItemRowWidthItem:(HMItem *)item {
+- (void)didSelectItemRowWithItem:(HMItem *)item {
     if(item.name == @"users") {
         [self didSelectUsersButton];
     }
 }
 
-- (void)didDeselectItemRowWidthItem:(HMItem *)item {
+- (void)didDeselectItemRowWithItem:(HMItem *)item {
 }
 
 @end
