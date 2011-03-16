@@ -65,6 +65,9 @@
 }
 
 - (void)dealloc {
+    // releases the menu item group
+    [_menuItemGroup release];
+
     // calls the super
     [super dealloc];
 }
