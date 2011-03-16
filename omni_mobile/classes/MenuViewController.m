@@ -77,10 +77,10 @@
     self.navigationItem.titleView = imageView;
 
     // creates the button items
-    HMButtonItem *usersItem = [[HMButtonItem alloc] initWithIdentifier:@"users" name:NSLocalizedString(@"Users", @"Users") icon:@"omni_icon_users.png" selectedIcon:@"omni_icon_users_white.png" handler:@selector(didSelectUsersButton) scope:self];
-    HMButtonItem *salesItem = [[HMButtonItem alloc] initWithIdentifier:@"sales" name:NSLocalizedString(@"Sales", @"Sales") icon:@"omni_icon_sales.png" selectedIcon:@"omni_icon_sales_white.png" handler:@selector(didSelectSalesButton) scope:self];
-    HMButtonItem *highlightsItem = [[HMButtonItem alloc] initWithIdentifier:@"highlights" name:NSLocalizedString(@"Highlights", @"Highlights") icon:@"omni_icon_highlights.png" selectedIcon:@"omni_icon_highlights_white.png" handler:@selector(didSelectHighlightsButton) scope:self];
-    HMButtonItem *notificationsItem = [[HMButtonItem alloc] initWithIdentifier:@"notifications" name:NSLocalizedString(@"Notifications", @"Notifications") icon:nil selectedIcon:nil handler:@selector(didSelectNotificationsButton) scope:self];
+    HMButtonItem *usersItem = [[HMButtonItem alloc] initWithIdentifier:@"users" name:NSLocalizedString(@"Users", @"Users") icon:@"omni_icon_users.png" highlightedIcon:@"omni_icon_users_white.png"];
+    HMButtonItem *salesItem = [[HMButtonItem alloc] initWithIdentifier:@"sales" name:NSLocalizedString(@"Sales", @"Sales") icon:@"omni_icon_sales.png" highlightedIcon:@"omni_icon_sales_white.png"];
+    HMButtonItem *highlightsItem = [[HMButtonItem alloc] initWithIdentifier:@"highlights" name:NSLocalizedString(@"Highlights", @"Highlights") icon:@"omni_icon_highlights.png" highlightedIcon:@"omni_icon_highlights_white.png"];
+    HMButtonItem *notificationsItem = [[HMButtonItem alloc] initWithIdentifier:@"notifications" name:NSLocalizedString(@"Notifications", @"Notifications") icon:nil highlightedIcon:nil];
 
     // creates the item groups
     HMItemGroup *menuItemGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu" name:nil description:nil];
@@ -112,8 +112,26 @@
     // initializes the users view controller
     UsersViewController *usersViewController = [[UsersViewController alloc] initWithNibName:@"UsersViewController" bundle:[NSBundle mainBundle]];
 
-    // pushes the users view controller into the navigation controller
-    [self.navigationController pushViewController:usersViewController animated:YES];
+    // fade out
+    //[UIView beginAnimations:@"Fade Out" context:nil];
+    //[UIView setAnimationDelay:0];
+    //[UIView setAnimationDuration:0.5];
+    //self.tableView.alpha = 0.0;
+    //[UIView commitAnimations];
+    
+    // fade in
+    //[UIView beginAnimations:@"Fade In" context:nil];
+    //[UIView setAnimationDelay:0.5];
+    //[UIView setAnimationDuration:0.5];
+    //self.tableView.alpha = 1.0;
+    //[UIView commitAnimations];
+
+    [UIView beginAnimations:@"animation" context:nil];
+    [UIView setAnimationDuration:0.5];
+    [self.navigationController pushViewController:usersViewController animated:NO]; 
+    [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.navigationController.view cache:NO]; 
+    //[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:NO]; 
+    [UIView commitAnimations];
 
     // releases the users view controller reference
     [usersViewController release];
