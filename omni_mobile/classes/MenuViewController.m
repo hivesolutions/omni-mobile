@@ -30,7 +30,6 @@
 @implementation MenuViewController
 
 @synthesize menuItemGroup = _menuItemGroup;
-@synthesize lastSelectedIndexPath = _lastSelectedIndexPath;
 
 - (id)init {
     // calls the super
@@ -66,6 +65,7 @@
 }
 
 - (void)dealloc {
+    // calls the super
     [super dealloc];
 }
 
@@ -134,6 +134,16 @@
 - (void)didSelectItemRowWithItem:(HMItem *)item {
     if(item.identifier == @"users") {
         [self didSelectUsersButton];
+    }
+    else {
+        // initializes the menu view controller
+        MenuViewController *menuViewController = [[MenuViewController alloc] initWithNibName:@"MenuViewController" bundle:[NSBundle mainBundle]];
+
+        // pushes the menu view controller into the navigation controller
+        [self.navigationController pushViewController:menuViewController animated:YES];
+
+        // releases the menu view controller reference
+        [menuViewController release];
     }
 }
 

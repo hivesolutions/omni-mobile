@@ -27,11 +27,9 @@
 
 @interface MenuViewController : UITableViewController<HMItemTableViewProvider, HMItemTableViewDelegate> {
     @private HMItemGroup *_menuItemGroup;
-    @private NSIndexPath *_lastSelectedIndexPath;
 }
 
 @property (retain) HMItemGroup *menuItemGroup;
-@property (retain) NSIndexPath *lastSelectedIndexPath;
 
 /**
  * Starts the internal data structures.
