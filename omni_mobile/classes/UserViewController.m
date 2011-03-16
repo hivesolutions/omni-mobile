@@ -56,6 +56,7 @@
 }
 
 - (void)dealloc {
+    // calls the super
     [super dealloc];
 }
 
