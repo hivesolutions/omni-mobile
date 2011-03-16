@@ -77,15 +77,15 @@
     self.navigationItem.titleView = imageView;
 
     // creates the button items
-    HMButtonItem *usersItem = [[HMButtonItem alloc] initWithName:NSLocalizedString(@"Users", @"Users") icon:@"omni_icon_users.png" selectedIcon:@"omni_icon_users_white.png" handler:@selector(didSelectUsersButton) scope:self];
-    HMButtonItem *salesItem = [[HMButtonItem alloc] initWithName:@"sales" icon:@"omni_icon_sales.png" selectedIcon:@"omni_icon_sales_white.png" handler:@selector(didSelectSalesButton) scope:self];
-    HMButtonItem *highlightsItem = [[HMButtonItem alloc] initWithName:@"highlights" icon:@"omni_icon_highlights.png" selectedIcon:@"omni_icon_highlights_white.png" handler:@selector(didSelectHighlightsButton) scope:self];
-    HMButtonItem *notificationsItem = [[HMButtonItem alloc] initWithName:@"notifications" icon:nil selectedIcon:nil handler:@selector(didSelectNotificationsButton) scope:self];
+    HMButtonItem *usersItem = [[HMButtonItem alloc] initWithIdentifier:@"users" name:NSLocalizedString(@"Users", @"Users") icon:@"omni_icon_users.png" selectedIcon:@"omni_icon_users_white.png" handler:@selector(didSelectUsersButton) scope:self];
+    HMButtonItem *salesItem = [[HMButtonItem alloc] initWithIdentifier:@"sales" name:NSLocalizedString(@"Sales", @"Sales") icon:@"omni_icon_sales.png" selectedIcon:@"omni_icon_sales_white.png" handler:@selector(didSelectSalesButton) scope:self];
+    HMButtonItem *highlightsItem = [[HMButtonItem alloc] initWithIdentifier:@"highlights" name:NSLocalizedString(@"Highlights", @"Highlights") icon:@"omni_icon_highlights.png" selectedIcon:@"omni_icon_highlights_white.png" handler:@selector(didSelectHighlightsButton) scope:self];
+    HMButtonItem *notificationsItem = [[HMButtonItem alloc] initWithIdentifier:@"notifications" name:NSLocalizedString(@"Notifications", @"Notifications") icon:nil selectedIcon:nil handler:@selector(didSelectNotificationsButton) scope:self];
 
     // creates the item groups
-    HMItemGroup *menuItemGroup = [[HMItemGroup alloc] initWithName:@"menu" description:nil];
-    HMItemGroup *firstSectionItemGroup = [[HMItemGroup alloc] initWithName:@"first_section" description:nil];
-    HMItemGroup *secondSectionItemGroup = [[HMItemGroup alloc] initWithName:@"second_section" description:@"New data will be pushed to your phone from the server"];
+    HMItemGroup *menuItemGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu" name:nil description:nil];
+    HMItemGroup *firstSectionItemGroup = [[HMItemGroup alloc] initWithIdentifier:@"first_section" name:nil description:nil];
+    HMItemGroup *secondSectionItemGroup = [[HMItemGroup alloc] initWithIdentifier:@"second_section" name:nil description:@"New data will be pushed to your phone from the server"];
 
     // populates the menu
     [menuItemGroup addItem:firstSectionItemGroup];
