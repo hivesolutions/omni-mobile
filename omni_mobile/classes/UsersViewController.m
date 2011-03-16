@@ -99,7 +99,7 @@
     return HMRemoteTableViewJsonSerialized;
 }
 
-- (void)didSelectRemoteRowWidthData:(NSDictionary *)data {
+- (void)didSelectRemoteRowWithData:(NSDictionary *)data {
     // initializes the users view controller
     UserViewController *userViewController = [[UserViewController alloc] initWithNibName:@"UserViewController" bundle:[NSBundle mainBundle]];
 
@@ -113,7 +113,7 @@
     [userViewController release];
 }
 
-- (void)didDeselectRemoteRowWidthData:(NSDictionary *)data {
+- (void)didDeselectRemoteRowWithData:(NSDictionary *)data {
 }
 
 @end
