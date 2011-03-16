@@ -77,10 +77,10 @@
     self.navigationItem.titleView = imageView;
 
     // creates the button items
-    HMButtonItem *usersItem = [[HMButtonItem alloc] initWithIdentifier:@"users" name:NSLocalizedString(@"Users", @"Users") icon:@"omni_icon_users.png" highlightedIcon:@"omni_icon_users_white.png"];
-    HMButtonItem *salesItem = [[HMButtonItem alloc] initWithIdentifier:@"sales" name:NSLocalizedString(@"Sales", @"Sales") icon:@"omni_icon_sales.png" highlightedIcon:@"omni_icon_sales_white.png"];
-    HMButtonItem *highlightsItem = [[HMButtonItem alloc] initWithIdentifier:@"highlights" name:NSLocalizedString(@"Highlights", @"Highlights") icon:@"omni_icon_highlights.png" highlightedIcon:@"omni_icon_highlights_white.png"];
-    HMButtonItem *notificationsItem = [[HMButtonItem alloc] initWithIdentifier:@"notifications" name:NSLocalizedString(@"Notifications", @"Notifications") icon:nil highlightedIcon:nil];
+    HMTableCellItem *usersItem = [[HMTableCellItem alloc] initWithIdentifier:@"users" name:NSLocalizedString(@"Users", @"Users") icon:@"omni_icon_users.png" highlightedIcon:@"omni_icon_users_white.png" selectable:YES accessoryType:@"disclosure_indicator"];
+    HMTableCellItem *salesItem = [[HMTableCellItem alloc] initWithIdentifier:@"sales" name:NSLocalizedString(@"Sales", @"Sales") icon:@"omni_icon_sales.png" highlightedIcon:@"omni_icon_sales_white.png" selectable:YES accessoryType:@"disclosure_indicator"];
+    HMTableCellItem *highlightsItem = [[HMTableCellItem alloc] initWithIdentifier:@"highlights" name:NSLocalizedString(@"Highlights", @"Highlights") icon:@"omni_icon_highlights.png" highlightedIcon:@"omni_icon_highlights_white.png" selectable:YES accessoryType:@"disclosure_indicator"];
+    HMTableCellItem *notificationsItem = [[HMTableCellItem alloc] initWithIdentifier:@"notifications" name:NSLocalizedString(@"Notifications", @"Notifications") icon:nil highlightedIcon:nil selectable:NO accessoryType:@"switch"];
 
     // creates the item groups
     HMItemGroup *menuItemGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu" name:nil description:nil];
