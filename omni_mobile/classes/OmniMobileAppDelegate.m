@@ -57,7 +57,7 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    [self saveSettings:@"tobias"];
+    [self saveSettings:nil];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -67,7 +67,7 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    [self saveSettings:@"tobias"];
+    [self saveSettings:nil];
 }
 
 - (void)loadSettings {
