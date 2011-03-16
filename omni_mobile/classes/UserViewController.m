@@ -40,6 +40,7 @@
     // sets the selector for the editr ui bar button action
     editUiBarButton.action = @selector(buttonClickedWithSender:extra:);
 
+    // retrieves the header view
     UIView *headerView = [[[[[self view] subviews] objectAtIndex:0] subviews] objectAtIndex:0];
 
     // retrieves the header image
