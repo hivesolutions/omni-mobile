@@ -63,6 +63,7 @@
 		C2DBDC16132A42D5006C6E07 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3E13295A31007CBA34 /* CoreGraphics.framework */; };
 		C2F5F9CD132FCA4800089E4D /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = C2F5F9CB132FCA4800089E4D /* user.png */; };
 		C2F5F9CE132FCA4800089E4D /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2F5F9CC132FCA4800089E4D /* user@2x.png */; };
+		C2F5FA7513303D80001A5EB3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2F5FA7713303D80001A5EB3 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,6 +186,8 @@
 		C2DBDC13132A42D5006C6E07 /* omni_mobile_test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = omni_mobile_test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F5F9CB132FCA4800089E4D /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = user.png; path = resources/images/user.png; sourceTree = "<group>"; };
 		C2F5F9CC132FCA4800089E4D /* user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user@2x.png"; path = "resources/images/user@2x.png"; sourceTree = "<group>"; };
+		C2F5FA7613303D80001A5EB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C2F5FA7813303D89001A5EB3 /* pt */ = {isa = PBXFileReference; lastKnownFileType = file; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -420,6 +423,7 @@
 				C212D8B3132A47E700E2A078 /* en.lproj */,
 				C212D8BA132A47E700E2A078 /* omni_mobile-Info.plist */,
 				C212D8BB132A47E700E2A078 /* omni_mobile-Prefix.pch */,
+				C2F5FA7713303D80001A5EB3 /* Localizable.strings */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -505,6 +509,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				pt,
 			);
 			mainGroup = C28EFF2B13295A31007CBA34;
 			productRefGroup = C28EFF3713295A31007CBA34 /* Products */;
@@ -599,6 +604,7 @@
 				A54EEDF5132FE21C001CAE49 /* omni_icon_sales_white@2x.png in Resources */,
 				A54EEDF6132FE21C001CAE49 /* omni_icon_users_white.png in Resources */,
 				A54EEDF7132FE21C001CAE49 /* omni_icon_users_white@2x.png in Resources */,
+				C2F5FA7513303D80001A5EB3 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,6 +695,15 @@
 				C212D8CD132A484700E2A078 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C2F5FA7713303D80001A5EB3 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C2F5FA7613303D80001A5EB3 /* en */,
+				C2F5FA7813303D89001A5EB3 /* pt */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

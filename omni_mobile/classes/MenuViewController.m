@@ -77,7 +77,7 @@
     self.navigationItem.titleView = imageView;
 
     // creates the button items
-    HMButtonItem *usersItem = [[HMButtonItem alloc] initWithName:@"users" icon:@"omni_icon_users.png" selectedIcon:@"omni_icon_users_white.png" handler:@selector(didSelectUsersButton) scope:self];
+    HMButtonItem *usersItem = [[HMButtonItem alloc] initWithName:NSLocalizedString(@"Users", @"Users") icon:@"omni_icon_users.png" selectedIcon:@"omni_icon_users_white.png" handler:@selector(didSelectUsersButton) scope:self];
     HMButtonItem *salesItem = [[HMButtonItem alloc] initWithName:@"sales" icon:@"omni_icon_sales.png" selectedIcon:@"omni_icon_sales_white.png" handler:@selector(didSelectSalesButton) scope:self];
     HMButtonItem *highlightsItem = [[HMButtonItem alloc] initWithName:@"highlights" icon:@"omni_icon_highlights.png" selectedIcon:@"omni_icon_highlights_white.png" handler:@selector(didSelectHighlightsButton) scope:self];
     HMButtonItem *notificationsItem = [[HMButtonItem alloc] initWithName:@"notifications" icon:nil selectedIcon:nil handler:@selector(didSelectNotificationsButton) scope:self];
