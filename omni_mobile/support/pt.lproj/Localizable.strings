@@ -25,11 +25,18 @@
  __license__   = GNU General Public License (GPL), Version 3
 */
 
+/* Global util values */
+"Cancel" = "Cancelar";
+"Retry" = "Tentar de novo";
+
 /* Global dictionary values */
 "Users" = "Utilizadores";
 "Sales" = "Vendas";
 "Highlights" = "Destaques";
 "Notifications" = "Notificações";
+
+/* Global error values */
+"ConnectionError" = "Ocorreu um problema de conexão";
 
 /* Global sentence values */
 "Sentence000001" = "Novos dados serão enviados para o seu telemóvel a partir do servidor";
