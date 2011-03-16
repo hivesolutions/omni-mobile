@@ -118,7 +118,7 @@
     //[UIView setAnimationDuration:0.5];
     //self.tableView.alpha = 0.0;
     //[UIView commitAnimations];
-    
+
     // fade in
     //[UIView beginAnimations:@"Fade In" context:nil];
     //[UIView setAnimationDelay:0.5];
@@ -128,9 +128,9 @@
 
     [UIView beginAnimations:@"animation" context:nil];
     [UIView setAnimationDuration:0.5];
-    [self.navigationController pushViewController:usersViewController animated:NO]; 
-    [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.navigationController.view cache:NO]; 
-    //[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:NO]; 
+    [self.navigationController pushViewController:usersViewController animated:NO];
+    [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.navigationController.view cache:NO];
+    //[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:NO];
     [UIView commitAnimations];
 
     // releases the users view controller reference
