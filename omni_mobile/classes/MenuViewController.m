@@ -132,13 +132,13 @@
     if(self.editing) {
         // disables the table's editing mode
         [self setEditing:NO animated:YES];
-        
+
         // changes the button's title to edit
         self.navigationItem.rightBarButtonItem.title = NSLocalizedString(@"Edit", @"Edit");
     } else {
         // enables the table's editing mode
         [self setEditing:YES animated:YES];
-        
+
         // changes the button's title to done
         self.navigationItem.rightBarButtonItem.title = NSLocalizedString(@"Done", @"Done");
     }
