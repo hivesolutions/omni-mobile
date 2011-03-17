@@ -30,8 +30,6 @@
 		C226C244132A782500427656 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C226C243132A782500427656 /* MenuViewController.xib */; };
 		C226C254132A7DE800427656 /* disk_48x48.png in Resources */ = {isa = PBXBuildFile; fileRef = C226C252132A7DE800427656 /* disk_48x48.png */; };
 		C226C255132A7DE800427656 /* disk_64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = C226C253132A7DE800427656 /* disk_64x64.png */; };
-		C23F3D45132E3986003155EE /* omni_launch.png in Resources */ = {isa = PBXBuildFile; fileRef = C23F3D41132E3985003155EE /* omni_launch.png */; };
-		C23F3D46132E3986003155EE /* omni_launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C23F3D42132E3986003155EE /* omni_launch@2x.png */; };
 		C23F3D63132E4494003155EE /* omni_icon_sales.png in Resources */ = {isa = PBXBuildFile; fileRef = C23F3D61132E4493003155EE /* omni_icon_sales.png */; };
 		C23F3D64132E4494003155EE /* omni_icon_sales@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C23F3D62132E4493003155EE /* omni_icon_sales@2x.png */; };
 		C23F3D67132E46D6003155EE /* omni_icon_users.png in Resources */ = {isa = PBXBuildFile; fileRef = C23F3D65132E46D3003155EE /* omni_icon_users.png */; };
@@ -48,8 +46,6 @@
 		C24ED0AB132E7C7F00E3DFF5 /* header_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C24ED0AA132E7C7F00E3DFF5 /* header_logo.png */; };
 		C24ED0B0132E7D6E00E3DFF5 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C24ED0AC132E7D6E00E3DFF5 /* Default-Landscape~ipad.png */; };
 		C24ED0B1132E7D6E00E3DFF5 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C24ED0AD132E7D6E00E3DFF5 /* Default-Portrait~ipad.png */; };
-		C24ED0B2132E7D6E00E3DFF5 /* omni_launch_ipad_landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = C24ED0AE132E7D6E00E3DFF5 /* omni_launch_ipad_landscape.png */; };
-		C24ED0B3132E7D6E00E3DFF5 /* omni_launch_ipad_portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = C24ED0AF132E7D6E00E3DFF5 /* omni_launch_ipad_portrait.png */; };
 		C28EFF3B13295A31007CBA34 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3A13295A31007CBA34 /* UIKit.framework */; };
 		C28EFF3D13295A31007CBA34 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3C13295A31007CBA34 /* Foundation.framework */; };
 		C28EFF3F13295A31007CBA34 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3E13295A31007CBA34 /* CoreGraphics.framework */; };
@@ -157,8 +153,6 @@
 		C226C243132A782500427656 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuViewController.xib; path = nibs/MenuViewController.xib; sourceTree = "<group>"; };
 		C226C252132A7DE800427656 /* disk_48x48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = disk_48x48.png; path = resources/images/disk_48x48.png; sourceTree = "<group>"; };
 		C226C253132A7DE800427656 /* disk_64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = disk_64x64.png; path = resources/images/disk_64x64.png; sourceTree = "<group>"; };
-		C23F3D41132E3985003155EE /* omni_launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = omni_launch.png; path = resources/images/omni_launch.png; sourceTree = "<group>"; };
-		C23F3D42132E3986003155EE /* omni_launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "omni_launch@2x.png"; path = "resources/images/omni_launch@2x.png"; sourceTree = "<group>"; };
 		C23F3D61132E4493003155EE /* omni_icon_sales.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = omni_icon_sales.png; path = resources/images/omni_icon_sales.png; sourceTree = "<group>"; };
 		C23F3D62132E4493003155EE /* omni_icon_sales@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "omni_icon_sales@2x.png"; path = "resources/images/omni_icon_sales@2x.png"; sourceTree = "<group>"; };
 		C23F3D65132E46D3003155EE /* omni_icon_users.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = omni_icon_users.png; path = resources/images/omni_icon_users.png; sourceTree = "<group>"; };
@@ -175,8 +169,6 @@
 		C24ED0AA132E7C7F00E3DFF5 /* header_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = header_logo.png; path = resources/images/header_logo.png; sourceTree = "<group>"; };
 		C24ED0AC132E7D6E00E3DFF5 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "ipad/resources/images/Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		C24ED0AD132E7D6E00E3DFF5 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait~ipad.png"; path = "ipad/resources/images/Default-Portrait~ipad.png"; sourceTree = "<group>"; };
-		C24ED0AE132E7D6E00E3DFF5 /* omni_launch_ipad_landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = omni_launch_ipad_landscape.png; path = ipad/resources/images/omni_launch_ipad_landscape.png; sourceTree = "<group>"; };
-		C24ED0AF132E7D6E00E3DFF5 /* omni_launch_ipad_portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = omni_launch_ipad_portrait.png; path = ipad/resources/images/omni_launch_ipad_portrait.png; sourceTree = "<group>"; };
 		C28EFF3613295A31007CBA34 /* omni_mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = omni_mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28EFF3A13295A31007CBA34 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C28EFF3C13295A31007CBA34 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -317,8 +309,6 @@
 				C23F3D66132E46D4003155EE /* omni_icon_users@2x.png */,
 				C23F3D61132E4493003155EE /* omni_icon_sales.png */,
 				C23F3D62132E4493003155EE /* omni_icon_sales@2x.png */,
-				C23F3D41132E3985003155EE /* omni_launch.png */,
-				C23F3D42132E3986003155EE /* omni_launch@2x.png */,
 				A5DEAEC3132AA7D60071D848 /* disk_32x36.png */,
 				C226C252132A7DE800427656 /* disk_48x48.png */,
 				C226C253132A7DE800427656 /* disk_64x64.png */,
@@ -358,8 +348,6 @@
 				C28F3A2713326CDF006F36F8 /* Icon-Small-50.png */,
 				C24ED0AC132E7D6E00E3DFF5 /* Default-Landscape~ipad.png */,
 				C24ED0AD132E7D6E00E3DFF5 /* Default-Portrait~ipad.png */,
-				C24ED0AE132E7D6E00E3DFF5 /* omni_launch_ipad_landscape.png */,
-				C24ED0AF132E7D6E00E3DFF5 /* omni_launch_ipad_portrait.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -578,8 +566,6 @@
 				C226C254132A7DE800427656 /* disk_48x48.png in Resources */,
 				C226C255132A7DE800427656 /* disk_64x64.png in Resources */,
 				A5DEAEC4132AA7D60071D848 /* disk_32x36.png in Resources */,
-				C23F3D45132E3986003155EE /* omni_launch.png in Resources */,
-				C23F3D46132E3986003155EE /* omni_launch@2x.png in Resources */,
 				C23F3D63132E4494003155EE /* omni_icon_sales.png in Resources */,
 				C23F3D64132E4494003155EE /* omni_icon_sales@2x.png in Resources */,
 				C23F3D67132E46D6003155EE /* omni_icon_users.png in Resources */,
@@ -593,8 +579,6 @@
 				C24ED0AB132E7C7F00E3DFF5 /* header_logo.png in Resources */,
 				C24ED0B0132E7D6E00E3DFF5 /* Default-Landscape~ipad.png in Resources */,
 				C24ED0B1132E7D6E00E3DFF5 /* Default-Portrait~ipad.png in Resources */,
-				C24ED0B2132E7D6E00E3DFF5 /* omni_launch_ipad_landscape.png in Resources */,
-				C24ED0B3132E7D6E00E3DFF5 /* omni_launch_ipad_portrait.png in Resources */,
 				A5156524132E8937000FAC25 /* gradient.png in Resources */,
 				A5156525132E8937000FAC25 /* gradient@2x.png in Resources */,
 				C2C2FA0F132E979B0038B41E /* Settings.bundle in Resources */,
