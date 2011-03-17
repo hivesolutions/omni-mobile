@@ -27,7 +27,7 @@
 
 /* Global util values */
 "Cancel" = "Cancelar";
-"Retry" = "Tentar de novo";
+"Retry" = "Repetir";
 
 /* Global dictionary values */
 "Users" = "Utilizadores";
