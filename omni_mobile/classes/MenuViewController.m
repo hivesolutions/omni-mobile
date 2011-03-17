@@ -135,6 +135,9 @@
 }
 
 - (void)didSelectItemRowWithItem:(HMItem *)item {
+    [self setEditing:YES animated:YES];
+    return;
+
     if(item.identifier == @"users") {
         [self didSelectUsersButton];
     }
