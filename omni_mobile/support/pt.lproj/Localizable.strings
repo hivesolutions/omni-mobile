@@ -28,6 +28,8 @@
 /* Global util values */
 "Cancel" = "Cancelar";
 "Retry" = "Tentar de novo";
+"Edit" = "Editar";
+"Done" = "OK";
 
 /* Global dictionary values */
 "Users" = "Utilizadores";

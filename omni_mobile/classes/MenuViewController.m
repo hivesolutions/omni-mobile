@@ -73,6 +73,11 @@
 }
 
 - (void)startStructures {
+    // creates an edit button and adds it to the navigation item
+    UIBarButtonItem *editUiBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:nil];
+    editUiBarButton.action = @selector(editButtonClicked);
+    self.navigationItem.rightBarButtonItem = editUiBarButton;
+
     // changes the title's image view
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 74, 22)];
     UIImage *logoImage = [UIImage imageNamed:@"header_logo.png"];
@@ -122,6 +127,23 @@
     [usersViewController release];
 }
 
+- (void) editButtonClicked {
+    // toggles the table's editing mode
+    if(self.editing) {
+        // disables the table's editing mode
+        [self setEditing:NO animated:YES];
+        
+        // changes the button's title to edit
+        self.navigationItem.rightBarButtonItem.title = NSLocalizedString(@"Edit", @"Edit");
+    } else {
+        // enables the table's editing mode
+        [self setEditing:YES animated:YES];
+        
+        // changes the button's title to done
+        self.navigationItem.rightBarButtonItem.title = NSLocalizedString(@"Done", @"Done");
+    }
+}
+
 - (HMItemGroup *)getItemSpecification {
     return self.menuItemGroup;
 }
@@ -135,9 +157,6 @@
 }
 
 - (void)didSelectItemRowWithItem:(HMItem *)item {
-    [self setEditing:YES animated:YES];
-    return;
-
     if(item.identifier == @"users") {
         [self didSelectUsersButton];
     }
