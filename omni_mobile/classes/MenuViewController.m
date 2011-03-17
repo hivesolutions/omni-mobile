@@ -23,8 +23,6 @@
 // __copyright__ = Copyright (c) 2008 Hive Solutions Lda.
 // __license__   = GNU General Public License (GPL), Version 3
 
-#import "UsersViewController.h"
-
 #import "MenuViewController.h"
 
 @implementation MenuViewController
@@ -157,6 +155,8 @@
 }
 
 - (void)didSelectItemRowWithItem:(HMItem *)item {
+    return;
+
     if(item.identifier == @"users") {
         [self didSelectUsersButton];
     }

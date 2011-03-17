@@ -220,6 +220,7 @@
 		C28F3AA713328E34006F36F8 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
 		C28F3AAC13328E82006F36F8 /* header_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header_logo.png; sourceTree = "<group>"; };
 		C28F3AAD13328E82006F36F8 /* header_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "header_logo@2x.png"; sourceTree = "<group>"; };
+		C28F3ABC13329B20006F36F8 /* omni_mobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = omni_mobile.h; path = headers/omni_mobile.h; sourceTree = "<group>"; };
 		C29A2E33132E9DE8005EAB37 /* libcommons_ui_mobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libcommons_ui_mobile.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2C2F9FB132E94800038B41E /* commons_ui_mobile.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = commons_ui_mobile.xcodeproj; path = ../commons_ui_mobile/commons_ui_mobile.xcodeproj; sourceTree = "<group>"; };
 		C2C2FA0E132E979A0038B41E /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = support/Settings.bundle; sourceTree = "<group>"; };
@@ -410,6 +411,7 @@
 		C28EFF4013295A31007CBA34 /* Omni Mobile */ = {
 			isa = PBXGroup;
 			children = (
+				C28F3ABB13329AA9006F36F8 /* Headers */,
 				C23F3DA4132E735C003155EE /* IPad */,
 				C226C24D132A7D6800427656 /* Resources */,
 				C212D8C0132A481C00E2A078 /* Nibs */,
@@ -602,6 +604,14 @@
 			);
 			name = Base;
 			path = ipad/resources/images/base;
+			sourceTree = "<group>";
+		};
+		C28F3ABB13329AA9006F36F8 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				C28F3ABC13329B20006F36F8 /* omni_mobile.h */,
+			);
+			name = Headers;
 			sourceTree = "<group>";
 		};
 		C2C2F9FC132E94800038B41E /* Products */ = {
