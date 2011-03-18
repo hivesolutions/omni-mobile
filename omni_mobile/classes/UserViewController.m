@@ -34,7 +34,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 
     // creates the edit ui bar button
-    UIBarButtonItem *editUiBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:nil];
+    UIBarButtonItem *editUiBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editButtonClick:extra:)];
 
     // sets the edit ui bar button
     self.navigationItem.rightBarButtonItem = editUiBarButton;
@@ -70,8 +70,14 @@
     [self updateRemote];
 }
 
-- (void)buttonClickedWithSender:(id)sender extra:(id)extra {
-    printf("carregou %d\r", (int) sender);
+- (void)editButtonClick:(id)sender extra:(id)extra {
+    // in case the
+    if(self.tableView.editing) {
+        self.tableView.editing = NO;
+    } else {
+        self.tableView.editing = YES;
+    }
+
 }
 
 - (void)didReceiveMemoryWarning {
