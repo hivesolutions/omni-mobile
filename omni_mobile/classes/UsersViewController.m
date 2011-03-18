@@ -102,8 +102,8 @@
     // initializes the users view controller
     UserViewController *userViewController = [[UserViewController alloc] initWithNibName:@"UserViewController" bundle:[NSBundle mainBundle]];
 
-    // changes the user in the user view
-    [userViewController changeUser:data];
+    // changes the user in the entity
+    [userViewController changeEntity:data];
 
     // pushes the user view controller into the navigation controller
     [self.navigationController pushViewController:userViewController animated:YES];

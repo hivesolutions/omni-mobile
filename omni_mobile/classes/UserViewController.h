@@ -25,15 +25,21 @@
 
 #import "Dependencies.h"
 
-@interface UserViewController : UIViewController {
+@interface UserViewController : HMRemoteItemTableViewController {
+    @private NSDictionary *_entity;
 }
 
 /**
- * Changes the user in the user view.
- * The argument is a map with all the user attributes.
- *
- * @param user The user to change to.
+ * The entity represented by the view.
  */
-- (void)changeUser:(NSDictionary *)user;
+@property (retain) NSDictionary *entity;
+
+/**
+ * Changes the entity in the view.
+ * The argument is a map with all the entity attributes.
+ *
+ * @param user The entity to change to.
+ */
+- (void)changeEntity:(NSDictionary *)entity;
 
 @end

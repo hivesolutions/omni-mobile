@@ -27,6 +27,8 @@
 
 @implementation UserViewController
 
+@synthesize entity = _entity;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     // calls the super
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -37,49 +39,35 @@
     // sets the edit ui bar button
     self.navigationItem.rightBarButtonItem = editUiBarButton;
 
-    // sets the selector for the editr ui bar button action
-    editUiBarButton.action = @selector(buttonClickedWithSender:extra:);
-
-    // retrieves the header view
-    UIView *headerView = [[[[[self view] subviews] objectAtIndex:0] subviews] objectAtIndex:0];
-
-    // retrieves the header image
-    UIImageView *headerImage = [[headerView subviews] objectAtIndex:0];
-
-    // sets the header image rounded corners
-    headerImage.layer.cornerRadius = 4.0;
-    headerImage.layer.masksToBounds = YES;
-    headerImage.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    headerImage.layer.borderWidth = 1.0;
-
     // returns the instance
     return self;
 }
 
 - (void)dealloc {
+    // releases the entity
+    [self.entity release];
+
     // calls the super
     [super dealloc];
 }
 
-- (void)changeUser:(NSDictionary *)user {
-    // retrieves the user attributes
-    NSString *username = [user objectForKey:@"username"];
-    NSDictionary *person = [user objectForKey:@"person"];
+- (NSString *)getRemoteUrl {
+    // retrieves the entity object id
+    NSNumber *entityObjectId = [self.entity objectForKey:@"object_id"];
 
-    // retrieves the person attributes
-    NSString *personName = [person objectForKey:@"name"];
+    // creates the url from the object id
+    NSString *url = [NSString stringWithFormat:@"http://172.16.0.24:8080/colony_mod_python/rest/mvc/omni/users/%@.json", [entityObjectId stringValue]];
 
-    // sets the view title
-    self.title = username;
+    // returns the url
+    return url;
+}
 
-    // retrieves the header view
-    UIView *headerView = [[[[[self view] subviews] objectAtIndex:0] subviews] objectAtIndex:0];
+- (void)changeEntity:(NSDictionary *)entity {
+    // sets the entity
+    self.entity = entity;
 
-    // retrieves the header label
-    UILabel *headerLabel = [[headerView subviews] objectAtIndex:1];
-
-    // sets the username in the header label
-    headerLabel.text = username;
+    // updates the remote
+    [self updateRemote];
 }
 
 - (void)buttonClickedWithSender:(id)sender extra:(id)extra {
