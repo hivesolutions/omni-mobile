@@ -82,36 +82,68 @@
     [imageView setImage:logoImage];
     self.navigationItem.titleView = imageView;
 
-    // creates the button items
-    HMTableCellItem *usersItem = [[HMTableCellItem alloc] initWithIdentifier:@"users" name:NSLocalizedString(@"Users", @"Users") icon:@"omni_icon_users.png" highlightedIcon:@"omni_icon_users_white.png" highlightable:YES accessoryType:@"disclosure_indicator"];
-    HMTableCellItem *salesItem = [[HMTableCellItem alloc] initWithIdentifier:@"sales" name:NSLocalizedString(@"Sales", @"Sales") icon:@"omni_icon_sales.png" highlightedIcon:@"omni_icon_sales_white.png" highlightable:YES accessoryType:@"disclosure_indicator"];
-    HMTableCellItem *highlightsItem = [[HMTableCellItem alloc] initWithIdentifier:@"highlights" name:NSLocalizedString(@"Highlights", @"Highlights") icon:@"omni_icon_highlights.png" highlightedIcon:@"omni_icon_highlights_white.png" highlightable:YES accessoryType:@"disclosure_indicator"];
-    HMTableCellItem *notificationsItem = [[HMTableCellItem alloc] initWithIdentifier:@"notifications" name:NSLocalizedString(@"Notifications", @"Notifications") icon:nil highlightedIcon:nil highlightable:NO accessoryType:@"switch"];
+    // creates the users button item
+    HMTableCellItem *usersItem = [[HMTableCellItem alloc] initWithIdentifier:@"users"];
+    usersItem.name = NSLocalizedString(@"Users", @"Users");
+    usersItem.icon = @"omni_icon_users.png";
+    usersItem.highlightedIcon = @"omni_icon_users_white.png";
+    usersItem.highlightable = YES;
+    usersItem.accessoryType = @"disclosure_indicator";
 
-    // creates the item groups
-    HMItemGroup *menuItemGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu" name:nil description:nil];
-    HMItemGroup *firstSectionItemGroup = [[HMItemGroup alloc] initWithIdentifier:@"first_section" name:nil description:nil];
-    HMItemGroup *secondSectionItemGroup = [[HMItemGroup alloc] initWithIdentifier:@"second_section" name:nil description:NSLocalizedString(@"Sentence000001", @"Sentence000001")];
+    // creates the sales button item
+    HMTableCellItem *salesItem = [[HMTableCellItem alloc] initWithIdentifier:@"sales"];
+    salesItem.name = NSLocalizedString(@"Sales", @"Sales");
+    salesItem.icon = @"omni_icon_sales.png";
+    salesItem.highlightedIcon = @"omni_icon_sales_white.png";
+    salesItem.highlightable = YES;
+    salesItem.accessoryType = @"disclosure_indicator";
+
+    // creates the highlights button item
+    HMTableCellItem *highlightsItem = [[HMTableCellItem alloc] initWithIdentifier:@"highlights"];
+    highlightsItem.name = NSLocalizedString(@"Highlights", @"Highlights");
+    highlightsItem.icon = @"omni_icon_highlights.png";
+    highlightsItem.highlightedIcon = @"omni_icon_highlights_white.png";
+    highlightsItem.highlightable = YES;
+    highlightsItem.accessoryType = @"disclosure_indicator";
+
+    // creates the notifications button item
+    HMTableCellItem *notificationsItem = [[HMTableCellItem alloc] initWithIdentifier:@"notifications"];
+    notificationsItem.name = NSLocalizedString(@"Notifications", @"Notifications");
+    notificationsItem.icon = nil;
+    notificationsItem.highlightedIcon = nil;
+    notificationsItem.highlightable = NO;
+    notificationsItem.accessoryType = @"switch";
+
+    // creates the first section item group
+    HMItemGroup *firstSectionItemGroup = [[HMItemGroup alloc] initWithIdentifier:@"first_section"];
+
+    // creates the second section item group
+    HMItemGroup *secondSectionItemGroup = [[HMItemGroup alloc] initWithIdentifier:@"second_section"];
+    secondSectionItemGroup.description = NSLocalizedString(@"Sentence000001", @"Sentence000001");
+
+    // creates the menu item group
+    HMItemGroup *menuItemGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu"];
 
     // populates the menu
-    [menuItemGroup addItem:firstSectionItemGroup];
-    [menuItemGroup addItem:secondSectionItemGroup];
     [firstSectionItemGroup addItem:usersItem];
     [firstSectionItemGroup addItem:salesItem];
     [firstSectionItemGroup addItem:highlightsItem];
     [secondSectionItemGroup addItem:notificationsItem];
+
+    [menuItemGroup addItem:firstSectionItemGroup];
+    [menuItemGroup addItem:secondSectionItemGroup];
 
     // stores the menu item group
     self.menuItemGroup = menuItemGroup;
 
     // releases the objects
     [menuItemGroup release];
-    [firstSectionItemGroup release];
     [secondSectionItemGroup release];
-    [usersItem release];
-    [salesItem release];
-    [highlightsItem release];
+    [firstSectionItemGroup release];
     [notificationsItem release];
+    [highlightsItem release];
+    [salesItem release];
+    [usersItem release];
 }
 
 - (void)didSelectUsersButton {
