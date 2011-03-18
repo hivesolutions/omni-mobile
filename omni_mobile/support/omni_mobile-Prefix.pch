@@ -30,9 +30,5 @@
 #endif
 
 #ifdef __OBJC__
-    #import <UIKit/UIKit.h>
-    #import <QuartzCore/QuartzCore.h>
-    #import <Foundation/Foundation.h>
-
     #import "../headers/omni_mobile.h"
 #endif

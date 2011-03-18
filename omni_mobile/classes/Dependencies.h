@@ -23,17 +23,12 @@
 // __copyright__ = Copyright (c) 2008 Hive Solutions Lda.
 // __license__   = GNU General Public License (GPL), Version 3
 
-#import "Dependencies.h"
+// framework dependency includes
+#import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+#import <Foundation/Foundation.h>
 
-@interface MenuViewController : UITableViewController<HMItemTableViewProvider, HMItemTableViewDelegate> {
-    @private HMItemGroup *_menuItemGroup;
-}
-
-@property (retain) HMItemGroup *menuItemGroup;
-
-/**
- * Starts the internal data structures.
- */
-- (void)startStructures;
-
-@end
+// library dependency includes
+#import "../../../json_mobile/json_mobile/headers/json_mobile.h"
+#import "../../../commons_mobile/commons_mobile/headers/commons_mobile.h"
+#import "../../../commons_ui_mobile/commons_ui_mobile/headers/commons_ui_mobile.h"

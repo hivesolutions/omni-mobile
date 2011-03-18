@@ -23,17 +23,6 @@
 // __copyright__ = Copyright (c) 2008 Hive Solutions Lda.
 // __license__   = GNU General Public License (GPL), Version 3
 
-#import "Dependencies.h"
-
-@interface MenuViewController : UITableViewController<HMItemTableViewProvider, HMItemTableViewDelegate> {
-    @private HMItemGroup *_menuItemGroup;
-}
-
-@property (retain) HMItemGroup *menuItemGroup;
-
-/**
- * Starts the internal data structures.
- */
-- (void)startStructures;
-
-@end
+// framework dependency includes
+#import <UIKit/UIKit.h>
+#import <SenTestingKit/SenTestingKit.h>

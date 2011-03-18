@@ -140,6 +140,9 @@
 
 /* Begin PBXFileReference section */
 		A57BEA56132E72F0000478F7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C20CDB8E1333782D008A4FE3 /* Dependencies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dependencies.h; path = classes/Dependencies.h; sourceTree = "<group>"; };
+		C20CDB9013337933008A4FE3 /* omni_mobile_test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = omni_mobile_test.h; path = headers/omni_mobile_test.h; sourceTree = "<group>"; };
+		C20CDB9113337953008A4FE3 /* Dependencies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dependencies.h; path = classes/Dependencies.h; sourceTree = "<group>"; };
 		C20DE8F1132BC6EE0028EAD7 /* json_mobile.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = json_mobile.xcodeproj; path = ../json_mobile/json_mobile.xcodeproj; sourceTree = "<group>"; };
 		C212D8A5132A47CE00E2A078 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = classes/main.m; sourceTree = "<group>"; };
 		C212D8A8132A47CE00E2A078 /* OmniMobileAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OmniMobileAppDelegate.h; path = classes/OmniMobileAppDelegate.h; sourceTree = "<group>"; };
@@ -259,6 +262,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C20CDB8A133377F5008A4FE3 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C212D8A5132A47CE00E2A078 /* main.m */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		C20CDB8B133377FF008A4FE3 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				C212D8A8132A47CE00E2A078 /* OmniMobileAppDelegate.h */,
+				C212D8A9132A47CE00E2A078 /* OmniMobileAppDelegate.m */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		C20CDB8C1333780F008A4FE3 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C226C240132A781B00427656 /* MenuViewController.h */,
+				C226C241132A781B00427656 /* MenuViewController.m */,
+				C212D8AA132A47CE00E2A078 /* UsersViewController.h */,
+				C212D8AB132A47CE00E2A078 /* UsersViewController.m */,
+				C212D8AC132A47CE00E2A078 /* UserViewController.h */,
+				C212D8AD132A47CE00E2A078 /* UserViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		C20CDB8D1333781F008A4FE3 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				C20CDB8E1333782D008A4FE3 /* Dependencies.h */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		C20CDB8F133378EC008A4FE3 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				C20CDB9013337933008A4FE3 /* omni_mobile_test.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
 		C20DE8F2132BC6EE0028EAD7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,15 +319,10 @@
 		C212D89A132A469800E2A078 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				C226C240132A781B00427656 /* MenuViewController.h */,
-				C226C241132A781B00427656 /* MenuViewController.m */,
-				C212D8A5132A47CE00E2A078 /* main.m */,
-				C212D8A8132A47CE00E2A078 /* OmniMobileAppDelegate.h */,
-				C212D8A9132A47CE00E2A078 /* OmniMobileAppDelegate.m */,
-				C212D8AA132A47CE00E2A078 /* UsersViewController.h */,
-				C212D8AB132A47CE00E2A078 /* UsersViewController.m */,
-				C212D8AC132A47CE00E2A078 /* UserViewController.h */,
-				C212D8AD132A47CE00E2A078 /* UserViewController.m */,
+				C20CDB8D1333781F008A4FE3 /* Dependencies */,
+				C20CDB8C1333780F008A4FE3 /* View Controllers */,
+				C20CDB8B133377FF008A4FE3 /* Application */,
+				C20CDB8A133377F5008A4FE3 /* Main */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -297,6 +341,7 @@
 		C212D8C7132A483100E2A078 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C20CDB9113337953008A4FE3 /* Dependencies.h */,
 				C212D8C8132A483D00E2A078 /* OmniMobileTest.h */,
 				C212D8C9132A483D00E2A078 /* OmniMobileTest.m */,
 			);
@@ -625,6 +670,7 @@
 		C2DBDC17132A42D5006C6E07 /* Omni Mobile Test */ = {
 			isa = PBXGroup;
 			children = (
+				C20CDB8F133378EC008A4FE3 /* Headers */,
 				C212D8C7132A483100E2A078 /* Classes */,
 				C2DBDC18132A42D5006C6E07 /* Support */,
 			);
