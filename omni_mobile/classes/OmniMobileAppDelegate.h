@@ -25,7 +25,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OmniMobileAppDelegate : NSObject <UIApplicationDelegate> {
+@interface OmniMobileAppDelegate : NSObject<UIApplicationDelegate> {
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
