@@ -26,14 +26,14 @@
 #import "Dependencies.h"
 
 @interface MenuViewController : UITableViewController<HMItemTableViewProvider, HMItemTableViewDelegate> {
-    @private HMItemGroup *_menuItemGroup;
+    @private HMNamedItemGroup *_menuItemGroup;
 }
 
-@property (retain) HMItemGroup *menuItemGroup;
+@property (retain) HMNamedItemGroup *menuItemGroup;
 
 /**
- * Starts the internal data structures.
+ * Constructs the internal data structures.
  */
-- (void)startStructures;
+- (void)constructStructures;
 
 @end

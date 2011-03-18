@@ -33,8 +33,8 @@
     // calls the super
     self = [super init];
 
-    // starts the structures
-    [self startStructures];
+    // constructs the structures
+    [self constructStructures];
 
     // returns self
     return self;
@@ -44,8 +44,8 @@
     // calls the super
     self = [super initWithCoder:aDecoder];
 
-    // starts the structures
-    [self startStructures];
+    // constructs the structures
+    [self constructStructures];
 
     // returns self
     return self;
@@ -55,8 +55,8 @@
     // calls the super
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 
-    // starts the structures
-    [self startStructures];
+    // constructs the structures
+    [self constructStructures];
 
     // returns self
     return self;
@@ -70,7 +70,7 @@
     [super dealloc];
 }
 
-- (void)startStructures {
+- (void)constructStructures {
     // creates an edit button and adds it to the navigation item
     UIBarButtonItem *editUiBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:nil];
     editUiBarButton.action = @selector(editButtonClicked);
@@ -81,6 +81,14 @@
     UIImage *logoImage = [UIImage imageNamed:@"header_logo.png"];
     [imageView setImage:logoImage];
     self.navigationItem.titleView = imageView;
+
+    // creates the menu header items
+    HMItem *title = [[HMItem alloc] initWithIdentifier:@"Tobias"];
+    HMItem *subTitle = [[HMItem alloc] initWithIdentifier:@"Matias"];
+    HMItem *image = [[HMItem alloc] initWithIdentifier:@"user.png"];
+
+    // creates the menu header group
+    HMNamedItemGroup *menuHeaderGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu_header"];
 
     // creates the users button item
     HMTableCellItem *usersItem = [[HMTableCellItem alloc] initWithIdentifier:@"users"];
@@ -99,7 +107,7 @@
     salesItem.accessoryType = @"disclosure_indicator";
 
     // creates the highlights button item
-    HMTableCellItem *highlightsItem = [[HMTableCellItem alloc] initWithIdentifier:@"highlights"];
+    HMStringTableCellItem *highlightsItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"highlights"];
     highlightsItem.name = NSLocalizedString(@"Highlights", @"Highlights");
     highlightsItem.icon = @"omni_icon_highlights.png";
     highlightsItem.highlightedIcon = @"omni_icon_highlights_white.png";
@@ -121,8 +129,16 @@
     HMItemGroup *secondSectionItemGroup = [[HMItemGroup alloc] initWithIdentifier:@"second_section"];
     secondSectionItemGroup.description = NSLocalizedString(@"Sentence000001", @"Sentence000001");
 
-    // creates the menu item group
-    HMItemGroup *menuItemGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu"];
+    // creates the menu list group
+    HMItemGroup *menuListGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu_list"];
+
+    // creates the menu named item group
+    HMNamedItemGroup *menuNamedItemGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu"];
+
+    // populates the menu header
+    [menuHeaderGroup addItem:@"title" item:title];
+    [menuHeaderGroup addItem:@"subTitle" item:subTitle];
+    [menuHeaderGroup addItem:@"image" item:image];
 
     // populates the menu
     [firstSectionItemGroup addItem:usersItem];
@@ -130,20 +146,29 @@
     [firstSectionItemGroup addItem:highlightsItem];
     [secondSectionItemGroup addItem:notificationsItem];
 
-    [menuItemGroup addItem:firstSectionItemGroup];
-    [menuItemGroup addItem:secondSectionItemGroup];
+    [menuListGroup addItem:firstSectionItemGroup];
+    [menuListGroup addItem:secondSectionItemGroup];
+
+    // adds the menu items to the menu item group
+    [menuNamedItemGroup addItem:@"header" item:menuHeaderGroup];
+    [menuNamedItemGroup addItem:@"list" item:menuListGroup];
 
     // stores the menu item group
-    self.menuItemGroup = menuItemGroup;
+    self.menuItemGroup = menuNamedItemGroup;
 
     // releases the objects
-    [menuItemGroup release];
+    [menuNamedItemGroup release];
+    [menuListGroup release];
     [secondSectionItemGroup release];
     [firstSectionItemGroup release];
     [notificationsItem release];
     [highlightsItem release];
     [salesItem release];
     [usersItem release];
+    [menuHeaderGroup release];
+    [image release];
+    [subTitle release];
+    [title release];
 }
 
 - (void)didSelectUsersButton {
@@ -174,7 +199,7 @@
     }
 }
 
-- (HMItemGroup *)getItemSpecification {
+- (HMNamedItemGroup *)getItemSpecification {
     return self.menuItemGroup;
 }
 
