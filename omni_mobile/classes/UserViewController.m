@@ -33,12 +33,6 @@
     // calls the super
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 
-    // creates the edit ui bar button
-    UIBarButtonItem *editUiBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editButtonClick:extra:)];
-
-    // sets the edit ui bar button
-    self.navigationItem.rightBarButtonItem = editUiBarButton;
-
     // returns the instance
     return self;
 }
@@ -70,18 +64,80 @@
     [self updateRemote];
 }
 
-- (void)editButtonClick:(id)sender extra:(id)extra {
-    // in case the table view is in editing mode
-    if(self.tableView.editing) {
-        // sets the table view as not editing
-        self.tableView.editing = NO;
-    }
-    // otherwise it must not be editing
-    else {
-        // sets the table view as editing
-        self.tableView.editing = YES;
-    }
+- (void)processRemoteData:(NSDictionary *)remoteData {
+    // calls the super
+    [super processRemoteData:remoteData];
 
+    // retrieves the remote data attributes
+    NSString *username = [remoteData objectForKey:@"username"];
+    NSString *password = [remoteData objectForKey:@"password_hash"];
+    NSString *email = [remoteData objectForKey:@"email"];
+    NSString *secretQuestion = [remoteData objectForKey:@"secret_question"];
+    NSString *secretAnswer = [remoteData objectForKey:@"secret_answer"];
+
+    // creates the menu header items
+    HMItem *title = [[HMItem alloc] initWithIdentifier:username];
+    HMItem *subTitle = [[HMItem alloc] initWithIdentifier:username];
+    HMItem *image = [[HMItem alloc] initWithIdentifier:@"user.png"];
+
+    // creates the menu header group
+    HMNamedItemGroup *menuHeaderGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu_header"];
+
+    // creates the password string table cell
+    HMStringTableCellItem *passwordItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"password"];
+    passwordItem.name = NSLocalizedString(@"Password", @"Password");
+    passwordItem.description = password;
+    passwordItem.highlightable = YES;
+
+    // creates the password string table cell
+    HMStringTableCellItem *emailItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"email"];
+    emailItem.name = NSLocalizedString(@"E-mail", @"E-mail");
+    emailItem.description = email;
+    emailItem.highlightable = YES;
+
+    // creates the first section item group
+    HMItemGroup *firstSectionItemGroup = [[HMItemGroup alloc] initWithIdentifier:@"first_section"];
+
+    // creates the menu list group
+    HMItemGroup *menuListGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu_list"];
+
+    // creates the menu named item group
+    HMNamedItemGroup *menuNamedItemGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu"];
+
+    // populates the menu header
+    [menuHeaderGroup addItem:@"title" item:title];
+    [menuHeaderGroup addItem:@"subTitle" item:subTitle];
+    [menuHeaderGroup addItem:@"image" item:image];
+
+    // populates the menu list
+    [firstSectionItemGroup addItem:passwordItem];
+    [firstSectionItemGroup addItem:emailItem];
+
+    // adds the sections to the menu list
+    [menuListGroup addItem:firstSectionItemGroup];
+
+    // adds the menu items to the menu item group
+    [menuNamedItemGroup addItem:@"header" item:menuHeaderGroup];
+    [menuNamedItemGroup addItem:@"list" item:menuListGroup];
+
+    // sets the attributes
+    self.remoteGroup = menuNamedItemGroup;
+
+    // releases the objects
+    [menuNamedItemGroup release];
+    [menuListGroup release];
+    [firstSectionItemGroup release];
+    [passwordItem release];
+    [emailItem release];
+    [menuHeaderGroup release];
+    [image release];
+    [subTitle release];
+    [title release];
+}
+
+- (void)convertRemoteGroup:(HMNamedItemGroup *)remoteGroup {
+    // calls the super
+    [super convertRemoteGroup:remoteGroup];
 }
 
 - (void)didReceiveMemoryWarning {
