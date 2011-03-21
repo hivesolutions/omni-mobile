@@ -146,7 +146,10 @@
     // releases the objects
     [menuNamedItemGroup release];
     [menuListGroup release];
+    [secondSectionItemGroup release];
     [firstSectionItemGroup release];
+    [secretAnswerItem release];
+    [secretQuestionItem release];
     [passwordItem release];
     [emailItem release];
     [menuHeaderGroup release];
