@@ -106,6 +106,7 @@
     HMStringTableCellItem *secretAnswerItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"secret_answer"];
     secretAnswerItem.name = NSLocalizedString(@"Answer", @"Answer");
     secretAnswerItem.description = secretAnswer;
+    secretAnswerItem.secure = YES;
     secretAnswerItem.highlightable = YES;
 
     // creates the sections item group

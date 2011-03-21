@@ -119,7 +119,7 @@
 
     // creates the second section item group
     HMItemGroup *secondSectionItemGroup = [[HMItemGroup alloc] initWithIdentifier:@"second_section"];
-    secondSectionItemGroup.description = NSLocalizedString(@"Sentence000001", @"Sentence000001");
+    secondSectionItemGroup.footer = NSLocalizedString(@"Sentence000001", @"Sentence000001");
 
     // creates the menu list group
     HMItemGroup *menuListGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu_list"];
