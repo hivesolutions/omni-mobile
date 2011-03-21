@@ -139,6 +139,12 @@
     // calls the super
     NSMutableDictionary *remoteData = [super convertRemoteGroup];
 
+    // retrieves the menu header named group
+    HMNamedItemGroup *menuHeaderNamedGroup = (HMNamedItemGroup *) [self.remoteGroup getItem:@"header"];
+
+    // retrieves the items
+    HMItem *username = [menuHeaderNamedGroup getItem:@"title"];
+
     // retrieves the menu list group
     HMItemGroup *menuListGroup = (HMItemGroup *) [self.remoteGroup getItem:@"list"];
 
@@ -154,11 +160,9 @@
     NSString *objectIdString = [objectId stringValue];
 
     // sets the items in the remote data
+    [remoteData setObject:username.identifier forKey:@"user[username]"];
     [remoteData setObject:passwordItem.description forKey:@"user[password_hash]"];
     [remoteData setObject:emailItem.description forKey:@"user[email]"];
-
-    // @TODO HARDCODED
-    [remoteData setObject:@"smagalhaes" forKey:@"user[username]"];
 
     // sets the object id (structured and unstructured)
     [remoteData setObject:objectIdString forKey:@"user[object_id]"];
