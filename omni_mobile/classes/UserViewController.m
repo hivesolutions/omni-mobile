@@ -73,7 +73,7 @@
     NSString *password = [remoteData objectForKey:@"password_hash"];
     NSString *email = [remoteData objectForKey:@"email"];
     NSString *secretQuestion = [remoteData objectForKey:@"secret_question"];
-    NSString *secretAnswer = [remoteData objectForKey:@"secret_answer"];
+    NSString *secretAnswer = [remoteData objectForKey:@"secret_answer_hash"];
 
     // creates the menu header items
     HMItem *title = [[HMItem alloc] initWithIdentifier:username];
@@ -87,16 +87,30 @@
     HMStringTableCellItem *passwordItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"password"];
     passwordItem.name = NSLocalizedString(@"Password", @"Password");
     passwordItem.description = password;
+    passwordItem.secure = YES;
     passwordItem.highlightable = YES;
 
-    // creates the password string table cell
+    // creates the email string table cell
     HMStringTableCellItem *emailItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"email"];
     emailItem.name = NSLocalizedString(@"E-mail", @"E-mail");
     emailItem.description = email;
     emailItem.highlightable = YES;
 
-    // creates the first section item group
+    // creates the secret question string table cell
+    HMStringTableCellItem *secretQuestionItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"secret_question"];
+    secretQuestionItem.name = NSLocalizedString(@"Question", @"Question");
+    secretQuestionItem.description = secretQuestion;
+    secretQuestionItem.highlightable = YES;
+
+    // creates the secret answer string table cell
+    HMStringTableCellItem *secretAnswerItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"secret_answer"];
+    secretAnswerItem.name = NSLocalizedString(@"Answer", @"Answer");
+    secretAnswerItem.description = secretAnswer;
+    secretAnswerItem.highlightable = YES;
+
+    // creates the sections item group
     HMItemGroup *firstSectionItemGroup = [[HMItemGroup alloc] initWithIdentifier:@"first_section"];
+    HMItemGroup *secondSectionItemGroup = [[HMItemGroup alloc] initWithIdentifier:@"second_section"];
 
     // creates the menu list group
     HMItemGroup *menuListGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu_list"];
@@ -109,12 +123,17 @@
     [menuHeaderGroup addItem:@"subTitle" item:subTitle];
     [menuHeaderGroup addItem:@"image" item:image];
 
-    // populates the menu list
+    // populates the first section item list
     [firstSectionItemGroup addItem:passwordItem];
     [firstSectionItemGroup addItem:emailItem];
 
+    // populates the second section item list
+    [secondSectionItemGroup addItem:secretQuestionItem];
+    [secondSectionItemGroup addItem:secretAnswerItem];
+
     // adds the sections to the menu list
     [menuListGroup addItem:firstSectionItemGroup];
+    [menuListGroup addItem:secondSectionItemGroup];
 
     // adds the menu items to the menu item group
     [menuNamedItemGroup addItem:@"header" item:menuHeaderGroup];
@@ -148,12 +167,17 @@
     // retrieves the menu list group
     HMItemGroup *menuListGroup = (HMItemGroup *) [self.remoteGroup getItem:@"list"];
 
-    // retreves the firs section item group
+    // retreves the section item groups
     HMItemGroup *firstSectionItemGroup = (HMItemGroup *) [menuListGroup getItem:0];
+    HMItemGroup *secondSectionItemGroup = (HMItemGroup *) [menuListGroup getItem:1];
 
-    // retrieves the items
+    // retrieves the first section items
     HMItem *passwordItem = [firstSectionItemGroup getItem:0];
     HMItem *emailItem = [firstSectionItemGroup getItem:1];
+
+    // retrieves the second section items
+    HMItem *secretQuestion = [secondSectionItemGroup getItem:0];
+    HMItem *secretAnswer = [secondSectionItemGroup getItem:1];
 
     // retrieves the object id
     NSNumber *objectId = [self.entity objectForKey:@"object_id"];
@@ -163,6 +187,8 @@
     [remoteData setObject:username.identifier forKey:@"user[username]"];
     [remoteData setObject:passwordItem.description forKey:@"user[password_hash]"];
     [remoteData setObject:emailItem.description forKey:@"user[email]"];
+    [remoteData setObject:secretQuestion.description forKey:@"user[secret_question]"];
+    [remoteData setObject:secretAnswer.description forKey:@"user[secret_answer_hash]"];
 
     // sets the object id (structured and unstructured)
     [remoteData setObject:objectIdString forKey:@"user[object_id]"];
