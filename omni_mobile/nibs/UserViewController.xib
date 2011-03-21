@@ -182,8 +182,16 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
+					<string key="className">HMRemoteItemTableViewController</string>
+					<string key="superclassName">UITableViewController</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/HMRemoteItemTableViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">UserViewController</string>
-					<string key="superclassName">UIViewController</string>
+					<string key="superclassName">HMRemoteItemTableViewController</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/UserViewController.h</string>
