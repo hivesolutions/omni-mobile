@@ -149,9 +149,20 @@
     HMItem *passwordItem = [firstSectionItemGroup getItem:0];
     HMItem *emailItem = [firstSectionItemGroup getItem:1];
 
+    // retrieves the object id
+    NSNumber *objectId = [self.entity objectForKey:@"object_id"];
+    NSString *objectIdString = [objectId stringValue];
+
     // sets the items in the remote data
-    [remoteData setObject:passwordItem.description forKey:@"password_hash"];
-    [remoteData setObject:emailItem.description forKey:@"email"];
+    [remoteData setObject:passwordItem.description forKey:@"user[password_hash]"];
+    [remoteData setObject:emailItem.description forKey:@"user[email]"];
+
+    // @TODO HARDCODED
+    [remoteData setObject:@"smagalhaes" forKey:@"user[username]"];
+
+    // sets the object id (structured and unstructured)
+    [remoteData setObject:objectIdString forKey:@"user[object_id]"];
+    [remoteData setObject:objectIdString forKey:@"object_id"];
 
     // returns the remote data
     return remoteData;
