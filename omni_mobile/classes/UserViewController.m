@@ -135,9 +135,26 @@
     [title release];
 }
 
-- (void)convertRemoteGroup:(HMNamedItemGroup *)remoteGroup {
+- (NSMutableDictionary *)convertRemoteGroup {
     // calls the super
-    [super convertRemoteGroup:remoteGroup];
+    NSMutableDictionary *remoteData = [super convertRemoteGroup];
+
+    // retrieves the menu list group
+    HMItemGroup *menuListGroup = (HMItemGroup *) [self.remoteGroup getItem:@"list"];
+
+    // retreves the firs section item group
+    HMItemGroup *firstSectionItemGroup = (HMItemGroup *) [menuListGroup getItem:0];
+
+    // retrieves the items
+    HMItem *passwordItem = [firstSectionItemGroup getItem:0];
+    HMItem *emailItem = [firstSectionItemGroup getItem:1];
+
+    // sets the items in the remote data
+    [remoteData setObject:passwordItem.description forKey:@"password_hash"];
+    [remoteData setObject:emailItem.description forKey:@"email"];
+
+    // returns the remote data
+    return remoteData;
 }
 
 - (void)didReceiveMemoryWarning {
