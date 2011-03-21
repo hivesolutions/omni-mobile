@@ -26,7 +26,8 @@
 #import "Dependencies.h"
 
 @interface MenuViewController : UITableViewController<HMItemTableViewProvider, HMItemTableViewDelegate> {
-    @private HMNamedItemGroup *_menuItemGroup;
+    @private
+    HMNamedItemGroup *_menuItemGroup;
 }
 
 @property (retain) HMNamedItemGroup *menuItemGroup;

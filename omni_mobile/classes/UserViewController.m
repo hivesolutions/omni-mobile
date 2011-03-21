@@ -71,10 +71,14 @@
 }
 
 - (void)editButtonClick:(id)sender extra:(id)extra {
-    // in case the
+    // in case the table view is in editing mode
     if(self.tableView.editing) {
+        // sets the table view as not editing
         self.tableView.editing = NO;
-    } else {
+    }
+    // otherwise it must not be editing
+    else {
+        // sets the table view as editing
         self.tableView.editing = YES;
     }
 
