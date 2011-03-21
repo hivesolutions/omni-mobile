@@ -71,11 +71,6 @@
 }
 
 - (void)loadSettings {
-    // retrieves the preferences
-    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
-
-    // retrieves the notifications value
-    BOOL notifications = (BOOL) [preferences objectForKey:@"notifications"];
 }
 
 - (void)saveSettings:(NSString *)data {
