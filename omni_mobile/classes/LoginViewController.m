@@ -27,6 +27,8 @@
 
 @implementation LoginViewController
 
+@synthesize loginItemGroup = _loginItemGroup;
+
 - (id)init {
     // calls the super
     self = [super init];
@@ -72,8 +74,150 @@
     // creates the backgroun color with the pattern image
     UIColor *backgroundColor = [UIColor colorWithPatternImage:backgroundPatternImage];
 
-    // sets the background color in the view
+    // retrieves the first child as the table view
+    UITableView *tableView = [self.view.subviews objectAtIndex:0];
+
+    // sets the background color in the table view (as transparent)
+    tableView.backgroundColor = [UIColor clearColor];
+
+    // sets the view background color
     self.view.backgroundColor = backgroundColor;
+
+    // changes the title's image view
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 74, 22)];
+    UIImage *logoImage = [UIImage imageNamed:@"header_logo.png"];
+    [imageView setImage:logoImage];
+    self.navigationItem.titleView = imageView;
+
+    // creates the users button item
+    HMTableCellItem *usersItem = [[HMTableCellItem alloc] initWithIdentifier:@"users"];
+    usersItem.name = NSLocalizedString(@"Users", @"Users");
+    usersItem.icon = @"icon_users.png";
+    usersItem.highlightedIcon = @"icon_users_white.png";
+    usersItem.highlightable = YES;
+    usersItem.accessoryType = @"disclosure_indicator";
+
+    // creates the sales button item
+    HMTableCellItem *salesItem = [[HMTableCellItem alloc] initWithIdentifier:@"sales"];
+    salesItem.name = NSLocalizedString(@"Sales", @"Sales");
+    salesItem.icon = @"icon_sales.png";
+    salesItem.highlightedIcon = @"icon_sales_white.png";
+    salesItem.highlightable = YES;
+    salesItem.accessoryType = @"disclosure_indicator";
+
+    // creates the purchases button item
+    HMTableCellItem *purchasesItem = [[HMTableCellItem alloc] initWithIdentifier:@"purchases"];
+    purchasesItem.name = NSLocalizedString(@"Purchases", @"Purchases");
+    purchasesItem.icon = @"icon_purchases.png";
+    purchasesItem.highlightedIcon = @"icon_purchases_white.png";
+    purchasesItem.highlightable = YES;
+    purchasesItem.accessoryType = @"disclosure_indicator";
+
+    // creates the inventory button item
+    HMTableCellItem *inventoryItem = [[HMTableCellItem alloc] initWithIdentifier:@"inventory"];
+    inventoryItem.name = NSLocalizedString(@"Inventory", @"Inventory");
+    inventoryItem.icon = @"icon_inventory.png";
+    inventoryItem.highlightedIcon = @"icon_inventory_white.png";
+    inventoryItem.highlightable = YES;
+    inventoryItem.accessoryType = @"disclosure_indicator";
+
+    // creates the highlights button item
+    HMStringTableCellItem *highlightsItem = [[HMTableCellItem alloc] initWithIdentifier:@"highlights"];
+    highlightsItem.name = NSLocalizedString(@"Highlights", @"Highlights");
+    highlightsItem.icon = @"icon_highlights.png";
+    highlightsItem.highlightedIcon = @"icon_highlights_white.png";
+    highlightsItem.highlightable = YES;
+    highlightsItem.accessoryType = @"disclosure_indicator";
+
+    // creates the notifications button item
+    HMTableCellItem *notificationsItem = [[HMTableCellItem alloc] initWithIdentifier:@"notifications"];
+    notificationsItem.name = NSLocalizedString(@"Notifications", @"Notifications");
+    notificationsItem.icon = nil;
+    notificationsItem.highlightedIcon = nil;
+    notificationsItem.highlightable = NO;
+    notificationsItem.accessoryType = @"switch";
+
+    // creates the first section item group
+    HMItemGroup *firstSectionItemGroup = [[HMItemGroup alloc] initWithIdentifier:@"first_section"];
+
+    // creates the second section item group
+    HMItemGroup *secondSectionItemGroup = [[HMItemGroup alloc] initWithIdentifier:@"second_section"];
+    secondSectionItemGroup.footer = NSLocalizedString(@"Sentence000001", @"Sentence000001");
+
+    // creates the menu list group
+    HMItemGroup *menuListGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu_list"];
+
+    // creates the menu named item group
+    HMNamedItemGroup *menuNamedItemGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu"];
+
+    // populates the menu
+    [firstSectionItemGroup addItem:usersItem];
+    [firstSectionItemGroup addItem:salesItem];
+    [firstSectionItemGroup addItem:purchasesItem];
+    [firstSectionItemGroup addItem:inventoryItem];
+    [firstSectionItemGroup addItem:highlightsItem];
+    [secondSectionItemGroup addItem:notificationsItem];
+
+    [menuListGroup addItem:firstSectionItemGroup];
+    [menuListGroup addItem:secondSectionItemGroup];
+
+    // adds the menu items to the menu item group
+    [menuNamedItemGroup addItem:@"list" item:menuListGroup];
+
+    // stores the menu item group
+    self.loginItemGroup = menuNamedItemGroup;
+
+    // releases the objects
+    [menuNamedItemGroup release];
+    [menuListGroup release];
+    [secondSectionItemGroup release];
+    [firstSectionItemGroup release];
+    [notificationsItem release];
+    [highlightsItem release];
+    [salesItem release];
+    [usersItem release];
+}
+
+- (void)didSelectUsersButton {
+    // initializes the users view controller
+    UsersViewController *usersViewController = [[UsersViewController alloc] initWithNibName:@"UsersViewController" bundle:[NSBundle mainBundle]];
+
+    // pushes the user view controller
+    [self.navigationController pushViewController:usersViewController animated:YES];
+
+    // releases the users view controller reference
+    [usersViewController release];
+}
+
+- (HMNamedItemGroup *)getItemSpecification {
+    return self.loginItemGroup;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return YES;
+}
+
+- (void)didSelectItemRowWithItem:(HMItem *)item {
+    if(item.identifier == @"users") {
+        [self didSelectUsersButton];
+    }
+    else {
+        // initializes the menu view controller
+        MenuViewController *menuViewController = [[MenuViewController alloc] initWithNibName:@"MenuViewController" bundle:[NSBundle mainBundle]];
+
+        // pushes the menu view controller into the navigation controller
+        [self.navigationController pushViewController:menuViewController animated:YES];
+
+        // releases the menu view controller reference
+        [menuViewController release];
+    }
+}
+
+- (void)didDeselectItemRowWithItem:(HMItem *)item {
 }
 
 @end

@@ -73,23 +73,18 @@
 - (void)viewDidAppear:(BOOL)animated {
     // calls the super
     [super viewDidAppear:animated];
-    
+
     // initializes the login view controller
     LoginViewController *loginViewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:[NSBundle mainBundle]];
-    
+
     // pushes the login view controller
     [self.navigationController presentModalViewController:loginViewController animated:YES];
-    
+
     // releases the login view controller reference
     [loginViewController release];
 }
 
-- (void)constructStructures {   
-    // creates an edit button and adds it to the navigation item
-    UIBarButtonItem *editUiBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:nil];
-    editUiBarButton.action = @selector(editButtonClicked);
-    self.navigationItem.rightBarButtonItem = editUiBarButton;
-
+- (void)constructStructures {
     // changes the title's image view
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 74, 22)];
     UIImage *logoImage = [UIImage imageNamed:@"header_logo.png"];
@@ -194,23 +189,6 @@
 
     // releases the users view controller reference
     [usersViewController release];
-}
-
-- (void) editButtonClicked {
-    // toggles the table's editing mode
-    if(self.editing) {
-        // disables the table's editing mode
-        [self setEditing:NO animated:YES];
-
-        // changes the button's title to edit
-        self.navigationItem.rightBarButtonItem.title = NSLocalizedString(@"Edit", @"Edit");
-    } else {
-        // enables the table's editing mode
-        [self setEditing:YES animated:YES];
-
-        // changes the button's title to done
-        self.navigationItem.rightBarButtonItem.title = NSLocalizedString(@"Done", @"Done");
-    }
 }
 
 - (HMNamedItemGroup *)getItemSpecification {

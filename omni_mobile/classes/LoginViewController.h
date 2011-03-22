@@ -25,8 +25,12 @@
 
 #import "Dependencies.h"
 
-@interface LoginViewController : UIViewController {
+@interface LoginViewController : UIViewController<HMItemTableViewProvider, HMItemTableViewDelegate> {
+    @private
+    HMNamedItemGroup *_loginItemGroup;
 }
+
+@property (retain) HMNamedItemGroup *loginItemGroup;
 
 /**
  * Constructs the internal data structures.
