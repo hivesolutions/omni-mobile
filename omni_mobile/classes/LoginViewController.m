@@ -138,10 +138,10 @@
     notificationsItem.accessoryType = @"switch";
 
     // creates the first section item group
-    HMItemGroup *firstSectionItemGroup = [[HMItemGroup alloc] initWithIdentifier:@"first_section"];
+    HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
 
     // creates the second section item group
-    HMItemGroup *secondSectionItemGroup = [[HMItemGroup alloc] initWithIdentifier:@"second_section"];
+    HMTableSectionItemGroup *secondSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"second_section"];
     secondSectionItemGroup.footer = NSLocalizedString(@"Sentence000001", @"Sentence000001");
 
     // creates the menu list group
