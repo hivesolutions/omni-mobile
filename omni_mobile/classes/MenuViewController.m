@@ -110,7 +110,7 @@
     inventoryItem.accessoryType = @"disclosure_indicator";
 
     // creates the highlights button item
-    HMStringTableCellItem *highlightsItem = [[HMTableCellItem alloc] initWithIdentifier:@"highlights"];
+    HMTableCellItem *highlightsItem = [[HMTableCellItem alloc] initWithIdentifier:@"highlights"];
     highlightsItem.name = NSLocalizedString(@"Highlights", @"Highlights");
     highlightsItem.icon = @"icon_highlights.png";
     highlightsItem.highlightedIcon = @"icon_highlights_white.png";
