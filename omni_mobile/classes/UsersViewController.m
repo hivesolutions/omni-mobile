@@ -49,10 +49,16 @@
 
 - (void)newUser {
     // initializes the users view controller
-    UserViewController *userViewController = [[UserViewController alloc] initWithNibName:@"UserViewController" bundle:[NSBundle mainBundle]];
+    UserViewController *userViewController = [[UserViewController alloc] initWithNibNameAndType:@"UserViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationCreate];
+
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:userViewController];
 
     // presents the user view controller into the navigation controller
-    [self presentModalViewController:userViewController animated:YES];
+    [self presentModalViewController:navigationController animated:YES];
+
+//    userViewController.navigationController.navigationBarHidden = NO;
+ //   userViewController.navigationBar = [[UINavigationBar alloc] init];
+
 
     // releases the user view controller reference
     [userViewController release];
