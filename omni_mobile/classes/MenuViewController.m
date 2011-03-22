@@ -70,7 +70,21 @@
     [super dealloc];
 }
 
-- (void)constructStructures {
+- (void)viewDidAppear:(BOOL)animated {
+    // calls the super
+    [super viewDidAppear:animated];
+    
+    // initializes the login view controller
+    LoginViewController *loginViewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:[NSBundle mainBundle]];
+    
+    // pushes the login view controller
+    [self.navigationController presentModalViewController:loginViewController animated:YES];
+    
+    // releases the login view controller reference
+    [loginViewController release];
+}
+
+- (void)constructStructures {   
     // creates an edit button and adds it to the navigation item
     UIBarButtonItem *editUiBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:nil];
     editUiBarButton.action = @selector(editButtonClicked);
@@ -85,24 +99,40 @@
     // creates the users button item
     HMTableCellItem *usersItem = [[HMTableCellItem alloc] initWithIdentifier:@"users"];
     usersItem.name = NSLocalizedString(@"Users", @"Users");
-    usersItem.icon = @"omni_icon_users.png";
-    usersItem.highlightedIcon = @"omni_icon_users_white.png";
+    usersItem.icon = @"icon_users.png";
+    usersItem.highlightedIcon = @"icon_users_white.png";
     usersItem.highlightable = YES;
     usersItem.accessoryType = @"disclosure_indicator";
 
     // creates the sales button item
     HMTableCellItem *salesItem = [[HMTableCellItem alloc] initWithIdentifier:@"sales"];
     salesItem.name = NSLocalizedString(@"Sales", @"Sales");
-    salesItem.icon = @"omni_icon_sales.png";
-    salesItem.highlightedIcon = @"omni_icon_sales_white.png";
+    salesItem.icon = @"icon_sales.png";
+    salesItem.highlightedIcon = @"icon_sales_white.png";
     salesItem.highlightable = YES;
     salesItem.accessoryType = @"disclosure_indicator";
+
+    // creates the purchases button item
+    HMTableCellItem *purchasesItem = [[HMTableCellItem alloc] initWithIdentifier:@"purchases"];
+    purchasesItem.name = NSLocalizedString(@"Purchases", @"Purchases");
+    purchasesItem.icon = @"icon_purchases.png";
+    purchasesItem.highlightedIcon = @"icon_purchases_white.png";
+    purchasesItem.highlightable = YES;
+    purchasesItem.accessoryType = @"disclosure_indicator";
+
+    // creates the inventory button item
+    HMTableCellItem *inventoryItem = [[HMTableCellItem alloc] initWithIdentifier:@"inventory"];
+    inventoryItem.name = NSLocalizedString(@"Inventory", @"Inventory");
+    inventoryItem.icon = @"icon_inventory.png";
+    inventoryItem.highlightedIcon = @"icon_inventory_white.png";
+    inventoryItem.highlightable = YES;
+    inventoryItem.accessoryType = @"disclosure_indicator";
 
     // creates the highlights button item
     HMStringTableCellItem *highlightsItem = [[HMTableCellItem alloc] initWithIdentifier:@"highlights"];
     highlightsItem.name = NSLocalizedString(@"Highlights", @"Highlights");
-    highlightsItem.icon = @"omni_icon_highlights.png";
-    highlightsItem.highlightedIcon = @"omni_icon_highlights_white.png";
+    highlightsItem.icon = @"icon_highlights.png";
+    highlightsItem.highlightedIcon = @"icon_highlights_white.png";
     highlightsItem.highlightable = YES;
     highlightsItem.accessoryType = @"disclosure_indicator";
 
@@ -130,6 +160,8 @@
     // populates the menu
     [firstSectionItemGroup addItem:usersItem];
     [firstSectionItemGroup addItem:salesItem];
+    [firstSectionItemGroup addItem:purchasesItem];
+    [firstSectionItemGroup addItem:inventoryItem];
     [firstSectionItemGroup addItem:highlightsItem];
     [secondSectionItemGroup addItem:notificationsItem];
 

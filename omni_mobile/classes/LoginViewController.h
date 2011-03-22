@@ -23,12 +23,14 @@
 // __copyright__ = Copyright (c) 2008 Hive Solutions Lda.
 // __license__   = GNU General Public License (GPL), Version 3
 
-// dependencies includes
-#import "../classes/Dependencies.h"
+#import "Dependencies.h"
 
-// class includes
-#import "../classes/MenuViewController.h"
-#import "../classes/OmniMobileAppDelegate.h"
-#import "../classes/UsersViewController.h"
-#import "../classes/UserViewController.h"
-#import "../classes/LoginViewController.h"
+@interface LoginViewController : UIViewController {
+}
+
+/**
+ * Constructs the internal data structures.
+ */
+- (void)constructStructures;
+
+@end

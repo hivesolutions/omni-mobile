@@ -25,6 +25,9 @@
 
 #import "Dependencies.h"
 
+#import "LoginViewController.h"
+#import "UsersViewController.h"
+
 @interface MenuViewController : UITableViewController<HMItemTableViewProvider, HMItemTableViewDelegate> {
     @private
     HMNamedItemGroup *_menuItemGroup;
