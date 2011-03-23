@@ -138,6 +138,8 @@
     // creates the second section footer item
     HMLabelItem *secondSectionFooterItem = [[HMLabelItem alloc] initWithIdentifier:@"second_section_footer"];
     secondSectionFooterItem.description =  NSLocalizedString(@"Sentence000001", @"Sentence000001");
+    secondSectionFooterItem.fontName = @"Helvetica-Bold";
+    secondSectionFooterItem.fontSize = 15;
 
     // sets the footer's colors
     HMColor *secondSectionFooterTextColor = [[HMColor alloc] initRed:1.0 green:1.0 blue:1.0 alpha:1.0];
