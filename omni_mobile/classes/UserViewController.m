@@ -284,11 +284,11 @@
     [remoteData setObject:username.identifier forKey:@"user[username]"];
     [remoteData setObject:emailItem.description forKey:@"user[email]"];
     [remoteData setObject:secretQuestion.description forKey:@"user[secret_question]"];
-    [remoteData setObject:secretAnswer.description forKey:@"user[secret_answer_hash]"];
 
-    // sets the password fields
+    // sets the parameter items in the remote data
     [remoteData setObject:passwordItem.description forKey:@"user[_parameters][password]"];
     [remoteData setObject:passwordItem.description forKey:@"user[_parameters][confirm_password]"];
+    [remoteData setObject:secretAnswer.description forKey:@"user[_parameters][secret_answer]"];
 
     // @TODO CHANGE THIS HARDCODE
     switch(self.operationType) {
