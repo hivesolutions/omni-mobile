@@ -51,17 +51,17 @@
     // initializes the users view controller
     UserViewController *userViewController = [[UserViewController alloc] initWithNibNameAndType:@"UserViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationCreate];
 
+    // creates the navigation controller
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:userViewController];
 
     // presents the user view controller into the navigation controller
     [self presentModalViewController:navigationController animated:YES];
 
-//    userViewController.navigationController.navigationBarHidden = NO;
- //   userViewController.navigationBar = [[UINavigationBar alloc] init];
-
-
     // releases the user view controller reference
     [userViewController release];
+
+    // releases the navigation controller reference
+    [navigationController release];
 }
 
 - (void)viewDidLoad {
@@ -106,7 +106,7 @@
 
 - (void)didSelectRemoteRowWithData:(NSDictionary *)data {
     // initializes the users view controller
-    UserViewController *userViewController = [[UserViewController alloc] initWithNibName:@"UserViewController" bundle:[NSBundle mainBundle]];
+    UserViewController *userViewController = [[UserViewController alloc] initWithNibNameAndType:@"UserViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationRead];
 
     // changes the user in the entity
     [userViewController changeEntity:data];
