@@ -39,7 +39,7 @@
 
 - (void)dealloc {
     // releases the entity
-    [self.entity release];
+    [_entity release];
 
     // calls the super
     [super dealloc];
