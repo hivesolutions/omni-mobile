@@ -96,7 +96,6 @@
     usersItem.name = NSLocalizedString(@"Users", @"Users");
     usersItem.icon = @"icon_users.png";
     usersItem.highlightedIcon = @"icon_users_white.png";
-    usersItem.highlightable = YES;
     usersItem.accessoryType = @"disclosure_indicator";
 
     // creates the sales button item
@@ -104,7 +103,6 @@
     salesItem.name = NSLocalizedString(@"Sales", @"Sales");
     salesItem.icon = @"icon_sales.png";
     salesItem.highlightedIcon = @"icon_sales_white.png";
-    salesItem.highlightable = YES;
     salesItem.accessoryType = @"disclosure_indicator";
 
     // creates the purchases button item
@@ -112,7 +110,6 @@
     purchasesItem.name = NSLocalizedString(@"Purchases", @"Purchases");
     purchasesItem.icon = @"icon_purchases.png";
     purchasesItem.highlightedIcon = @"icon_purchases_white.png";
-    purchasesItem.highlightable = YES;
     purchasesItem.accessoryType = @"disclosure_indicator";
 
     // creates the inventory button item
@@ -120,7 +117,6 @@
     inventoryItem.name = NSLocalizedString(@"Inventory", @"Inventory");
     inventoryItem.icon = @"icon_inventory.png";
     inventoryItem.highlightedIcon = @"icon_inventory_white.png";
-    inventoryItem.highlightable = YES;
     inventoryItem.accessoryType = @"disclosure_indicator";
 
     // creates the highlights button item
@@ -128,14 +124,11 @@
     highlightsItem.name = NSLocalizedString(@"Highlights", @"Highlights");
     highlightsItem.icon = @"icon_highlights.png";
     highlightsItem.highlightedIcon = @"icon_highlights_white.png";
-    highlightsItem.highlightable = YES;
     highlightsItem.accessoryType = @"disclosure_indicator";
 
     // creates the notifications button item
     HMTableCellItem *notificationsItem = [[HMTableCellItem alloc] initWithIdentifier:@"notifications"];
     notificationsItem.name = NSLocalizedString(@"Notifications", @"Notifications");
-    notificationsItem.icon = nil;
-    notificationsItem.highlightedIcon = nil;
     notificationsItem.highlightable = NO;
     notificationsItem.accessoryType = @"switch";
 
@@ -145,6 +138,8 @@
     // creates the second section footer item
     HMLabelItem *secondSectionFooterItem = [[HMLabelItem alloc] initWithIdentifier:@"second_section_footer"];
     secondSectionFooterItem.description =  NSLocalizedString(@"Sentence000001", @"Sentence000001");
+    secondSectionFooterItem.fontName = @"Helvetica-Bold";
+    secondSectionFooterItem.fontSize = 15;
 
     // sets the footer's colors
     HMColor *secondSectionFooterTextColor = [[HMColor alloc] initRed:1.0 green:1.0 blue:1.0 alpha:1.0];
