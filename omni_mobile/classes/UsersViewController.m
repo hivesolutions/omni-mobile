@@ -106,7 +106,7 @@
 
 - (void)didSelectRemoteRowWithData:(NSDictionary *)data {
     // initializes the users view controller
-    UserViewController *userViewController = [[UserViewController alloc] initWithNibNameAndType:@"UserViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationUpdate];
+    UserViewController *userViewController = [[UserViewController alloc] initWithNibNameAndType:@"UserViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationRead];
 
     // changes the user in the entity
     [userViewController changeEntity:data];

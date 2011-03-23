@@ -102,15 +102,14 @@
     usernameItem.name = nil;
     usernameItem.highlightable = NO;
     usernameItem.indentable = NO;
-    usernameItem.clearable = NO;
     usernameItem.defaultValue = NSLocalizedString(@"Username", @"Username");
 
     // creates the username string item
     HMStringTableCellItem *passwordItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"password"];
     passwordItem.name = nil;
+    passwordItem.secure = YES;
     passwordItem.highlightable = NO;
     passwordItem.indentable = NO;
-    passwordItem.clearable = NO;
     passwordItem.defaultValue = NSLocalizedString(@"Password", @"Password");
 
     // creates the first section footer item

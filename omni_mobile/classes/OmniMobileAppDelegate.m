@@ -71,6 +71,14 @@
 }
 
 - (void)loadSettings {
+    // retrieves the preferences
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+
+    // sets the base url
+    [preferences setValue:@"http://172.16.0.24:8080/colony_mod_python/rest/mvc/omni" forKey:@"baseUrl"];
+
+    // syncs the preferences
+    [preferences synchronize];
 }
 
 - (void)saveSettings:(NSString *)data {
