@@ -36,6 +36,8 @@
 "Sales" = "Sales";
 "Highlights" = "Highlights";
 "Notifications" = "Notifications";
+"Question" = "Question"
+"Secret Question" = "Secret Question";
 
 /* Global error values */
 "ConnectionError" = "There was a connection problem";
