@@ -154,11 +154,11 @@
 
     // creates the empty remote data dictionary
     NSDictionary *emptyRemoteData = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                     @"username", @"",
-                                     @"password_hash", @"",
-                                     @"email", @"",
-                                     @"secret_question", @"",
-                                     @"secret_answer_hash", @"",
+                                     @"", @"username",
+                                     @"", @"password_hash",
+                                     @"", @"email",
+                                     @"", @"secret_question",
+                                     @"", @"secret_answer_hash",
                                      nil];
 
     // returns the result of processing an empty remote data
@@ -284,10 +284,6 @@
     HMItem *secretQuestion = [secondSectionItemGroup getItem:0];
     HMItem *secretAnswer = [secondSectionItemGroup getItem:1];
 
-    // retrieves the object id
-    NSNumber *objectId = [self.entity objectForKey:@"object_id"];
-    NSString *objectIdString = [objectId stringValue];
-
     // sets the items in the remote data
     [remoteData setObject:username.identifier forKey:@"user[username]"];
     [remoteData setObject:passwordItem.description forKey:@"user[password_hash]"];
@@ -295,9 +291,16 @@
     [remoteData setObject:secretQuestion.description forKey:@"user[secret_question]"];
     [remoteData setObject:secretAnswer.description forKey:@"user[secret_answer_hash]"];
 
-    // sets the object id (structured and unstructured)
-    [remoteData setObject:objectIdString forKey:@"user[object_id]"];
-    [remoteData setObject:objectIdString forKey:@"object_id"];
+    // @TODO CHANGE THIS HARDCODE
+    if(self.operationType == HMItemOperationRead) {
+        // retrieves the object id
+        NSNumber *objectId = [self.entity objectForKey:@"object_id"];
+        NSString *objectIdString = [objectId stringValue];
+
+        // sets the object id (structured and unstructured)
+        [remoteData setObject:objectIdString forKey:@"user[object_id]"];
+        [remoteData setObject:objectIdString forKey:@"object_id"];
+    }
 
     // returns the remote data
     return remoteData;
