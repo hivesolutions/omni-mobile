@@ -64,6 +64,23 @@
     [self updateRemote];
 }
 
+- (void)processEmpty {
+    // calls the super
+    [super processEmpty];
+
+    // creates the empty remote data dictionary
+    NSDictionary *emptyRemoteData = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                     @"username", @"",
+                                     @"password_hash", @"",
+                                     @"email", @"",
+                                     @"secret_question", @"",
+                                     @"secret_answer_hash", @"",
+                                     nil];
+
+    // returns the result of processing an empty remote data
+    return [self processRemoteData:emptyRemoteData];
+}
+
 - (void)processRemoteData:(NSDictionary *)remoteData {
     // calls the super
     [super processRemoteData:remoteData];
