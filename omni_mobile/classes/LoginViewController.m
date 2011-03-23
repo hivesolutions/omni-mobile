@@ -93,12 +93,16 @@
     HMStringTableCellItem *usernameItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"username"];
     usernameItem.name = nil;
     usernameItem.highlightable = NO;
+    usernameItem.indentable = NO;
+    usernameItem.clearable = NO;
     usernameItem.defaultValue = NSLocalizedString(@"Username", @"Username");
 
     // creates the username string item
     HMStringTableCellItem *passwordItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"password"];
     passwordItem.name = nil;
     passwordItem.highlightable = NO;
+    passwordItem.indentable = NO;
+    passwordItem.clearable = NO;
     passwordItem.defaultValue = NSLocalizedString(@"Password", @"Password");
 
     // creates the first section item group
@@ -122,6 +126,9 @@
 
     // stores the menu item group
     self.loginItemGroup = menuNamedItemGroup;
+
+    // enables the table view's edit mode
+    [tableView setEditing:YES animated:NO];
 
     // releases the objects
     [menuNamedItemGroup release];
