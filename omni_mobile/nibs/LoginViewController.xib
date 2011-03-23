@@ -56,7 +56,7 @@
 									<object class="IBUIImageView" id="382549180">
 										<reference key="NSNextResponder" ref="883924849"/>
 										<int key="NSvFlags">293</int>
-										<string key="NSFrame">{{85, 22}, {150, 44}}</string>
+										<string key="NSFrame">{{85, 32}, {150, 44}}</string>
 										<reference key="NSSuperview" ref="883924849"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView"/>
@@ -68,7 +68,7 @@
 										</object>
 									</object>
 								</object>
-								<string key="NSFrameSize">{320, 80}</string>
+								<string key="NSFrameSize">{320, 100}</string>
 								<reference key="NSSuperview" ref="301817974"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="382549180"/>
@@ -120,7 +120,11 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 						</object>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<bool key="IBUIBounces">NO</bool>
 						<bool key="IBUIAlwaysBounceVertical">YES</bool>
+						<bool key="IBUIScrollEnabled">NO</bool>
+						<bool key="IBUIShowsHorizontalScrollIndicator">NO</bool>
+						<bool key="IBUIShowsVerticalScrollIndicator">NO</bool>
 						<int key="IBUIStyle">1</int>
 						<int key="IBUISeparatorStyle">1</int>
 						<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
@@ -199,6 +203,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 							<reference ref="301817974"/>
 						</object>
 						<reference key="parent" ref="0"/>
+						<string key="objectName">Login Background View</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">13</int>

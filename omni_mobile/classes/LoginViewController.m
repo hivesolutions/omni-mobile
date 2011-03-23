@@ -114,7 +114,7 @@
 
     // creates the first section footer item
     HMLabelItem *firstSectionFooterItem = [[HMLabelItem alloc] initWithIdentifier:@"first_section_footer"];
-    firstSectionFooterItem.description =  NSLocalizedString(@"Sentence000001", @"Sentence000001");
+    firstSectionFooterItem.description =  NSLocalizedString(@"Sentence000002", @"Sentence000002");
     firstSectionFooterItem.fontName = @"Helvetica-Bold";
     firstSectionFooterItem.fontSize = 15;
 
@@ -180,7 +180,7 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return YES;
+    return interfaceOrientation == UIInterfaceOrientationPortrait;
 }
 
 - (void)didSelectItemRowWithItem:(HMItem *)item {
