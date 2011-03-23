@@ -89,60 +89,19 @@
     [imageView setImage:logoImage];
     self.navigationItem.titleView = imageView;
 
-    // creates the users button item
-    HMTableCellItem *usersItem = [[HMTableCellItem alloc] initWithIdentifier:@"users"];
-    usersItem.name = NSLocalizedString(@"Users", @"Users");
-    usersItem.icon = @"icon_users.png";
-    usersItem.highlightedIcon = @"icon_users_white.png";
-    usersItem.highlightable = YES;
-    usersItem.accessoryType = @"disclosure_indicator";
+    // creates the username string item
+    HMStringTableCellItem *usernameItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"username"];
+    usernameItem.name = nil;
+    usernameItem.defaultValue = NSLocalizedString(@"Username", @"Username");
 
-    // creates the sales button item
-    HMTableCellItem *salesItem = [[HMTableCellItem alloc] initWithIdentifier:@"sales"];
-    salesItem.name = NSLocalizedString(@"Sales", @"Sales");
-    salesItem.icon = @"icon_sales.png";
-    salesItem.highlightedIcon = @"icon_sales_white.png";
-    salesItem.highlightable = YES;
-    salesItem.accessoryType = @"disclosure_indicator";
-
-    // creates the purchases button item
-    HMTableCellItem *purchasesItem = [[HMTableCellItem alloc] initWithIdentifier:@"purchases"];
-    purchasesItem.name = NSLocalizedString(@"Purchases", @"Purchases");
-    purchasesItem.icon = @"icon_purchases.png";
-    purchasesItem.highlightedIcon = @"icon_purchases_white.png";
-    purchasesItem.highlightable = YES;
-    purchasesItem.accessoryType = @"disclosure_indicator";
-
-    // creates the inventory button item
-    HMTableCellItem *inventoryItem = [[HMTableCellItem alloc] initWithIdentifier:@"inventory"];
-    inventoryItem.name = NSLocalizedString(@"Inventory", @"Inventory");
-    inventoryItem.icon = @"icon_inventory.png";
-    inventoryItem.highlightedIcon = @"icon_inventory_white.png";
-    inventoryItem.highlightable = YES;
-    inventoryItem.accessoryType = @"disclosure_indicator";
-
-    // creates the highlights button item
-    HMStringTableCellItem *highlightsItem = [[HMTableCellItem alloc] initWithIdentifier:@"highlights"];
-    highlightsItem.name = NSLocalizedString(@"Highlights", @"Highlights");
-    highlightsItem.icon = @"icon_highlights.png";
-    highlightsItem.highlightedIcon = @"icon_highlights_white.png";
-    highlightsItem.highlightable = YES;
-    highlightsItem.accessoryType = @"disclosure_indicator";
-
-    // creates the notifications button item
-    HMTableCellItem *notificationsItem = [[HMTableCellItem alloc] initWithIdentifier:@"notifications"];
-    notificationsItem.name = NSLocalizedString(@"Notifications", @"Notifications");
-    notificationsItem.icon = nil;
-    notificationsItem.highlightedIcon = nil;
-    notificationsItem.highlightable = NO;
-    notificationsItem.accessoryType = @"switch";
+    // creates the username string item
+    HMStringTableCellItem *passwordItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"password"];
+    passwordItem.name = nil;
+    passwordItem.defaultValue = NSLocalizedString(@"Password", @"Password");
 
     // creates the first section item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
-
-    // creates the second section item group
-    HMTableSectionItemGroup *secondSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"second_section"];
-    secondSectionItemGroup.footer = NSLocalizedString(@"Sentence000001", @"Sentence000001");
+    firstSectionItemGroup.footer = NSLocalizedString(@"Sentence000001", @"Sentence000001");
 
     // creates the menu list group
     HMItemGroup *menuListGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu_list"];
@@ -151,15 +110,10 @@
     HMNamedItemGroup *menuNamedItemGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu"];
 
     // populates the menu
-    [firstSectionItemGroup addItem:usersItem];
-    [firstSectionItemGroup addItem:salesItem];
-    [firstSectionItemGroup addItem:purchasesItem];
-    [firstSectionItemGroup addItem:inventoryItem];
-    [firstSectionItemGroup addItem:highlightsItem];
-    [secondSectionItemGroup addItem:notificationsItem];
+    [firstSectionItemGroup addItem:usernameItem];
+    [firstSectionItemGroup addItem:passwordItem];
 
     [menuListGroup addItem:firstSectionItemGroup];
-    [menuListGroup addItem:secondSectionItemGroup];
 
     // adds the menu items to the menu item group
     [menuNamedItemGroup addItem:@"list" item:menuListGroup];
@@ -170,12 +124,9 @@
     // releases the objects
     [menuNamedItemGroup release];
     [menuListGroup release];
-    [secondSectionItemGroup release];
     [firstSectionItemGroup release];
-    [notificationsItem release];
-    [highlightsItem release];
-    [salesItem release];
-    [usersItem release];
+    [passwordItem release];
+    [usernameItem release];
 }
 
 - (void)didSelectUsersButton {
