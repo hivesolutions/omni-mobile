@@ -176,6 +176,8 @@
     [firstSectionItemGroup release];
     [notificationsItem release];
     [highlightsItem release];
+    [inventoryItem release];
+    [purchasesItem release];
     [salesItem release];
     [usersItem release];
 }
