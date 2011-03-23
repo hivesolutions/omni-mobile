@@ -282,24 +282,40 @@
 
     // sets the items in the remote data
     [remoteData setObject:username.identifier forKey:@"user[username]"];
-    [remoteData setObject:passwordItem.description forKey:@"user[password_hash]"];
     [remoteData setObject:emailItem.description forKey:@"user[email]"];
     [remoteData setObject:secretQuestion.description forKey:@"user[secret_question]"];
     [remoteData setObject:secretAnswer.description forKey:@"user[secret_answer_hash]"];
 
-    // @TODO CHANGE THIS HARDCODE
-    if(self.operationType == HMItemOperationRead) {
-        // retrieves the object id
-        NSNumber *objectId = [self.entity objectForKey:@"object_id"];
-        NSString *objectIdString = [objectId stringValue];
+    // sets the password fields
+    [remoteData setObject:passwordItem.description forKey:@"user[_parameters][password]"];
+    [remoteData setObject:passwordItem.description forKey:@"user[_parameters][confirm_password]"];
 
-        // sets the object id (structured and unstructured)
-        [remoteData setObject:objectIdString forKey:@"user[object_id]"];
-        [remoteData setObject:objectIdString forKey:@"object_id"];
+    // @TODO CHANGE THIS HARDCODE
+    switch(self.operationType) {
+        // in case the operation is read
+        case HMItemOperationRead:
+            // converts teh remote group for read
+            [self convertRemoteGroupRead:remoteData];
+
+            // breaks the switch
+            break;
+
+        default:
+            break;
     }
 
     // returns the remote data
     return remoteData;
+}
+
+- (void)convertRemoteGroupRead:(NSMutableDictionary *)remoteData {
+    // retrieves the object id
+    NSNumber *objectId = [self.entity objectForKey:@"object_id"];
+    NSString *objectIdString = [objectId stringValue];
+
+    // sets the object id (structured and unstructured)
+    [remoteData setObject:objectIdString forKey:@"user[object_id]"];
+    [remoteData setObject:objectIdString forKey:@"object_id"];
 }
 
 - (void)didReceiveMemoryWarning {
