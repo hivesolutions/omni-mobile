@@ -88,26 +88,22 @@
     passwordItem.name = NSLocalizedString(@"Password", @"Password");
     passwordItem.description = password;
     passwordItem.secure = YES;
-    passwordItem.highlightable = YES;
 
     // creates the email string table cell
     HMStringTableCellItem *emailItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"email"];
     emailItem.name = NSLocalizedString(@"E-mail", @"E-mail");
     emailItem.description = email;
-    emailItem.highlightable = YES;
 
     // creates the secret question string table cell
     HMStringTableCellItem *secretQuestionItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"secret_question"];
     secretQuestionItem.name = NSLocalizedString(@"Question", @"Question");
     secretQuestionItem.description = secretQuestion;
-    secretQuestionItem.highlightable = YES;
 
     // creates the secret answer string table cell
     HMStringTableCellItem *secretAnswerItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"secret_answer"];
     secretAnswerItem.name = NSLocalizedString(@"Answer", @"Answer");
     secretAnswerItem.description = secretAnswer;
     secretAnswerItem.secure = YES;
-    secretAnswerItem.highlightable = YES;
 
     // creates the sections item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
