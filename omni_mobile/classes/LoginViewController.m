@@ -67,6 +67,14 @@
     [super dealloc];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    // retrieves the first child as the table view
+    UITableView *tableView = [self.view.subviews objectAtIndex:0];
+
+    // sets the table view as editing
+    tableView.editing = YES;
+}
+
 - (void)constructStructures {
     // retrieves the background pattern image
     UIImage *backgroundPatternImage = [UIImage imageNamed:@"welcome_background.png"];
