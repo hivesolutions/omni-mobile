@@ -105,9 +105,13 @@
     passwordItem.clearable = NO;
     passwordItem.defaultValue = NSLocalizedString(@"Password", @"Password");
 
+    // creates the first section footer item
+    HMTableCellItem *firstSectionFooterItem = [[HMTableCellItem alloc] initWithIdentifier:@"first_section_footer"];
+    firstSectionFooterItem.description =  NSLocalizedString(@"Sentence000001", @"Sentence000001");
+
     // creates the first section item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
-    firstSectionItemGroup.footer = NSLocalizedString(@"Sentence000001", @"Sentence000001");
+    firstSectionItemGroup.footer = firstSectionFooterItem;
 
     // creates the menu list group
     HMItemGroup *menuListGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu_list"];

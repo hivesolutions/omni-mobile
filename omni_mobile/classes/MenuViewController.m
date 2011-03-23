@@ -142,9 +142,13 @@
     // creates the first section item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
 
+    // creates the second section footer item
+    HMTableCellItem *secondSectionFooterItem = [[HMTableCellItem alloc] initWithIdentifier:@"second_section_footer"];
+    secondSectionFooterItem.description =  NSLocalizedString(@"Sentence000001", @"Sentence000001");
+
     // creates the second section item group
     HMTableSectionItemGroup *secondSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"second_section"];
-    secondSectionItemGroup.footer = NSLocalizedString(@"Sentence000001", @"Sentence000001");
+    secondSectionItemGroup.footer = secondSectionFooterItem;
 
     // creates the menu list group
     HMItemGroup *menuListGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu_list"];
