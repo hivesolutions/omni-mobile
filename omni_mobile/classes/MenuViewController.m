@@ -70,6 +70,20 @@
     [super dealloc];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    // calls the super
+    [super viewDidAppear:animated];
+
+    // initializes the login view controller
+    LoginViewController *loginViewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:[NSBundle mainBundle]];
+
+    // pushes the login view controller
+    [self.navigationController presentModalViewController:loginViewController animated:YES];
+
+    // releases the login view controller reference
+    [loginViewController release];
+}
+
 - (void)constructStructures {
     // changes the title's image view
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 74, 22)];
@@ -162,6 +176,8 @@
     [firstSectionItemGroup release];
     [notificationsItem release];
     [highlightsItem release];
+    [inventoryItem release];
+    [purchasesItem release];
     [salesItem release];
     [usersItem release];
 }

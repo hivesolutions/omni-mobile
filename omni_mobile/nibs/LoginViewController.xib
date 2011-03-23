@@ -55,7 +55,7 @@
 									<bool key="EncodedWithXMLCoder">YES</bool>
 									<object class="IBUIImageView" id="382549180">
 										<reference key="NSNextResponder" ref="883924849"/>
-										<int key="NSvFlags">256</int>
+										<int key="NSvFlags">293</int>
 										<string key="NSFrame">{{85, 22}, {150, 44}}</string>
 										<reference key="NSSuperview" ref="883924849"/>
 										<reference key="NSWindow"/>
@@ -134,6 +134,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 				<string key="NSFrameSize">{320, 460}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
+				<reference key="NSNextKeyView" ref="301817974"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MQA</bytes>
