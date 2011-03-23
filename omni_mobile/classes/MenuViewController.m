@@ -143,8 +143,14 @@
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
 
     // creates the second section footer item
-    HMTableCellItem *secondSectionFooterItem = [[HMTableCellItem alloc] initWithIdentifier:@"second_section_footer"];
+    HMLabelItem *secondSectionFooterItem = [[HMLabelItem alloc] initWithIdentifier:@"second_section_footer"];
     secondSectionFooterItem.description =  NSLocalizedString(@"Sentence000001", @"Sentence000001");
+
+    // sets the footer's colors
+    HMColor *secondSectionFooterTextColor = [[HMColor alloc] initRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+    HMColor *secondSectionFooterShadowColor = [[HMColor alloc] initRed:0.1 green:0.1 blue:0.1 alpha:1.0];
+    secondSectionFooterItem.textColor = secondSectionFooterTextColor;
+    secondSectionFooterItem.shadowColor = secondSectionFooterShadowColor;
 
     // creates the second section item group
     HMTableSectionItemGroup *secondSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"second_section"];
@@ -176,6 +182,9 @@
     // releases the objects
     [menuNamedItemGroup release];
     [menuListGroup release];
+    [secondSectionFooterTextColor release];
+    [secondSectionFooterShadowColor release];
+    [secondSectionFooterItem release];
     [secondSectionItemGroup release];
     [firstSectionItemGroup release];
     [notificationsItem release];
