@@ -25,10 +25,11 @@
 
 #import "Dependencies.h"
 
-@interface InventoryItemStoreViewController : HMRemoteHeaderItemTableViewController {
+@interface InventoryItemStoreViewController : HMRemoteHeaderItemTableViewController<HMEntityDelegate> {
     @private
     NSDictionary *_entity;
     NSString *_identifier;
+    HMEntityAbstraction *_entityAbstraction;
 }
 
 /**
@@ -40,6 +41,12 @@
  * The identifier of the represented by the view.
  */
 @property (retain) NSString *identifier;
+
+/**
+ * The entity abstraction to be used for operations
+ * in the entity.
+ */
+@property (retain) HMEntityAbstraction *entityAbstraction;
 
 /**
  * Changes the entity in the view.

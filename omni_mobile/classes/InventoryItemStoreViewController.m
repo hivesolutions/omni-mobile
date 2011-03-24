@@ -29,6 +29,7 @@
 
 @synthesize entity = _entity;
 @synthesize identifier = _identifier;
+@synthesize entityAbstraction = _entityAbstraction;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     // calls the super
@@ -42,58 +43,28 @@
     // releases the entity
     [_entity release];
 
+    // releases the identifier
+    [_identifier release];
+
+    // releases the entity abstraction
+    [_entityAbstraction release];
+
     // calls the super
     [super dealloc];
 }
 
-+ (NSString *)getBaseUrl {
-    // retrieves the preferences
-    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+- (void)initStructures {
+    // calls the super
+    [super initStructures];
 
-    // retrieves the base url
-    NSString *baseUrl = [preferences valueForKey:@"baseUrl"];
+    // creates the entity abstraction
+    HMEntityAbstraction *entityAbstraction = [[HMEntityAbstraction alloc] initWithEntityDelegate:self];
 
-    // returns the base url
-    return baseUrl;
-}
+    // sets the entity abstraction
+    self.entityAbstraction = entityAbstraction;
 
-- (NSString *)constructClassUrl:(NSString *)entityName serializerName:(NSString *)serializerName {
-    // retrieves the base url
-    NSString *baseUrl = [InventoryItemStoreViewController getBaseUrl];
-
-    // creates the url from the object id
-    NSString *url = [NSString stringWithFormat:@"%@/%@.%@", baseUrl, entityName, serializerName];
-
-    // returns the url
-    return url;
-}
-
-- (NSString *)constructObjectUrl:(NSString *)entityName serializerName:(NSString *)serializerName {
-    // retrieves the base url
-    NSString *baseUrl = [InventoryItemStoreViewController getBaseUrl];
-
-    // retrieves the entity object id
-    NSNumber *entityObjectId = [self.entity objectForKey:@"object_id"];
-
-    // creates the url from the object id
-    NSString *url = [NSString stringWithFormat:@"%@/%@/%@.%@", baseUrl, entityName, [entityObjectId stringValue], serializerName];
-
-    // returns the url
-    return url;
-}
-
-- (NSString *)constructObjectCompositeUrl:(NSString *)entityName operationName:(NSString *)operationName serializerName:(NSString *)serializerName {
-    // retrieves the base url
-    NSString *baseUrl = [InventoryItemStoreViewController getBaseUrl];
-
-    // retrieves the entity object id
-    NSNumber *entityObjectId = [self.entity objectForKey:@"object_id"];
-
-    // creates the url from the object id
-    NSString *url = [NSString stringWithFormat:@"%@/%@/%@/%@.%@", baseUrl, entityName, [entityObjectId stringValue], operationName, serializerName];
-
-    // returns the url
-    return url;
+    // releases the entity abstraction
+    [entityAbstraction release];
 }
 
 - (NSString *)getRemoteUrl {
@@ -102,43 +73,7 @@
 }
 
 - (NSString *)getRemoteUrlForOperation:(HMItemOperationType)operationType {
-    // allocates the url
-    NSString *url;
-
-    // switches over the operation type
-    // in order to retrieve the apropriate url
-    switch (operationType) {
-        // in case it's a create operation
-        case HMItemOperationCreate:
-            url = [self constructClassUrl:@"inventory_lines" serializerName:@"json"];
-
-            // breaks the swtich
-            break;
-
-        // in case it's a read operation
-        case HMItemOperationRead:
-            url = [self constructObjectUrl:@"inventory_lines" serializerName:@"json"];
-
-            // breaks the swtich
-            break;
-
-        // in case it's an update operation
-        case HMItemOperationUpdate:
-            url = [self constructObjectCompositeUrl:@"inventory_lines" operationName:@"update" serializerName:@"json"];
-
-            // breaks the swtich
-            break;
-
-        // in case it's a delete operation
-        case HMItemOperationDelete:
-            url = [self constructObjectCompositeUrl:@"inventory_lines" operationName:@"delete" serializerName:@"json"];
-
-            // breaks the swtich
-            break;
-    }
-
-    // returns the url
-    return url;
+    return [self.entityAbstraction getRemoteUrlForOperation:operationType serializerName:@"json"];
 }
 
 - (void)changeIdentifier:(NSString *)identifier {
@@ -259,7 +194,6 @@
     if(retailPriceValue != nil) {
         retailPriceItem.description = [NSString stringWithFormat:@"%.2f EUR", [retailPriceValue floatValue]];
     }
-
 
     // creates the sections item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
