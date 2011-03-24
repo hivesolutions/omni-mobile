@@ -79,7 +79,7 @@
     LoginViewController *loginViewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:[NSBundle mainBundle]];
 
     // pushes the login view controller
-//    [self.navigationController presentModalViewController:loginViewController animated:YES];
+    [self.navigationController presentModalViewController:loginViewController animated:YES];
 
     // releases the login view controller reference
     [loginViewController release];
