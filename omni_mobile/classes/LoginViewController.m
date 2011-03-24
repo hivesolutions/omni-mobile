@@ -105,23 +105,23 @@
 
     // creates the username string item
     HMStringTableCellItem *usernameItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"username"];
-    usernameItem.name = nil;
     usernameItem.highlightable = NO;
     usernameItem.indentable = NO;
     usernameItem.defaultValue = NSLocalizedString(@"Username", @"Username");
+    usernameItem.returnType = @"done";
 
     // creates the username string item
     HMStringTableCellItem *passwordItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"password"];
-    passwordItem.name = nil;
     passwordItem.secure = YES;
     passwordItem.highlightable = NO;
     passwordItem.indentable = NO;
     passwordItem.defaultValue = NSLocalizedString(@"Password", @"Password");
+    passwordItem.returnType = @"done";
 
     // creates the first section footer item
     HMLabelItem *firstSectionFooterItem = [[HMLabelItem alloc] initWithIdentifier:@"first_section_footer"];
     firstSectionFooterItem.description =  NSLocalizedString(@"Sentence000002", @"Sentence000002");
-    firstSectionFooterItem.fontName = @"Helvetica-Bold";
+    firstSectionFooterItem.fontName = @"Helvetica";
     firstSectionFooterItem.fontSize = 15;
 
     // sets the footer's colors
@@ -191,7 +191,7 @@
 }
 
 - (void)didSelectItemRowWithItem:(HMItem *)item {
-    if(item.identifier == @"users") {
+    if([item.identifier isEqualToString:@"users"]) {
         [self didSelectUsersButton];
     }
     else {
