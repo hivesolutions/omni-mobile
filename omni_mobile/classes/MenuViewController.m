@@ -78,7 +78,7 @@
     LoginViewController *loginViewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:[NSBundle mainBundle]];
 
     // pushes the login view controller
-    [self.navigationController presentModalViewController:loginViewController animated:YES];
+//    [self.navigationController presentModalViewController:loginViewController animated:YES];
 
     // releases the login view controller reference
     [loginViewController release];
@@ -201,6 +201,17 @@
     [usersViewController release];
 }
 
+- (void)didSelectInventoryButton {
+    // initializes the inventory view controller
+    InventoryViewController *inventoryViewController = [[InventoryViewController alloc] initWithNibName:@"InventoryViewController" bundle:[NSBundle mainBundle]];
+
+    // pushes the inventory view controller
+    [self.navigationController pushViewController:inventoryViewController animated:YES];
+
+    // releases the users view controller reference
+    [inventoryViewController release];
+}
+
 - (HMNamedItemGroup *)getItemSpecification {
     return self.menuItemGroup;
 }
@@ -216,6 +227,9 @@
 - (void)didSelectItemRowWithItem:(HMItem *)item {
     if([item.identifier isEqualToString:@"users"]) {
         [self didSelectUsersButton];
+    }
+    if([item.identifier isEqualToString:@"inventory"]) {
+        [self didSelectInventoryButton];
     }
     else {
         // initializes the menu view controller

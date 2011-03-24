@@ -27,6 +27,7 @@
 
 #import "LoginViewController.h"
 #import "UsersViewController.h"
+#import "InventoryViewController.h"
 
 @interface MenuViewController : UITableViewController<HMItemTableViewProvider, HMItemTableViewDelegate> {
     @private

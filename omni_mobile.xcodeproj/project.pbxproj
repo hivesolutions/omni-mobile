@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E0BC4ED133B795000C38C28 /* welcome_background~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E0BC4EC133B795000C38C28 /* welcome_background~ipad.png */; };
+		0E85BD04133B7BD900F3E65B /* InventoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E85BD03133B7BD900F3E65B /* InventoryViewController.xib */; };
+		0E85BD07133B7C5F00F3E65B /* InventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E85BD06133B7C5F00F3E65B /* InventoryViewController.m */; };
+		0E85BD0A133B81CC00F3E65B /* InventoryItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E85BD09133B81CA00F3E65B /* InventoryItemViewController.m */; };
+		0E85BD0C133B826600F3E65B /* InventoryItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E85BD0B133B826500F3E65B /* InventoryItemViewController.xib */; };
+		0E85BD0F133BAF4C00F3E65B /* InventoryItemStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E85BD0E133BAF4600F3E65B /* InventoryItemStoreViewController.m */; };
+		0E85BD11133BB71400F3E65B /* InventoryItemStoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E85BD10133BB71300F3E65B /* InventoryItemStoreViewController.xib */; };
 		C20FC5A61337B97600FDBE8D /* white_button.png in Resources */ = {isa = PBXBuildFile; fileRef = C20FC5A41337B97600FDBE8D /* white_button.png */; };
 		C20FC5A71337B97600FDBE8D /* white_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = C20FC5A51337B97600FDBE8D /* white_button_pressed.png */; };
 		C212D8AE132A47CE00E2A078 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C212D8A5132A47CE00E2A078 /* main.m */; };
@@ -47,7 +54,6 @@
 		C24A0E6B1338B65E00D8C7EC /* welcome_background.png in Resources */ = {isa = PBXBuildFile; fileRef = C24A0E671338B65E00D8C7EC /* welcome_background.png */; };
 		C24A0E6C1338B65E00D8C7EC /* welcome_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C24A0E681338B65E00D8C7EC /* welcome_background@2x.png */; };
 		C24A0E6E1338B9BB00D8C7EC /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C24A0E6D1338B9BB00D8C7EC /* LoginViewController.xib */; };
-		C264B2BC133B67B700A87388 /* welcome_background~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C264B2BB133B67B700A87388 /* welcome_background~ipad.png */; };
 		C28EFF3B13295A31007CBA34 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3A13295A31007CBA34 /* UIKit.framework */; };
 		C28EFF3D13295A31007CBA34 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3C13295A31007CBA34 /* Foundation.framework */; };
 		C28EFF3F13295A31007CBA34 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3E13295A31007CBA34 /* CoreGraphics.framework */; };
@@ -148,6 +154,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E0BC4EC133B795000C38C28 /* welcome_background~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "welcome_background~ipad.png"; path = "ipad/resources/images/ui/welcome_background~ipad.png"; sourceTree = "<group>"; };
+		0E85BD03133B7BD900F3E65B /* InventoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InventoryViewController.xib; path = nibs/InventoryViewController.xib; sourceTree = "<group>"; };
+		0E85BD05133B7C5F00F3E65B /* InventoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InventoryViewController.h; path = classes/InventoryViewController.h; sourceTree = "<group>"; };
+		0E85BD06133B7C5F00F3E65B /* InventoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InventoryViewController.m; path = classes/InventoryViewController.m; sourceTree = "<group>"; };
+		0E85BD08133B81C800F3E65B /* InventoryItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InventoryItemViewController.h; path = classes/InventoryItemViewController.h; sourceTree = "<group>"; };
+		0E85BD09133B81CA00F3E65B /* InventoryItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InventoryItemViewController.m; path = classes/InventoryItemViewController.m; sourceTree = "<group>"; };
+		0E85BD0B133B826500F3E65B /* InventoryItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InventoryItemViewController.xib; path = nibs/InventoryItemViewController.xib; sourceTree = "<group>"; };
+		0E85BD0D133BAF4400F3E65B /* InventoryItemStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InventoryItemStoreViewController.h; path = classes/InventoryItemStoreViewController.h; sourceTree = "<group>"; };
+		0E85BD0E133BAF4600F3E65B /* InventoryItemStoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InventoryItemStoreViewController.m; path = classes/InventoryItemStoreViewController.m; sourceTree = "<group>"; };
+		0E85BD10133BB71300F3E65B /* InventoryItemStoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InventoryItemStoreViewController.xib; path = nibs/InventoryItemStoreViewController.xib; sourceTree = "<group>"; };
 		A57BEA56132E72F0000478F7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C20CDB8E1333782D008A4FE3 /* Dependencies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dependencies.h; path = classes/Dependencies.h; sourceTree = "<group>"; };
 		C20CDB9013337933008A4FE3 /* omni_mobile_test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = omni_mobile_test.h; path = headers/omni_mobile_test.h; sourceTree = "<group>"; };
@@ -202,7 +218,6 @@
 		C24A0E671338B65E00D8C7EC /* welcome_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_background.png; sourceTree = "<group>"; };
 		C24A0E681338B65E00D8C7EC /* welcome_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome_background@2x.png"; sourceTree = "<group>"; };
 		C24A0E6D1338B9BB00D8C7EC /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = nibs/LoginViewController.xib; sourceTree = "<group>"; };
-		C264B2BB133B67B700A87388 /* welcome_background~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "welcome_background~ipad.png"; path = "../../../../Downloads/v-msousa@hive.pt - Ipad Welcome Gradients/welcome_background~ipad.png"; sourceTree = "<group>"; };
 		C28EFF3613295A31007CBA34 /* omni_mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = omni_mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28EFF3A13295A31007CBA34 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C28EFF3C13295A31007CBA34 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -301,6 +316,12 @@
 		C20CDB8C1333780F008A4FE3 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0E85BD0D133BAF4400F3E65B /* InventoryItemStoreViewController.h */,
+				0E85BD0E133BAF4600F3E65B /* InventoryItemStoreViewController.m */,
+				0E85BD08133B81C800F3E65B /* InventoryItemViewController.h */,
+				0E85BD09133B81CA00F3E65B /* InventoryItemViewController.m */,
+				0E85BD05133B7C5F00F3E65B /* InventoryViewController.h */,
+				0E85BD06133B7C5F00F3E65B /* InventoryViewController.m */,
 				C24A0E621338B1F000D8C7EC /* LoginViewController.h */,
 				C24A0E631338B1F000D8C7EC /* LoginViewController.m */,
 				C226C240132A781B00427656 /* MenuViewController.h */,
@@ -356,6 +377,9 @@
 				C212D8C1132A482800E2A078 /* MainWindow.xib */,
 				C212D8C2132A482800E2A078 /* UsersViewController.xib */,
 				C212D8C3132A482800E2A078 /* UserViewController.xib */,
+				0E85BD0B133B826500F3E65B /* InventoryItemViewController.xib */,
+				0E85BD10133BB71300F3E65B /* InventoryItemStoreViewController.xib */,
+				0E85BD03133B7BD900F3E65B /* InventoryViewController.xib */,
 			);
 			name = Nibs;
 			sourceTree = "<group>";
@@ -443,7 +467,7 @@
 		C264B2B5133B671700A87388 /* Ui */ = {
 			isa = PBXGroup;
 			children = (
-				C264B2BB133B67B700A87388 /* welcome_background~ipad.png */,
+				0E0BC4EC133B795000C38C28 /* welcome_background~ipad.png */,
 			);
 			name = Ui;
 			sourceTree = "<group>";
@@ -901,7 +925,10 @@
 				C24A0E6B1338B65E00D8C7EC /* welcome_background.png in Resources */,
 				C24A0E6C1338B65E00D8C7EC /* welcome_background@2x.png in Resources */,
 				C24A0E6E1338B9BB00D8C7EC /* LoginViewController.xib in Resources */,
-				C264B2BC133B67B700A87388 /* welcome_background~ipad.png in Resources */,
+				0E0BC4ED133B795000C38C28 /* welcome_background~ipad.png in Resources */,
+				0E85BD04133B7BD900F3E65B /* InventoryViewController.xib in Resources */,
+				0E85BD0C133B826600F3E65B /* InventoryItemViewController.xib in Resources */,
+				0E85BD11133BB71400F3E65B /* InventoryItemStoreViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -942,6 +969,9 @@
 				C212D8B2132A47CE00E2A078 /* UserViewController.m in Sources */,
 				C226C242132A781B00427656 /* MenuViewController.m in Sources */,
 				C24A0E641338B1F100D8C7EC /* LoginViewController.m in Sources */,
+				0E85BD07133B7C5F00F3E65B /* InventoryViewController.m in Sources */,
+				0E85BD0A133B81CC00F3E65B /* InventoryItemViewController.m in Sources */,
+				0E85BD0F133BAF4C00F3E65B /* InventoryItemStoreViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
