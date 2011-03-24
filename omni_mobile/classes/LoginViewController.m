@@ -109,6 +109,7 @@
     usernameItem.indentable = NO;
     usernameItem.defaultValue = NSLocalizedString(@"Username", @"Username");
     usernameItem.returnType = @"done";
+    usernameItem.returnDisablesEdit = YES;
 
     // creates the username string item
     HMStringTableCellItem *passwordItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"password"];
@@ -117,6 +118,7 @@
     passwordItem.indentable = NO;
     passwordItem.defaultValue = NSLocalizedString(@"Password", @"Password");
     passwordItem.returnType = @"done";
+    passwordItem.returnDisablesEdit = YES;
 
     // creates the first section footer item
     HMLabelItem *firstSectionFooterItem = [[HMLabelItem alloc] initWithIdentifier:@"first_section_footer"];
