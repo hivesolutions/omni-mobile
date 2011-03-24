@@ -138,12 +138,12 @@
     // creates the second section footer item
     HMLabelItem *secondSectionFooterItem = [[HMLabelItem alloc] initWithIdentifier:@"second_section_footer"];
     secondSectionFooterItem.description =  NSLocalizedString(@"Sentence000001", @"Sentence000001");
-    secondSectionFooterItem.fontName = @"Helvetica-Bold";
+    secondSectionFooterItem.fontName = @"Helvetica";
     secondSectionFooterItem.fontSize = 15;
 
     // sets the footer's colors
-    HMColor *secondSectionFooterTextColor = [[HMColor alloc] initRed:1.0 green:1.0 blue:1.0 alpha:1.0];
-    HMColor *secondSectionFooterShadowColor = [[HMColor alloc] initRed:0.1 green:0.1 blue:0.1 alpha:1.0];
+    HMColor *secondSectionFooterTextColor = [[HMColor alloc] initRed:0.54 green:0.56 blue:0.62 alpha:1.0];
+    HMColor *secondSectionFooterShadowColor = [[HMColor alloc] initRed:1.0 green:1.0 blue:1.0 alpha:1.0];
     secondSectionFooterItem.textColor = secondSectionFooterTextColor;
     secondSectionFooterItem.shadowColor = secondSectionFooterShadowColor;
 
@@ -214,7 +214,7 @@
 }
 
 - (void)didSelectItemRowWithItem:(HMItem *)item {
-    if(item.identifier == @"users") {
+    if([item.identifier isEqualToString:@"users"]) {
         [self didSelectUsersButton];
     }
     else {
