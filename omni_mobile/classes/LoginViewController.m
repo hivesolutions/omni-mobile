@@ -125,7 +125,7 @@
     firstSectionFooterItem.description =  NSLocalizedString(@"Sentence000002", @"Sentence000002");
     firstSectionFooterItem.fontName = @"Helvetica";
     firstSectionFooterItem.fontSize = 14;
-    
+
     // sets the footer's colors
     HMColor *firstSectionFooterTextColor = [[HMColor alloc] initRed:1.0 green:1.0 blue:1.0 alpha:1.0];
     firstSectionFooterItem.textColor = firstSectionFooterTextColor;

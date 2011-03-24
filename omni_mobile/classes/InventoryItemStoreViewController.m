@@ -303,7 +303,6 @@
     [title release];
 }
 
-
 - (NSMutableDictionary *)convertRemoteGroup {
     return nil;
 }
