@@ -47,6 +47,7 @@
 		C24A0E6B1338B65E00D8C7EC /* welcome_background.png in Resources */ = {isa = PBXBuildFile; fileRef = C24A0E671338B65E00D8C7EC /* welcome_background.png */; };
 		C24A0E6C1338B65E00D8C7EC /* welcome_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C24A0E681338B65E00D8C7EC /* welcome_background@2x.png */; };
 		C24A0E6E1338B9BB00D8C7EC /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C24A0E6D1338B9BB00D8C7EC /* LoginViewController.xib */; };
+		C264B2BC133B67B700A87388 /* welcome_background~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C264B2BB133B67B700A87388 /* welcome_background~ipad.png */; };
 		C28EFF3B13295A31007CBA34 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3A13295A31007CBA34 /* UIKit.framework */; };
 		C28EFF3D13295A31007CBA34 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3C13295A31007CBA34 /* Foundation.framework */; };
 		C28EFF3F13295A31007CBA34 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3E13295A31007CBA34 /* CoreGraphics.framework */; };
@@ -201,6 +202,7 @@
 		C24A0E671338B65E00D8C7EC /* welcome_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_background.png; sourceTree = "<group>"; };
 		C24A0E681338B65E00D8C7EC /* welcome_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome_background@2x.png"; sourceTree = "<group>"; };
 		C24A0E6D1338B9BB00D8C7EC /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = nibs/LoginViewController.xib; sourceTree = "<group>"; };
+		C264B2BB133B67B700A87388 /* welcome_background~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "welcome_background~ipad.png"; path = "../../../../Downloads/v-msousa@hive.pt - Ipad Welcome Gradients/welcome_background~ipad.png"; sourceTree = "<group>"; };
 		C28EFF3613295A31007CBA34 /* omni_mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = omni_mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28EFF3A13295A31007CBA34 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C28EFF3C13295A31007CBA34 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -424,6 +426,7 @@
 		C23F3DB5132E757E003155EE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C264B2B5133B671700A87388 /* Ui */,
 				C28F3AA313328E34006F36F8 /* Base */,
 			);
 			name = Images;
@@ -435,6 +438,14 @@
 				C24323F7132E2D2800BB72E0 /* libcommons_mobile.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C264B2B5133B671700A87388 /* Ui */ = {
+			isa = PBXGroup;
+			children = (
+				C264B2BB133B67B700A87388 /* welcome_background~ipad.png */,
+			);
+			name = Ui;
 			sourceTree = "<group>";
 		};
 		C28EFF2B13295A31007CBA34 = {
@@ -890,6 +901,7 @@
 				C24A0E6B1338B65E00D8C7EC /* welcome_background.png in Resources */,
 				C24A0E6C1338B65E00D8C7EC /* welcome_background@2x.png in Resources */,
 				C24A0E6E1338B9BB00D8C7EC /* LoginViewController.xib in Resources */,
+				C264B2BC133B67B700A87388 /* welcome_background~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

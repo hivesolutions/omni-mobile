@@ -56,9 +56,10 @@
 									<object class="IBUIImageView" id="382549180">
 										<reference key="NSNextResponder" ref="883924849"/>
 										<int key="NSvFlags">293</int>
-										<string key="NSFrame">{{85, 32}, {150, 44}}</string>
+										<string key="NSFrame">{{70, 22}, {180, 53}}</string>
 										<reference key="NSSuperview" ref="883924849"/>
 										<reference key="NSWindow"/>
+										<reference key="NSNextKeyView"/>
 										<bool key="IBUIUserInteractionEnabled">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 										<object class="NSCustomResource" key="IBUIImage">
@@ -67,7 +68,7 @@
 										</object>
 									</object>
 								</object>
-								<string key="NSFrameSize">{320, 100}</string>
+								<string key="NSFrameSize">{320, 90}</string>
 								<reference key="NSSuperview" ref="301817974"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="382549180"/>
@@ -330,7 +331,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="NS.key.0">welcome_logo.png</string>
-			<string key="NS.object.0">{150, 44}</string>
+			<string key="NS.object.0">{180, 53}</string>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">300</string>
 	</data>

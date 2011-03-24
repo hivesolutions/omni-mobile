@@ -91,6 +91,12 @@
     // sets the view background color
     self.view.backgroundColor = backgroundColor;
 
+    // creates a new background view for transparency in ipad
+    UIView *backgroundView = [[UIView alloc] init];
+
+    // creates a new background view and
+    [tableView setBackgroundView:backgroundView];
+
     // changes the title's image view
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 74, 22)];
     UIImage *logoImage = [UIImage imageNamed:@"header_logo.png"];
@@ -158,6 +164,7 @@
     [firstSectionItemGroup release];
     [passwordItem release];
     [usernameItem release];
+    [backgroundView release];
 }
 
 - (void)didSelectUsersButton {
