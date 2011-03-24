@@ -109,6 +109,7 @@
     usernameItem.indentable = NO;
     usernameItem.defaultValue = NSLocalizedString(@"Username", @"Username");
     usernameItem.returnType = @"done";
+    usernameItem.returnDisablesEdit = YES;
 
     // creates the username string item
     HMStringTableCellItem *passwordItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"password"];
@@ -117,18 +118,17 @@
     passwordItem.indentable = NO;
     passwordItem.defaultValue = NSLocalizedString(@"Password", @"Password");
     passwordItem.returnType = @"done";
+    passwordItem.returnDisablesEdit = YES;
 
     // creates the first section footer item
     HMLabelItem *firstSectionFooterItem = [[HMLabelItem alloc] initWithIdentifier:@"first_section_footer"];
     firstSectionFooterItem.description =  NSLocalizedString(@"Sentence000002", @"Sentence000002");
     firstSectionFooterItem.fontName = @"Helvetica";
-    firstSectionFooterItem.fontSize = 15;
-
+    firstSectionFooterItem.fontSize = 14;
+    
     // sets the footer's colors
     HMColor *firstSectionFooterTextColor = [[HMColor alloc] initRed:1.0 green:1.0 blue:1.0 alpha:1.0];
-    HMColor *firstSectionFooterShadowColor = [[HMColor alloc] initRed:0.1 green:0.1 blue:0.1 alpha:1.0];
     firstSectionFooterItem.textColor = firstSectionFooterTextColor;
-    firstSectionFooterItem.shadowColor = firstSectionFooterShadowColor;
 
     // creates the first section item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
@@ -159,7 +159,6 @@
     [menuNamedItemGroup release];
     [menuListGroup release];
     [firstSectionFooterTextColor release];
-    [firstSectionFooterShadowColor release];
     [firstSectionFooterItem release];
     [firstSectionItemGroup release];
     [passwordItem release];
