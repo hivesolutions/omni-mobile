@@ -73,7 +73,7 @@
 }
 
 - (NSString *)getRemoteUrlForOperation:(HMItemOperationType)operationType {
-    return [self.entityAbstraction getRemoteUrlForOperation:operationType serializerName:@"json"];
+    return [self.entityAbstraction getRemoteUrlForOperation:operationType entityName:@"inventory_lines" serializerName:@"json"];
 }
 
 - (void)changeIdentifier:(NSString *)identifier {

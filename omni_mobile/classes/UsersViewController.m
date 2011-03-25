@@ -104,6 +104,10 @@
     return HMRemoteTableViewJsonSerialized;
 }
 
+- (NSString *)getItemTitleName {
+    return @"username";
+}
+
 - (void)didSelectRemoteRowWithData:(NSDictionary *)data {
     // initializes the users view controller
     UserViewController *userViewController = [[UserViewController alloc] initWithNibNameAndType:@"UserViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationRead];

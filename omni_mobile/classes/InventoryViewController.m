@@ -104,6 +104,10 @@
     return HMRemoteTableViewJsonSerialized;
 }
 
+- (NSString *)getItemTitleName {
+    return @"company_product_code";
+}
+
 - (void)didSelectRemoteRowWithData:(NSDictionary *)data {
     // initializes the inventory item view controller
     InventoryItemViewController *inventoryItemViewController = [[InventoryItemViewController alloc] initWithNibNameAndType:@"InventoryItemViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationRead];
