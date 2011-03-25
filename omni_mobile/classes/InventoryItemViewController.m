@@ -98,10 +98,6 @@
     // calls the super
     [super processRemoteData:remoteData];
 
-    // retrieves the label values
-    NSString *unitString = NSLocalizedString(@"unit", @"unit");
-    NSString *unitsString = NSLocalizedString(@"units", @"units");
-
     // retrieves the remote data attributes
     NSString *companyProductCode = [remoteData objectForKey:@"company_product_code"];
     NSString *name = [remoteData objectForKey:@"name"];
@@ -150,18 +146,15 @@
         NSNumber *stockOnHandNumber = [contactableOrganizationUnit objectForKey:@"stock_on_hand"];
         int stockOnHand = [stockOnHandNumber intValue];
 
-        // retrieves the unit label
-        NSString *unitLabel = stockOnHand != 1 ? unitsString : unitString;
-
         // retrieves the store information
         NSString *storeName = [contactableOrganizationalHierarchyTreeNode objectForKey:@"name"];
-        NSString *storeStockOnHand = [NSString stringWithFormat:@"%d %@", stockOnHand, unitLabel];
+        NSString *storeStockOnHand = [NSString stringWithFormat:@"%d", stockOnHand];
 
         // creates the store string table cell item
         HMStringTableCellItem *storeItem = [[HMStringTableCellItem alloc] initWithIdentifier:objectIdString];
-        storeItem.name = storeName;
-        storeItem.description = storeStockOnHand;
-        storeItem.accessoryType = @"disclosure_indicator";
+        storeItem.description = storeName;
+        storeItem.accessoryType = @"badge_label";
+        storeItem.accessoryValue = storeStockOnHand;
 
         // populates the second section item list
         [secondSectionItemGroup addItem:storeItem];
