@@ -28,6 +28,7 @@
 @implementation UserViewController
 
 @synthesize entity = _entity;
+@synthesize entityAbstraction = _entityAbstraction;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     // calls the super
@@ -45,54 +46,18 @@
     [super dealloc];
 }
 
-+ (NSString *)getBaseUrl {
-    // retrieves the preferences
-    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+- (void)initStructures {
+    // calls the super
+    [super initStructures];
 
-    // retrieves the base url
-    NSString *baseUrl = [preferences valueForKey:@"baseUrl"];
+    // creates the entity abstraction
+    HMEntityAbstraction *entityAbstraction = [[HMEntityAbstraction alloc] initWithEntityDelegate:self];
 
-    // returns the base url
-    return baseUrl;
-}
+    // sets the entity abstraction
+    self.entityAbstraction = entityAbstraction;
 
-- (NSString *)constructClassUrl:(NSString *)entityName serializerName:(NSString *)serializerName {
-    // retrieves the base url
-    NSString *baseUrl = [UserViewController getBaseUrl];
-
-    // creates the url from the object id
-    NSString *url = [NSString stringWithFormat:@"%@/%@.%@", baseUrl, entityName, serializerName];
-
-    // returns the url
-    return url;
-}
-
-- (NSString *)constructObjectUrl:(NSString *)entityName serializerName:(NSString *)serializerName {
-    // retrieves the base url
-    NSString *baseUrl = [UserViewController getBaseUrl];
-
-    // retrieves the entity object id
-    NSNumber *entityObjectId = [self.entity objectForKey:@"object_id"];
-
-    // creates the url from the object id
-    NSString *url = [NSString stringWithFormat:@"%@/%@/%@.%@", baseUrl, entityName, [entityObjectId stringValue], serializerName];
-
-    // returns the url
-    return url;
-}
-
-- (NSString *)constructObjectCompositeUrl:(NSString *)entityName operationName:(NSString *)operationName serializerName:(NSString *)serializerName {
-    // retrieves the base url
-    NSString *baseUrl = [UserViewController getBaseUrl];
-
-    // retrieves the entity object id
-    NSNumber *entityObjectId = [self.entity objectForKey:@"object_id"];
-
-    // creates the url from the object id
-    NSString *url = [NSString stringWithFormat:@"%@/%@/%@/%@.%@", baseUrl, entityName, [entityObjectId stringValue], operationName, serializerName];
-
-    // returns the url
-    return url;
+    // releases the entity abstraction
+    [entityAbstraction release];
 }
 
 - (NSString *)getRemoteUrl {
@@ -101,43 +66,7 @@
 }
 
 - (NSString *)getRemoteUrlForOperation:(HMItemOperationType)operationType {
-    // allocates the url
-    NSString *url;
-
-    // switches over the operation type
-    // in order to retrieve the apropriate url
-    switch(operationType) {
-        // in case it's a create operation
-        case HMItemOperationCreate:
-            url = [self constructClassUrl:@"users" serializerName:@"json"];
-
-            // breaks the swtich
-            break;
-
-        // in case it's a read operation
-        case HMItemOperationRead:
-            url = [self constructObjectUrl:@"users" serializerName:@"json"];
-
-            // breaks the swtich
-            break;
-
-        // in case it's an update operation
-        case HMItemOperationUpdate:
-            url = [self constructObjectCompositeUrl:@"users" operationName:@"update" serializerName:@"json"];
-
-            // breaks the swtich
-            break;
-
-        // in case it's a delete operation
-        case HMItemOperationDelete:
-            url = [self constructObjectCompositeUrl:@"users" operationName:@"delete" serializerName:@"json"];
-
-            // breaks the swtich
-            break;
-    }
-
-    // returns the url
-    return url;
+    return [self.entityAbstraction getRemoteUrlForOperation:operationType entityName:@"users" serializerName:@"json"];
 }
 
 - (void)changeEntity:(NSDictionary *)entity {
