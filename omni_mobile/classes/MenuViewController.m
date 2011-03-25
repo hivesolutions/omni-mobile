@@ -230,7 +230,7 @@
     if([item.identifier isEqualToString:@"users"]) {
         [self didSelectUsersButton];
     }
-    if([item.identifier isEqualToString:@"inventory"]) {
+    else if([item.identifier isEqualToString:@"inventory"]) {
         [self didSelectInventoryButton];
     }
     else {
