@@ -1,4 +1,4 @@
-    // Hive Omni Erp
+// Hive Omni Erp
 // Copyright (C) 2008 Hive Solutions Lda.
 //
 // This file is part of Hive Omni Erp.
