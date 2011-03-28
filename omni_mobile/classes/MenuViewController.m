@@ -232,4 +232,7 @@
     }
 }
 
+- (void)didDeelectItemRowWithItem:(HMItem *)item {
+}
+
 @end
