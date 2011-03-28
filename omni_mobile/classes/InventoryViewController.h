@@ -27,7 +27,7 @@
 
 #import "InventoryItemViewController.h"
 
-@interface InventoryViewController : UITableViewController<HMRemoteTableViewProvider, HMRemoteTableViewDelegate> {
+@interface InventoryViewController : HMTableViewController<HMRemoteTableViewProvider, HMRemoteTableViewDelegate> {
 }
 
 /**

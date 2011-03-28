@@ -25,7 +25,7 @@
 
 #import "Dependencies.h"
 
-@interface UsersViewController : UITableViewController<HMRemoteTableViewProvider, HMRemoteTableViewDelegate> {
+@interface UsersViewController : HMTableViewController<HMRemoteTableViewProvider, HMRemoteTableViewDelegate> {
 }
 
 /**

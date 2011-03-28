@@ -29,7 +29,7 @@
 #import "UsersViewController.h"
 #import "InventoryViewController.h"
 
-@interface MenuViewController : UITableViewController<HMItemTableViewProvider, HMItemTableViewDelegate> {
+@interface MenuViewController : HMTableViewController<HMItemTableViewProvider, HMItemTableViewDelegate> {
     @private
     HMNamedItemGroup *_menuItemGroup;
 }

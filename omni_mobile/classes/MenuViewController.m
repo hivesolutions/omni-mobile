@@ -213,9 +213,11 @@
 
 - (void)didSelectItemRowWithItem:(HMItem *)item {
     if([item.identifier isEqualToString:@"users"]) {
+        // calls the did select users button
         [self didSelectUsersButton];
     }
     else if([item.identifier isEqualToString:@"inventory"]) {
+        // calls the did select inventory button
         [self didSelectInventoryButton];
     }
     else {
@@ -228,9 +230,6 @@
         // releases the menu view controller reference
         [menuViewController release];
     }
-}
-
-- (void)didDeselectItemRowWithItem:(HMItem *)item {
 }
 
 @end
