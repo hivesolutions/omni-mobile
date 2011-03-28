@@ -61,6 +61,6 @@
  *
  * @param identifier The identifier of the entity to change to.
  */
-- (void) changeIdentifier:(NSString *)identifier;
+- (void)changeIdentifier:(NSString *)identifier;
 
 @end

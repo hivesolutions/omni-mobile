@@ -124,10 +124,6 @@
     // calls the super
     [super processRemoteData:remoteData];
 
-    // retrieves the label values
-    NSString *unitString = NSLocalizedString(@"unit", @"unit");
-    NSString *unitsString = NSLocalizedString(@"units", @"units");
-
     // retrieves the remote data attributes
     NSDictionary *merchandise = [remoteData objectForKey:@"merchandise"];
     NSDictionary *contactableOrganizationalHierarchyTreeNode = [remoteData objectForKey:@"contactable_organizational_hierarchy_tree_node"];
@@ -136,37 +132,11 @@
     NSDictionary *retailPrice = [remoteData objectForKey:@"retail_price"];
     NSString *merchandiseCompanyProductCode = [merchandise objectForKey:@"company_product_code"];
     NSString *storeName = [contactableOrganizationalHierarchyTreeNode objectForKey:@"name"];
-
-    // converts the values as required
-    int stockOnHandInt = [stockOnHand intValue];
-
-    // declares the price values
-    NSNumber *priceValue;
-    NSNumber *retailPriceValue;
-
-    // in case a price is defined
-    if(price != nil) {
-        // retrieves the price value
-        priceValue = [price objectForKey:@"value"];
-    }
-    else {
-        priceValue = nil;
-    }
-
-    // in case retail price is defined
-    if(retailPrice != nil) {
-        // retrieves the retail price value
-        retailPriceValue = [retailPrice objectForKey:@"value"];
-    }
-    else {
-        retailPriceValue = nil;
-    }
+    NSNumber *priceValue = [price objectForKey:@"value"];
+    NSNumber *retailPriceValue = [retailPrice objectForKey:@"value"];
 
     // creates the title string
     NSString *titleString = [NSString stringWithFormat:@"%@ @ %@", merchandiseCompanyProductCode, storeName];
-
-    // retrieves the unit label
-    NSString *unitLabel = stockOnHandInt != 1 ? unitsString : unitString;
 
     // creates the menu header items
     HMItem *title = [[HMItem alloc] initWithIdentifier:nil];
@@ -179,21 +149,21 @@
     // creates the stock on hand string table cell
     HMStringTableCellItem *stockOnHandItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"stock_on_hand"];
     stockOnHandItem.name = NSLocalizedString(@"Stock", @"Stock");
-    stockOnHandItem.description = [NSString stringWithFormat:@"%d %@", stockOnHandInt, unitLabel];
+    stockOnHandItem.description = [NSString stringWithFormat:@"%d", [stockOnHand intValue]];
 
     // creates the price string table cell
     HMStringTableCellItem *priceItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"price"];
     priceItem.name = NSLocalizedString(@"Price", @"Price");
-    if(priceValue != nil) {
-        priceItem.description = [NSString stringWithFormat:@"%.2f EUR", [priceValue floatValue]];
-    }
+    priceItem.description = [NSString stringWithFormat:@"%.2f", [priceValue floatValue]];
+    priceItem.accessoryType = @"badge_label";
+    priceItem.accessoryValue = @"EUR";
 
     // creates the retail price string table cell
     HMStringTableCellItem *retailPriceItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"retail_price"];
     retailPriceItem.name = NSLocalizedString(@"Retail Price", @"Retail Price");
-    if(retailPriceValue != nil) {
-        retailPriceItem.description = [NSString stringWithFormat:@"%.2f EUR", [retailPriceValue floatValue]];
-    }
+    retailPriceItem.description = [NSString stringWithFormat:@"%.2f", [retailPriceValue floatValue]];
+    retailPriceItem.accessoryType = @"badge_label";
+    retailPriceItem.accessoryValue = @"EUR";
 
     // creates the sections item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
