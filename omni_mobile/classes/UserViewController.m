@@ -42,6 +42,9 @@
     // releases the entity
     [_entity release];
 
+    // releases the entity abstraction
+    [_entityAbstraction release];
+
     // calls the super
     [super dealloc];
 }
