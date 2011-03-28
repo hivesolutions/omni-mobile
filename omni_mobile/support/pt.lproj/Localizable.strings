@@ -43,6 +43,8 @@
 "Notifications" = "Notificações";
 "Question" = "Questão";
 "Secret Question" = "Questão Secreta";
+"New User" = "Novo Utilizador";
+"New Item" = "Novo Item";
 
 /* Global error values */
 "ConnectionError" = "Ocorreu um problema de conexão";

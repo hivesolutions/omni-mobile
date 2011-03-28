@@ -23,6 +23,11 @@
 // __copyright__ = Copyright (c) 2008 Hive Solutions Lda.
 // __license__   = GNU General Public License (GPL), Version 3
 
+/**
+ * The color to be used in the context of bars for omni.
+ */
+#define OMNI_BAR_COLOR [UIColor colorWithRed:0.345 green:0.682 blue:0.267 alpha:1.0]
+
 // framework dependency includes
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>

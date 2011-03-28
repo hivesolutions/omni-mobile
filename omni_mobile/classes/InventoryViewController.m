@@ -51,8 +51,14 @@
     // initializes the inventory item view controller
     InventoryItemViewController *inventoryItemViewController = [[InventoryItemViewController alloc] initWithNibNameAndType:@"InventoryItemViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationCreate];
 
+    // sets the title in the inventory item view controller
+    inventoryItemViewController.title = NSLocalizedString(@"New Item", @"New Item");
+
     // creates the navigation controller
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:inventoryItemViewController];
+
+    // sets the navigation navigation bar tint color
+    navigationController.navigationBar.tintColor = OMNI_BAR_COLOR;
 
     // presents the user view controller into the navigation controller
     [self presentModalViewController:navigationController animated:YES];

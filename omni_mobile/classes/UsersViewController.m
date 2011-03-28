@@ -51,8 +51,14 @@
     // initializes the users view controller
     UserViewController *userViewController = [[UserViewController alloc] initWithNibNameAndType:@"UserViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationCreate];
 
+    // sets the title in the user view controller
+    userViewController.title = NSLocalizedString(@"New User", @"New User");
+
     // creates the navigation controller
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:userViewController];
+
+    // sets the navigation navigation bar tint color
+    navigationController.navigationBar.tintColor = OMNI_BAR_COLOR;
 
     // presents the user view controller into the navigation controller
     [self presentModalViewController:navigationController animated:YES];
