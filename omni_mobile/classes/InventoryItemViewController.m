@@ -153,6 +153,7 @@
         // creates the store string table cell item
         HMStringTableCellItem *storeItem = [[HMStringTableCellItem alloc] initWithIdentifier:objectIdString];
         storeItem.description = storeName;
+        storeItem.editable = NO;
         storeItem.accessoryType = @"badge_label";
         storeItem.accessoryValue = storeStockOnHand;
 
