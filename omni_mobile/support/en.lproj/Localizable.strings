@@ -29,6 +29,7 @@
 "Cancel" = "Cancel";
 "Retry" = "Retry";
 "Edit" = "Edit";
+"Create" = "Create";
 "Delete" = "Delete";
 "Done" = "Done";
 "Search" = "Search";
@@ -36,6 +37,8 @@
 /* Global dictionary values */
 "Users" = "Users";
 "Sales" = "Sales";
+"Purchases" = "Purchases";
+"Inventory" = "Inventory";
 "Highlights" = "Highlights";
 "Notifications" = "Notifications";
 "Question" = "Question";
