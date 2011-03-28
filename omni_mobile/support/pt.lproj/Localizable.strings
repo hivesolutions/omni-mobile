@@ -29,12 +29,16 @@
 "Cancel" = "Cancelar";
 "Retry" = "Repetir";
 "Edit" = "Editar";
+"Create" = "Criar";
 "Delete" = "Apagar";
-"Done" = "OK";
+"Done" = "Feito";
+"Search" = "Procurar";
 
 /* Global dictionary values */
 "Users" = "Utilizadores";
 "Sales" = "Vendas";
+"Purchases" = "Compras";
+"Inventory" = "Inventário";
 "Highlights" = "Destaques";
 "Notifications" = "Notificações";
 "Question" = "Questão";

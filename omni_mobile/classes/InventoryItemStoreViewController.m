@@ -141,7 +141,7 @@
     // creates the menu header items
     HMItem *title = [[HMItem alloc] initWithIdentifier:nil];
     HMItem *subTitle = [[HMItem alloc] initWithIdentifier:titleString];
-    HMItem *image = [[HMItem alloc] initWithIdentifier:@"user.png"];
+    HMItem *image = [[HMItem alloc] initWithIdentifier:@"box_building.png"];
 
     // creates the menu header group
     HMNamedItemGroup *menuHeaderGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu_header"];
@@ -150,6 +150,8 @@
     HMStringTableCellItem *stockOnHandItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"stock_on_hand"];
     stockOnHandItem.name = NSLocalizedString(@"Stock", @"Stock");
     stockOnHandItem.description = [NSString stringWithFormat:@"%d", [stockOnHand intValue]];
+    stockOnHandItem.accessoryType = @"badge_label";
+    stockOnHandItem.accessoryValue = @"UN";
 
     // creates the price string table cell
     HMStringTableCellItem *priceItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"price"];

@@ -106,7 +106,7 @@
     // creates the menu header items
     HMItem *title = [[HMItem alloc] initWithIdentifier:name];
     HMItem *subTitle = [[HMItem alloc] initWithIdentifier:companyProductCode];
-    HMItem *image = [[HMItem alloc] initWithIdentifier:@"user.png"];
+    HMItem *image = [[HMItem alloc] initWithIdentifier:@"box.png"];
 
     // creates the menu header group
     HMNamedItemGroup *menuHeaderGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu_header"];
@@ -153,9 +153,11 @@
         // creates the store string table cell item
         HMStringTableCellItem *storeItem = [[HMStringTableCellItem alloc] initWithIdentifier:objectIdString];
         storeItem.description = storeName;
-        storeItem.editable = NO;
+        storeItem.icon = @"building.png";
+        storeItem.highlightedIcon = @"building_white.png";
         storeItem.accessoryType = @"badge_label";
         storeItem.accessoryValue = storeStockOnHand;
+        storeItem.editable = NO;
 
         // populates the second section item list
         [secondSectionItemGroup addItem:storeItem];
