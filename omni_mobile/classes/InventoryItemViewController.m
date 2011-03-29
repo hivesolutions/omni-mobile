@@ -90,8 +90,11 @@
                                      @"", @"name",
                                      nil];
 
-    // returns the result of processing an empty remote data
-    return [self processRemoteData:emptyRemoteData];
+    // processes the empty remote data
+    [self processRemoteData:emptyRemoteData];
+
+    // releases the objects
+    [emptyRemoteData release];
 }
 
 - (void)processRemoteData:(NSDictionary *)remoteData {
