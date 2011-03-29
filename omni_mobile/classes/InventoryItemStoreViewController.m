@@ -125,15 +125,15 @@
     [super processRemoteData:remoteData];
 
     // retrieves the remote data attributes
-    NSDictionary *merchandise = [remoteData objectForKey:@"merchandise"];
-    NSDictionary *contactableOrganizationalHierarchyTreeNode = [remoteData objectForKey:@"contactable_organizational_hierarchy_tree_node"];
-    NSNumber *stockOnHand = [remoteData objectForKey:@"stock_on_hand"];
-    NSDictionary *price = [remoteData objectForKey:@"price"];
-    NSDictionary *retailPrice = [remoteData objectForKey:@"retail_price"];
-    NSString *merchandiseCompanyProductCode = [merchandise objectForKey:@"company_product_code"];
-    NSString *storeName = [contactableOrganizationalHierarchyTreeNode objectForKey:@"name"];
-    NSNumber *priceValue = [price objectForKey:@"value"];
-    NSNumber *retailPriceValue = [retailPrice objectForKey:@"value"];
+    NSDictionary *merchandise = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"merchandise"]);
+    NSDictionary *contactableOrganizationalHierarchyTreeNode = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"contactable_organizational_hierarchy_tree_node"]);
+    NSNumber *stockOnHand = AVOID_NULL_NUMBER([remoteData objectForKey:@"stock_on_hand"]);
+    NSDictionary *price = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"price"]);
+    NSDictionary *retailPrice = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"retail_price"]);
+    NSString *merchandiseCompanyProductCode = AVOID_NULL([merchandise objectForKey:@"company_product_code"]);
+    NSString *storeName = AVOID_NULL([contactableOrganizationalHierarchyTreeNode objectForKey:@"name"]);
+    NSNumber *priceValue = AVOID_NULL_NUMBER([price objectForKey:@"value"]);
+    NSNumber *retailPriceValue = AVOID_NULL_NUMBER([retailPrice objectForKey:@"value"]);
 
     // creates the title string
     NSString *titleString = [NSString stringWithFormat:@"%@ @ %@", merchandiseCompanyProductCode, storeName];

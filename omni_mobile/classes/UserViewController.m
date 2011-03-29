@@ -102,11 +102,11 @@
     [super processRemoteData:remoteData];
 
     // retrieves the remote data attributes
-    NSString *username = [remoteData objectForKey:@"username"];
-    NSString *password = [remoteData objectForKey:@"password_hash"];
-    NSString *email = [remoteData objectForKey:@"email"];
-    NSString *secretQuestion = [remoteData objectForKey:@"secret_question"];
-    NSString *secretAnswer = [remoteData objectForKey:@"secret_answer_hash"];
+    NSString *username = AVOID_NULL([remoteData objectForKey:@"username"]);
+    NSString *password = AVOID_NULL([remoteData objectForKey:@"password_hash"]);
+    NSString *email = AVOID_NULL([remoteData objectForKey:@"email"]);
+    NSString *secretQuestion = AVOID_NULL([remoteData objectForKey:@"secret_question"]);
+    NSString *secretAnswer = AVOID_NULL([remoteData objectForKey:@"secret_answer_hash"]);
 
     // creates the menu header items
     HMItem *title = [[HMItem alloc] initWithIdentifier:AVOID_NULL(username)];
@@ -119,14 +119,14 @@
     // creates the password string table cell
     HMStringTableCellItem *passwordItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"password"];
     passwordItem.name = NSLocalizedString(@"Password", @"Password");
-    passwordItem.description = AVOID_NULL(password);
+    passwordItem.description = password;
     passwordItem.secure = YES;
     passwordItem.highlightable = NO;
 
     // creates the email string table cell
     HMStringTableCellItem *emailItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"email"];
     emailItem.name = NSLocalizedString(@"E-mail", @"E-mail");
-    emailItem.description = AVOID_NULL(email);
+    emailItem.description = email;
     emailItem.highlightable = NO;
 
     // creates the secret question string table cell
@@ -138,7 +138,7 @@
     // creates the secret answer string table cell
     HMStringTableCellItem *secretAnswerItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"secret_answer"];
     secretAnswerItem.name = NSLocalizedString(@"Answer", @"Answer");
-    secretAnswerItem.description = AVOID_NULL(secretAnswer);
+    secretAnswerItem.description = secretAnswer;
     secretAnswerItem.secure = YES;
     secretAnswerItem.highlightable = NO;
 

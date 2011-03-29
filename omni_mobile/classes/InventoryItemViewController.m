@@ -99,14 +99,14 @@
     [super processRemoteData:remoteData];
 
     // retrieves the remote data attributes
-    NSString *companyProductCode = [remoteData objectForKey:@"company_product_code"];
-    NSString *name = [remoteData objectForKey:@"name"];
-    NSArray *contactableOrganizationalUnits = [remoteData objectForKey:@"contactable_organizational_units"];
+    NSString *companyProductCode = AVOID_NULL([remoteData objectForKey:@"company_product_code"]);
+    NSString *name = AVOID_NULL([remoteData objectForKey:@"name"]);
+    NSArray *contactableOrganizationalUnits = AVOID_NULL_ARRAY([remoteData objectForKey:@"contactable_organizational_units"]);
 
     // creates the menu header items
-    HMItem *title = [[HMItem alloc] initWithIdentifier:AVOID_NULL(name)];
-    HMItem *subTitle = [[HMItem alloc] initWithIdentifier:AVOID_NULL(companyProductCode)];
-    HMItem *image = [[HMItem alloc] initWithIdentifier:AVOID_NULL(@"box.png")];
+    HMItem *title = [[HMItem alloc] initWithIdentifier:name];
+    HMItem *subTitle = [[HMItem alloc] initWithIdentifier:companyProductCode];
+    HMItem *image = [[HMItem alloc] initWithIdentifier:@"box.png"];
 
     // creates the menu header group
     HMNamedItemGroup *menuHeaderGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu_header"];
@@ -114,7 +114,7 @@
     // creates the name string table cell item
     HMStringTableCellItem *nameItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"name"];
     nameItem.name = NSLocalizedString(@"Name", @"Name");
-    nameItem.description = AVOID_NULL(name);
+    nameItem.description = name;
     nameItem.highlightable = NO;
 
     // creates the sections item group
@@ -141,19 +141,19 @@
         NSDictionary *contactableOrganizationUnit = [contactableOrganizationalUnits objectAtIndex:index];
 
         // retrieves the inventory line information
-        NSNumber *objectId = [contactableOrganizationUnit objectForKey:@"object_id"];
+        NSNumber *objectId = AVOID_NULL_NUMBER([contactableOrganizationUnit objectForKey:@"object_id"]);
         NSString *objectIdString = [objectId stringValue];
-        NSDictionary *contactableOrganizationalHierarchyTreeNode = [contactableOrganizationUnit objectForKey:@"contactable_organizational_hierarchy_tree_node"];
-        NSNumber *stockOnHandNumber = [contactableOrganizationUnit objectForKey:@"stock_on_hand"];
+        NSDictionary *contactableOrganizationalHierarchyTreeNode = AVOID_NULL_DICTIONARY([contactableOrganizationUnit objectForKey:@"contactable_organizational_hierarchy_tree_node"]);
+        NSNumber *stockOnHandNumber = AVOID_NULL_NUMBER([contactableOrganizationUnit objectForKey:@"stock_on_hand"]);
         int stockOnHand = [stockOnHandNumber intValue];
 
         // retrieves the store information
-        NSString *storeName = [contactableOrganizationalHierarchyTreeNode objectForKey:@"name"];
+        NSString *storeName = AVOID_NULL([contactableOrganizationalHierarchyTreeNode objectForKey:@"name"]);
         NSString *storeStockOnHand = [NSString stringWithFormat:@"%d", stockOnHand];
 
         // creates the store string table cell item
         HMStringTableCellItem *storeItem = [[HMStringTableCellItem alloc] initWithIdentifier:objectIdString];
-        storeItem.description = AVOID_NULL(storeName);
+        storeItem.description = storeName;
         storeItem.icon = @"building.png";
         storeItem.highlightedIcon = @"building_white.png";
         storeItem.accessoryType = @"badge_label";
