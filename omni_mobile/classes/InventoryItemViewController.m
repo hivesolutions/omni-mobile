@@ -104,9 +104,9 @@
     NSArray *contactableOrganizationalUnits = [remoteData objectForKey:@"contactable_organizational_units"];
 
     // creates the menu header items
-    HMItem *title = [[HMItem alloc] initWithIdentifier:name];
-    HMItem *subTitle = [[HMItem alloc] initWithIdentifier:companyProductCode];
-    HMItem *image = [[HMItem alloc] initWithIdentifier:@"box.png"];
+    HMItem *title = [[HMItem alloc] initWithIdentifier:AVOID_NULL(name)];
+    HMItem *subTitle = [[HMItem alloc] initWithIdentifier:AVOID_NULL(companyProductCode)];
+    HMItem *image = [[HMItem alloc] initWithIdentifier:AVOID_NULL(@"box.png")];
 
     // creates the menu header group
     HMNamedItemGroup *menuHeaderGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu_header"];
@@ -114,7 +114,7 @@
     // creates the name string table cell item
     HMStringTableCellItem *nameItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"name"];
     nameItem.name = NSLocalizedString(@"Name", @"Name");
-    nameItem.description = name;
+    nameItem.description = AVOID_NULL(name);
     nameItem.highlightable = NO;
 
     // creates the sections item group
@@ -153,7 +153,7 @@
 
         // creates the store string table cell item
         HMStringTableCellItem *storeItem = [[HMStringTableCellItem alloc] initWithIdentifier:objectIdString];
-        storeItem.description = storeName;
+        storeItem.description = AVOID_NULL(storeName);
         storeItem.icon = @"building.png";
         storeItem.highlightedIcon = @"building_white.png";
         storeItem.accessoryType = @"badge_label";
@@ -210,8 +210,8 @@
     HMItem *nameItem = [firstSectionItemGroup getItem:0];
 
     // sets the items in the remote data
-    [remoteData setObject:companyProductCodeItem.identifier forKey:@"transactional_merchandise[company_product_code]"];
-    [remoteData setObject:nameItem.description forKey:@"transactional_merchandise[name]"];
+    [remoteData setObject:AVOID_NIL(companyProductCodeItem.identifier, NSString) forKey:@"transactional_merchandise[company_product_code]"];
+    [remoteData setObject:AVOID_NIL(nameItem.description, NSString) forKey:@"transactional_merchandise[name]"];
 
     // @TODO CHANGE THIS HARDCODE
     switch(self.operationType) {
@@ -237,8 +237,8 @@
     NSString *objectIdString = [objectId stringValue];
 
     // sets the object id (structured and unstructured)
-    [remoteData setObject:objectIdString forKey:@"user[object_id]"];
-    [remoteData setObject:objectIdString forKey:@"object_id"];
+    [remoteData setObject:AVOID_NIL(objectIdString, NSString) forKey:@"user[object_id]"];
+    [remoteData setObject:AVOID_NIL(objectIdString, NSString) forKey:@"object_id"];
 }
 
 - (void)didReceiveMemoryWarning {

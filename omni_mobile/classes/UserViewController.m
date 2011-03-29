@@ -109,9 +109,9 @@
     NSString *secretAnswer = [remoteData objectForKey:@"secret_answer_hash"];
 
     // creates the menu header items
-    HMItem *title = [[HMItem alloc] initWithIdentifier:username];
-    HMItem *subTitle = [[HMItem alloc] initWithIdentifier:username];
-    HMItem *image = [[HMItem alloc] initWithIdentifier:@"user.png"];
+    HMItem *title = [[HMItem alloc] initWithIdentifier:AVOID_NULL(username)];
+    HMItem *subTitle = [[HMItem alloc] initWithIdentifier:AVOID_NULL(username)];
+    HMItem *image = [[HMItem alloc] initWithIdentifier:AVOID_NULL(@"user.png")];
 
     // creates the menu header group
     HMNamedItemGroup *menuHeaderGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu_header"];
@@ -119,14 +119,14 @@
     // creates the password string table cell
     HMStringTableCellItem *passwordItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"password"];
     passwordItem.name = NSLocalizedString(@"Password", @"Password");
-    passwordItem.description = password;
+    passwordItem.description = AVOID_NULL(password);
     passwordItem.secure = YES;
     passwordItem.highlightable = NO;
 
     // creates the email string table cell
     HMStringTableCellItem *emailItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"email"];
     emailItem.name = NSLocalizedString(@"E-mail", @"E-mail");
-    emailItem.description = email;
+    emailItem.description = AVOID_NULL(email);
     emailItem.highlightable = NO;
 
     // creates the secret question string table cell
@@ -138,7 +138,7 @@
     // creates the secret answer string table cell
     HMStringTableCellItem *secretAnswerItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"secret_answer"];
     secretAnswerItem.name = NSLocalizedString(@"Answer", @"Answer");
-    secretAnswerItem.description = secretAnswer;
+    secretAnswerItem.description = AVOID_NULL(secretAnswer);
     secretAnswerItem.secure = YES;
     secretAnswerItem.highlightable = NO;
 
@@ -217,14 +217,14 @@
     HMItem *secretAnswer = [secondSectionItemGroup getItem:1];
 
     // sets the items in the remote data
-    [remoteData setObject:username.identifier forKey:@"user[username]"];
-    [remoteData setObject:emailItem.description forKey:@"user[email]"];
-    [remoteData setObject:secretQuestion.description forKey:@"user[secret_question]"];
+    [remoteData setObject:AVOID_NIL(username.identifier, NSString) forKey:@"user[username]"];
+    [remoteData setObject:AVOID_NIL(emailItem.description, NSString) forKey:@"user[email]"];
+    [remoteData setObject:AVOID_NIL(secretQuestion.description, NSString) forKey:@"user[secret_question]"];
 
     // sets the parameter items in the remote data
-    [remoteData setObject:passwordItem.description forKey:@"user[_parameters][password]"];
-    [remoteData setObject:passwordItem.description forKey:@"user[_parameters][confirm_password]"];
-    [remoteData setObject:secretAnswer.description forKey:@"user[_parameters][secret_answer]"];
+    [remoteData setObject:AVOID_NIL(passwordItem.description, NSString) forKey:@"user[_parameters][password]"];
+    [remoteData setObject:AVOID_NIL(passwordItem.description, NSString) forKey:@"user[_parameters][confirm_password]"];
+    [remoteData setObject:AVOID_NIL(secretAnswer.description, NSString) forKey:@"user[_parameters][secret_answer]"];
 
     // @TODO CHANGE THIS HARDCODE
     switch(self.operationType) {
@@ -250,8 +250,8 @@
     NSString *objectIdString = [objectId stringValue];
 
     // sets the object id (structured and unstructured)
-    [remoteData setObject:objectIdString forKey:@"user[object_id]"];
-    [remoteData setObject:objectIdString forKey:@"object_id"];
+    [remoteData setObject:AVOID_NIL(objectIdString, NSString) forKey:@"user[object_id]"];
+    [remoteData setObject:AVOID_NIL(objectIdString, NSString) forKey:@"object_id"];
 }
 
 - (void)didReceiveMemoryWarning {
