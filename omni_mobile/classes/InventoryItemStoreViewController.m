@@ -219,7 +219,7 @@
     return nil;
 }
 
-- (void)convertRemoteGroupRead:(NSMutableDictionary *)remoteData {
+- (void)convertRemoteGroupUpdate:(NSMutableDictionary *)remoteData {
 }
 
 - (void)didReceiveMemoryWarning {

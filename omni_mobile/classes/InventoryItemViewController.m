@@ -193,9 +193,9 @@
     [title release];
 }
 
-- (NSMutableDictionary *)convertRemoteGroup {
+- (NSMutableDictionary *)convertRemoteGroup:(HMItemOperationType)operationType {
     // calls the super
-    NSMutableDictionary *remoteData = [super convertRemoteGroup];
+    NSMutableDictionary *remoteData = [super convertRemoteGroup:operationType];
 
     // retrieves the menu header named group
     HMNamedItemGroup *menuHeaderNamedGroup = (HMNamedItemGroup *) [self.remoteGroup getItem:@"header"];
@@ -216,25 +216,11 @@
     [remoteData setObject:AVOID_NIL(companyProductCodeItem.identifier, NSString) forKey:@"transactional_merchandise[company_product_code]"];
     [remoteData setObject:AVOID_NIL(nameItem.description, NSString) forKey:@"transactional_merchandise[name]"];
 
-    // @TODO CHANGE THIS HARDCODE
-    switch(self.operationType) {
-            // in case the operation is read
-        case HMItemOperationRead:
-            // converts teh remote group for read
-            [self convertRemoteGroupRead:remoteData];
-
-            // breaks the switch
-            break;
-
-        default:
-            break;
-    }
-
     // returns the remote data
     return remoteData;
 }
 
-- (void)convertRemoteGroupRead:(NSMutableDictionary *)remoteData {
+- (void)convertRemoteGroupUpdate:(NSMutableDictionary *)remoteData {
     // retrieves the object id
     NSNumber *objectId = [self.entity objectForKey:@"object_id"];
     NSString *objectIdString = [objectId stringValue];
