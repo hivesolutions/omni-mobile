@@ -28,7 +28,20 @@
 #import "InventoryItemViewController.h"
 
 @interface InventoryViewController : HMTableViewController<HMRemoteTableViewProvider, HMRemoteTableViewDelegate> {
+    @private
+    HMEntityAbstraction *_entityAbstraction;
 }
+
+/**
+ * The entity abstraction to be used for operations
+ * in the entity.
+ */
+@property (retain) HMEntityAbstraction *entityAbstraction;
+
+/**
+ * Initializes the structures.
+ */
+- (void)initStructures;
 
 /**
  * Shows the new inventory item view.

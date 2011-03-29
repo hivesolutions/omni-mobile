@@ -27,10 +27,28 @@
 
 @implementation UsersViewController
 
+@synthesize entityAbstraction = _entityAbstraction;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     // calls the super
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 
+    // initializes the structures
+    [self initStructures];
+
+    // returns self
+    return self;
+}
+
+- (void)dealloc {
+    // releases the entity abstraction
+    [_entityAbstraction release];
+
+    // calls the super
+    [super dealloc];
+}
+
+- (void)initStructures {
     // sets the attributes
     self.title = NSLocalizedString(@"Users", @"Users");
 
@@ -38,13 +56,14 @@
     UIBarButtonItem *newBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newUser)];
     self.navigationItem.rightBarButtonItem = newBarButton;
 
-    // returns self
-    return self;
-}
+    // creates the entity abstraction
+    HMEntityAbstraction *entityAbstraction = [[HMEntityAbstraction alloc] init];
 
-- (void)dealloc {
-    // calls the super
-    [super dealloc];
+    // sets the attributes
+    self.entityAbstraction = entityAbstraction;
+
+    // releases the objects
+    [entityAbstraction release];
 }
 
 - (void)newUser {
@@ -103,7 +122,7 @@
 }
 
 - (NSString *)getRemoteUrl {
-    return @"http://172.16.0.24:8080/colony_mod_python/rest/mvc/omni/users.json";
+    return [self.entityAbstraction constructClassUrl:@"users" serializerName:@"json"];
 }
 
 - (HMRemoteTableViewSerialized)getRemoteType {

@@ -34,6 +34,9 @@
     HMNamedItemGroup *_menuItemGroup;
 }
 
+/**
+ * The named item group that represent the menu.
+ */
 @property (retain) HMNamedItemGroup *menuItemGroup;
 
 /**
