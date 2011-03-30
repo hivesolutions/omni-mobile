@@ -54,7 +54,7 @@
 
     // sets the new bar button in the navigation item
     UIBarButtonItem *newBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newUser)];
-    self.navigationItem.rightBarButtonItem = newBarButton;
+    [self.navigationItem setRightBarButtonItem:newBarButton animated:YES];
 
     // creates the entity abstraction
     HMEntityAbstraction *entityAbstraction = [[HMEntityAbstraction alloc] init];
@@ -64,6 +64,7 @@
 
     // releases the objects
     [entityAbstraction release];
+    [newBarButton release];
 }
 
 - (void)newUser {
