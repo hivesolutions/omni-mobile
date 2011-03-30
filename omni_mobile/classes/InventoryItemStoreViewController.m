@@ -138,12 +138,9 @@
     NSNumber *priceValue = AVOID_NULL_NUMBER([price objectForKey:@"value"]);
     NSNumber *retailPriceValue = AVOID_NULL_NUMBER([retailPrice objectForKey:@"value"]);
 
-    // creates the title string
-    NSString *titleString = [NSString stringWithFormat:@"%@ @ %@", merchandiseCompanyProductCode, storeName];
-
     // creates the menu header items
-    HMItem *title = [[HMItem alloc] initWithIdentifier:nil];
-    HMItem *subTitle = [[HMItem alloc] initWithIdentifier:titleString];
+    HMItem *title = [[HMItem alloc] initWithIdentifier:merchandiseCompanyProductCode];
+    HMItem *subTitle = [[HMItem alloc] initWithIdentifier:storeName];
     HMItem *image = [[HMItem alloc] initWithIdentifier:@"box_building.png"];
 
     // creates the menu header group
