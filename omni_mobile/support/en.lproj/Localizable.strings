@@ -36,6 +36,8 @@
 "Updated" = "Updated";
 
 /* Global dictionary values */
+"Title" = "Title";
+"Subtitle" = "Subtitle";
 "Users" = "Users";
 "Sales" = "Sales";
 "Purchases" = "Purchases";
