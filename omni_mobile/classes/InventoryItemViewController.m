@@ -125,7 +125,7 @@
 
 
     // creates the namee string table cell item
-    HMStringTableCellItem *nameeItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"name"];
+    HMStringTableCellItem *nameeItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"name1"];
     nameeItem.name = NSLocalizedString(@"Name", @"Name");
     nameeItem.description = name;
     nameeItem.highlightable = NO;
@@ -151,7 +151,7 @@
 
     // populates the first section item list
     [firstSectionItemGroup addItem:nameItem];
-    [firstSectionItemGroup addItem:nameeItem];
+   // [firstSectionItemGroup addItem:nameeItem];
 
     // for each inventory line
     for(int index = 0; index < [contactableOrganizationalUnits count]; index++) {
@@ -179,16 +179,16 @@
         storeItem.editable = NO;
 
         // creates the namee string table cell item
-        HMStringTableCellItem *nameeeeItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"name"];
+        HMStringTableCellItem *nameeeeItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"name2"];
         nameeeeItem.name = NSLocalizedString(@"Name", @"Name");
         nameeeeItem.description = name;
         nameeeeItem.highlightable = NO;
         nameeeeItem.multipleLines = YES;
 
         // populates the second section item list
-        [secondSectionItemGroup addItem:nameeItem];
+      //  [secondSectionItemGroup addItem:nameeItem];
         [secondSectionItemGroup addItem:storeItem];
-        [secondSectionItemGroup addItem:nameeeeItem];
+     //   [secondSectionItemGroup addItem:nameeeeItem];
 
         // releases the store item
         [storeItem release];
