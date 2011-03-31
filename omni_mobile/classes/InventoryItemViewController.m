@@ -109,7 +109,7 @@
     // creates the menu header items
     HMItem *title = [[HMItem alloc] initWithIdentifier:name];
     HMItem *subTitle = [[HMItem alloc] initWithIdentifier:companyProductCode];
-    HMItem *image = [[HMItem alloc] initWithIdentifier:@"box.png"];
+    HMItem *image = [[HMItem alloc] initWithIdentifier:@"box_header.png"];
 
     // creates the menu header group
     HMNamedItemGroup *menuHeaderGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu_header"];
