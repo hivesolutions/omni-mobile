@@ -121,6 +121,13 @@
     inventoryItem.highlightedIcon = @"icon_inventory_white.png";
     inventoryItem.accessoryType = @"disclosure_indicator";
 
+    // creates the stores button item
+    HMTableCellItem *storesItem = [[HMTableCellItem alloc] initWithIdentifier:@"stores"];
+    storesItem.name = NSLocalizedString(@"Stores", @"Stores");
+    storesItem.icon = @"icon_stores.png";
+    storesItem.highlightedIcon = @"icon_stores_white.png";
+    storesItem.accessoryType = @"disclosure_indicator";
+
     // creates the highlights button item
     HMTableCellItem *highlightsItem = [[HMTableCellItem alloc] initWithIdentifier:@"highlights"];
     highlightsItem.name = NSLocalizedString(@"Highlights", @"Highlights");
@@ -152,6 +159,7 @@
     [firstSectionItemGroup addItem:salesItem];
     [firstSectionItemGroup addItem:purchasesItem];
     [firstSectionItemGroup addItem:inventoryItem];
+    [firstSectionItemGroup addItem:storesItem];
     [firstSectionItemGroup addItem:highlightsItem];
     [secondSectionItemGroup addItem:notificationsItem];
 
@@ -172,6 +180,7 @@
     [notificationsItem release];
     [highlightsItem release];
     [inventoryItem release];
+    [storesItem release];
     [purchasesItem release];
     [salesItem release];
     [usersItem release];
@@ -186,6 +195,17 @@
 
     // releases the users view controller reference
     [usersViewController release];
+}
+
+- (void)didSelectStoresButton {
+    // initializes the stores view controller
+    StoresViewController *storesViewController = [[StoresViewController alloc] initWithNibName:@"StoresViewController" bundle:[NSBundle mainBundle]];
+
+    // pushes the store view controller
+    [self.navigationController pushViewController:storesViewController animated:YES];
+
+    // releases the stores view controller reference
+    [storesViewController release];
 }
 
 - (void)didSelectInventoryButton {
@@ -219,6 +239,10 @@
     else if([item.identifier isEqualToString:@"inventory"]) {
         // calls the did select inventory button
         [self didSelectInventoryButton];
+    }
+    else if([item.identifier isEqualToString:@"stores"]) {
+        // calls the did select stores button
+        [self didSelectStoresButton];
     }
     else {
         // initializes the menu view controller
