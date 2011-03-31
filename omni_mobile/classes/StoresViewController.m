@@ -68,7 +68,7 @@
 }
 
 - (void)newStore {
-    /* missing */
+    /* @TODO: implement this */
 }
 
 - (void)viewDidLoad {
@@ -116,7 +116,17 @@
 }
 
 - (void)didSelectRemoteRowWithData:(NSDictionary *)data {
-    /* missing */
+    // initializes the stores view controller
+    StoreViewController *storeViewController = [[StoreViewController alloc] initWithNibNameAndType:@"StoreViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationRead];
+
+    // changes the store in the entity
+    [storeViewController changeEntity:data];
+
+    // pushes the store view controller into the navigation controller
+    [self.navigationController pushViewController:storeViewController animated:YES];
+
+    // releases the store view controller reference
+    [storeViewController release];
 }
 
 - (void)didDeselectRemoteRowWithData:(NSDictionary *)data {

@@ -14,6 +14,8 @@
 		0E5BA9021344DF3000BAD34B /* icon_stores_white@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E5BA8FE1344DF3000BAD34B /* icon_stores_white@x2.png */; };
 		0E5BA9031344DF3000BAD34B /* icon_stores.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E5BA8FF1344DF3000BAD34B /* icon_stores.png */; };
 		0E5BA9041344DF3000BAD34B /* icon_stores@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E5BA9001344DF3000BAD34B /* icon_stores@2x.png */; };
+		0E5BA9071344E29800BAD34B /* StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E5BA9061344E29400BAD34B /* StoreViewController.m */; };
+		0E5BA9091344E2A900BAD34B /* StoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E5BA9081344E2A900BAD34B /* StoreViewController.xib */; };
 		0E85BD04133B7BD900F3E65B /* InventoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E85BD03133B7BD900F3E65B /* InventoryViewController.xib */; };
 		0E85BD07133B7C5F00F3E65B /* InventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E85BD06133B7C5F00F3E65B /* InventoryViewController.m */; };
 		0E85BD0A133B81CC00F3E65B /* InventoryItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E85BD09133B81CA00F3E65B /* InventoryItemViewController.m */; };
@@ -178,6 +180,9 @@
 		0E5BA8FE1344DF3000BAD34B /* icon_stores_white@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_stores_white@x2.png"; path = "stores/icon_stores_white@x2.png"; sourceTree = "<group>"; };
 		0E5BA8FF1344DF3000BAD34B /* icon_stores.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_stores.png; path = stores/icon_stores.png; sourceTree = "<group>"; };
 		0E5BA9001344DF3000BAD34B /* icon_stores@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_stores@2x.png"; path = "stores/icon_stores@2x.png"; sourceTree = "<group>"; };
+		0E5BA9051344E29300BAD34B /* StoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreViewController.h; path = classes/StoreViewController.h; sourceTree = "<group>"; };
+		0E5BA9061344E29400BAD34B /* StoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreViewController.m; path = classes/StoreViewController.m; sourceTree = "<group>"; };
+		0E5BA9081344E2A900BAD34B /* StoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoreViewController.xib; path = nibs/StoreViewController.xib; sourceTree = "<group>"; };
 		0E85BD03133B7BD900F3E65B /* InventoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InventoryViewController.xib; path = nibs/InventoryViewController.xib; sourceTree = "<group>"; };
 		0E85BD05133B7C5F00F3E65B /* InventoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InventoryViewController.h; path = classes/InventoryViewController.h; sourceTree = "<group>"; };
 		0E85BD06133B7C5F00F3E65B /* InventoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InventoryViewController.m; path = classes/InventoryViewController.m; sourceTree = "<group>"; };
@@ -372,6 +377,8 @@
 				C226C241132A781B00427656 /* MenuViewController.m */,
 				0E5BA8ED1344D62700BAD34B /* StoresViewController.h */,
 				0E5BA8EE1344D62700BAD34B /* StoresViewController.m */,
+				0E5BA9051344E29300BAD34B /* StoreViewController.h */,
+				0E5BA9061344E29400BAD34B /* StoreViewController.m */,
 				C212D8AA132A47CE00E2A078 /* UsersViewController.h */,
 				C212D8AB132A47CE00E2A078 /* UsersViewController.m */,
 				C212D8AC132A47CE00E2A078 /* UserViewController.h */,
@@ -422,6 +429,7 @@
 				C226C243132A782500427656 /* MenuViewController.xib */,
 				C212D8C1132A482800E2A078 /* MainWindow.xib */,
 				0E5BA8F11344D7A300BAD34B /* StoresViewController.xib */,
+				0E5BA9081344E2A900BAD34B /* StoreViewController.xib */,
 				C212D8C2132A482800E2A078 /* UsersViewController.xib */,
 				C212D8C3132A482800E2A078 /* UserViewController.xib */,
 				0E85BD0B133B826500F3E65B /* InventoryItemViewController.xib */,
@@ -1042,6 +1050,7 @@
 				0E5BA9021344DF3000BAD34B /* icon_stores_white@x2.png in Resources */,
 				0E5BA9031344DF3000BAD34B /* icon_stores.png in Resources */,
 				0E5BA9041344DF3000BAD34B /* icon_stores@2x.png in Resources */,
+				0E5BA9091344E2A900BAD34B /* StoreViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1086,6 +1095,7 @@
 				0E85BD0A133B81CC00F3E65B /* InventoryItemViewController.m in Sources */,
 				0E85BD0F133BAF4C00F3E65B /* InventoryItemStoreViewController.m in Sources */,
 				0E5BA8EF1344D62700BAD34B /* StoresViewController.m in Sources */,
+				0E5BA9071344E29800BAD34B /* StoreViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
