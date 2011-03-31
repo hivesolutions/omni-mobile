@@ -151,7 +151,7 @@
 
     // populates the first section item list
     [firstSectionItemGroup addItem:nameItem];
-   // [firstSectionItemGroup addItem:nameeItem];
+    [firstSectionItemGroup addItem:nameeItem];
 
     // for each inventory line
     for(int index = 0; index < [contactableOrganizationalUnits count]; index++) {
@@ -186,9 +186,9 @@
         nameeeeItem.multipleLines = YES;
 
         // populates the second section item list
-      //  [secondSectionItemGroup addItem:nameeItem];
+        [secondSectionItemGroup addItem:nameeItem];
         [secondSectionItemGroup addItem:storeItem];
-     //   [secondSectionItemGroup addItem:nameeeeItem];
+        [secondSectionItemGroup addItem:nameeeeItem];
 
         // releases the store item
         [storeItem release];
