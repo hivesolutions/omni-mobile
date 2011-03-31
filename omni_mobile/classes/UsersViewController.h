@@ -25,9 +25,10 @@
 
 #import "Dependencies.h"
 
-@interface UsersViewController : HMTableViewController<HMRemoteTableViewProvider, HMRemoteTableViewDelegate> {
+@interface UsersViewController : HMTableViewController<HMRemoteTableViewProvider, HMRemoteTableViewDelegate, HMEntityProvider> {
     @private
     HMEntityAbstraction *_entityAbstraction;
+    NSObject<HMEntityProviderDelegate> *_entityProviderDelegate;
 }
 
 /**

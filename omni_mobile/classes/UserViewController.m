@@ -24,6 +24,7 @@
 // __license__   = GNU General Public License (GPL), Version 3
 
 #import "UserViewController.h"
+#import "MenuViewController.h"
 
 @implementation UserViewController
 
@@ -145,9 +146,17 @@
     secretAnswerItem.secure = YES;
     secretAnswerItem.highlightable = NO;
 
+    // creates the employee string table cell
+    HMStringTableCellItem *employeeItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"employee"];
+    employeeItem.name = NSLocalizedString(@"Employee", @"Employee");
+    employeeItem.description = @"";
+    employeeItem.selectViewController = [UsersViewController class];
+    employeeItem.selectNibName = @"UsersViewController";
+
     // creates the sections item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
     HMTableSectionItemGroup *secondSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"second_section"];
+    HMTableSectionItemGroup *thirdSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"third_section"];
 
     // creates the menu list group
     HMItemGroup *menuListGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu_list"];
@@ -160,17 +169,21 @@
     [menuHeaderGroup addItem:@"subTitle" item:subTitle];
     [menuHeaderGroup addItem:@"image" item:image];
 
-    // populates the first section item list
+    // populates the first section item group
     [firstSectionItemGroup addItem:passwordItem];
     [firstSectionItemGroup addItem:emailItem];
 
-    // populates the second section item list
+    // populates the second section item group
     [secondSectionItemGroup addItem:secretQuestionItem];
     [secondSectionItemGroup addItem:secretAnswerItem];
+
+    // populates the third section item group
+    [thirdSectionItemGroup addItem:employeeItem];
 
     // adds the sections to the menu list
     [menuListGroup addItem:firstSectionItemGroup];
     [menuListGroup addItem:secondSectionItemGroup];
+    [menuListGroup addItem:thirdSectionItemGroup];
 
     // adds the menu items to the menu item group
     [menuNamedItemGroup addItem:@"header" item:menuHeaderGroup];
@@ -182,8 +195,10 @@
     // releases the objects
     [menuNamedItemGroup release];
     [menuListGroup release];
+    [thirdSectionItemGroup release];
     [secondSectionItemGroup release];
     [firstSectionItemGroup release];
+    [employeeItem release];
     [secretAnswerItem release];
     [secretQuestionItem release];
     [passwordItem release];
@@ -257,6 +272,24 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
+}
+
+- (void)didSelectItemRowWithItem:(HMItem *)item {
+    // casts to table cell item
+    HMTableCellItem *tableCellItem = (HMTableCellItem *)item;
+
+    // pushes the controller in case one is defined
+    if(tableCellItem.selectViewController) {
+        // initializes the select view controller
+        HMTableViewController *selectViewController = [[tableCellItem.selectViewController alloc] initWithNibName:tableCellItem.selectNibName bundle:[NSBundle mainBundle]];
+        selectViewController.title = @"Employee";
+
+        // pushes the select view controller
+        [self.navigationController pushViewController:selectViewController animated:YES];
+
+        // releases the select view controller reference
+        [selectViewController release];
+    }
 }
 
 @end
