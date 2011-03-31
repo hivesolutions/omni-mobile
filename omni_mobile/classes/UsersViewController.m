@@ -28,6 +28,7 @@
 @implementation UsersViewController
 
 @synthesize entityAbstraction = _entityAbstraction;
+@synthesize entityProviderDelegate = _entityProviderDelegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     // calls the super
@@ -135,17 +136,29 @@
 }
 
 - (void)didSelectRemoteRowWithData:(NSDictionary *)data {
-    // initializes the users view controller
-    UserViewController *userViewController = [[UserViewController alloc] initWithNibNameAndType:@"UserViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationRead];
+    // in case the entity provider delegate
+    // is set this is a provider call
+    if(self.entityProviderDelegate) {
+        // updates the entity in the entity provider delegate
+        [self.entityProviderDelegate updateEntity:data];
 
-    // changes the user in the entity
-    [userViewController changeEntity:data];
+        // pops the view controller
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    // otherwise it's a normal selection
+    else {
+        // initializes the users view controller
+        UserViewController *userViewController = [[UserViewController alloc] initWithNibNameAndType:@"UserViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationRead];
 
-    // pushes the user view controller into the navigation controller
-    [self.navigationController pushViewController:userViewController animated:YES];
+        // changes the user in the entity
+        [userViewController changeEntity:data];
 
-    // releases the user view controller reference
-    [userViewController release];
+        // pushes the user view controller into the navigation controller
+        [self.navigationController pushViewController:userViewController animated:YES];
+
+        // releases the user view controller reference
+        [userViewController release];
+    }
 }
 
 - (void)didDeselectRemoteRowWithData:(NSDictionary *)data {
