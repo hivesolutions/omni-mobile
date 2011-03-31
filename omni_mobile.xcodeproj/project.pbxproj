@@ -22,6 +22,8 @@
 		0E85BD0C133B826600F3E65B /* InventoryItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E85BD0B133B826500F3E65B /* InventoryItemViewController.xib */; };
 		0E85BD0F133BAF4C00F3E65B /* InventoryItemStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E85BD0E133BAF4600F3E65B /* InventoryItemStoreViewController.m */; };
 		0E85BD11133BB71400F3E65B /* InventoryItemStoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E85BD10133BB71300F3E65B /* InventoryItemStoreViewController.xib */; };
+		0EB880F21345079E00D94B07 /* building.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EB880F01345079E00D94B07 /* building.png */; };
+		0EB880F31345079E00D94B07 /* building@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EB880F11345079E00D94B07 /* building@2x.png */; };
 		C20FC5A61337B97600FDBE8D /* white_button.png in Resources */ = {isa = PBXBuildFile; fileRef = C20FC5A41337B97600FDBE8D /* white_button.png */; };
 		C20FC5A71337B97600FDBE8D /* white_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = C20FC5A51337B97600FDBE8D /* white_button_pressed.png */; };
 		C212D8AE132A47CE00E2A078 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C212D8A5132A47CE00E2A078 /* main.m */; };
@@ -192,6 +194,8 @@
 		0E85BD0D133BAF4400F3E65B /* InventoryItemStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InventoryItemStoreViewController.h; path = classes/InventoryItemStoreViewController.h; sourceTree = "<group>"; };
 		0E85BD0E133BAF4600F3E65B /* InventoryItemStoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InventoryItemStoreViewController.m; path = classes/InventoryItemStoreViewController.m; sourceTree = "<group>"; };
 		0E85BD10133BB71300F3E65B /* InventoryItemStoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InventoryItemStoreViewController.xib; path = nibs/InventoryItemStoreViewController.xib; sourceTree = "<group>"; };
+		0EB880F01345079E00D94B07 /* building.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = building.png; path = resources/images/header_icons/building/building.png; sourceTree = "<group>"; };
+		0EB880F11345079E00D94B07 /* building@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "building@2x.png"; path = "resources/images/header_icons/building/building@2x.png"; sourceTree = "<group>"; };
 		A57BEA56132E72F0000478F7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C20CDB8E1333782D008A4FE3 /* Dependencies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dependencies.h; path = classes/Dependencies.h; sourceTree = "<group>"; };
 		C20CDB9013337933008A4FE3 /* omni_mobile_test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = omni_mobile_test.h; path = headers/omni_mobile_test.h; sourceTree = "<group>"; };
@@ -343,6 +347,15 @@
 				0E5BA9001344DF3000BAD34B /* icon_stores@2x.png */,
 			);
 			name = Stores;
+			sourceTree = "<group>";
+		};
+		0EB880EF1345074600D94B07 /* Building */ = {
+			isa = PBXGroup;
+			children = (
+				0EB880F01345079E00D94B07 /* building.png */,
+				0EB880F11345079E00D94B07 /* building@2x.png */,
+			);
+			name = Building;
 			sourceTree = "<group>";
 		};
 		C20CDB8A133377F5008A4FE3 /* Main */ = {
@@ -833,6 +846,7 @@
 				C2BF35DC1340B57D004E4524 /* User */,
 				C2FEBD641340AB9500CBB51E /* Box Building */,
 				C2FEBD631340AB8D00CBB51E /* Box */,
+				0EB880EF1345074600D94B07 /* Building */,
 			);
 			name = "Header Icons";
 			sourceTree = "<group>";
@@ -1051,6 +1065,8 @@
 				0E5BA9031344DF3000BAD34B /* icon_stores.png in Resources */,
 				0E5BA9041344DF3000BAD34B /* icon_stores@2x.png in Resources */,
 				0E5BA9091344E2A900BAD34B /* StoreViewController.xib in Resources */,
+				0EB880F21345079E00D94B07 /* building.png in Resources */,
+				0EB880F31345079E00D94B07 /* building@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
