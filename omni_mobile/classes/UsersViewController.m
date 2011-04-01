@@ -27,100 +27,32 @@
 
 @implementation UsersViewController
 
-@synthesize entityAbstraction = _entityAbstraction;
-@synthesize entityProviderDelegate = _entityProviderDelegate;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    // calls the super
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-
-    // initializes the structures
-    [self initStructures];
-
-    // returns self
-    return self;
+- (NSString *)getTitle {
+    return NSLocalizedString(@"Users", @"Users");
 }
 
-- (void)dealloc {
-    // releases the entity abstraction
-    [_entityAbstraction release];
-
-    // calls the super
-    [super dealloc];
+- (NSString *)getNewEntityTitle {
+    return NSLocalizedString(@"New User", @"New User");
 }
 
-- (void)initStructures {
-    // sets the attributes
-    self.title = NSLocalizedString(@"Users", @"Users");
-
-    // sets the new bar button in the navigation item
-    UIBarButtonItem *newBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newUser)];
-    [self.navigationItem setRightBarButtonItem:newBarButton animated:YES];
-
-    // creates the entity abstraction
-    HMEntityAbstraction *entityAbstraction = [[HMEntityAbstraction alloc] init];
-
-    // sets the attributes
-    self.entityAbstraction = entityAbstraction;
-
-    // releases the objects
-    [entityAbstraction release];
-    [newBarButton release];
+- (UIColor *)getHeaderColor {
+    return OMNI_BAR_COLOR;
 }
 
-- (void)newUser {
-    // initializes the users view controller
+- (id)getViewController {
+    // initializes the user view controller
+    UserViewController *userViewController = [[UserViewController alloc] initWithNibNameAndType:@"UserViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationRead];
+
+    // returns the user view controller
+    return userViewController;
+}
+
+- (id)getNewEntityViewController {
+    // initializes the user view controller
     UserViewController *userViewController = [[UserViewController alloc] initWithNibNameAndType:@"UserViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationCreate];
 
-    // sets the title in the user view controller
-    userViewController.title = NSLocalizedString(@"New User", @"New User");
-
-    // creates the navigation controller
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:userViewController];
-
-    // sets the navigation navigation bar tint color
-    navigationController.navigationBar.tintColor = OMNI_BAR_COLOR;
-
-    // presents the user view controller into the navigation controller
-    [self presentModalViewController:navigationController animated:YES];
-
-    // releases the user view controller reference
-    [userViewController release];
-
-    // releases the navigation controller reference
-    [navigationController release];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return YES;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
+    // returns the user view controller
+    return userViewController;
 }
 
 - (NSString *)getRemoteUrl {
@@ -133,35 +65,6 @@
 
 - (NSString *)getItemTitleName {
     return @"username";
-}
-
-- (void)didSelectRemoteRowWithData:(NSDictionary *)data {
-    // in case the entity provider delegate
-    // is set this is a provider call
-    if(self.entityProviderDelegate) {
-        // updates the entity in the entity provider delegate
-        [self.entityProviderDelegate updateEntity:data];
-
-        // pops the view controller
-        [self.navigationController popViewControllerAnimated:YES];
-    }
-    // otherwise it's a normal selection
-    else {
-        // initializes the users view controller
-        UserViewController *userViewController = [[UserViewController alloc] initWithNibNameAndType:@"UserViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationRead];
-
-        // changes the user in the entity
-        [userViewController changeEntity:data];
-
-        // pushes the user view controller into the navigation controller
-        [self.navigationController pushViewController:userViewController animated:YES];
-
-        // releases the user view controller reference
-        [userViewController release];
-    }
-}
-
-- (void)didDeselectRemoteRowWithData:(NSDictionary *)data {
 }
 
 @end

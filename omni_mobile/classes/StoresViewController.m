@@ -27,71 +27,32 @@
 
 @implementation StoresViewController
 
-@synthesize entityAbstraction = _entityAbstraction;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    // calls the super
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-
-    // initializes the structures
-    [self initStructures];
-
-    // returns self
-    return self;
+- (NSString *)getTitle {
+    return NSLocalizedString(@"Stores", @"Stores");
 }
 
-- (void)dealloc {
-    // releases the entity abstraction
-    [_entityAbstraction release];
-
-    // calls the super
-    [super dealloc];
+- (NSString *)getNewEntityTitle {
+    return NSLocalizedString(@"New Store", @"New Store");
 }
 
-- (void)initStructures {
-    // sets the attributes
-    self.title = NSLocalizedString(@"Stores", @"Stores");
-
-    // creates the entity abstraction
-    HMEntityAbstraction *entityAbstraction = [[HMEntityAbstraction alloc] init];
-
-    // sets the attributes
-    self.entityAbstraction = entityAbstraction;
-
-    // releases the objects
-    [entityAbstraction release];
+- (UIColor *)getHeaderColor {
+    return OMNI_BAR_COLOR;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (id)getViewController {
+    // initializes the store view controller
+    StoreViewController *storeViewController = [[StoreViewController alloc] initWithNibNameAndType:@"StoreViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationRead];
+
+    // returns the store view controller
+    return storeViewController;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
+- (id)getNewEntityViewController {
+    // initializes the store view controller
+    StoreViewController *storeViewController = [[StoreViewController alloc] initWithNibNameAndType:@"StoreViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationCreate];
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return YES;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
+    // returns the store view controller
+    return storeViewController;
 }
 
 - (NSString *)getRemoteUrl {
@@ -104,23 +65,6 @@
 
 - (NSString *)getItemTitleName {
     return @"name";
-}
-
-- (void)didSelectRemoteRowWithData:(NSDictionary *)data {
-    // initializes the stores view controller
-    StoreViewController *storeViewController = [[StoreViewController alloc] initWithNibNameAndType:@"StoreViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationRead];
-
-    // changes the store in the entity
-    [storeViewController changeEntity:data];
-
-    // pushes the store view controller into the navigation controller
-    [self.navigationController pushViewController:storeViewController animated:YES];
-
-    // releases the store view controller reference
-    [storeViewController release];
-}
-
-- (void)didDeselectRemoteRowWithData:(NSDictionary *)data {
 }
 
 @end

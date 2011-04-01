@@ -24,46 +24,8 @@
 // __license__   = GNU General Public License (GPL), Version 3
 
 #import "UserViewController.h"
-#import "MenuViewController.h"
-#import "EmployeesViewController.h"
 
 @implementation UserViewController
-
-@synthesize entity = _entity;
-@synthesize entityAbstraction = _entityAbstraction;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    // calls the super
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-
-    // returns the instance
-    return self;
-}
-
-- (void)dealloc {
-    // releases the entity
-    [_entity release];
-
-    // releases the entity abstraction
-    [_entityAbstraction release];
-
-    // calls the super
-    [super dealloc];
-}
-
-- (void)initStructures {
-    // calls the super
-    [super initStructures];
-
-    // creates the entity abstraction
-    HMEntityAbstraction *entityAbstraction = [[HMEntityAbstraction alloc] initWithEntityDelegate:self];
-
-    // sets the entity abstraction
-    self.entityAbstraction = entityAbstraction;
-
-    // releases the entity abstraction
-    [entityAbstraction release];
-}
 
 - (NSString *)getRemoteUrl {
     // returns the url using the current operation type
@@ -72,14 +34,6 @@
 
 - (NSString *)getRemoteUrlForOperation:(HMItemOperationType)operationType {
     return [self.entityAbstraction getRemoteUrlForOperation:operationType entityName:@"users" serializerName:@"json"];
-}
-
-- (void)changeEntity:(NSDictionary *)entity {
-    // sets the entity
-    self.entity = entity;
-
-    // updates the remote
-    [self updateRemote];
 }
 
 - (void)processEmpty {
@@ -258,22 +212,6 @@
     // sets the object id (structured and unstructured)
     [remoteData setObject:AVOID_NIL(objectIdString, NSString) forKey:@"user[object_id]"];
     [remoteData setObject:AVOID_NIL(objectIdString, NSString) forKey:@"object_id"];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return YES;
 }
 
 - (void)updateEntity:(NSDictionary *)entity {
