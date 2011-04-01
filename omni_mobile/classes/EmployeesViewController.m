@@ -51,7 +51,7 @@
 
 - (void)initStructures {
     // sets the attributes
-    self.title = NSLocalizedString(@"Employeexs", @"Employeeys");
+    self.title = NSLocalizedString(@"Employees", @"Employees");
 
     // sets the new bar button in the navigation item
     UIBarButtonItem *newBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newEmployee)];
