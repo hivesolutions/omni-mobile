@@ -25,7 +25,7 @@
 
 #import "Dependencies.h"
 
-@interface UserViewController : HMRemoteHeaderItemTableViewController<HMEntityDelegate> {
+@interface UserViewController : HMRemoteHeaderItemTableViewController<HMEntityDelegate, HMEntityProviderDelegate> {
     @private
     NSDictionary *_entity;
     HMEntityAbstraction *_entityAbstraction;

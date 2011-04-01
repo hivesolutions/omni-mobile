@@ -25,6 +25,7 @@
 
 #import "UserViewController.h"
 #import "MenuViewController.h"
+#import "EmployeesViewController.h"
 
 @implementation UserViewController
 
@@ -150,9 +151,11 @@
     HMStringTableCellItem *employeeItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"employee"];
     employeeItem.name = NSLocalizedString(@"Employee", @"Employee");
     employeeItem.description = @"";
-    employeeItem.selectViewController = [UsersViewController class];
-    employeeItem.selectNibName = @"UsersViewController";
-
+    employeeItem.accessoryType = @"disclosure_indicator";
+    employeeItem.selectViewController = [EmployeesViewController class];
+    employeeItem.selectViewControllerTitle = @"Employees";
+    employeeItem.selectNibName = @"EmployeesViewController";
+  
     // creates the sections item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
     HMTableSectionItemGroup *secondSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"second_section"];
@@ -274,6 +277,18 @@
     return YES;
 }
 
+- (void)updateEntity:(NSDictionary *)entity {
+    // retrieves the employee name
+    NSString *employeeName = [entity objectForKey:@"name"];
+    
+    // retrieves the employee cell
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:2];
+    HMTableViewCell *tableViewCell = (HMTableViewCell *) [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    // updates the employee cell description
+    tableViewCell.description = employeeName;
+}
+
 - (void)didSelectItemRowWithItem:(HMItem *)item {
     // casts to table cell item
     HMTableCellItem *tableCellItem = (HMTableCellItem *)item;
@@ -281,9 +296,10 @@
     // pushes the controller in case one is defined
     if(tableCellItem.selectViewController) {
         // initializes the select view controller
-        HMTableViewController *selectViewController = [[tableCellItem.selectViewController alloc] initWithNibName:tableCellItem.selectNibName bundle:[NSBundle mainBundle]];
-        selectViewController.title = @"Employee";
-
+        HMTableViewController<HMEntityProvider> *selectViewController = [[tableCellItem.selectViewController alloc] initWithNibName:tableCellItem.selectNibName bundle:[NSBundle mainBundle]];
+        selectViewController.title = tableCellItem.selectViewControllerTitle;
+        selectViewController.entityProviderDelegate = self;
+        
         // pushes the select view controller
         [self.navigationController pushViewController:selectViewController animated:YES];
 
