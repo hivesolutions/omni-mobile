@@ -25,21 +25,7 @@
 
 #import "Dependencies.h"
 
-@interface UserViewController : HMRemoteHeaderItemTableViewController<HMEntityDelegate, HMEntityProviderDelegate> {
-    @private
-    NSDictionary *_entity;
-    HMEntityAbstraction *_entityAbstraction;
+@interface UserViewController : HMRemoteHeaderItemTableViewController<HMEntityProviderDelegate> {
 }
-
-/**
- * The entity represented by the view.
- */
-@property (retain) NSDictionary *entity;
-
-/**
- * The entity abstraction to be used for operations
- * in the entity.
- */
-@property (retain) HMEntityAbstraction *entityAbstraction;
 
 @end

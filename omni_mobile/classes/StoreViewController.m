@@ -27,42 +27,6 @@
 
 @implementation StoreViewController
 
-@synthesize entity = _entity;
-@synthesize entityAbstraction = _entityAbstraction;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    // calls the super
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-
-    // returns the instance
-    return self;
-}
-
-- (void)dealloc {
-    // releases the entity
-    [_entity release];
-
-    // releases the entity abstraction
-    [_entityAbstraction release];
-
-    // calls the super
-    [super dealloc];
-}
-
-- (void)initStructures {
-    // calls the super
-    [super initStructures];
-
-    // creates the entity abstraction
-    HMEntityAbstraction *entityAbstraction = [[HMEntityAbstraction alloc] initWithEntityDelegate:self];
-
-    // sets the entity abstraction
-    self.entityAbstraction = entityAbstraction;
-
-    // releases the entity abstraction
-    [entityAbstraction release];
-}
-
 - (NSString *)getRemoteUrl {
     // returns the url using the current operation type
     return [self getRemoteUrlForOperation:self.operationType];
@@ -70,14 +34,6 @@
 
 - (NSString *)getRemoteUrlForOperation:(HMItemOperationType)operationType {
     return [self.entityAbstraction getRemoteUrlForOperation:operationType entityName:@"stores" serializerName:@"json"];
-}
-
-- (void)changeEntity:(NSDictionary *)entity {
-    // sets the entity
-    self.entity = entity;
-
-    // updates the remote
-    [self updateRemote];
 }
 
 - (void)processEmpty {
@@ -155,22 +111,6 @@
 
 - (void)convertRemoteGroupUpdate:(NSMutableDictionary *)remoteData {
     /* @TODO: implement this */
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return YES;
 }
 
 @end

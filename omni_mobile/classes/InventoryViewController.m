@@ -27,99 +27,33 @@
 
 @implementation InventoryViewController
 
-@synthesize entityAbstraction = _entityAbstraction;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    // calls the super
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-
-    // initializes the structures
-    [self initStructures];
-
-    // returns self
-    return self;
+- (NSString *)getTitle {
+    return NSLocalizedString(@"Inventory", @"Inventory");
 }
 
-- (void)dealloc {
-    // releases the entity abstraction
-    [_entityAbstraction release];
-
-    // calls the super
-    [super dealloc];
+- (NSString *)getNewEntityTitle {
+    return NSLocalizedString(@"New Item", @"New Item");
 }
 
-- (void)initStructures {
-    // sets the attributes
-    self.title = NSLocalizedString(@"Inventory", @"Inventory");
-
-    // sets the new bar button in the navigation item
-    UIBarButtonItem *newBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newInventoryItem)];
-    [self.navigationItem setRightBarButtonItem:newBarButton animated:YES];
-
-    // creates the entity abstraction
-    HMEntityAbstraction *entityAbstraction = [[HMEntityAbstraction alloc] init];
-
-    // sets the attributes
-    self.entityAbstraction = entityAbstraction;
-
-    // releases the objects
-    [entityAbstraction release];
-    [newBarButton release];
+- (UIColor *)getHeaderColor {
+    return OMNI_BAR_COLOR;
 }
 
-- (void)newInventoryItem {
+- (id)getViewController {
+    // initializes the inventory item view controller
+    InventoryItemViewController *inventoryItemViewController = [[InventoryItemViewController alloc] initWithNibNameAndType:@"InventoryItemViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationRead];
+
+    // returns the inventory item view controller
+    return inventoryItemViewController;
+}
+
+- (id)getNewEntityViewController {
     // initializes the inventory item view controller
     InventoryItemViewController *inventoryItemViewController = [[InventoryItemViewController alloc] initWithNibNameAndType:@"InventoryItemViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationCreate];
 
-    // sets the title in the inventory item view controller
-    inventoryItemViewController.title = NSLocalizedString(@"New Item", @"New Item");
-
-    // creates the navigation controller
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:inventoryItemViewController];
-
-    // sets the navigation navigation bar tint color
-    navigationController.navigationBar.tintColor = OMNI_BAR_COLOR;
-
-    // presents the user view controller into the navigation controller
-    [self presentModalViewController:navigationController animated:YES];
-
-    // releases the user view controller reference
-    [inventoryItemViewController release];
-
-    // releases the navigation controller reference
-    [navigationController release];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return YES;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
+    // returns the inventory item view controller
+    return inventoryItemViewController;
 }
 
 - (NSString *)getRemoteUrl {
@@ -132,23 +66,6 @@
 
 - (NSString *)getItemTitleName {
     return @"company_product_code";
-}
-
-- (void)didSelectRemoteRowWithData:(NSDictionary *)data {
-    // initializes the inventory item view controller
-    InventoryItemViewController *inventoryItemViewController = [[InventoryItemViewController alloc] initWithNibNameAndType:@"InventoryItemViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationRead];
-
-    // changes the inventory item in the entity
-    [inventoryItemViewController changeEntity:data];
-
-    // pushes the inventory item view controller into the navigation controller
-    [self.navigationController pushViewController:inventoryItemViewController animated:YES];
-
-    // releases the inventory item view controller reference
-    [inventoryItemViewController release];
-}
-
-- (void)didDeselectRemoteRowWithData:(NSDictionary *)data {
 }
 
 @end

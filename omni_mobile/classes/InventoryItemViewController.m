@@ -27,42 +27,6 @@
 
 @implementation InventoryItemViewController
 
-@synthesize entity = _entity;
-@synthesize entityAbstraction = _entityAbstraction;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    // calls the super
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-
-    // returns the instance
-    return self;
-}
-
-- (void)dealloc {
-    // releases the entity
-    [_entity release];
-
-    // releases the entity abstraction
-    [_entityAbstraction release];
-
-    // calls the super
-    [super dealloc];
-}
-
-- (void)initStructures {
-    // calls the super
-    [super initStructures];
-
-    // creates the entity abstraction
-    HMEntityAbstraction *entityAbstraction = [[HMEntityAbstraction alloc] initWithEntityDelegate:self];
-
-    // sets the entity abstraction
-    self.entityAbstraction = entityAbstraction;
-
-    // releases the entity abstraction
-    [entityAbstraction release];
-}
-
 - (NSString *)getRemoteUrl {
     // returns the url using the current operation type
     return [self getRemoteUrlForOperation:self.operationType];
@@ -70,14 +34,6 @@
 
 - (NSString *)getRemoteUrlForOperation:(HMItemOperationType)operationType {
     return [self.entityAbstraction getRemoteUrlForOperation:operationType entityName:@"transactional_merchandise" serializerName:@"json"];
-}
-
-- (void)changeEntity:(NSDictionary *)entity {
-    // sets the entity
-    self.entity = entity;
-
-    // updates the remote
-    [self updateRemote];
 }
 
 - (void)processEmpty {
@@ -121,6 +77,69 @@
     nameItem.highlightable = NO;
     nameItem.multipleLines = YES;
 
+
+    // creates the name string table cell item
+    HMStringTableCellItem *name1Item = [[HMStringTableCellItem alloc] initWithIdentifier:@"name1"];
+    name1Item.name = NSLocalizedString(@"Name", @"Name");
+    name1Item.description = name;
+    name1Item.highlightable = NO;
+    name1Item.multipleLines = YES;
+
+    // creates the name string table cell item
+    HMStringTableCellItem *name2Item = [[HMStringTableCellItem alloc] initWithIdentifier:@"name2"];
+    name2Item.name = NSLocalizedString(@"Name", @"Name");
+    name2Item.description = name;
+    name2Item.highlightable = NO;
+    name2Item.multipleLines = YES;
+
+
+    // creates the name string table cell item
+    HMStringTableCellItem *name3Item = [[HMStringTableCellItem alloc] initWithIdentifier:@"name3"];
+    name3Item.name = NSLocalizedString(@"Name", @"Name");
+    name3Item.description = name;
+    name3Item.highlightable = NO;
+    name3Item.multipleLines = YES;
+
+
+    // creates the name string table cell item
+    HMStringTableCellItem *name4Item = [[HMStringTableCellItem alloc] initWithIdentifier:@"name4"];
+    name4Item.name = NSLocalizedString(@"Name", @"Name");
+    name4Item.description = name;
+    name4Item.highlightable = NO;
+    name4Item.multipleLines = YES;
+
+    // creates the name string table cell item
+    HMStringTableCellItem *name5Item = [[HMStringTableCellItem alloc] initWithIdentifier:@"name5"];
+    name5Item.name = NSLocalizedString(@"Name", @"Name");
+    name5Item.description = name;
+    name5Item.highlightable = NO;
+    name5Item.multipleLines = YES;
+
+
+    // creates the name string table cell item
+    HMStringTableCellItem *name6Item = [[HMStringTableCellItem alloc] initWithIdentifier:@"name6"];
+    name6Item.name = NSLocalizedString(@"Name", @"Name");
+    name6Item.description = name;
+    name6Item.highlightable = NO;
+    name6Item.multipleLines = YES;
+
+
+    // creates the name string table cell item
+    HMStringTableCellItem *name7Item = [[HMStringTableCellItem alloc] initWithIdentifier:@"name7"];
+    name7Item.name = NSLocalizedString(@"Name", @"Name");
+    name7Item.description = name;
+    name7Item.highlightable = NO;
+    name7Item.multipleLines = YES;
+
+
+    // creates the name string table cell item
+    HMStringTableCellItem *name8Item = [[HMStringTableCellItem alloc] initWithIdentifier:@"name8"];
+    name8Item.name = NSLocalizedString(@"Name", @"Name");
+    name8Item.description = name;
+    name8Item.highlightable = NO;
+    name8Item.multipleLines = YES;
+
+
     // creates the sections item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
     HMTableSectionItemGroup *secondSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"second_section"];
@@ -138,6 +157,12 @@
 
     // populates the first section item list
     [firstSectionItemGroup addItem:nameItem];
+    [firstSectionItemGroup addItem:name1Item];
+    [firstSectionItemGroup addItem:name2Item];
+    [firstSectionItemGroup addItem:name3Item];
+    [firstSectionItemGroup addItem:name4Item];
+    [firstSectionItemGroup addItem:name5Item];
+    [firstSectionItemGroup addItem:name6Item];
 
     // for each inventory line
     for(int index = 0; index < [contactableOrganizationalUnits count]; index++) {
@@ -231,22 +256,6 @@
     [remoteData setObject:AVOID_NIL(objectIdString, NSString) forKey:@"object_id"];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return YES;
-}
-
 - (void)didSelectItemRowWithItem:(HMItem *)item {
     if([item.identifier isEqualToString:@"name"]) {
     }
@@ -259,9 +268,6 @@
 
         // retrieves the item identifier
         NSString *itemIdentifier = item.identifier;
-
-        // sets the entity in the inventory item store
-        [inventoryItemStoreViewController changeIdentifier:itemIdentifier];
 
         // releases the inventory item store view controller reference
         [inventoryItemStoreViewController release];
