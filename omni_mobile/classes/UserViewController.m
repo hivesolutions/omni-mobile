@@ -214,10 +214,6 @@
     [remoteData setObject:AVOID_NIL(objectIdString, NSString) forKey:@"object_id"];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return YES;
-}
-
 - (void)updateEntity:(NSDictionary *)entity {
     // retrieves the employee name
     NSString *employeeName = [entity objectForKey:@"name"];
