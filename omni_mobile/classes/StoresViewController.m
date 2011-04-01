@@ -52,10 +52,6 @@
     // sets the attributes
     self.title = NSLocalizedString(@"Stores", @"Stores");
 
-    // sets the new bar button in the navigation item
-    UIBarButtonItem *newBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newStore)];
-    [self.navigationItem setRightBarButtonItem:newBarButton animated:YES];
-
     // creates the entity abstraction
     HMEntityAbstraction *entityAbstraction = [[HMEntityAbstraction alloc] init];
 
@@ -64,11 +60,6 @@
 
     // releases the objects
     [entityAbstraction release];
-    [newBarButton release];
-}
-
-- (void)newStore {
-    /* @TODO: implement this */
 }
 
 - (void)viewDidLoad {

@@ -41,9 +41,4 @@
  */
 - (void)initStructures;
 
-/**
- * Shows the new store view.
- */
-- (void)newStore;
-
 @end
