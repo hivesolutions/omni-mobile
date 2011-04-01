@@ -42,12 +42,4 @@
  */
 @property (retain) HMEntityAbstraction *entityAbstraction;
 
-/**
- * Changes the entity in the view.
- * The argument is a map with all the entity attributes.
- *
- * @param user The entity to change to.
- */
-- (void)changeEntity:(NSDictionary *)entity;
-
 @end
