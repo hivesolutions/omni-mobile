@@ -197,6 +197,17 @@
     [usersViewController release];
 }
 
+- (void)didSelectSalesButton {
+    // initializes the sales view controller
+    SalesViewController *salesViewController = [[SalesViewController alloc] initWithNibName:@"SalesViewController" bundle:[NSBundle mainBundle]];
+
+    // pushes the sales view controller
+    [self.navigationController pushViewController:salesViewController animated:YES];
+
+    // releases the sales view controller reference
+    [salesViewController release];
+}
+
 - (void)didSelectStoresButton {
     // initializes the stores view controller
     StoresViewController *storesViewController = [[StoresViewController alloc] initWithNibName:@"StoresViewController" bundle:[NSBundle mainBundle]];
@@ -235,6 +246,10 @@
     if([item.identifier isEqualToString:@"users"]) {
         // calls the did select users button
         [self didSelectUsersButton];
+    }
+    else if([item.identifier isEqualToString:@"sales"]) {
+        // calls the did select sales button
+        [self didSelectSalesButton];
     }
     else if([item.identifier isEqualToString:@"inventory"]) {
         // calls the did select inventory button
