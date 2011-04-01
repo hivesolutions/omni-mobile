@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0E0BC4ED133B795000C38C28 /* welcome_background~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E0BC4EC133B795000C38C28 /* welcome_background~ipad.png */; };
+		0E23AEDD13462C210061FBE9 /* SaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E23AEDC13462C210061FBE9 /* SaleViewController.m */; };
+		0E23AEE013462D230061FBE9 /* SaleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E23AEDF13462D230061FBE9 /* SaleViewController.xib */; };
+		0E23AEE61346388B0061FBE9 /* EmployeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E23AEE5134638880061FBE9 /* EmployeeViewController.m */; };
 		0E3BBC951345F8BF00075437 /* EmployeesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3BBC941345F8BE00075437 /* EmployeesViewController.m */; };
 		0E3BBC991345FABC00075437 /* EmployeesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E3BBC981345FABC00075437 /* EmployeesViewController.xib */; };
 		0E3BBC9E1346248E00075437 /* SalesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E3BBC9D1346248D00075437 /* SalesViewController.xib */; };
@@ -179,6 +182,11 @@
 
 /* Begin PBXFileReference section */
 		0E0BC4EC133B795000C38C28 /* welcome_background~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "welcome_background~ipad.png"; path = "ipad/resources/images/ui/welcome_background~ipad.png"; sourceTree = "<group>"; };
+		0E23AEDB13462C210061FBE9 /* SaleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SaleViewController.h; path = classes/SaleViewController.h; sourceTree = "<group>"; };
+		0E23AEDC13462C210061FBE9 /* SaleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SaleViewController.m; path = classes/SaleViewController.m; sourceTree = "<group>"; };
+		0E23AEDF13462D230061FBE9 /* SaleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SaleViewController.xib; path = nibs/SaleViewController.xib; sourceTree = "<group>"; };
+		0E23AEE4134638870061FBE9 /* EmployeeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EmployeeViewController.h; path = classes/EmployeeViewController.h; sourceTree = "<group>"; };
+		0E23AEE5134638880061FBE9 /* EmployeeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmployeeViewController.m; path = classes/EmployeeViewController.m; sourceTree = "<group>"; };
 		0E3BBC931345F8BD00075437 /* EmployeesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EmployeesViewController.h; path = classes/EmployeesViewController.h; sourceTree = "<group>"; };
 		0E3BBC941345F8BE00075437 /* EmployeesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmployeesViewController.m; path = classes/EmployeesViewController.m; sourceTree = "<group>"; };
 		0E3BBC981345FABC00075437 /* EmployeesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EmployeesViewController.xib; path = nibs/EmployeesViewController.xib; sourceTree = "<group>"; };
@@ -390,6 +398,8 @@
 			children = (
 				0E3BBC931345F8BD00075437 /* EmployeesViewController.h */,
 				0E3BBC941345F8BE00075437 /* EmployeesViewController.m */,
+				0E23AEE4134638870061FBE9 /* EmployeeViewController.h */,
+				0E23AEE5134638880061FBE9 /* EmployeeViewController.m */,
 				0E85BD0D133BAF4400F3E65B /* InventoryItemStoreViewController.h */,
 				0E85BD0E133BAF4600F3E65B /* InventoryItemStoreViewController.m */,
 				0E85BD08133B81C800F3E65B /* InventoryItemViewController.h */,
@@ -402,6 +412,8 @@
 				C226C241132A781B00427656 /* MenuViewController.m */,
 				0E3BBC9F134624A000075437 /* SalesViewController.h */,
 				0E3BBCA0134624A300075437 /* SalesViewController.m */,
+				0E23AEDB13462C210061FBE9 /* SaleViewController.h */,
+				0E23AEDC13462C210061FBE9 /* SaleViewController.m */,
 				0E5BA8ED1344D62700BAD34B /* StoresViewController.h */,
 				0E5BA8EE1344D62700BAD34B /* StoresViewController.m */,
 				0E5BA9051344E29300BAD34B /* StoreViewController.h */,
@@ -457,6 +469,7 @@
 				C226C243132A782500427656 /* MenuViewController.xib */,
 				C212D8C1132A482800E2A078 /* MainWindow.xib */,
 				0E3BBC9D1346248D00075437 /* SalesViewController.xib */,
+				0E23AEDF13462D230061FBE9 /* SaleViewController.xib */,
 				0E5BA8F11344D7A300BAD34B /* StoresViewController.xib */,
 				0E5BA9081344E2A900BAD34B /* StoreViewController.xib */,
 				C212D8C2132A482800E2A078 /* UsersViewController.xib */,
@@ -1085,6 +1098,7 @@
 				0EB880F31345079E00D94B07 /* building_header@2x.png in Resources */,
 				0E3BBC991345FABC00075437 /* EmployeesViewController.xib in Resources */,
 				0E3BBC9E1346248E00075437 /* SalesViewController.xib in Resources */,
+				0E23AEE013462D230061FBE9 /* SaleViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1132,6 +1146,8 @@
 				0E5BA9071344E29800BAD34B /* StoreViewController.m in Sources */,
 				0E3BBC951345F8BF00075437 /* EmployeesViewController.m in Sources */,
 				0E3BBCA1134624AB00075437 /* SalesViewController.m in Sources */,
+				0E23AEDD13462C210061FBE9 /* SaleViewController.m in Sources */,
+				0E23AEE61346388B0061FBE9 /* EmployeeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

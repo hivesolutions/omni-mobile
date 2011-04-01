@@ -25,20 +25,7 @@
 
 #import "Dependencies.h"
 
-@interface InventoryItemStoreViewController : HMRemoteHeaderItemTableViewController {
-    NSString *_identifier;
+@interface EmployeeViewController : HMRemoteHeaderItemTableViewController {
 }
-
-/**
- * The identifier of the represented by the view.
- */
-@property (retain) NSString *identifier;
-
-/**
- * Changes the identifier of the entity in the view.
- *
- * @param identifier The identifier of the entity to change to.
- */
-- (void)changeIdentifier:(NSString *)identifier;
 
 @end

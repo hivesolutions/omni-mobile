@@ -27,72 +27,32 @@
 
 @implementation SalesViewController
 
-@synthesize entityAbstraction = _entityAbstraction;
-@synthesize entityProviderDelegate = _entityProviderDelegate;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    // calls the super
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-
-    // initializes the structures
-    [self initStructures];
-
-    // returns self
-    return self;
+- (NSString *)getTitle {
+    return NSLocalizedString(@"Sales", @"Sales");
 }
 
-- (void)dealloc {
-    // releases the entity abstraction
-    [_entityAbstraction release];
-
-    // calls the super
-    [super dealloc];
+- (NSString *)getNewEntityTitle {
+    return NSLocalizedString(@"New Sale", @"New Sale");
 }
 
-- (void)initStructures {
-    // sets the attributes
-    self.title = NSLocalizedString(@"Sales", @"Sales");
-
-    // creates the entity abstraction
-    HMEntityAbstraction *entityAbstraction = [[HMEntityAbstraction alloc] init];
-
-    // sets the attributes
-    self.entityAbstraction = entityAbstraction;
-
-    // releases the objects
-    [entityAbstraction release];
+- (UIColor *)getHeaderColor {
+    return OMNI_BAR_COLOR;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (id)getViewController {
+    // initializes the sale view controller
+    SaleViewController *saleViewController = [[SaleViewController alloc] initWithNibNameAndType:@"SaleViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationRead];
+
+    // returns the sale view controller
+    return saleViewController;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
+- (id)getNewEntityViewController {
+    // initializes the sale view controller
+    SaleViewController *saleViewController = [[SaleViewController alloc] initWithNibNameAndType:@"SaleViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationCreate];
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return YES;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
+    // returns the sale view controller
+    return saleViewController;
 }
 
 - (NSString *)getRemoteUrl {
@@ -104,22 +64,7 @@
 }
 
 - (NSString *)getItemTitleName {
-    return @"money_sale_slip_identifier";
-}
-
-- (void)didSelectRemoteRowWithData:(NSDictionary *)data {
-    // in case the entity provider delegate
-    // is set this is a provider call
-    if(self.entityProviderDelegate) {
-        // updates the entity in the entity provider delegate
-        [self.entityProviderDelegate updateEntity:data];
-
-        // pops the view controller
-        [self.navigationController popViewControllerAnimated:YES];
-    }
-}
-
-- (void)didDeselectRemoteRowWithData:(NSDictionary *)data {
+    return @"";
 }
 
 @end

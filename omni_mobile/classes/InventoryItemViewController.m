@@ -269,6 +269,9 @@
         // retrieves the item identifier
         NSString *itemIdentifier = item.identifier;
 
+        // sets the entity in the inventory item store
+        [inventoryItemStoreViewController changeIdentifier:itemIdentifier];
+
         // releases the inventory item store view controller reference
         [inventoryItemStoreViewController release];
     }
