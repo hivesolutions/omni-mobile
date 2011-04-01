@@ -155,7 +155,7 @@
     employeeItem.selectViewController = [EmployeesViewController class];
     employeeItem.selectViewControllerTitle = @"Employees";
     employeeItem.selectNibName = @"EmployeesViewController";
-  
+
     // creates the sections item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
     HMTableSectionItemGroup *secondSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"second_section"];
@@ -280,11 +280,11 @@
 - (void)updateEntity:(NSDictionary *)entity {
     // retrieves the employee name
     NSString *employeeName = [entity objectForKey:@"name"];
-    
+
     // retrieves the employee cell
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:2];
     HMTableViewCell *tableViewCell = (HMTableViewCell *) [self.tableView cellForRowAtIndexPath:indexPath];
-    
+
     // updates the employee cell description
     tableViewCell.description = employeeName;
 }
@@ -299,7 +299,7 @@
         HMTableViewController<HMEntityProvider> *selectViewController = [[tableCellItem.selectViewController alloc] initWithNibName:tableCellItem.selectNibName bundle:[NSBundle mainBundle]];
         selectViewController.title = tableCellItem.selectViewControllerTitle;
         selectViewController.entityProviderDelegate = self;
-        
+
         // pushes the select view controller
         [self.navigationController pushViewController:selectViewController animated:YES];
 
