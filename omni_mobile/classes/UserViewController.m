@@ -153,7 +153,6 @@
     employeeItem.description = @"";
     employeeItem.accessoryType = @"disclosure_indicator";
     employeeItem.selectViewController = [EmployeesViewController class];
-    employeeItem.selectViewControllerTitle = @"Employees";
     employeeItem.selectNibName = @"EmployeesViewController";
 
     // creates the sections item group
@@ -297,7 +296,6 @@
     if(tableCellItem.selectViewController) {
         // initializes the select view controller
         HMTableViewController<HMEntityProvider> *selectViewController = [[tableCellItem.selectViewController alloc] initWithNibName:tableCellItem.selectNibName bundle:[NSBundle mainBundle]];
-        selectViewController.title = tableCellItem.selectViewControllerTitle;
         selectViewController.entityProviderDelegate = self;
 
         // pushes the select view controller
