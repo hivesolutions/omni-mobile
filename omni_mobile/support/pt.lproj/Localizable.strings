@@ -39,14 +39,25 @@
 "Title" = "Título";
 "Subtitle" = "Subtítulo";
 "Users" = "Utilizadores";
+"Employees" = "Empregados";
 "Sales" = "Vendas";
 "Purchases" = "Compras";
 "Inventory" = "Inventário";
 "Stores" = "Lojas";
 "Highlights" = "Destaques";
 "Notifications" = "Notificações";
+"User" = "Utilizador";
+"Employee" = "Empregado";
+"Customer" = "Cliente";
+"Store" = "Loja";
+"E-mail" = "E-mail";
+"Phone" = "Telefone";
+"Price" = "Preço";
+"Price VAT" = "Preço IVA";
+"VAT" = "IVA";
 "Question" = "Questão";
 "Secret Question" = "Questão Secreta";
+"Answer" = "Resposta";
 "New User" = "Novo Utilizador";
 "New Item" = "Novo Item";
 

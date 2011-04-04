@@ -50,12 +50,13 @@
 
     // creates the empty remote data dictionary
     NSDictionary *emptyRemoteData = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                     @"", @"money_sale_slip",
+                                     [NSNull null], @"money_sale_slip",
                                      @"", @"date",
-                                     @"", @"seller_stock_holder",
-                                     @"", @"price",
+                                     [NSNull null], @"seller_stockholder",
+                                     [NSNull null], @"price",
+                                     [NSNull null], @"vat",
                                      @"", @"discount_vat",
-                                     @"", @"person_buyer",
+                                     [NSNull null], @"person_buyer",
                                      nil];
 
     // processes the empty remote data
@@ -71,14 +72,14 @@
 
     // retrieves the remote data attributes
     NSDictionary *moneySaleSlip = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"money_sale_slip"]);
-    NSNumber *date = AVOID_NULL([remoteData objectForKey:@"date"]);
+    NSNumber *date = AVOID_NULL_NUMBER([remoteData objectForKey:@"date"]);
     NSDictionary *sellerStockHolder = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"seller_stockholder"]);
     NSDictionary *price = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"price"]);
-    NSNumber *vat = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"vat"]);
-    NSDictionary *personBuyer = AVOID_NULL([remoteData objectForKey:@"person_buyer"]);
+    NSNumber *vat = AVOID_NULL_NUMBER([remoteData objectForKey:@"vat"]);
+    NSDictionary *personBuyer = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"person_buyer"]);
     NSString *moneySaleSlipIdentifier = AVOID_NULL([moneySaleSlip objectForKey:@"identifier"]);
     NSString *sellerStockHolderName = AVOID_NULL([sellerStockHolder objectForKey:@"name"]);
-    NSNumber *priceValue = AVOID_NULL([price objectForKey:@"value"]);
+    NSNumber *priceValue = AVOID_NULL_NUMBER([price objectForKey:@"value"]);
     NSString *personBuyerName = AVOID_NULL([personBuyer objectForKey:@"name"]);
 
     // computes the date string from the timestamp
