@@ -72,7 +72,7 @@
     // retrieves the remote data attributes
     NSDictionary *moneySaleSlip = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"money_sale_slip"]);
     NSNumber *date = AVOID_NULL([remoteData objectForKey:@"date"]);
-    NSDictionary *sellerStockHolder = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"seller_stock_holder"]);
+    NSDictionary *sellerStockHolder = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"seller_stockholder"]);
     NSDictionary *price = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"price"]);
     NSNumber *vat = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"vat"]);
     NSDictionary *personBuyer = AVOID_NULL([remoteData objectForKey:@"person_buyer"]);
