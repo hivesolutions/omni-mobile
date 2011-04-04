@@ -27,6 +27,7 @@
 #import "../classes/Dependencies.h"
 
 // class includes
+#import "../classes/EmployeesViewController.h"
 #import "../classes/MenuViewController.h"
 #import "../classes/OmniMobileAppDelegate.h"
 #import "../classes/UsersViewController.h"

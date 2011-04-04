@@ -25,25 +25,9 @@
 
 #import "Dependencies.h"
 
-@interface StoresViewController : HMTableViewController<HMRemoteTableViewProvider, HMRemoteTableViewDelegate> {
-    @private
-    HMEntityAbstraction *_entityAbstraction;
+#import "StoreViewController.h"
+
+@interface StoresViewController : HMRemoteTableViewController {
 }
-
-/**
- * The entity abstraction to be used for operations
- * in the entity.
- */
-@property (retain) HMEntityAbstraction *entityAbstraction;
-
-/**
- * Initializes the structures.
- */
-- (void)initStructures;
-
-/**
- * Shows the new store view.
- */
-- (void)newStore;
 
 @end

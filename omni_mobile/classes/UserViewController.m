@@ -24,45 +24,8 @@
 // __license__   = GNU General Public License (GPL), Version 3
 
 #import "UserViewController.h"
-#import "MenuViewController.h"
 
 @implementation UserViewController
-
-@synthesize entity = _entity;
-@synthesize entityAbstraction = _entityAbstraction;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    // calls the super
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-
-    // returns the instance
-    return self;
-}
-
-- (void)dealloc {
-    // releases the entity
-    [_entity release];
-
-    // releases the entity abstraction
-    [_entityAbstraction release];
-
-    // calls the super
-    [super dealloc];
-}
-
-- (void)initStructures {
-    // calls the super
-    [super initStructures];
-
-    // creates the entity abstraction
-    HMEntityAbstraction *entityAbstraction = [[HMEntityAbstraction alloc] initWithEntityDelegate:self];
-
-    // sets the entity abstraction
-    self.entityAbstraction = entityAbstraction;
-
-    // releases the entity abstraction
-    [entityAbstraction release];
-}
 
 - (NSString *)getRemoteUrl {
     // returns the url using the current operation type
@@ -71,14 +34,6 @@
 
 - (NSString *)getRemoteUrlForOperation:(HMItemOperationType)operationType {
     return [self.entityAbstraction getRemoteUrlForOperation:operationType entityName:@"users" serializerName:@"json"];
-}
-
-- (void)changeEntity:(NSDictionary *)entity {
-    // sets the entity
-    self.entity = entity;
-
-    // updates the remote
-    [self updateRemote];
 }
 
 - (void)processEmpty {
@@ -145,9 +100,10 @@
     // creates the employee string table cell
     HMStringTableCellItem *employeeItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"employee"];
     employeeItem.name = NSLocalizedString(@"Employee", @"Employee");
+    employeeItem.description = @"";
     employeeItem.accessoryType = @"disclosure_indicator";
-    employeeItem.selectViewController = [UsersViewController class];
-    employeeItem.selectNibName = @"UsersViewController";
+    employeeItem.selectViewController = [EmployeesViewController class];
+    employeeItem.selectNibName = @"EmployeesViewController";
     employeeItem.selectableEdit = YES;
     employeeItem.editable = NO;
 
@@ -256,20 +212,16 @@
     [remoteData setObject:AVOID_NIL(objectIdString, NSString) forKey:@"object_id"];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
+- (void)updateEntity:(NSDictionary *)entity {
+    // retrieves the employee name
+    NSString *employeeName = [entity objectForKey:@"name"];
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
+    // retrieves the employee cell
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:2];
+    HMTableViewCell *tableViewCell = (HMTableViewCell *) [self.tableView cellForRowAtIndexPath:indexPath];
 
-- (void)viewDidUnload {
-    [super viewDidUnload];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return YES;
+    // updates the employee cell description
+    tableViewCell.description = employeeName;
 }
 
 - (void)didSelectItemRowWithItem:(HMItem *)item {
@@ -279,8 +231,8 @@
     // pushes the controller in case one is defined
     if(tableCellItem.selectViewController) {
         // initializes the select view controller
-        HMTableViewController *selectViewController = [[tableCellItem.selectViewController alloc] initWithNibName:tableCellItem.selectNibName bundle:[NSBundle mainBundle]];
-        selectViewController.title = @"Employee";
+        HMTableViewController<HMEntityProvider> *selectViewController = [[tableCellItem.selectViewController alloc] initWithNibName:tableCellItem.selectNibName bundle:[NSBundle mainBundle]];
+        selectViewController.entityProviderDelegate = self;
 
         // pushes the select view controller
         [self.navigationController pushViewController:selectViewController animated:YES];

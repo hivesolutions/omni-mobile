@@ -27,46 +27,6 @@
 
 @implementation InventoryItemStoreViewController
 
-@synthesize entity = _entity;
-@synthesize identifier = _identifier;
-@synthesize entityAbstraction = _entityAbstraction;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    // calls the super
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-
-    // returns the instance
-    return self;
-}
-
-- (void)dealloc {
-    // releases the entity
-    [_entity release];
-
-    // releases the identifier
-    [_identifier release];
-
-    // releases the entity abstraction
-    [_entityAbstraction release];
-
-    // calls the super
-    [super dealloc];
-}
-
-- (void)initStructures {
-    // calls the super
-    [super initStructures];
-
-    // creates the entity abstraction
-    HMEntityAbstraction *entityAbstraction = [[HMEntityAbstraction alloc] initWithEntityDelegate:self];
-
-    // sets the entity abstraction
-    self.entityAbstraction = entityAbstraction;
-
-    // releases the entity abstraction
-    [entityAbstraction release];
-}
-
 - (NSString *)getRemoteUrl {
     // returns the url using the current operation type
     return [self getRemoteUrlForOperation:self.operationType];
@@ -74,36 +34,6 @@
 
 - (NSString *)getRemoteUrlForOperation:(HMItemOperationType)operationType {
     return [self.entityAbstraction getRemoteUrlForOperation:operationType entityName:@"inventory_lines" serializerName:@"json"];
-}
-
-- (void)changeIdentifier:(NSString *)identifier {
-    // sets the identifier
-    self.identifier = identifier;
-
-    // creates the number formatter
-    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
-
-    // creates the identifier number from the string
-    NSNumber *identifierNumber = [numberFormatter numberFromString:identifier];
-
-    // creates the entity for the identifier
-    NSDictionary *entity = [[NSDictionary alloc] initWithObjectsAndKeys:identifierNumber, @"object_id", nil];
-
-    // changes the entity
-    [self changeEntity:entity];
-
-    // releases the objects
-    [entity release];
-    [numberFormatter release];
-}
-
-- (void)changeEntity:(NSDictionary *)entity {
-    // sets the entity
-    self.entity = entity;
-
-    // updates the remote
-    [self updateRemote];
 }
 
 - (void)processEmpty {
@@ -214,22 +144,6 @@
 }
 
 - (void)convertRemoteGroupUpdate:(NSMutableDictionary *)remoteData {
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return YES;
 }
 
 @end

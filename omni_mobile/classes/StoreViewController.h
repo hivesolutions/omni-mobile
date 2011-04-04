@@ -25,29 +25,7 @@
 
 #import "Dependencies.h"
 
-@interface StoreViewController : HMRemoteHeaderItemTableViewController<HMEntityDelegate> {
-    @private
-    NSDictionary *_entity;
-    HMEntityAbstraction *_entityAbstraction;
+@interface StoreViewController : HMRemoteHeaderItemTableViewController {
 }
-
-/**
- * The entity represented by the view.
- */
-@property (retain) NSDictionary *entity;
-
-/**
- * The entity abstraction to be used for operations
- * in the entity.
- */
-@property (retain) HMEntityAbstraction *entityAbstraction;
-
-/**
- * Changes the entity in the view.
- * The argument is a map with all the entity attributes.
- *
- * @param user The entity to change to.
- */
-- (void)changeEntity:(NSDictionary *)entity;
 
 @end

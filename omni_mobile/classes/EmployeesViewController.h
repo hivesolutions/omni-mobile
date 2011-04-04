@@ -16,7 +16,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Hive Omni Erp. If not, see <http://www.gnu.org/licenses/>.
 
-// __author__    = João Magalhães <joamag@hive.pt>
+// __author__    = Lu�s Martinho <lmartinho@hive.pt>
 // __version__   = 1.0.0
 // __revision__  = $LastChangedRevision: 2390 $
 // __date__      = $LastChangedDate: 2009-04-02 08:36:50 +0100 (qui, 02 Abr 2009) $
@@ -25,24 +25,26 @@
 
 #import "Dependencies.h"
 
-#import "LoginViewController.h"
-#import "UsersViewController.h"
-#import "SalesViewController.h"
-#import "InventoryViewController.h"
-
-@interface MenuViewController : HMTableViewController<HMItemTableViewProvider, HMItemTableViewDelegate> {
+@interface EmployeesViewController : HMTableViewController<HMRemoteTableViewProvider, HMRemoteTableViewDelegate, HMEntityProvider> {
     @private
-    HMNamedItemGroup *_menuItemGroup;
+    HMEntityAbstraction *_entityAbstraction;
+    NSObject<HMEntityProviderDelegate> *_entityProviderDelegate;
 }
 
 /**
- * The named item group that represent the menu.
+ * The entity abstraction to be used for operations
+ * in the entity.
  */
-@property (retain) HMNamedItemGroup *menuItemGroup;
+@property (retain) HMEntityAbstraction *entityAbstraction;
 
 /**
- * Constructs the internal data structures.
+ * Initializes the structures.
  */
-- (void)constructStructures;
+- (void)initStructures;
+
+/**
+ * Shows the new employee view.
+ */
+- (void)newEmployee;
 
 @end
