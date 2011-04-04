@@ -44,7 +44,7 @@
     UserViewController *userViewController = [[UserViewController alloc] initWithNibNameAndType:@"UserViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationRead];
 
     // returns the user view controller
-    return userViewController;
+    return [userViewController autorelease];
 }
 
 - (id)getNewEntityViewController {
@@ -52,7 +52,7 @@
     UserViewController *userViewController = [[UserViewController alloc] initWithNibNameAndType:@"UserViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationCreate];
 
     // returns the user view controller
-    return userViewController;
+    return [userViewController autorelease];
 }
 
 - (NSString *)getRemoteUrl {

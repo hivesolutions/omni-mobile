@@ -44,7 +44,7 @@
     SaleViewController *saleViewController = [[SaleViewController alloc] initWithNibNameAndType:@"SaleViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationRead];
 
     // returns the sale view controller
-    return saleViewController;
+    return [saleViewController autorelease];
 }
 
 - (id)getNewEntityViewController {
@@ -52,7 +52,7 @@
     SaleViewController *saleViewController = [[SaleViewController alloc] initWithNibNameAndType:@"SaleViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationCreate];
 
     // returns the sale view controller
-    return saleViewController;
+    return [saleViewController autorelease];
 }
 
 - (NSString *)getRemoteUrl {

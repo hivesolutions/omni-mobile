@@ -44,7 +44,7 @@
     EmployeeViewController *employeeViewController = [[EmployeeViewController alloc] initWithNibNameAndType:@"EmployeeViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationRead];
 
     // returns the employee view controller
-    return employeeViewController;
+    return [employeeViewController autorelease];
 }
 
 - (id)getNewEntityViewController {
@@ -52,7 +52,7 @@
     EmployeeViewController *employeeViewController = [[EmployeeViewController alloc] initWithNibNameAndType:@"EmployeeViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationCreate];
 
     // returns the employee view controller
-    return employeeViewController;
+    return [employeeViewController autorelease];
 }
 
 - (NSString *)getRemoteUrl {

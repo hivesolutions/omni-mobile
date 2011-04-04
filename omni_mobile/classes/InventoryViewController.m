@@ -45,7 +45,7 @@
     InventoryItemViewController *inventoryItemViewController = [[InventoryItemViewController alloc] initWithNibNameAndType:@"InventoryItemViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationRead];
 
     // returns the inventory item view controller
-    return inventoryItemViewController;
+    return [inventoryItemViewController autorelease];
 }
 
 - (id)getNewEntityViewController {
@@ -53,7 +53,7 @@
     InventoryItemViewController *inventoryItemViewController = [[InventoryItemViewController alloc] initWithNibNameAndType:@"InventoryItemViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationCreate];
 
     // returns the inventory item view controller
-    return inventoryItemViewController;
+    return [inventoryItemViewController autorelease];
 }
 
 - (NSString *)getRemoteUrl {
