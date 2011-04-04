@@ -105,7 +105,6 @@
 
     // creates the username string item
     HMStringTableCellItem *usernameItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"username"];
-    usernameItem.highlightable = NO;
     usernameItem.indentable = NO;
     usernameItem.defaultValue = NSLocalizedString(@"Username", @"Username");
     usernameItem.returnType = @"done";
@@ -114,7 +113,6 @@
     // creates the username string item
     HMStringTableCellItem *passwordItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"password"];
     passwordItem.secure = YES;
-    passwordItem.highlightable = NO;
     passwordItem.indentable = NO;
     passwordItem.defaultValue = NSLocalizedString(@"Password", @"Password");
     passwordItem.returnType = @"done";

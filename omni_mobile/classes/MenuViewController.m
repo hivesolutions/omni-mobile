@@ -99,6 +99,7 @@
     usersItem.icon = @"icon_users.png";
     usersItem.highlightedIcon = @"icon_users_white.png";
     usersItem.accessoryType = @"disclosure_indicator";
+    usersItem.selectable = YES;
 
     // creates the sales button item
     HMTableCellItem *salesItem = [[HMTableCellItem alloc] initWithIdentifier:@"sales"];
@@ -106,6 +107,7 @@
     salesItem.icon = @"icon_sales.png";
     salesItem.highlightedIcon = @"icon_sales_white.png";
     salesItem.accessoryType = @"disclosure_indicator";
+    salesItem.selectable = YES;
 
     // creates the purchases button item
     HMTableCellItem *purchasesItem = [[HMTableCellItem alloc] initWithIdentifier:@"purchases"];
@@ -113,6 +115,7 @@
     purchasesItem.icon = @"icon_purchases.png";
     purchasesItem.highlightedIcon = @"icon_purchases_white.png";
     purchasesItem.accessoryType = @"disclosure_indicator";
+    purchasesItem.selectable = YES;
 
     // creates the inventory button item
     HMTableCellItem *inventoryItem = [[HMTableCellItem alloc] initWithIdentifier:@"inventory"];
@@ -120,6 +123,7 @@
     inventoryItem.icon = @"icon_inventory.png";
     inventoryItem.highlightedIcon = @"icon_inventory_white.png";
     inventoryItem.accessoryType = @"disclosure_indicator";
+    inventoryItem.selectable = YES;
 
     // creates the stores button item
     HMTableCellItem *storesItem = [[HMTableCellItem alloc] initWithIdentifier:@"stores"];
@@ -127,6 +131,7 @@
     storesItem.icon = @"icon_stores.png";
     storesItem.highlightedIcon = @"icon_stores_white.png";
     storesItem.accessoryType = @"disclosure_indicator";
+    storesItem.selectable = YES;
 
     // creates the highlights button item
     HMTableCellItem *highlightsItem = [[HMTableCellItem alloc] initWithIdentifier:@"highlights"];
@@ -134,11 +139,11 @@
     highlightsItem.icon = @"icon_highlights.png";
     highlightsItem.highlightedIcon = @"icon_highlights_white.png";
     highlightsItem.accessoryType = @"disclosure_indicator";
+    highlightsItem.selectable = YES;
 
     // creates the notifications button item
     HMTableCellItem *notificationsItem = [[HMTableCellItem alloc] initWithIdentifier:@"notifications"];
     notificationsItem.name = NSLocalizedString(@"Notifications", @"Notifications");
-    notificationsItem.highlightable = NO;
     notificationsItem.accessoryType = @"switch";
 
     // creates the first section item group

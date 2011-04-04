@@ -152,7 +152,6 @@
     stockOnHandItem.description = [NSString stringWithFormat:@"%d", [stockOnHand intValue]];
     stockOnHandItem.accessoryType = @"badge_label";
     stockOnHandItem.accessoryValue = @"UN";
-    stockOnHandItem.highlightable = NO;
 
     // creates the price string table cell
     HMStringTableCellItem *priceItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"price"];
@@ -160,7 +159,6 @@
     priceItem.description = [NSString stringWithFormat:@"%.2f", [priceValue floatValue]];
     priceItem.accessoryType = @"badge_label";
     priceItem.accessoryValue = @"EUR";
-    priceItem.highlightable = NO;
 
     // creates the retail price string table cell
     HMStringTableCellItem *retailPriceItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"retail_price"];
@@ -168,7 +166,6 @@
     retailPriceItem.description = [NSString stringWithFormat:@"%.2f", [retailPriceValue floatValue]];
     retailPriceItem.accessoryType = @"badge_label";
     retailPriceItem.accessoryValue = @"EUR";
-    retailPriceItem.highlightable = NO;
 
     // creates the sections item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];

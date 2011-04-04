@@ -118,7 +118,6 @@
     HMStringTableCellItem *nameItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"name"];
     nameItem.name = NSLocalizedString(@"Name", @"Name");
     nameItem.description = name;
-    nameItem.highlightable = NO;
     nameItem.multipleLines = YES;
 
     // creates the sections item group
