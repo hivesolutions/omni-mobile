@@ -39,14 +39,25 @@
 "Title" = "Title";
 "Subtitle" = "Subtitle";
 "Users" = "Users";
+"Employees" = "Employees";
 "Sales" = "Sales";
 "Purchases" = "Purchases";
 "Inventory" = "Inventory";
 "Stores" = "Stores";
 "Highlights" = "Highlights";
 "Notifications" = "Notifications";
+"User" = "User";
+"Employee" = "Employee";
+"Customer" = "Customer";
+"Store" = "Store";
+"E-mail" = "E-mail";
+"Phone" = "Phone";
+"Price" = "Price";
+"Price VAT" = "Price VAT";
+"VAT" = "VAT";
 "Question" = "Question";
 "Secret Question" = "Secret Question";
+"Answer" = "Answer";
 "New User" = "New User";
 "New Item" = "New Item";
 
