@@ -77,69 +77,6 @@
     nameItem.highlightable = NO;
     nameItem.multipleLines = YES;
 
-
-    // creates the name string table cell item
-    HMStringTableCellItem *name1Item = [[HMStringTableCellItem alloc] initWithIdentifier:@"name1"];
-    name1Item.name = NSLocalizedString(@"Name", @"Name");
-    name1Item.description = name;
-    name1Item.highlightable = NO;
-    name1Item.multipleLines = YES;
-
-    // creates the name string table cell item
-    HMStringTableCellItem *name2Item = [[HMStringTableCellItem alloc] initWithIdentifier:@"name2"];
-    name2Item.name = NSLocalizedString(@"Name", @"Name");
-    name2Item.description = name;
-    name2Item.highlightable = NO;
-    name2Item.multipleLines = YES;
-
-
-    // creates the name string table cell item
-    HMStringTableCellItem *name3Item = [[HMStringTableCellItem alloc] initWithIdentifier:@"name3"];
-    name3Item.name = NSLocalizedString(@"Name", @"Name");
-    name3Item.description = name;
-    name3Item.highlightable = NO;
-    name3Item.multipleLines = YES;
-
-
-    // creates the name string table cell item
-    HMStringTableCellItem *name4Item = [[HMStringTableCellItem alloc] initWithIdentifier:@"name4"];
-    name4Item.name = NSLocalizedString(@"Name", @"Name");
-    name4Item.description = name;
-    name4Item.highlightable = NO;
-    name4Item.multipleLines = YES;
-
-    // creates the name string table cell item
-    HMStringTableCellItem *name5Item = [[HMStringTableCellItem alloc] initWithIdentifier:@"name5"];
-    name5Item.name = NSLocalizedString(@"Name", @"Name");
-    name5Item.description = name;
-    name5Item.highlightable = NO;
-    name5Item.multipleLines = YES;
-
-
-    // creates the name string table cell item
-    HMStringTableCellItem *name6Item = [[HMStringTableCellItem alloc] initWithIdentifier:@"name6"];
-    name6Item.name = NSLocalizedString(@"Name", @"Name");
-    name6Item.description = name;
-    name6Item.highlightable = NO;
-    name6Item.multipleLines = YES;
-
-
-    // creates the name string table cell item
-    HMStringTableCellItem *name7Item = [[HMStringTableCellItem alloc] initWithIdentifier:@"name7"];
-    name7Item.name = NSLocalizedString(@"Name", @"Name");
-    name7Item.description = name;
-    name7Item.highlightable = NO;
-    name7Item.multipleLines = YES;
-
-
-    // creates the name string table cell item
-    HMStringTableCellItem *name8Item = [[HMStringTableCellItem alloc] initWithIdentifier:@"name8"];
-    name8Item.name = NSLocalizedString(@"Name", @"Name");
-    name8Item.description = name;
-    name8Item.highlightable = NO;
-    name8Item.multipleLines = YES;
-
-
     // creates the sections item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
     HMTableSectionItemGroup *secondSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"second_section"];
@@ -157,12 +94,6 @@
 
     // populates the first section item list
     [firstSectionItemGroup addItem:nameItem];
-    [firstSectionItemGroup addItem:name1Item];
-    [firstSectionItemGroup addItem:name2Item];
-    [firstSectionItemGroup addItem:name3Item];
-    [firstSectionItemGroup addItem:name4Item];
-    [firstSectionItemGroup addItem:name5Item];
-    [firstSectionItemGroup addItem:name6Item];
 
     // for each inventory line
     for(int index = 0; index < [contactableOrganizationalUnits count]; index++) {
