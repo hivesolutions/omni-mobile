@@ -117,6 +117,7 @@
         storeItem.highlightedIcon = @"building_white.png";
         storeItem.accessoryType = @"badge_label";
         storeItem.accessoryValue = storeStockOnHand;
+        storeItem.selectable = YES;
         storeItem.indentable = NO;
         storeItem.editableRow = NO;
         storeItem.editableCell = NO;
