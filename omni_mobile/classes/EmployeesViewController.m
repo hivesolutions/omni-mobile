@@ -27,81 +27,32 @@
 
 @implementation EmployeesViewController
 
-@synthesize entityAbstraction = _entityAbstraction;
-@synthesize entityProviderDelegate = _entityProviderDelegate;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    // calls the super
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-
-    // initializes the structures
-    [self initStructures];
-
-    // returns self
-    return self;
+- (NSString *)getTitle {
+    return NSLocalizedString(@"Employees", @"Employees");
 }
 
-- (void)dealloc {
-    // releases the entity abstraction
-    [_entityAbstraction release];
-
-    // calls the super
-    [super dealloc];
+- (NSString *)getNewEntityTitle {
+    return NSLocalizedString(@"New Employee", @"New Employee");
 }
 
-- (void)initStructures {
-    // sets the attributes
-    self.title = NSLocalizedString(@"Employees", @"Employees");
-
-    // sets the new bar button in the navigation item
-    UIBarButtonItem *newBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newEmployee)];
-    [self.navigationItem setRightBarButtonItem:newBarButton animated:YES];
-
-    // creates the entity abstraction
-    HMEntityAbstraction *entityAbstraction = [[HMEntityAbstraction alloc] init];
-
-    // sets the attributes
-    self.entityAbstraction = entityAbstraction;
-
-    // releases the objects
-    [entityAbstraction release];
-    [newBarButton release];
+- (UIColor *)getHeaderColor {
+    return OMNI_BAR_COLOR;
 }
 
-- (void)newEmployee {
-    /* TODO: implement this */
+- (id)getViewController {
+    // initializes the employee view controller
+    EmployeeViewController *employeeViewController = [[EmployeeViewController alloc] initWithNibNameAndType:@"EmployeeViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationRead];
+
+    // returns the employee view controller
+    return [employeeViewController autorelease];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
+- (id)getNewEntityViewController {
+    // initializes the employee view controller
+    EmployeeViewController *employeeViewController = [[EmployeeViewController alloc] initWithNibNameAndType:@"EmployeeViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationCreate];
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return YES;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
+    // returns the employee view controller
+    return [employeeViewController autorelease];
 }
 
 - (NSString *)getRemoteUrl {
@@ -114,25 +65,6 @@
 
 - (NSString *)getItemTitleName {
     return @"name";
-}
-
-- (void)didSelectRemoteRowWithData:(NSDictionary *)data {
-    // in case the entity provider delegate
-    // is set this is a provider call
-    if(self.entityProviderDelegate) {
-        // updates the entity in the entity provider delegate
-        [self.entityProviderDelegate updateEntity:data];
-
-        // pops the view controller
-        [self.navigationController popViewControllerAnimated:YES];
-    }
-    // otherwise it's a normal selection
-    else {
-        /* TODO: implement this */
-    }
-}
-
-- (void)didDeselectRemoteRowWithData:(NSDictionary *)data {
 }
 
 @end

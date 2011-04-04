@@ -77,7 +77,7 @@
 
     // creates the email string table cell
     HMStringTableCellItem *emailItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"email"];
-    emailItem.name = NSLocalizedString(@"Email", @"Email");
+    emailItem.name = NSLocalizedString(@"E-mail", @"E-mail");
     emailItem.description = email;
 
     // creates the sections item group

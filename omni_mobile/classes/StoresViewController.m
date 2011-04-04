@@ -44,7 +44,7 @@
     StoreViewController *storeViewController = [[StoreViewController alloc] initWithNibNameAndType:@"StoreViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationRead];
 
     // returns the store view controller
-    return storeViewController;
+    return [storeViewController autorelease];
 }
 
 - (id)getNewEntityViewController {
@@ -52,7 +52,7 @@
     StoreViewController *storeViewController = [[StoreViewController alloc] initWithNibNameAndType:@"StoreViewController" bundle:[NSBundle mainBundle] operationType:HMItemOperationCreate];
 
     // returns the store view controller
-    return storeViewController;
+    return [storeViewController autorelease];
 }
 
 - (NSString *)getRemoteUrl {

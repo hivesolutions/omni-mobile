@@ -27,6 +27,8 @@
 
 @implementation InventoryItemStoreViewController
 
+@synthesize identifier = _identifier;
+
 - (NSString *)getRemoteUrl {
     // returns the url using the current operation type
     return [self getRemoteUrlForOperation:self.operationType];
@@ -144,6 +146,28 @@
 }
 
 - (void)convertRemoteGroupUpdate:(NSMutableDictionary *)remoteData {
+}
+
+- (void)changeIdentifier:(NSString *)identifier {
+    // sets the identifier
+    self.identifier = identifier;
+
+    // creates the number formatter
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+
+    // creates the identifier number from the string
+    NSNumber *identifierNumber = [numberFormatter numberFromString:identifier];
+
+    // creates the entity for the identifier
+    NSDictionary *entity = [[NSDictionary alloc] initWithObjectsAndKeys:identifierNumber, @"object_id", nil];
+
+    // changes the entity
+    [self changeEntity:entity];
+
+    // releases the objects
+    [entity release];
+    [numberFormatter release];
 }
 
 @end

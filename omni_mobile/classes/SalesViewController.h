@@ -25,21 +25,9 @@
 
 #import "Dependencies.h"
 
-@interface SalesViewController : HMTableViewController<HMRemoteTableViewProvider, HMRemoteTableViewDelegate, HMEntityProvider> {
-    @private
-    HMEntityAbstraction *_entityAbstraction;
-    NSObject<HMEntityProviderDelegate> *_entityProviderDelegate;
+#import "SaleViewController.h"
+
+@interface SalesViewController : HMRemoteTableViewController {
 }
-
-/**
- * The entity abstraction to be used for operations
- * in the entity.
- */
-@property (retain) HMEntityAbstraction *entityAbstraction;
-
-/**
- * Initializes the structures.
- */
-- (void)initStructures;
 
 @end

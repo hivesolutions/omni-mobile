@@ -133,6 +133,13 @@
     storesItem.accessoryType = @"disclosure_indicator";
     storesItem.selectable = YES;
 
+    // creates the employees button item
+    HMTableCellItem *employeesItem = [[HMTableCellItem alloc] initWithIdentifier:@"employees"];
+    employeesItem.name = NSLocalizedString(@"Employees", @"Employees");
+    employeesItem.icon = @"icon_users.png";
+    employeesItem.highlightedIcon = @"icon_users_white.png";
+    employeesItem.accessoryType = @"disclosure_indicator";
+
     // creates the highlights button item
     HMTableCellItem *highlightsItem = [[HMTableCellItem alloc] initWithIdentifier:@"highlights"];
     highlightsItem.name = NSLocalizedString(@"Highlights", @"Highlights");
@@ -165,6 +172,7 @@
     [firstSectionItemGroup addItem:purchasesItem];
     [firstSectionItemGroup addItem:inventoryItem];
     [firstSectionItemGroup addItem:storesItem];
+    [firstSectionItemGroup addItem:employeesItem];
     [firstSectionItemGroup addItem:highlightsItem];
     [secondSectionItemGroup addItem:notificationsItem];
 
@@ -185,6 +193,7 @@
     [notificationsItem release];
     [highlightsItem release];
     [inventoryItem release];
+    [employeesItem release];
     [storesItem release];
     [purchasesItem release];
     [salesItem release];
@@ -235,6 +244,17 @@
     [inventoryViewController release];
 }
 
+- (void)didSelectEmployeesButton {
+    // initializes the employees view controller
+    EmployeesViewController *employeesViewController = [[EmployeesViewController alloc] initWithNibName:@"EmployeesViewController" bundle:[NSBundle mainBundle]];
+
+    // pushes the employees view controller
+    [self.navigationController pushViewController:employeesViewController animated:YES];
+
+    // releases the employees view controller reference
+    [employeesViewController release];
+}
+
 - (HMNamedItemGroup *)getItemSpecification {
     return self.menuItemGroup;
 }
@@ -263,6 +283,10 @@
     else if([item.identifier isEqualToString:@"stores"]) {
         // calls the did select stores button
         [self didSelectStoresButton];
+    }
+    else if([item.identifier isEqualToString:@"employees"]) {
+        // calls the did select employees button
+        [self didSelectEmployeesButton];
     }
     else {
         // initializes the menu view controller
