@@ -31,6 +31,7 @@
 		0E85BD11133BB71400F3E65B /* InventoryItemStoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E85BD10133BB71300F3E65B /* InventoryItemStoreViewController.xib */; };
 		0EB880F21345079E00D94B07 /* building_header.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EB880F01345079E00D94B07 /* building_header.png */; };
 		0EB880F31345079E00D94B07 /* building_header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EB880F11345079E00D94B07 /* building_header@2x.png */; };
+		0ECC7AAB1349D0A700D39DBC /* EmployeeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ECC7AAA1349D0A700D39DBC /* EmployeeViewController.xib */; };
 		C20FC5A61337B97600FDBE8D /* white_button.png in Resources */ = {isa = PBXBuildFile; fileRef = C20FC5A41337B97600FDBE8D /* white_button.png */; };
 		C20FC5A71337B97600FDBE8D /* white_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = C20FC5A51337B97600FDBE8D /* white_button_pressed.png */; };
 		C212D8AE132A47CE00E2A078 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C212D8A5132A47CE00E2A078 /* main.m */; };
@@ -214,6 +215,7 @@
 		0E85BD10133BB71300F3E65B /* InventoryItemStoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InventoryItemStoreViewController.xib; path = nibs/InventoryItemStoreViewController.xib; sourceTree = "<group>"; };
 		0EB880F01345079E00D94B07 /* building_header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = building_header.png; path = resources/images/header_icons/building/building_header.png; sourceTree = "<group>"; };
 		0EB880F11345079E00D94B07 /* building_header@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "building_header@2x.png"; path = "resources/images/header_icons/building/building_header@2x.png"; sourceTree = "<group>"; };
+		0ECC7AAA1349D0A700D39DBC /* EmployeeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EmployeeViewController.xib; path = nibs/EmployeeViewController.xib; sourceTree = "<group>"; };
 		A57BEA56132E72F0000478F7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C20CDB8E1333782D008A4FE3 /* Dependencies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dependencies.h; path = classes/Dependencies.h; sourceTree = "<group>"; };
 		C20CDB9013337933008A4FE3 /* omni_mobile_test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = omni_mobile_test.h; path = headers/omni_mobile_test.h; sourceTree = "<group>"; };
@@ -465,6 +467,7 @@
 			isa = PBXGroup;
 			children = (
 				0E3BBC981345FABC00075437 /* EmployeesViewController.xib */,
+				0ECC7AAA1349D0A700D39DBC /* EmployeeViewController.xib */,
 				C24A0E6D1338B9BB00D8C7EC /* LoginViewController.xib */,
 				C226C243132A782500427656 /* MenuViewController.xib */,
 				C212D8C1132A482800E2A078 /* MainWindow.xib */,
@@ -1099,6 +1102,7 @@
 				0E3BBC991345FABC00075437 /* EmployeesViewController.xib in Resources */,
 				0E3BBC9E1346248E00075437 /* SalesViewController.xib in Resources */,
 				0E23AEE013462D230061FBE9 /* SaleViewController.xib in Resources */,
+				0ECC7AAB1349D0A700D39DBC /* EmployeeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

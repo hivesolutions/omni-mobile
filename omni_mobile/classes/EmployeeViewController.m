@@ -94,52 +94,10 @@
 }
 
 - (NSMutableDictionary *)convertRemoteGroup:(HMItemOperationType)operationType {
-    // calls the super
-    NSMutableDictionary *remoteData = [super convertRemoteGroup:operationType];
-
-    // retrieves the menu header named group
-    HMNamedItemGroup *menuHeaderNamedGroup = (HMNamedItemGroup *) [self.remoteGroup getItem:@"header"];
-
-    // retrieves the items
-    HMItem *username = [menuHeaderNamedGroup getItem:@"title"];
-
-    // retrieves the menu list group
-    HMItemGroup *menuListGroup = (HMItemGroup *) [self.remoteGroup getItem:@"list"];
-
-    // retreves the section item groups
-    HMItemGroup *firstSectionItemGroup = (HMItemGroup *) [menuListGroup getItem:0];
-    HMItemGroup *secondSectionItemGroup = (HMItemGroup *) [menuListGroup getItem:1];
-
-    // retrieves the first section items
-    HMItem *passwordItem = [firstSectionItemGroup getItem:0];
-    HMItem *emailItem = [firstSectionItemGroup getItem:1];
-
-    // retrieves the second section items
-    HMItem *secretQuestion = [secondSectionItemGroup getItem:0];
-    HMItem *secretAnswer = [secondSectionItemGroup getItem:1];
-
-    // sets the items in the remote data
-    [remoteData setObject:AVOID_NIL(username.identifier, NSString) forKey:@"user[username]"];
-    [remoteData setObject:AVOID_NIL(emailItem.description, NSString) forKey:@"user[email]"];
-    [remoteData setObject:AVOID_NIL(secretQuestion.description, NSString) forKey:@"user[secret_question]"];
-
-    // sets the parameter items in the remote data
-    [remoteData setObject:AVOID_NIL(passwordItem.description, NSString) forKey:@"user[_parameters][password]"];
-    [remoteData setObject:AVOID_NIL(passwordItem.description, NSString) forKey:@"user[_parameters][confirm_password]"];
-    [remoteData setObject:AVOID_NIL(secretAnswer.description, NSString) forKey:@"user[_parameters][secret_answer]"];
-
-    // returns the remote data
-    return remoteData;
+    return nil;
 }
 
 - (void)convertRemoteGroupUpdate:(NSMutableDictionary *)remoteData {
-    // retrieves the object id
-    NSNumber *objectId = [self.entity objectForKey:@"object_id"];
-    NSString *objectIdString = [objectId stringValue];
-
-    // sets the object id (structured and unstructured)
-    [remoteData setObject:AVOID_NIL(objectIdString, NSString) forKey:@"user[object_id]"];
-    [remoteData setObject:AVOID_NIL(objectIdString, NSString) forKey:@"object_id"];
 }
 
 @end
