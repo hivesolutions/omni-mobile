@@ -64,7 +64,7 @@
 }
 
 - (NSString *)getItemTitleName {
-    return @"";
+    return @"identifier";
 }
 
 @end
