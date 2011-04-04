@@ -43,4 +43,15 @@
  */
 - (void)saveSettings:(NSString *)data;
 
+/**
+ * Sets the preferneces default value using the given
+ * preferences structure.
+ *
+ * @param preferences The preferences structure to be used to set
+ * the default value.
+ * @param defaultValue The default value to be set.
+ * @param key The key value to be used.
+ */
+- (void)setPreferencesDefaultValue:(NSUserDefaults *)preferences defaultValue:(NSString *)defaultValue key:(NSString *)key;
+
 @end

@@ -74,8 +74,8 @@
     // retrieves the preferences
     NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
 
-    // sets the base url
-    [preferences setValue:@"http://172.16.0.24:8080/colony_mod_python/rest/mvc/omni" forKey:@"baseUrl"];
+    // sets the preferences default value
+    [self setPreferencesDefaultValue:preferences defaultValue:@"http://172.16.0.24:8080/colony_mod_python/rest/mvc/omni" key:@"baseUrl"];
 
     // syncs the preferences
     [preferences synchronize];
@@ -87,6 +87,17 @@
 
     // syncs the preferences
     [preferences synchronize];
+}
+
+- (void)setPreferencesDefaultValue:(NSUserDefaults *)preferences defaultValue:(NSString *)defaultValue key:(NSString *)key {
+    // retrieves the preferences value
+    NSString *preferencesValue = [preferences valueForKey:key];
+
+    // in case the preferences value is invalid or empty
+    if(preferencesValue == nil || [preferencesValue isEqualToString:@""]) {
+        // sets the base url
+        [preferences setValue:defaultValue forKey:key];
+    }
 }
 
 @end
