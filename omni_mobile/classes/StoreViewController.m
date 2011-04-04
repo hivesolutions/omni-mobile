@@ -74,13 +74,11 @@
     HMStringTableCellItem *phoneNumberItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"phone_number"];
     phoneNumberItem.name = NSLocalizedString(@"Phone", @"Phone");
     phoneNumberItem.description = phoneNumber;
-    phoneNumberItem.highlightable = NO;
 
     // creates the email string table cell
     HMStringTableCellItem *emailItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"email"];
     emailItem.name = NSLocalizedString(@"Email", @"Email");
     emailItem.description = email;
-    emailItem.highlightable = NO;
 
     // creates the sections item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];

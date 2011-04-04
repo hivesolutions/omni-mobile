@@ -96,16 +96,20 @@
     secretAnswerItem.name = NSLocalizedString(@"Answer", @"Answer");
     secretAnswerItem.description = secretAnswer;
     secretAnswerItem.secure = YES;
+    secretAnswerItem.editableRow = YES;
+    secretAnswerItem.editableCell = YES;
 
     // creates the employee string table cell
     HMStringTableCellItem *employeeItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"employee"];
     employeeItem.name = NSLocalizedString(@"Employee", @"Employee");
     employeeItem.description = @"";
     employeeItem.accessoryType = @"disclosure_indicator";
+    employeeItem.editingAccessoryType = @"disclosure_indicator";
     employeeItem.selectViewController = [EmployeesViewController class];
     employeeItem.selectNibName = @"EmployeesViewController";
+    employeeItem.editableRow = YES;
+    employeeItem.editableCell = NO;
     employeeItem.selectableEdit = YES;
-    employeeItem.editable = NO;
 
     // creates the sections item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
@@ -229,7 +233,7 @@
     HMTableCellItem *tableCellItem = (HMTableCellItem *)item;
 
     // pushes the controller in case one is defined
-    if(tableCellItem.selectViewController) {
+    if(self.tableView.editing && tableCellItem.selectableEdit && tableCellItem.selectViewController) {
         // initializes the select view controller
         HMTableViewController<HMEntityProvider> *selectViewController = [[tableCellItem.selectViewController alloc] initWithNibName:tableCellItem.selectNibName bundle:[NSBundle mainBundle]];
         selectViewController.entityProviderDelegate = self;

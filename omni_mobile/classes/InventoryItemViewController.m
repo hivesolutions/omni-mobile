@@ -81,14 +81,12 @@
     HMStringTableCellItem *name1Item = [[HMStringTableCellItem alloc] initWithIdentifier:@"name1"];
     name1Item.name = NSLocalizedString(@"Name", @"Name");
     name1Item.description = name;
-    name1Item.highlightable = NO;
     name1Item.multipleLines = YES;
 
     // creates the name string table cell item
     HMStringTableCellItem *name2Item = [[HMStringTableCellItem alloc] initWithIdentifier:@"name2"];
     name2Item.name = NSLocalizedString(@"Name", @"Name");
     name2Item.description = name;
-    name2Item.highlightable = NO;
     name2Item.multipleLines = YES;
 
 
@@ -96,7 +94,6 @@
     HMStringTableCellItem *name3Item = [[HMStringTableCellItem alloc] initWithIdentifier:@"name3"];
     name3Item.name = NSLocalizedString(@"Name", @"Name");
     name3Item.description = name;
-    name3Item.highlightable = NO;
     name3Item.multipleLines = YES;
 
 
@@ -104,14 +101,12 @@
     HMStringTableCellItem *name4Item = [[HMStringTableCellItem alloc] initWithIdentifier:@"name4"];
     name4Item.name = NSLocalizedString(@"Name", @"Name");
     name4Item.description = name;
-    name4Item.highlightable = NO;
     name4Item.multipleLines = YES;
 
     // creates the name string table cell item
     HMStringTableCellItem *name5Item = [[HMStringTableCellItem alloc] initWithIdentifier:@"name5"];
     name5Item.name = NSLocalizedString(@"Name", @"Name");
     name5Item.description = name;
-    name5Item.highlightable = NO;
     name5Item.multipleLines = YES;
 
 
@@ -119,7 +114,6 @@
     HMStringTableCellItem *name6Item = [[HMStringTableCellItem alloc] initWithIdentifier:@"name6"];
     name6Item.name = NSLocalizedString(@"Name", @"Name");
     name6Item.description = name;
-    name6Item.highlightable = NO;
     name6Item.multipleLines = YES;
 
 
@@ -127,7 +121,6 @@
     HMStringTableCellItem *name7Item = [[HMStringTableCellItem alloc] initWithIdentifier:@"name7"];
     name7Item.name = NSLocalizedString(@"Name", @"Name");
     name7Item.description = name;
-    name7Item.highlightable = NO;
     name7Item.multipleLines = YES;
 
 
@@ -135,7 +128,6 @@
     HMStringTableCellItem *name8Item = [[HMStringTableCellItem alloc] initWithIdentifier:@"name8"];
     name8Item.name = NSLocalizedString(@"Name", @"Name");
     name8Item.description = name;
-    name8Item.highlightable = NO;
     name8Item.multipleLines = YES;
 
 
@@ -186,7 +178,8 @@
         storeItem.highlightedIcon = @"building_white.png";
         storeItem.accessoryType = @"badge_label";
         storeItem.accessoryValue = storeStockOnHand;
-        storeItem.editable = NO;
+        storeItem.editableRow = NO;
+        storeItem.editableCell = NO;
 
         // populates the second section item list
         [secondSectionItemGroup addItem:storeItem];
