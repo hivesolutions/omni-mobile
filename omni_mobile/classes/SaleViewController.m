@@ -102,7 +102,6 @@
     HMStringTableCellItem *storeItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"store"];
     storeItem.name = NSLocalizedString(@"Store", @"Store");
     storeItem.description = sellerStockHolderName;
-    storeItem.highlightable = NO;
 
     // creates the price string table cell
     HMStringTableCellItem *priceItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"price"];
@@ -110,7 +109,6 @@
     priceItem.description = [NSString stringWithFormat:@"%.2f", [priceValue floatValue]];
     priceItem.accessoryType = @"badge_label";
     priceItem.accessoryValue = @"EUR";
-    priceItem.highlightable = NO;
 
     // creates the vat string table cell
     HMStringTableCellItem *vatItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"vat"];
@@ -118,7 +116,6 @@
     vatItem.description = [NSString stringWithFormat:@"%.2f", [vat floatValue]];
     vatItem.accessoryType = @"badge_label";
     vatItem.accessoryValue = @"EUR";
-    vatItem.highlightable = NO;
 
     // creates the price vat string table cell
     HMStringTableCellItem *priceVatItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"price_vat"];
@@ -126,13 +123,11 @@
     priceVatItem.description = [NSString stringWithFormat:@"%.2f", [priceVat floatValue]];
     priceVatItem.accessoryType = @"badge_label";
     priceVatItem.accessoryValue = @"EUR";
-    priceVatItem.highlightable = NO;
 
     // creates the customer name string table cell
     HMStringTableCellItem *customerItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"customer"];
     customerItem.name = NSLocalizedString(@"Customer", @"Customer");
     customerItem.description = personBuyerName;
-    customerItem.highlightable = NO;
 
     // creates the sections item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
