@@ -96,15 +96,12 @@
     secretAnswerItem.name = NSLocalizedString(@"Answer", @"Answer");
     secretAnswerItem.description = secretAnswer;
     secretAnswerItem.secure = YES;
-    secretAnswerItem.editableRow = YES;
-    secretAnswerItem.editableCell = YES;
 
     // creates the employee string table cell
     HMStringTableCellItem *employeeItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"employee"];
     employeeItem.name = NSLocalizedString(@"Employee", @"Employee");
     employeeItem.description = @"";
     employeeItem.accessoryType = @"disclosure_indicator";
-    employeeItem.editingAccessoryType = @"disclosure_indicator";
     employeeItem.selectViewController = [EmployeesViewController class];
     employeeItem.selectNibName = @"EmployeesViewController";
     employeeItem.editableRow = YES;

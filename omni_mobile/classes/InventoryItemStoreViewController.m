@@ -82,7 +82,7 @@
     HMStringTableCellItem *stockOnHandItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"stock_on_hand"];
     stockOnHandItem.name = NSLocalizedString(@"Stock", @"Stock");
     stockOnHandItem.description = [NSString stringWithFormat:@"%d", [stockOnHand intValue]];
-    stockOnHandItem.editingAccessoryType = @"badge_label";
+    stockOnHandItem.accessoryType = @"badge_label";
     stockOnHandItem.accessoryValue = @"UN";
 
     // creates the price string table cell
