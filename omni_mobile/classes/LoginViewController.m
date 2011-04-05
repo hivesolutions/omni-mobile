@@ -109,6 +109,7 @@
     usernameItem.defaultValue = NSLocalizedString(@"Username", @"Username");
     usernameItem.returnType = @"done";
     usernameItem.returnDisablesEdit = YES;
+    usernameItem.focusEdit = YES;
 
     // creates the username string item
     HMStringTableCellItem *passwordItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"password"];
