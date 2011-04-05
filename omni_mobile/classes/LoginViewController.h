@@ -28,12 +28,19 @@
 /**
  * View controller responsible for the login view.
  */
-@interface LoginViewController : UIViewController<HMItemTableViewProvider, HMItemTableViewDelegate> {
+@interface LoginViewController : UIViewController<HMItemTableViewProvider, HMItemTableViewDelegate, HMRemoteDelegate> {
     @private
+    HMRemoteAbstraction *_remoteAbstraction;
     HMNamedItemGroup *_loginItemGroup;
     HMStringTableCellItem *_usernameItem;
     HMStringTableCellItem *_passwordItem;
 }
+
+/**
+ * The remote abstraction to be used to perform
+ * requests.
+ */
+@property (retain) HMRemoteAbstraction *remoteAbstraction;
 
 /**
  * The login item group used to the describe the

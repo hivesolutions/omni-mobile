@@ -27,6 +27,7 @@
 
 @implementation LoginViewController
 
+@synthesize remoteAbstraction = _remoteAbstraction;
 @synthesize loginItemGroup = _loginItemGroup;
 @synthesize usernameItem = _usernameItem;
 @synthesize passwordItem = _passwordItem;
@@ -87,6 +88,11 @@
 }
 
 - (void)constructStructures {
+    // creates the remote abstraction for the url
+    HMRemoteAbstraction *remoteAbstraction = [[HMRemoteAbstraction alloc] initWithIdAndUrl:HMItemOperationRead url:@"http://tsilva.hive:8080/colony_mod_python/rest/mvc/omni/login.json"];
+    remoteAbstraction.remoteDelegate = self;
+    remoteAbstraction.view = self.view.superview;
+
     // retrieves the background pattern image
     UIImage *backgroundPatternImage = [UIImage imageNamed:@"welcome_background.png"];
 
@@ -159,6 +165,9 @@
     // adds the menu items to the menu item group
     [menuNamedItemGroup addItem:@"list" item:menuListGroup];
 
+    // sets the remote abstraction
+    self.remoteAbstraction = remoteAbstraction;
+
     // stores the menu item group
     self.loginItemGroup = menuNamedItemGroup;
 
@@ -178,6 +187,7 @@
     [passwordItem release];
     [usernameItem release];
     [backgroundView release];
+    [remoteAbstraction release];
 }
 
 - (void)didSelectUsersButton {
@@ -238,10 +248,67 @@
     // flushes the item specification
     [itemTableView flushItemSpecification];
 
-    //NSLog(@"%@", self.usernameItem.description);
+    // creates the login dictionary
+    NSMutableDictionary *loginDictionary = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                            self.usernameItem.description, @"username",
+                                            self.passwordItem.description, @"password",
+                                            nil];
 
-    // pops the view controller
-    [self dismissModalViewControllerAnimated:YES];
+    // updates the remote abstraction with the remote data
+    [self.remoteAbstraction updateRemoteWithData:loginDictionary method:HTTP_POST_METHOD];
+
+    // releases the objects
+    [loginDictionary release];
+}
+
+- (void)remoteDidSucceed:(HMRemoteAbstraction *)remoteAbstraction data:(NSData *)data connection:(NSURLConnection *)connection response:(NSURLResponse *)response {
+    // creates a new json parser
+    SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
+
+    // parses the received (remote) data and sets it into the intance
+    NSDictionary *remoteData = [jsonParser objectWithData:data];
+
+    // casts the response as http response
+    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+
+    // in case the status code is valid
+    if(httpResponse.statusCode == HTTP_VALID_STATUS_CODE) {
+        // retrieves the session id
+        NSString *sessionId = [remoteData objectForKey:@"session_id"];
+
+        // prints an authentication message
+        NSLog(@"Authenticated with session id: %@", sessionId);
+
+        // pops the view controller
+        [self dismissModalViewControllerAnimated:YES];
+    }
+    // otherwise there must be a problem
+    else {
+        // retrieves the exception map
+        NSDictionary *exception = [remoteData objectForKey:@"exception"];
+
+        // retrieves the exception name
+        NSString *exceptionName = [exception objectForKey:@"exception_name"];
+
+        // retrieves the exception message
+        NSString *message = [exception objectForKey:@"message"];
+
+        // prints the error message
+        NSLog(@"Error with status: %d name: %@ and message: %@", httpResponse.statusCode, exceptionName, message);
+
+        // retrieves the first child as the table view
+        UITableView *tableView = [self.view.subviews objectAtIndex:0];
+
+        // sets the table back to editing mode
+        [tableView setEditing:YES animated:YES];
+    }
+
+    // releases the json parser
+    [jsonParser release];
+}
+
+- (void)remoteDidFail:(HMRemoteAbstraction *)remoteAbstraction data:(NSData *)data error:(NSError *)error {
+    NSLog(@"Falhou");
 }
 
 @end
