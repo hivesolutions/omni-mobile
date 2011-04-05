@@ -279,6 +279,15 @@
         // prints an authentication message
         NSLog(@"Authenticated with session id: %@", sessionId);
 
+        // retrieves the preferences
+        NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+
+        // sets the session id in the preferences
+        [preferences setValue:sessionId forKey:@"sessionId"];
+
+        // syncs the preferences
+        [preferences synchronize];
+
         // pops the view controller
         [self dismissModalViewControllerAnimated:YES];
     }

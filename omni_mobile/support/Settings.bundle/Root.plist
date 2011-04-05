@@ -11,22 +11,22 @@
 			<string>PSGroupSpecifier</string>
 		</dict>
 		<dict>
-			<key>Type</key>
-			<string>PSTextFieldSpecifier</string>
-			<key>Title</key>
-			<string>Base URL</string>
 			<key>Key</key>
 			<string>baseUrl</string>
+			<key>Title</key>
+			<string>Base URL</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
 		</dict>
 		<dict>
-			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
 			<key>DefaultValue</key>
 			<true/>
 			<key>Key</key>
 			<string>notifications</string>
 			<key>Title</key>
 			<string>Notifications</string>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
 		</dict>
 		<dict>
 			<key>Title</key>
@@ -43,6 +43,22 @@
 			<string>Version</string>
 			<key>Type</key>
 			<string>PSTitleValueSpecifier</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Diagnostics</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>Session ID</string>
+			<key>Key</key>
+			<string>sessionId</string>
+			<key>DefaultValue</key>
+			<string>N/A</string>
 		</dict>
 	</array>
 	<key>StringsTable</key>
