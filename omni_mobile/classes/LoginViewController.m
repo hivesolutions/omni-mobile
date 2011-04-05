@@ -28,6 +28,8 @@
 @implementation LoginViewController
 
 @synthesize loginItemGroup = _loginItemGroup;
+@synthesize usernameItem = _usernameItem;
+@synthesize passwordItem = _passwordItem;
 
 - (id)init {
     // calls the super
@@ -63,6 +65,15 @@
 }
 
 - (void)dealloc {
+    // releases the login item group
+    [_loginItemGroup release];
+
+    // releases the username item
+    [_usernameItem release];
+
+    // releases the password item
+    [_passwordItem release];
+
     // calls the super
     [super dealloc];
 }
@@ -150,6 +161,10 @@
     // stores the menu item group
     self.loginItemGroup = menuNamedItemGroup;
 
+    // stores the cell items
+    self.usernameItem = usernameItem;
+    self.passwordItem = passwordItem;
+
     // enables the table view's edit mode
     [tableView setEditing:YES animated:NO];
 
@@ -204,6 +219,28 @@
 }
 
 - (void)didDeselectItemRowWithItem:(HMItem *)item {
+}
+
+- (void)setEditing:(BOOL)editing {
+    // in case the current state is editing
+    if(editing) {
+        // returns immediately
+        return;
+    }
+
+    // retrieves the first child as the table view
+    UITableView *tableView = [self.view.subviews objectAtIndex:0];
+
+    // casts the table view as item table view
+    HMItemTableView *itemTableView = (HMItemTableView *) tableView;
+
+    // flushes the item specification
+    [itemTableView flushItemSpecification];
+
+    //NSLog(@"%@", self.usernameItem.description);
+
+    // pops the view controller
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 @end

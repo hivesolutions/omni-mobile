@@ -70,7 +70,6 @@
     [super dealloc];
 }
 
-/*
 - (void)viewDidAppear:(BOOL)animated {
     // calls the super
     [super viewDidAppear:animated];
@@ -79,12 +78,11 @@
     LoginViewController *loginViewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:[NSBundle mainBundle]];
 
     // pushes the login view controller
-    [self.navigationController presentModalViewController:loginViewController animated:YES];
+    [self presentModalViewController:loginViewController animated:YES];
 
     // releases the login view controller reference
     [loginViewController release];
 }
-*/
 
 - (void)constructStructures {
     // changes the title's image view

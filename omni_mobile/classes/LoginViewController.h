@@ -25,12 +25,31 @@
 
 #import "Dependencies.h"
 
+/**
+ * View controller responsible for the login view.
+ */
 @interface LoginViewController : UIViewController<HMItemTableViewProvider, HMItemTableViewDelegate> {
     @private
     HMNamedItemGroup *_loginItemGroup;
+    HMStringTableCellItem *_usernameItem;
+    HMStringTableCellItem *_passwordItem;
 }
 
+/**
+ * The login item group used to the describe the
+ * login items.
+ */
 @property (retain) HMNamedItemGroup *loginItemGroup;
+
+/**
+ * The item describing the username.
+ */
+@property (retain) HMStringTableCellItem *usernameItem;
+
+/**
+ * The item describing the password.
+ */
+@property (retain) HMStringTableCellItem *passwordItem;
 
 /**
  * Constructs the internal data structures.
