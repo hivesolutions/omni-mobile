@@ -287,6 +287,9 @@
         // retrieves the session id
         NSString *sessionId = [remoteData objectForKey:@"session_id"];
 
+        // retrieves the username
+        NSString *username = [remoteData objectForKey:@"username"];
+        
         // prints an authentication message
         NSLog(@"Authenticated with session id: %@", sessionId);
 
@@ -296,6 +299,9 @@
         // sets the session id in the preferences
         [preferences setValue:sessionId forKey:@"sessionId"];
 
+        // sets the username in the preferences
+        [preferences setValue:username forKey:@"username"];
+        
         // syncs the preferences
         [preferences synchronize];
 

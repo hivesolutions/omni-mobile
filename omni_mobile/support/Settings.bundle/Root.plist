@@ -51,14 +51,24 @@
 			<string>PSGroupSpecifier</string>
 		</dict>
 		<dict>
+			<key>DefaultValue</key>
+			<string>N/A</string>
+			<key>Key</key>
+			<string>sessionId</string>
+			<key>Title</key>
+			<string>Session ID</string>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>N/A</string>
 			<key>Type</key>
 			<string>PSTitleValueSpecifier</string>
 			<key>Title</key>
-			<string>Session ID</string>
+			<string>User</string>
 			<key>Key</key>
-			<string>sessionId</string>
-			<key>DefaultValue</key>
-			<string>N/A</string>
+			<string>username</string>
 		</dict>
 	</array>
 	<key>StringsTable</key>
