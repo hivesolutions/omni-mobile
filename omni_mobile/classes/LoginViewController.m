@@ -257,7 +257,7 @@
                                             nil];
 
     // updates the remote abstraction with the remote data
-    [self.remoteAbstraction updateRemoteWithData:loginDictionary method:HTTP_POST_METHOD];
+    [self.remoteAbstraction updateRemoteWithData:loginDictionary method:HTTP_POST_METHOD setSession:NO];
 
     // releases the objects
     [loginDictionary release];
