@@ -89,7 +89,7 @@
 
 - (void)constructStructures {
     // creates the remote abstraction for the url
-    HMRemoteAbstraction *remoteAbstraction = [[HMRemoteAbstraction alloc] initWithIdAndUrl:HMItemOperationRead url:@"http://tsilva.hive:8080/colony_mod_python/rest/mvc/omni/login.json"];
+    HMRemoteAbstraction *remoteAbstraction = [[HMRemoteAbstraction alloc] initWithIdAndUrl:HMItemOperationRead url:@"http://172.16.0.24:8080/colony_mod_python/rest/mvc/omni/login.json"];
     remoteAbstraction.remoteDelegate = self;
     remoteAbstraction.view = self.view.superview;
 

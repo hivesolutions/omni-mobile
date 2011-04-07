@@ -74,17 +74,23 @@
     // calls the super
     [super viewDidAppear:animated];
 
-    // initializes the login view controller
-    LoginViewController *loginViewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:[NSBundle mainBundle]];
-
-    // pushes the login view controller
-    [self presentModalViewController:loginViewController animated:YES];
-
-    // releases the login view controller reference
-    [loginViewController release];
+    // refreshes the login
+    [self refreshLogin];
 }
 
 - (void)constructStructures {
+    // creates the logout bar button
+    UIBarButtonItem *logoutBarButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Logout", @"Logout") style:UIBarButtonItemStylePlain target:self action: @selector(logoutButtonClicked:extra:)];
+
+    // sets the bar buttons
+    [self.navigationItem setLeftBarButtonItem:logoutBarButton animated:YES];
+
+    // creates the account bar button
+    UIBarButtonItem *accountBarButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Account", @"Account") style:UIBarButtonItemStylePlain target:self action: @selector(accountButtonClicked:extra:)];
+
+    // sets the bar buttons
+    [self.navigationItem setRightBarButtonItem:accountBarButton animated:YES];
+
     // changes the title's image view
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 74, 22)];
     UIImage *logoImage = [UIImage imageNamed:@"header_logo.png"];
@@ -196,6 +202,48 @@
     [purchasesItem release];
     [salesItem release];
     [usersItem release];
+    [logoutBarButton release];
+    [accountBarButton release];
+}
+
+- (void)refreshLogin {
+    // retrieves the preferences
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+
+    // retrieves the session id from the preferences
+    NSString *sessionId = [preferences objectForKey:@"sessionId"];
+
+    // in case the session id is set
+    if(sessionId != nil) {
+        // returns immediately
+        return;
+    }
+
+    // initializes the login view controller
+    LoginViewController *loginViewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:[NSBundle mainBundle]];
+
+    // pushes the login view controller
+    [self presentModalViewController:loginViewController animated:YES];
+
+    // releases the login view controller reference
+    [loginViewController release];
+}
+
+- (void)logoutButtonClicked:(id)sender extra:(id)extra {
+    // retrieves the preferences
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+
+    // sets the session id in the preferences
+    [preferences setValue:nil forKey:@"sessionId"];
+
+    // syncs the preferences
+    [preferences synchronize];
+
+    // refreshes the login
+    [self refreshLogin];
+}
+
+- (void)accountButtonClicked:(id)sender extra:(id)extra {
 }
 
 - (void)didSelectUsersButton {

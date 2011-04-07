@@ -45,4 +45,26 @@
  */
 - (void)constructStructures;
 
+/**
+ * Refreshes the login structures, showing the login screen
+ * if necessary.
+ */
+- (void)refreshLogin;
+
+/**
+ * Callback called when logout button was clicked.
+ *
+ * @param sender The sender of the event.
+ * @param exrtra Extra parameter for the event.
+ */
+- (void)logoutButtonClicked:(id)sender extra:(id)extra;
+
+/**
+ * Callback called when accoutn button was clicked.
+ *
+ * @param sender The sender of the event.
+ * @param exrtra Extra parameter for the event.
+ */
+- (void)accountButtonClicked:(id)sender extra:(id)extra;
+
 @end
