@@ -127,6 +127,7 @@
     usernameItem.returnType = @"done";
     usernameItem.returnDisablesEdit = YES;
     usernameItem.focusEdit = YES;
+    usernameItem.autocapitalizationType = nil;
 
     // creates the username string item
     HMStringTableCellItem *passwordItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"password"];
@@ -135,6 +136,7 @@
     passwordItem.defaultValue = NSLocalizedString(@"Password", @"Password");
     passwordItem.returnType = @"done";
     passwordItem.returnDisablesEdit = YES;
+    passwordItem.autocapitalizationType = nil;
 
     // creates the first section footer item
     HMLabelItem *firstSectionFooterItem = [[HMLabelItem alloc] initWithIdentifier:@"first_section_footer"];
