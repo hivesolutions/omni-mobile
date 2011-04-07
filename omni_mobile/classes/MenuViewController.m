@@ -100,55 +100,55 @@
     // creates the users button item
     HMTableCellItem *usersItem = [[HMTableCellItem alloc] initWithIdentifier:@"users"];
     usersItem.name = NSLocalizedString(@"Users", @"Users");
-    usersItem.icon = @"icon_users.png";
-    usersItem.highlightedIcon = @"icon_users_white.png";
+    usersItem.icon = @"users_icon.png";
+    usersItem.highlightedIcon = @"users_icon_white.png";
     usersItem.accessoryType = @"disclosure_indicator";
     usersItem.selectable = YES;
 
     // creates the sales button item
     HMTableCellItem *salesItem = [[HMTableCellItem alloc] initWithIdentifier:@"sales"];
     salesItem.name = NSLocalizedString(@"Sales", @"Sales");
-    salesItem.icon = @"icon_sales.png";
-    salesItem.highlightedIcon = @"icon_sales_white.png";
+    salesItem.icon = @"sales_icon.png";
+    salesItem.highlightedIcon = @"sales_icon_white.png";
     salesItem.accessoryType = @"disclosure_indicator";
     salesItem.selectable = YES;
 
     // creates the purchases button item
     HMTableCellItem *purchasesItem = [[HMTableCellItem alloc] initWithIdentifier:@"purchases"];
     purchasesItem.name = NSLocalizedString(@"Purchases", @"Purchases");
-    purchasesItem.icon = @"icon_purchases.png";
-    purchasesItem.highlightedIcon = @"icon_purchases_white.png";
+    purchasesItem.icon = @"purchases_icon.png";
+    purchasesItem.highlightedIcon = @"purchases_icon_white.png";
     purchasesItem.accessoryType = @"disclosure_indicator";
     purchasesItem.selectable = YES;
 
     // creates the inventory button item
     HMTableCellItem *inventoryItem = [[HMTableCellItem alloc] initWithIdentifier:@"inventory"];
     inventoryItem.name = NSLocalizedString(@"Inventory", @"Inventory");
-    inventoryItem.icon = @"icon_inventory.png";
-    inventoryItem.highlightedIcon = @"icon_inventory_white.png";
+    inventoryItem.icon = @"inventory_icon.png";
+    inventoryItem.highlightedIcon = @"inventory_icon_white.png";
     inventoryItem.accessoryType = @"disclosure_indicator";
     inventoryItem.selectable = YES;
 
     // creates the stores button item
     HMTableCellItem *storesItem = [[HMTableCellItem alloc] initWithIdentifier:@"stores"];
     storesItem.name = NSLocalizedString(@"Stores", @"Stores");
-    storesItem.icon = @"icon_stores.png";
-    storesItem.highlightedIcon = @"icon_stores_white.png";
+    storesItem.icon = @"building_icon.png";
+    storesItem.highlightedIcon = @"building_icon_white.png";
     storesItem.accessoryType = @"disclosure_indicator";
     storesItem.selectable = YES;
 
     // creates the employees button item
     HMTableCellItem *employeesItem = [[HMTableCellItem alloc] initWithIdentifier:@"employees"];
     employeesItem.name = NSLocalizedString(@"Employees", @"Employees");
-    employeesItem.icon = @"icon_users.png";
-    employeesItem.highlightedIcon = @"icon_users_white.png";
+    employeesItem.icon = @"users_icon.png";
+    employeesItem.highlightedIcon = @"users_icon_white.png";
     employeesItem.accessoryType = @"disclosure_indicator";
 
     // creates the highlights button item
     HMTableCellItem *highlightsItem = [[HMTableCellItem alloc] initWithIdentifier:@"highlights"];
     highlightsItem.name = NSLocalizedString(@"Highlights", @"Highlights");
-    highlightsItem.icon = @"icon_highlights.png";
-    highlightsItem.highlightedIcon = @"icon_highlights_white.png";
+    highlightsItem.icon = @"highlights_icon.png";
+    highlightsItem.highlightedIcon = @"highlights_icon_white.png";
     highlightsItem.accessoryType = @"disclosure_indicator";
     highlightsItem.selectable = YES;
 
