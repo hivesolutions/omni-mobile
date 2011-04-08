@@ -28,7 +28,7 @@
 /**
  * View controller responsible for the login view.
  */
-@interface LoginViewController : UIViewController<HMItemTableViewProvider, HMItemTableViewDelegate, HMRemoteDelegate> {
+@interface LoginViewController : HMAuthenticationViewController<HMItemTableViewProvider, HMItemTableViewDelegate, HMRemoteDelegate> {
     @private
     HMRemoteAbstraction *_remoteAbstraction;
     HMNamedItemGroup *_loginItemGroup;

@@ -58,17 +58,17 @@
 			<key>Title</key>
 			<string>Session ID</string>
 			<key>Type</key>
-			<string>PSTitleValueSpecifier</string>
+			<string>PSTextFieldSpecifier</string>
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
 			<string>N/A</string>
-			<key>Type</key>
-			<string>PSTitleValueSpecifier</string>
-			<key>Title</key>
-			<string>User</string>
 			<key>Key</key>
 			<string>username</string>
+			<key>Title</key>
+			<string>User</string>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
 		</dict>
 	</array>
 	<key>StringsTable</key>

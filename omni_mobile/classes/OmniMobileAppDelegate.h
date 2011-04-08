@@ -25,7 +25,9 @@
 
 #import "Dependencies.h"
 
-@interface OmniMobileAppDelegate : NSObject<UIApplicationDelegate> {
+#import "LoginViewController.h"
+
+@interface OmniMobileAppDelegate : NSObject<UIApplicationDelegate, HMApplicationDelegate> {
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
