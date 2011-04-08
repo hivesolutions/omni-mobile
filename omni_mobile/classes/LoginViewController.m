@@ -225,19 +225,6 @@
 }
 
 - (void)didSelectItemRowWithItem:(HMItem *)item {
-    if([item.identifier isEqualToString:@"users"]) {
-        [self didSelectUsersButton];
-    }
-    else {
-        // initializes the menu view controller
-        MenuViewController *menuViewController = [[MenuViewController alloc] initWithNibName:@"MenuViewController" bundle:[NSBundle mainBundle]];
-
-        // pushes the menu view controller into the navigation controller
-        [self.navigationController pushViewController:menuViewController animated:YES];
-
-        // releases the menu view controller reference
-        [menuViewController release];
-    }
 }
 
 - (void)didDeselectItemRowWithItem:(HMItem *)item {
@@ -289,7 +276,7 @@
 
         // retrieves the username
         NSString *username = [remoteData objectForKey:@"username"];
-        
+
         // prints an authentication message
         NSLog(@"Authenticated with session id: %@", sessionId);
 
@@ -301,9 +288,15 @@
 
         // sets the username in the preferences
         [preferences setValue:username forKey:@"username"];
-        
+
         // syncs the preferences
         [preferences synchronize];
+
+        // in case the authentication delegate is set
+        if(self.authenticationDelegate) {
+            // notifies about the authentication complete (with success)
+            [self.authenticationDelegate authenticationComplete:YES];
+        }
 
         // pops the view controller
         [self dismissModalViewControllerAnimated:YES];

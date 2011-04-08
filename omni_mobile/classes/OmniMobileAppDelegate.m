@@ -66,6 +66,14 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 }
 
+- (id)getAuthenticationViewController {
+    // initializes the login view controller
+    LoginViewController *loginViewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:[NSBundle mainBundle]];
+
+    // returns the login view controller
+    return [loginViewController autorelease];
+}
+
 - (void)applicationWillTerminate:(UIApplication *)application {
     [self saveSettings:nil];
 }
