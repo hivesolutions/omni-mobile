@@ -289,7 +289,7 @@
 
         // retrieves the username
         NSString *username = [remoteData objectForKey:@"username"];
-        
+
         // prints an authentication message
         NSLog(@"Authenticated with session id: %@", sessionId);
 
@@ -301,7 +301,7 @@
 
         // sets the username in the preferences
         [preferences setValue:username forKey:@"username"];
-        
+
         // syncs the preferences
         [preferences synchronize];
 

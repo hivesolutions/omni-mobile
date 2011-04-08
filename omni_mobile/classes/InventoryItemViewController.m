@@ -41,10 +41,7 @@
     [super processEmpty];
 
     // creates the empty remote data dictionary
-    NSDictionary *emptyRemoteData = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                     @"", @"company_product_code",
-                                     @"", @"name",
-                                     nil];
+    NSDictionary *emptyRemoteData = [[NSDictionary alloc] init];
 
     // processes the empty remote data
     [self processRemoteData:emptyRemoteData];

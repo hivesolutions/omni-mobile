@@ -43,10 +43,7 @@
     [super processEmpty];
 
     // creates the empty remote data dictionary
-    NSDictionary *emptyRemoteData = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                     @"", @"company_product_code",
-                                     @"", @"name",
-                                     nil];
+    NSDictionary *emptyRemoteData = [[NSDictionary alloc] init];
 
     // processes the empty remote data
     [self processRemoteData:emptyRemoteData];
@@ -91,6 +88,7 @@
     priceItem.description = [NSString stringWithFormat:@"%.2f", [priceValue floatValue]];
     priceItem.accessoryType = @"badge_label";
     priceItem.accessoryValue = @"EUR";
+    priceItem.editableCell = NO;
 
     // creates the retail price string table cell
     HMStringTableCellItem *retailPriceItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"retail_price"];
@@ -141,11 +139,40 @@
     [title release];
 }
 
-- (NSMutableDictionary *)convertRemoteGroup {
-    return nil;
+- (NSMutableDictionary *)convertRemoteGroup:(HMItemOperationType)operationType {
+    // calls the super
+    NSMutableDictionary *remoteData = [super convertRemoteGroup:operationType];
+
+    // retrieves the menu list group
+    HMItemGroup *menuListGroup = (HMItemGroup *) [self.remoteGroup getItem:@"list"];
+
+    // retreves the section item groups
+    HMItemGroup *firstSectionItemGroup = (HMItemGroup *) [menuListGroup getItem:0];
+
+    // retrieves the first section items
+    HMItem *stockItem = [firstSectionItemGroup getItem:0];
+    HMItem *retailPriceItem = [firstSectionItemGroup getItem:2];
+
+    // sets the items in the remote data
+    [remoteData setObject:AVOID_NIL(stockItem.description, NSString) forKey:@"inventory_line[stock_on_hand]"];
+    [remoteData setObject:AVOID_NIL(stockItem.description, NSString) forKey:@"inventory_line[merchandise][object_id]"];
+    [remoteData setObject:AVOID_NIL(stockItem.description, NSString) forKey:@"inventory_line[contactable_organizational_hierarchy_tree_node][object_id]"];
+
+    // sets the parameter items in the remote data
+    [remoteData setObject:AVOID_NIL(retailPriceItem.description, NSString) forKey:@"inventory_line[_parameters][retail_price]"];
+
+    // returns the remote data
+    return remoteData;
 }
 
 - (void)convertRemoteGroupUpdate:(NSMutableDictionary *)remoteData {
+    // retrieves the object id
+    NSNumber *objectId = [self.entity objectForKey:@"object_id"];
+    NSString *objectIdString = [objectId stringValue];
+
+    // sets the object id (structured and unstructured)
+    [remoteData setObject:AVOID_NIL(objectIdString, NSString) forKey:@"inventory_line[object_id]"];
+    [remoteData setObject:AVOID_NIL(objectIdString, NSString) forKey:@"object_id"];
 }
 
 - (void)changeIdentifier:(NSString *)identifier {

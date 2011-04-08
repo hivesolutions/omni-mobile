@@ -41,13 +41,7 @@
     [super processEmpty];
 
     // creates the empty remote data dictionary
-    NSDictionary *emptyRemoteData = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                     @"", @"username",
-                                     @"", @"password_hash",
-                                     @"", @"email",
-                                     @"", @"secret_question",
-                                     @"", @"secret_answer_hash",
-                                     nil];
+    NSDictionary *emptyRemoteData = [[NSDictionary alloc] init];
 
     // processes the empty remote data
     [self processRemoteData:emptyRemoteData];
@@ -66,6 +60,8 @@
     NSString *email = AVOID_NULL([remoteData objectForKey:@"email"]);
     NSString *secretQuestion = AVOID_NULL([remoteData objectForKey:@"secret_question"]);
     NSString *secretAnswer = AVOID_NULL([remoteData objectForKey:@"secret_answer_hash"]);
+    NSDictionary *person = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"person"]);
+    NSString *personName = AVOID_NULL([person objectForKey:@"name"]);
 
     // creates the menu header items
     HMItem *title = [[HMItem alloc] initWithIdentifier:AVOID_NULL(username)];
@@ -100,7 +96,8 @@
     // creates the employee string table cell
     HMStringTableCellItem *employeeItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"employee"];
     employeeItem.name = NSLocalizedString(@"Employee", @"Employee");
-    employeeItem.description = @"";
+    employeeItem.description = personName;
+    employeeItem.data = person;
     employeeItem.accessoryType = @"disclosure_indicator";
     employeeItem.selectViewController = [EmployeesViewController class];
     employeeItem.selectNibName = @"EmployeesViewController";
@@ -180,6 +177,7 @@
     // retreves the section item groups
     HMItemGroup *firstSectionItemGroup = (HMItemGroup *) [menuListGroup getItem:0];
     HMItemGroup *secondSectionItemGroup = (HMItemGroup *) [menuListGroup getItem:1];
+    HMItemGroup *thirdSectionItemGroup = (HMItemGroup *) [menuListGroup getItem:2];
 
     // retrieves the first section items
     HMItem *passwordItem = [firstSectionItemGroup getItem:0];
@@ -189,10 +187,18 @@
     HMItem *secretQuestion = [secondSectionItemGroup getItem:0];
     HMItem *secretAnswer = [secondSectionItemGroup getItem:1];
 
+    // retrieves the third section items
+    HMItem *employee = [thirdSectionItemGroup getItem:0];
+
+    // retrieves the employee object id
+    NSNumber *employeeObjectId = [employee.data objectForKey:@"object_id"];
+    NSString *employeeObjectIdString = [NSString stringWithFormat:@"%d", [employeeObjectId intValue]];
+
     // sets the items in the remote data
     [remoteData setObject:AVOID_NIL(username.identifier, NSString) forKey:@"user[username]"];
     [remoteData setObject:AVOID_NIL(emailItem.description, NSString) forKey:@"user[email]"];
     [remoteData setObject:AVOID_NIL(secretQuestion.description, NSString) forKey:@"user[secret_question]"];
+    [remoteData setObject:AVOID_NIL(employeeObjectIdString, NSString) forKey:@"user[person][object_id]"];
 
     // sets the parameter items in the remote data
     [remoteData setObject:AVOID_NIL(passwordItem.description, NSString) forKey:@"user[_parameters][password]"];
@@ -221,8 +227,9 @@
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:2];
     HMTableViewCell *tableViewCell = (HMTableViewCell *) [self.tableView cellForRowAtIndexPath:indexPath];
 
-    // updates the employee cell description
+    // updates the employee cell
     tableViewCell.description = employeeName;
+    tableViewCell.data = entity;
 }
 
 - (void)didSelectItemRowWithItem:(HMItem *)item {
