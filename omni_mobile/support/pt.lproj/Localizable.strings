@@ -28,6 +28,7 @@
 /* Global util values */
 "Cancel" = "Cancelar";
 "Retry" = "Repetir";
+"Dismiss" = "Dispensar";
 "Edit" = "Editar";
 "Create" = "Criar";
 "Delete" = "Apagar";
@@ -62,6 +63,7 @@
 "New Item" = "Novo Item";
 
 /* Global error values */
+"ServerError" = "Ocorreu um problema no servidor";
 "ConnectionError" = "Ocorreu um problema de conexão";
 "ConfirmDeleteError" = "Tem a certeza que deseja apagar";
 

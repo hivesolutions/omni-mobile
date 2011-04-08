@@ -28,6 +28,7 @@
 /* Global util values */
 "Cancel" = "Cancel";
 "Retry" = "Retry";
+"Dismiss" = "Dismiss";
 "Edit" = "Edit";
 "Create" = "Create";
 "Delete" = "Delete";
@@ -62,6 +63,7 @@
 "New Item" = "New Item";
 
 /* Global error values */
+"ServerError" = "There was a server problem";
 "ConnectionError" = "There was a connection problem";
 "ConfirmDeleteError" = "Are you sure you want to delete";
 
