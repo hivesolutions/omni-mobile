@@ -243,7 +243,7 @@
 - (void)didDeselectItemRowWithItem:(HMItem *)item {
 }
 
-- (void)setEditing:(BOOL)editing {
+- (void)setEditingChanged:(BOOL)editing {
     // in case the current state is editing
     if(editing) {
         // returns immediately
