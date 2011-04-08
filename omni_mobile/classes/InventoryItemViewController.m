@@ -57,7 +57,7 @@
     // retrieves the remote data attributes
     NSString *companyProductCode = AVOID_NULL([remoteData objectForKey:@"company_product_code"]);
     NSString *name = AVOID_NULL([remoteData objectForKey:@"name"]);
-    NSArray *contactableOrganizationalUnits = AVOID_NULL_ARRAY([remoteData objectForKey:@"contactable_organizational_units"]);
+    NSArray *inventoryLines = AVOID_NULL_ARRAY([remoteData objectForKey:@"inventory_lines"]);
 
     // creates the menu header items
     HMItem *title = [[HMItem alloc] initWithIdentifier:name];
@@ -92,15 +92,15 @@
     [firstSectionItemGroup addItem:nameItem];
 
     // for each inventory line
-    for(int index = 0; index < [contactableOrganizationalUnits count]; index++) {
-        // retrieves the current contactable organization unit
-        NSDictionary *contactableOrganizationUnit = [contactableOrganizationalUnits objectAtIndex:index];
+    for(int index = 0; index < [inventoryLines count]; index++) {
+        // retrieves the current inventory line
+        NSDictionary *inventoryLine = [inventoryLines objectAtIndex:index];
 
         // retrieves the inventory line information
-        NSNumber *objectId = AVOID_NULL_NUMBER([contactableOrganizationUnit objectForKey:@"object_id"]);
+        NSNumber *objectId = AVOID_NULL_NUMBER([inventoryLine objectForKey:@"object_id"]);
         NSString *objectIdString = [objectId stringValue];
-        NSDictionary *contactableOrganizationalHierarchyTreeNode = AVOID_NULL_DICTIONARY([contactableOrganizationUnit objectForKey:@"contactable_organizational_hierarchy_tree_node"]);
-        NSNumber *stockOnHandNumber = AVOID_NULL_NUMBER([contactableOrganizationUnit objectForKey:@"stock_on_hand"]);
+        NSDictionary *contactableOrganizationalHierarchyTreeNode = AVOID_NULL_DICTIONARY([inventoryLine objectForKey:@"contactable_organizational_hierarchy_tree_node"]);
+        NSNumber *stockOnHandNumber = AVOID_NULL_NUMBER([inventoryLine objectForKey:@"stock_on_hand"]);
         int stockOnHand = [stockOnHandNumber intValue];
 
         // retrieves the store information
@@ -157,7 +157,7 @@
     HMNamedItemGroup *menuHeaderNamedGroup = (HMNamedItemGroup *) [self.remoteGroup getItem:@"header"];
 
     // retrieves the items
-    HMItem *companyProductCodeItem = [menuHeaderNamedGroup getItem:@"title"];
+    HMItem *companyProductCodeItem = [menuHeaderNamedGroup getItem:@"subTitle"];
 
     // retrieves the menu list group
     HMItemGroup *menuListGroup = (HMItemGroup *) [self.remoteGroup getItem:@"list"];
@@ -182,7 +182,7 @@
     NSString *objectIdString = [objectId stringValue];
 
     // sets the object id (structured and unstructured)
-    [remoteData setObject:AVOID_NIL(objectIdString, NSString) forKey:@"user[object_id]"];
+    [remoteData setObject:AVOID_NIL(objectIdString, NSString) forKey:@"transactional_merchandise[object_id]"];
     [remoteData setObject:AVOID_NIL(objectIdString, NSString) forKey:@"object_id"];
 }
 
