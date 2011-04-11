@@ -107,10 +107,13 @@
     employeeItem.description = personName;
     employeeItem.data = person;
     employeeItem.accessoryType = @"disclosure_indicator";
-    employeeItem.selectViewController = [EmployeesViewController class];
-    employeeItem.selectNibName = @"EmployeesViewController";
+    employeeItem.readViewController = [EmployeeViewController class];
+    employeeItem.readNibName = @"EmployeeViewController";
+    employeeItem.editViewController = [EmployeesViewController class];
+    employeeItem.editNibName = @"EmployeesViewController";
     employeeItem.editableRow = YES;
     employeeItem.editableCell = NO;
+    employeeItem.selectable = YES;
     employeeItem.selectableEdit = YES;
 
     // creates the sections item group
