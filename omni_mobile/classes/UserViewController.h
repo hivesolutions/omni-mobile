@@ -25,7 +25,7 @@
 
 #import "Dependencies.h"
 
-@interface UserViewController : HMRemoteHeaderItemTableViewController<HMEntityProviderDelegate> {
+@interface UserViewController : HMRemoteHeaderItemTableViewController {
 }
 
 @end
