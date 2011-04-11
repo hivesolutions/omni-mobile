@@ -66,6 +66,9 @@
 }
 
 - (void)dealloc {
+    // releases the remote abstraction
+    [_remoteAbstraction release];
+
     // releases the login item group
     [_loginItemGroup release];
 
