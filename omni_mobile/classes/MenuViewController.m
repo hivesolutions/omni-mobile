@@ -233,9 +233,12 @@
     // retrieves the preferences
     NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
 
-    // sets the session id in the preferences
+    // unsets the session id in the preferences
     [preferences setValue:nil forKey:@"sessionId"];
 
+    // unsets the session id in the preferences
+    [preferences setValue:nil forKey:@"username"];
+    
     // syncs the preferences
     [preferences synchronize];
 
