@@ -143,6 +143,7 @@
     employeesItem.icon = @"users_icon.png";
     employeesItem.highlightedIcon = @"users_icon_white.png";
     employeesItem.accessoryType = @"disclosure_indicator";
+    employeesItem.selectable = YES;
 
     // creates the highlights button item
     HMTableCellItem *highlightsItem = [[HMTableCellItem alloc] initWithIdentifier:@"highlights"];

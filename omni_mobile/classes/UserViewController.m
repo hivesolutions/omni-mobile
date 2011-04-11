@@ -36,6 +36,14 @@
     return [self.entityAbstraction getRemoteUrlForOperation:operationType entityName:@"users" serializerName:@"json"];
 }
 
+- (NSString *)getItemName {
+    return @"user";
+}
+
+- (NSString *)getItemTitleName {
+    return @"username";
+}
+
 - (void)processEmpty {
     // calls the super
     [super processEmpty];
@@ -99,10 +107,13 @@
     employeeItem.description = personName;
     employeeItem.data = person;
     employeeItem.accessoryType = @"disclosure_indicator";
-    employeeItem.selectViewController = [EmployeesViewController class];
-    employeeItem.selectNibName = @"EmployeesViewController";
+    employeeItem.readViewController = [EmployeeViewController class];
+    employeeItem.readNibName = @"EmployeeViewController";
+    employeeItem.editViewController = [EmployeesViewController class];
+    employeeItem.editNibName = @"EmployeesViewController";
     employeeItem.editableRow = YES;
     employeeItem.editableCell = NO;
+    employeeItem.selectable = YES;
     employeeItem.selectableEdit = YES;
 
     // creates the sections item group
@@ -217,37 +228,6 @@
     // sets the object id (structured and unstructured)
     [remoteData setObject:AVOID_NIL(objectIdString, NSString) forKey:@"user[object_id]"];
     [remoteData setObject:AVOID_NIL(objectIdString, NSString) forKey:@"object_id"];
-}
-
-- (void)updateEntity:(NSDictionary *)entity {
-    // retrieves the employee name
-    NSString *employeeName = [entity objectForKey:@"name"];
-
-    // retrieves the employee cell
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:2];
-    HMTableViewCell *tableViewCell = (HMTableViewCell *) [self.tableView cellForRowAtIndexPath:indexPath];
-
-    // updates the employee cell
-    tableViewCell.description = employeeName;
-    tableViewCell.data = entity;
-}
-
-- (void)didSelectItemRowWithItem:(HMItem *)item {
-    // casts to table cell item
-    HMTableCellItem *tableCellItem = (HMTableCellItem *)item;
-
-    // pushes the controller in case one is defined
-    if(self.tableView.editing && tableCellItem.selectableEdit && tableCellItem.selectViewController) {
-        // initializes the select view controller
-        HMTableViewController<HMEntityProvider> *selectViewController = [[tableCellItem.selectViewController alloc] initWithNibName:tableCellItem.selectNibName bundle:[NSBundle mainBundle]];
-        selectViewController.entityProviderDelegate = self;
-
-        // pushes the select view controller
-        [self.navigationController pushViewController:selectViewController animated:YES];
-
-        // releases the select view controller reference
-        [selectViewController release];
-    }
 }
 
 @end

@@ -36,6 +36,14 @@
     return [self.entityAbstraction getRemoteUrlForOperation:operationType entityName:@"employees" serializerName:@"json"];
 }
 
+- (NSString *)getItemName {
+    return @"employee";
+}
+
+- (NSString *)getItemTitleName {
+    return @"name";
+}
+
 - (void)processEmpty {
     // calls the super
     [super processEmpty];
