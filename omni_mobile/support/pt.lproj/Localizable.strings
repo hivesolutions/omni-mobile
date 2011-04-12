@@ -61,6 +61,9 @@
 "Answer" = "Resposta";
 "New User" = "Novo Utilizador";
 "New Item" = "Novo Item";
+"Add Inventory Line" = "Adicionar Linha Inventário";
+"Street Name" = "Morada";
+"Country" = "País";
 
 /* Global error values */
 "ServerError" = "Ocorreu um problema no servidor";

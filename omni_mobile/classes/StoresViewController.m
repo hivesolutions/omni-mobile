@@ -63,6 +63,10 @@
     return HMRemoteTableViewJsonSerialized;
 }
 
+- (NSString *)getItemName {
+    return @"stores";
+}
+
 - (NSString *)getItemTitleName {
     return @"name";
 }

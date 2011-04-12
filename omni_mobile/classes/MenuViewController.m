@@ -100,6 +100,7 @@
     // creates the users button item
     HMTableCellItem *usersItem = [[HMTableCellItem alloc] initWithIdentifier:@"users"];
     usersItem.name = NSLocalizedString(@"Users", @"Users");
+    usersItem.descriptionFontSize = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
     usersItem.icon = @"users_icon.png";
     usersItem.highlightedIcon = @"users_icon_white.png";
     usersItem.accessoryType = @"disclosure_indicator";
@@ -108,6 +109,7 @@
     // creates the sales button item
     HMTableCellItem *salesItem = [[HMTableCellItem alloc] initWithIdentifier:@"sales"];
     salesItem.name = NSLocalizedString(@"Sales", @"Sales");
+    salesItem.descriptionFontSize = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
     salesItem.icon = @"sales_icon.png";
     salesItem.highlightedIcon = @"sales_icon_white.png";
     salesItem.accessoryType = @"disclosure_indicator";
@@ -116,6 +118,7 @@
     // creates the purchases button item
     HMTableCellItem *purchasesItem = [[HMTableCellItem alloc] initWithIdentifier:@"purchases"];
     purchasesItem.name = NSLocalizedString(@"Purchases", @"Purchases");
+    purchasesItem.descriptionFontSize = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
     purchasesItem.icon = @"purchases_icon.png";
     purchasesItem.highlightedIcon = @"purchases_icon_white.png";
     purchasesItem.accessoryType = @"disclosure_indicator";
@@ -124,6 +127,7 @@
     // creates the inventory button item
     HMTableCellItem *inventoryItem = [[HMTableCellItem alloc] initWithIdentifier:@"inventory"];
     inventoryItem.name = NSLocalizedString(@"Inventory", @"Inventory");
+    inventoryItem.descriptionFontSize = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
     inventoryItem.icon = @"inventory_icon.png";
     inventoryItem.highlightedIcon = @"inventory_icon_white.png";
     inventoryItem.accessoryType = @"disclosure_indicator";
@@ -132,6 +136,7 @@
     // creates the stores button item
     HMTableCellItem *storesItem = [[HMTableCellItem alloc] initWithIdentifier:@"stores"];
     storesItem.name = NSLocalizedString(@"Stores", @"Stores");
+    storesItem.descriptionFontSize = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
     storesItem.icon = @"building_icon.png";
     storesItem.highlightedIcon = @"building_icon_white.png";
     storesItem.accessoryType = @"disclosure_indicator";
@@ -140,6 +145,7 @@
     // creates the employees button item
     HMTableCellItem *employeesItem = [[HMTableCellItem alloc] initWithIdentifier:@"employees"];
     employeesItem.name = NSLocalizedString(@"Employees", @"Employees");
+    employeesItem.descriptionFontSize = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
     employeesItem.icon = @"users_icon.png";
     employeesItem.highlightedIcon = @"users_icon_white.png";
     employeesItem.accessoryType = @"disclosure_indicator";
@@ -148,6 +154,7 @@
     // creates the highlights button item
     HMTableCellItem *highlightsItem = [[HMTableCellItem alloc] initWithIdentifier:@"highlights"];
     highlightsItem.name = NSLocalizedString(@"Highlights", @"Highlights");
+    highlightsItem.descriptionFontSize = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
     highlightsItem.icon = @"highlights_icon.png";
     highlightsItem.highlightedIcon = @"highlights_icon_white.png";
     highlightsItem.accessoryType = @"disclosure_indicator";

@@ -73,9 +73,15 @@
     nameItem.description = name;
     nameItem.multipleLines = YES;
 
-    // creates the sections item group
+    // creates the first section item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
-    HMTableSectionItemGroup *secondSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"second_section"];
+
+    // creates the second section item group
+    HMTableMutableSectionItemGroup *secondSectionItemGroup = [[HMTableMutableSectionItemGroup alloc] initWithIdentifier:@"stores"];
+    secondSectionItemGroup.name = NSLocalizedString(@"Add inventory line", @"Add inventory line");
+    secondSectionItemGroup.addViewController = [StoresViewController class];
+    secondSectionItemGroup.addNibName = @"StoresViewController";
+    secondSectionItemGroup.tableCellItemCreationDelegate = self;
 
     // creates the menu list group
     HMItemGroup *menuListGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu_list"];
@@ -110,13 +116,14 @@
         // creates the store string table cell item
         HMStringTableCellItem *storeItem = [[HMStringTableCellItem alloc] initWithIdentifier:objectIdString];
         storeItem.description = storeName;
+        storeItem.data = inventoryLine;
         storeItem.icon = @"building.png";
         storeItem.highlightedIcon = @"building_white.png";
         storeItem.accessoryType = @"badge_label";
         storeItem.accessoryValue = storeStockOnHand;
         storeItem.selectable = YES;
-        storeItem.indentable = NO;
-        storeItem.editableRow = NO;
+        storeItem.indentable = YES;
+        storeItem.deletableRow = NO;
         storeItem.editableCell = NO;
 
         // populates the second section item list
@@ -149,9 +156,9 @@
     [title release];
 }
 
-- (NSMutableDictionary *)convertRemoteGroup:(HMItemOperationType)operationType {
+- (NSMutableArray *)convertRemoteGroup:(HMItemOperationType)operationType {
     // calls the super
-    NSMutableDictionary *remoteData = [super convertRemoteGroup:operationType];
+    NSMutableArray *remoteData = [super convertRemoteGroup:operationType];
 
     // retrieves the menu header named group
     HMNamedItemGroup *menuHeaderNamedGroup = (HMNamedItemGroup *) [self.remoteGroup getItem:@"header"];
@@ -164,26 +171,50 @@
 
     // retreves the section item groups
     HMItemGroup *firstSectionItemGroup = (HMItemGroup *) [menuListGroup getItem:0];
+    HMTableMutableSectionItemGroup *secondSectionItemGroup = (HMTableMutableSectionItemGroup *) [menuListGroup getItem:1];
 
     // retrieves the first section items
     HMItem *nameItem = [firstSectionItemGroup getItem:0];
 
+    // retrieves the data items
+    NSArray *dataItems = [secondSectionItemGroup dataItems];
+
+    // iterates over the second item group enumerator
+    for(HMTableCellItem *inventoryLineItem in dataItems) {
+        // retrieves the inventory line object id
+        NSNumber *inventoryLineObjectId = [inventoryLineItem.data objectForKey:@"object_id"];
+
+        // sets the object id in case it's defined
+        if(inventoryLineObjectId != nil) {
+            NSString *inventoryLineObjectIdString = [NSString stringWithFormat:@"%d", [inventoryLineObjectId intValue]];
+            [remoteData addObject:[NSArray arrayWithObjects:@"transactional_merchandise[inventory_lines][][object_id]", AVOID_NIL(inventoryLineObjectIdString, NSString), nil]];
+        }
+
+        // retrieves the inventory line's attributes
+        NSDictionary *inventoryLineContactableOrganizationalHierarchyTreeNode = [inventoryLineItem.data objectForKey:@"contactable_organizational_hierarchy_tree_node"];
+        NSNumber *inventoryLineContactableOrganizationalHierarchyTreeNodeObjectId = [inventoryLineContactableOrganizationalHierarchyTreeNode objectForKey:@"object_id"];
+        NSString *inventoryLineContactableOrganizationalHierarchyTreeNodeObjectIdString = [NSString stringWithFormat:@"%d", [inventoryLineContactableOrganizationalHierarchyTreeNodeObjectId intValue]];
+
+        // sets the items in the remote data
+        [remoteData addObject:[NSArray arrayWithObjects:@"transactional_merchandise[inventory_lines][][contactable_organizational_hierarchy_tree_node][object_id]", AVOID_NIL(inventoryLineContactableOrganizationalHierarchyTreeNodeObjectIdString, NSString), nil]];
+    }
+
     // sets the items in the remote data
-    [remoteData setObject:AVOID_NIL(companyProductCodeItem.identifier, NSString) forKey:@"transactional_merchandise[company_product_code]"];
-    [remoteData setObject:AVOID_NIL(nameItem.description, NSString) forKey:@"transactional_merchandise[name]"];
+    [remoteData addObject:[NSArray arrayWithObjects:@"transactional_merchandise[company_product_code]", AVOID_NIL(companyProductCodeItem.description, NSString), nil]];
+    [remoteData addObject:[NSArray arrayWithObjects:@"transactional_merchandise[name]", AVOID_NIL(nameItem.description, NSString), nil]];
 
     // returns the remote data
     return remoteData;
 }
 
-- (void)convertRemoteGroupUpdate:(NSMutableDictionary *)remoteData {
+- (void)convertRemoteGroupUpdate:(NSMutableArray *)remoteData {
     // retrieves the object id
     NSNumber *objectId = [self.entity objectForKey:@"object_id"];
     NSString *objectIdString = [objectId stringValue];
 
     // sets the object id (structured and unstructured)
-    [remoteData setObject:AVOID_NIL(objectIdString, NSString) forKey:@"transactional_merchandise[object_id]"];
-    [remoteData setObject:AVOID_NIL(objectIdString, NSString) forKey:@"object_id"];
+    [remoteData addObject:[NSArray arrayWithObjects:@"transactional_merchandise[object_id]", AVOID_NIL(objectIdString, NSString), nil]];
+    [remoteData addObject:[NSArray arrayWithObjects:@"object_id", AVOID_NIL(objectIdString, NSString), nil]];
 }
 
 - (void)didSelectItemRowWithItem:(HMItem *)item {
@@ -205,6 +236,42 @@
         // releases the inventory item store view controller reference
         [inventoryItemStoreViewController release];
     }
+}
+
+- (HMTableCellItem *)createTableCellItem:(NSDictionary *)data {
+    // retrieves the attributes
+    NSNumber *objectId = AVOID_NULL_NUMBER([data objectForKey:@"object_id"]);
+    NSString *objectIdString = [objectId stringValue];
+    NSString *storeName = [data objectForKey:@"name"];
+
+    // creates the inventory line's identifier
+    NSString *identifier = [NSString stringWithFormat:@"new_inventory_line_%d", [objectId intValue]];
+
+    // creates the contactable organizational hierarchy tree node data
+    NSDictionary *contactableOrganizationalHierarchyTreeNodeData = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                                    objectIdString, @"object_id", nil];
+
+    // creates the inventory line data
+    NSDictionary *inventoryLineData = [NSDictionary dictionaryWithObjectsAndKeys:
+                                       contactableOrganizationalHierarchyTreeNodeData, @"contactable_organizational_hierarchy_tree_node",
+                                       nil];
+
+    // creates the inventory line item
+    HMStringTableCellItem *inventoryLineItem = [[[HMStringTableCellItem alloc] initWithIdentifier:identifier] autorelease];
+    inventoryLineItem.description = storeName;
+    inventoryLineItem.data = inventoryLineData;
+    inventoryLineItem.icon = @"building.png";
+    inventoryLineItem.highlightedIcon = @"building_white.png";
+    inventoryLineItem.accessoryType = @"badge_label";
+    inventoryLineItem.accessoryValue = @"0";
+    inventoryLineItem.selectable = YES;
+    inventoryLineItem.selectableEdit = NO;
+    inventoryLineItem.indentable = YES;
+    inventoryLineItem.deletableRow = NO;
+    inventoryLineItem.editableCell = NO;
+
+    // returns the inventory line item
+    return inventoryLineItem;
 }
 
 @end

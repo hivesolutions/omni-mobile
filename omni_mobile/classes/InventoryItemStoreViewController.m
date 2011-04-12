@@ -139,9 +139,9 @@
     [title release];
 }
 
-- (NSMutableDictionary *)convertRemoteGroup:(HMItemOperationType)operationType {
+- (NSMutableArray *)convertRemoteGroup:(HMItemOperationType)operationType {
     // calls the super
-    NSMutableDictionary *remoteData = [super convertRemoteGroup:operationType];
+    NSMutableArray *remoteData = [super convertRemoteGroup:operationType];
 
     // retrieves the menu list group
     HMItemGroup *menuListGroup = (HMItemGroup *) [self.remoteGroup getItem:@"list"];
@@ -154,25 +154,21 @@
     HMItem *retailPriceItem = [firstSectionItemGroup getItem:2];
 
     // sets the items in the remote data
-    [remoteData setObject:AVOID_NIL(stockItem.description, NSString) forKey:@"inventory_line[stock_on_hand]"];
-    [remoteData setObject:AVOID_NIL(stockItem.description, NSString) forKey:@"inventory_line[merchandise][object_id]"];
-    [remoteData setObject:AVOID_NIL(stockItem.description, NSString) forKey:@"inventory_line[contactable_organizational_hierarchy_tree_node][object_id]"];
-
-    // sets the parameter items in the remote data
-    [remoteData setObject:AVOID_NIL(retailPriceItem.description, NSString) forKey:@"inventory_line[_parameters][retail_price]"];
+    [remoteData addObject:[NSArray arrayWithObjects:@"inventory_line[stock_on_hand]", AVOID_NIL(stockItem.description, NSString), nil]];
+    [remoteData addObject:[NSArray arrayWithObjects:@"inventory_line[_parameters][retail_price]", AVOID_NIL(retailPriceItem.description, NSString), nil]];
 
     // returns the remote data
     return remoteData;
 }
 
-- (void)convertRemoteGroupUpdate:(NSMutableDictionary *)remoteData {
+- (void)convertRemoteGroupUpdate:(NSMutableArray *)remoteData {
     // retrieves the object id
     NSNumber *objectId = [self.entity objectForKey:@"object_id"];
     NSString *objectIdString = [objectId stringValue];
 
     // sets the object id (structured and unstructured)
-    [remoteData setObject:AVOID_NIL(objectIdString, NSString) forKey:@"inventory_line[object_id]"];
-    [remoteData setObject:AVOID_NIL(objectIdString, NSString) forKey:@"object_id"];
+    [remoteData addObject:[NSArray arrayWithObjects:@"inventory_line[object_id]", AVOID_NIL(objectIdString, NSString), nil]];
+    [remoteData addObject:[NSArray arrayWithObjects:@"object_id", AVOID_NIL(objectIdString, NSString), nil]];
 }
 
 - (void)changeIdentifier:(NSString *)identifier {

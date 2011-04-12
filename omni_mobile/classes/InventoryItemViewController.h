@@ -26,8 +26,9 @@
 #import "Dependencies.h"
 
 #import "InventoryItemStoreViewController.h"
+#import "StoresViewController.h"
 
-@interface InventoryItemViewController : HMRemoteHeaderItemTableViewController {
+@interface InventoryItemViewController : HMRemoteHeaderItemTableViewController<HMTableCellItemCreationDelegate> {
 }
 
 @end

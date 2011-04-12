@@ -111,7 +111,7 @@
     employeeItem.readNibName = @"EmployeeViewController";
     employeeItem.editViewController = [EmployeesViewController class];
     employeeItem.editNibName = @"EmployeesViewController";
-    employeeItem.editableRow = YES;
+    employeeItem.deletableRow = YES;
     employeeItem.editableCell = NO;
     employeeItem.selectable = YES;
     employeeItem.selectableEdit = YES;
