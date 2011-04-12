@@ -153,6 +153,14 @@
     highlightsItem.accessoryType = @"disclosure_indicator";
     highlightsItem.selectable = YES;
 
+    // creates the credits button item
+    HMTableCellItem *creditsItem = [[HMTableCellItem alloc] initWithIdentifier:@"credits"];
+    creditsItem.name = NSLocalizedString(@"Credits", @"Credits");
+    creditsItem.icon = @"credits_icon.png";
+    creditsItem.highlightedIcon = @"credits_icon_white.png";
+    creditsItem.accessoryType = @"disclosure_indicator";
+    creditsItem.selectable = YES;
+
     // creates the notifications button item
     HMTableCellItem *notificationsItem = [[HMTableCellItem alloc] initWithIdentifier:@"notifications"];
     notificationsItem.name = NSLocalizedString(@"Notifications", @"Notifications");
@@ -180,6 +188,7 @@
     [firstSectionItemGroup addItem:employeesItem];
     [firstSectionItemGroup addItem:highlightsItem];
     [secondSectionItemGroup addItem:notificationsItem];
+    [secondSectionItemGroup addItem:creditsItem];
 
     [menuListGroup addItem:firstSectionItemGroup];
     [menuListGroup addItem:secondSectionItemGroup];
@@ -196,6 +205,7 @@
     [secondSectionItemGroup release];
     [firstSectionItemGroup release];
     [notificationsItem release];
+    [creditsItem release];
     [highlightsItem release];
     [inventoryItem release];
     [employeesItem release];
@@ -305,6 +315,17 @@
     [employeesViewController release];
 }
 
+- (void)didSelectCreditsButton {
+    // initializes the credits view controller
+    CreditsViewController *creditsViewController = [[CreditsViewController alloc] initWithNibName:@"CreditsViewController" bundle:[NSBundle mainBundle]];
+
+    // pushes the credits view controller
+    [self.navigationController pushViewController:creditsViewController animated:YES];
+
+    // releases the credits view controller reference
+    [creditsViewController release];
+}
+
 - (HMNamedItemGroup *)getItemSpecification {
     return self.menuItemGroup;
 }
@@ -337,6 +358,10 @@
     else if([item.identifier isEqualToString:@"employees"]) {
         // calls the did select employees button
         [self didSelectEmployeesButton];
+    }
+    else if([item.identifier isEqualToString:@"credits"]) {
+        // calls the did select credits button
+        [self didSelectCreditsButton];
     }
     else {
         // initializes the menu view controller

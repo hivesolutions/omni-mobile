@@ -29,6 +29,8 @@
 #import "UsersViewController.h"
 #import "SalesViewController.h"
 #import "InventoryViewController.h"
+#import "EmployeesViewController.h"
+#import "CreditsViewController.h"
 
 @interface MenuViewController : HMTableViewController<HMItemTableViewProvider, HMItemTableViewDelegate> {
     @private
