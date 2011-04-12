@@ -74,7 +74,7 @@
     // creates the menu header items
     HMItem *title = [[HMItem alloc] initWithIdentifier:AVOID_NULL(name)];
     HMItem *subTitle = [[HMItem alloc] initWithIdentifier:AVOID_NULL(@"")];
-    HMItem *image = [[HMItem alloc] initWithIdentifier:AVOID_NULL(@"user_header.png")];
+    HMItem *image = [[HMItem alloc] initWithIdentifier:AVOID_NULL(@"person_header.png")];
 
     // creates the menu header group
     HMNamedItemGroup *menuHeaderGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu_header"];
