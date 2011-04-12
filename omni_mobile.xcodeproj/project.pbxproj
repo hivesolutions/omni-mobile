@@ -105,6 +105,7 @@
 		C28EFF3B13295A31007CBA34 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3A13295A31007CBA34 /* UIKit.framework */; };
 		C28EFF3D13295A31007CBA34 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3C13295A31007CBA34 /* Foundation.framework */; };
 		C28EFF3F13295A31007CBA34 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3E13295A31007CBA34 /* CoreGraphics.framework */; };
+		C28F1C561354A6C40007DB89 /* OptionsMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28F1C551354A6C40007DB89 /* OptionsMenuViewController.xib */; };
 		C28F3A7613328DBC006F36F8 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C28F3A3D13328DBC006F36F8 /* Default.png */; };
 		C28F3A7713328DBC006F36F8 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C28F3A3E13328DBC006F36F8 /* Default@2x.png */; };
 		C28F3A7813328DBC006F36F8 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = C28F3A3F13328DBC006F36F8 /* Icon-Small.png */; };
@@ -320,6 +321,7 @@
 		C28EFF3A13295A31007CBA34 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C28EFF3C13295A31007CBA34 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C28EFF3E13295A31007CBA34 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C28F1C551354A6C40007DB89 /* OptionsMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OptionsMenuViewController.xib; path = nibs/OptionsMenuViewController.xib; sourceTree = "<group>"; };
 		C28F3A3D13328DBC006F36F8 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		C28F3A3E13328DBC006F36F8 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C28F3A3F13328DBC006F36F8 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
@@ -507,6 +509,7 @@
 				0E85BD10133BB71300F3E65B /* InventoryItemStoreViewController.xib */,
 				0E85BD03133B7BD900F3E65B /* InventoryViewController.xib */,
 				C2BB8D101354791700E332F7 /* CreditsViewController.xib */,
+				C28F1C551354A6C40007DB89 /* OptionsMenuViewController.xib */,
 			);
 			name = Nibs;
 			sourceTree = "<group>";
@@ -1168,6 +1171,7 @@
 				C206D5B91354A12000B9FEB3 /* login_background@2x.png in Resources */,
 				C206D5BA1354A12000B9FEB3 /* login_logo.png in Resources */,
 				C206D5BB1354A12000B9FEB3 /* login_logo@2x.png in Resources */,
+				C28F1C561354A6C40007DB89 /* OptionsMenuViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
