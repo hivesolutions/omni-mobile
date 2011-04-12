@@ -222,6 +222,7 @@
     [firstSectionItemGroup release];
     [notificationsItem release];
     [creditsItem release];
+    [optionsMenuItem release];
     [highlightsItem release];
     [inventoryItem release];
     [employeesItem release];
