@@ -172,9 +172,9 @@
     [title release];
 }
 
-- (NSMutableDictionary *)convertRemoteGroup:(HMItemOperationType)operationType {
+- (NSMutableArray *)convertRemoteGroup:(HMItemOperationType)operationType {
     // calls the super
-    NSMutableDictionary *remoteData = [super convertRemoteGroup:operationType];
+    NSMutableArray *remoteData = [super convertRemoteGroup:operationType];
 
     // retrieves the menu header named group
     HMNamedItemGroup *menuHeaderNamedGroup = (HMNamedItemGroup *) [self.remoteGroup getItem:@"header"];
@@ -206,28 +206,28 @@
     NSString *employeeObjectIdString = [NSString stringWithFormat:@"%d", [employeeObjectId intValue]];
 
     // sets the items in the remote data
-    [remoteData setObject:AVOID_NIL(username.identifier, NSString) forKey:@"user[username]"];
-    [remoteData setObject:AVOID_NIL(emailItem.description, NSString) forKey:@"user[email]"];
-    [remoteData setObject:AVOID_NIL(secretQuestion.description, NSString) forKey:@"user[secret_question]"];
-    [remoteData setObject:AVOID_NIL(employeeObjectIdString, NSString) forKey:@"user[person][object_id]"];
+    [remoteData addObject:[NSArray arrayWithObjects:@"user[username]", AVOID_NIL(username.identifier, NSString), nil]];
+    [remoteData addObject:[NSArray arrayWithObjects:@"user[email]", AVOID_NIL(emailItem.description, NSString), nil]];
+    [remoteData addObject:[NSArray arrayWithObjects:@"user[secret_question]", AVOID_NIL(secretQuestion.description, NSString), nil]];
+    [remoteData addObject:[NSArray arrayWithObjects:@"user[person][object_id]", AVOID_NIL(employeeObjectIdString, NSString), nil]];
 
     // sets the parameter items in the remote data
-    [remoteData setObject:AVOID_NIL(passwordItem.description, NSString) forKey:@"user[_parameters][password]"];
-    [remoteData setObject:AVOID_NIL(passwordItem.description, NSString) forKey:@"user[_parameters][confirm_password]"];
-    [remoteData setObject:AVOID_NIL(secretAnswer.description, NSString) forKey:@"user[_parameters][secret_answer]"];
+    [remoteData addObject:[NSArray arrayWithObjects:@"user[_parameters][password]", AVOID_NIL(passwordItem.description, NSString), nil]];
+    [remoteData addObject:[NSArray arrayWithObjects:@"user[_parameters][confirm_password]", AVOID_NIL(passwordItem.description, NSString), nil]];
+    [remoteData addObject:[NSArray arrayWithObjects:@"user[_parameters][secret_answer]", AVOID_NIL(secretAnswer.description, NSString), nil]];
 
     // returns the remote data
     return remoteData;
 }
 
-- (void)convertRemoteGroupUpdate:(NSMutableDictionary *)remoteData {
+- (void)convertRemoteGroupUpdate:(NSMutableArray *)remoteData {
     // retrieves the object id
     NSNumber *objectId = [self.entity objectForKey:@"object_id"];
     NSString *objectIdString = [objectId stringValue];
 
     // sets the object id (structured and unstructured)
-    [remoteData setObject:AVOID_NIL(objectIdString, NSString) forKey:@"user[object_id]"];
-    [remoteData setObject:AVOID_NIL(objectIdString, NSString) forKey:@"object_id"];
+    [remoteData addObject:[NSArray arrayWithObjects:@"user[object_id]", AVOID_NIL(objectIdString, NSString), nil]];
+    [remoteData addObject:[NSArray arrayWithObjects:@"object_id", AVOID_NIL(objectIdString, NSString), nil]];
 }
 
 @end
