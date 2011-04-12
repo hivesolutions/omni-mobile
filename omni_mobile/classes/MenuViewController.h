@@ -29,6 +29,9 @@
 #import "UsersViewController.h"
 #import "SalesViewController.h"
 #import "InventoryViewController.h"
+#import "EmployeesViewController.h"
+#import "CreditsViewController.h"
+#import "OptionsMenuViewController.h"
 
 /**
  * The description font size for menu items.
