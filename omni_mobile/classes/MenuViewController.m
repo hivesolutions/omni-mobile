@@ -153,6 +153,14 @@
     highlightsItem.accessoryType = @"disclosure_indicator";
     highlightsItem.selectable = YES;
 
+    // creates the options menu button item
+    HMTableCellItem *optionsMenuItem = [[HMTableCellItem alloc] initWithIdentifier:@"options_menu"];
+    optionsMenuItem.name = NSLocalizedString(@"Options Menu", @"Options Menu");
+    optionsMenuItem.icon = @"credits_icon.png";
+    optionsMenuItem.highlightedIcon = @"credits_icon_white.png";
+    optionsMenuItem.accessoryType = @"disclosure_indicator";
+    optionsMenuItem.selectable = YES;
+
     // creates the credits button item
     HMTableCellItem *creditsItem = [[HMTableCellItem alloc] initWithIdentifier:@"credits"];
     creditsItem.name = NSLocalizedString(@"Credits", @"Credits");
@@ -188,6 +196,7 @@
     [firstSectionItemGroup addItem:employeesItem];
     [firstSectionItemGroup addItem:highlightsItem];
     [secondSectionItemGroup addItem:notificationsItem];
+    [secondSectionItemGroup addItem:optionsMenuItem];
     [secondSectionItemGroup addItem:creditsItem];
 
     [menuListGroup addItem:firstSectionItemGroup];
@@ -358,6 +367,16 @@
     else if([item.identifier isEqualToString:@"employees"]) {
         // calls the did select employees button
         [self didSelectEmployeesButton];
+    }
+    else if([item.identifier isEqualToString:@"options_menu"]) {
+        // initializes the options menu view controller
+        OptionsMenuViewController *optionsMenuViewController = [[OptionsMenuViewController alloc] initWithNibName:@"OptionsMenuViewController" bundle:[NSBundle mainBundle]];
+
+        // pushes the credits view controller
+        [self.navigationController pushViewController:optionsMenuViewController animated:YES];
+
+        // releases the options menu view controller reference
+        [optionsMenuViewController release];
     }
     else if([item.identifier isEqualToString:@"credits"]) {
         // calls the did select credits button

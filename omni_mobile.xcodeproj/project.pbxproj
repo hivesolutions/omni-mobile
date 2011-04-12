@@ -102,10 +102,14 @@
 		C23F3DAF132E7480003155EE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A57BEA56132E72F0000478F7 /* QuartzCore.framework */; };
 		C24A0E641338B1F100D8C7EC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C24A0E631338B1F000D8C7EC /* LoginViewController.m */; };
 		C24A0E6E1338B9BB00D8C7EC /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C24A0E6D1338B9BB00D8C7EC /* LoginViewController.xib */; };
+		C270A7F01354C128004611EA /* menu_item_gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = C270A7EF1354C128004611EA /* menu_item_gradient.png */; };
+		C270A7F21354CAD9004611EA /* menu_item_gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C270A7F11354CAD9004611EA /* menu_item_gradient@2x.png */; };
 		C28EFF3B13295A31007CBA34 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3A13295A31007CBA34 /* UIKit.framework */; };
 		C28EFF3D13295A31007CBA34 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3C13295A31007CBA34 /* Foundation.framework */; };
 		C28EFF3F13295A31007CBA34 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3E13295A31007CBA34 /* CoreGraphics.framework */; };
 		C28F1C561354A6C40007DB89 /* OptionsMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28F1C551354A6C40007DB89 /* OptionsMenuViewController.xib */; };
+		C28F1C591354A7990007DB89 /* OptionsMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28F1C581354A7990007DB89 /* OptionsMenuViewController.m */; };
+		C28F1C5C1354A9CC0007DB89 /* OptionsButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = C28F1C5B1354A9CC0007DB89 /* OptionsButtonView.m */; };
 		C28F3A7613328DBC006F36F8 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C28F3A3D13328DBC006F36F8 /* Default.png */; };
 		C28F3A7713328DBC006F36F8 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C28F3A3E13328DBC006F36F8 /* Default@2x.png */; };
 		C28F3A7813328DBC006F36F8 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = C28F3A3F13328DBC006F36F8 /* Icon-Small.png */; };
@@ -317,11 +321,17 @@
 		C24A0E621338B1F000D8C7EC /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = classes/LoginViewController.h; sourceTree = "<group>"; };
 		C24A0E631338B1F000D8C7EC /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = classes/LoginViewController.m; sourceTree = "<group>"; };
 		C24A0E6D1338B9BB00D8C7EC /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = nibs/LoginViewController.xib; sourceTree = "<group>"; };
+		C270A7EF1354C128004611EA /* menu_item_gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_item_gradient.png; sourceTree = "<group>"; };
+		C270A7F11354CAD9004611EA /* menu_item_gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_item_gradient@2x.png"; sourceTree = "<group>"; };
 		C28EFF3613295A31007CBA34 /* omni_mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = omni_mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28EFF3A13295A31007CBA34 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C28EFF3C13295A31007CBA34 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C28EFF3E13295A31007CBA34 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C28F1C551354A6C40007DB89 /* OptionsMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OptionsMenuViewController.xib; path = nibs/OptionsMenuViewController.xib; sourceTree = "<group>"; };
+		C28F1C571354A7990007DB89 /* OptionsMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OptionsMenuViewController.h; path = classes/OptionsMenuViewController.h; sourceTree = "<group>"; };
+		C28F1C581354A7990007DB89 /* OptionsMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OptionsMenuViewController.m; path = classes/OptionsMenuViewController.m; sourceTree = "<group>"; };
+		C28F1C5A1354A9CC0007DB89 /* OptionsButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OptionsButtonView.h; path = classes/OptionsButtonView.h; sourceTree = "<group>"; };
+		C28F1C5B1354A9CC0007DB89 /* OptionsButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OptionsButtonView.m; path = classes/OptionsButtonView.m; sourceTree = "<group>"; };
 		C28F3A3D13328DBC006F36F8 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		C28F3A3E13328DBC006F36F8 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C28F3A3F13328DBC006F36F8 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
@@ -424,6 +434,10 @@
 		C20CDB8C1333780F008A4FE3 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C28F1C5A1354A9CC0007DB89 /* OptionsButtonView.h */,
+				C28F1C5B1354A9CC0007DB89 /* OptionsButtonView.m */,
+				C28F1C571354A7990007DB89 /* OptionsMenuViewController.h */,
+				C28F1C581354A7990007DB89 /* OptionsMenuViewController.m */,
 				C2BB8D1F13549E0100E332F7 /* CreditsViewController.h */,
 				C2BB8D2013549E0200E332F7 /* CreditsViewController.m */,
 				0E3BBC931345F8BD00075437 /* EmployeesViewController.h */,
@@ -810,6 +824,8 @@
 		C28F3A7213328DBC006F36F8 /* System */ = {
 			isa = PBXGroup;
 			children = (
+				C270A7F11354CAD9004611EA /* menu_item_gradient@2x.png */,
+				C270A7EF1354C128004611EA /* menu_item_gradient.png */,
 				C20FC5A41337B97600FDBE8D /* white_button.png */,
 				C20FC5A51337B97600FDBE8D /* white_button_pressed.png */,
 				C28F3A7313328DBC006F36F8 /* gradient.png */,
@@ -1172,6 +1188,8 @@
 				C206D5BA1354A12000B9FEB3 /* login_logo.png in Resources */,
 				C206D5BB1354A12000B9FEB3 /* login_logo@2x.png in Resources */,
 				C28F1C561354A6C40007DB89 /* OptionsMenuViewController.xib in Resources */,
+				C270A7F01354C128004611EA /* menu_item_gradient.png in Resources */,
+				C270A7F21354CAD9004611EA /* menu_item_gradient@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1222,6 +1240,8 @@
 				0E23AEDD13462C210061FBE9 /* SaleViewController.m in Sources */,
 				0E23AEE61346388B0061FBE9 /* EmployeeViewController.m in Sources */,
 				C2BB8D2113549E0400E332F7 /* CreditsViewController.m in Sources */,
+				C28F1C591354A7990007DB89 /* OptionsMenuViewController.m in Sources */,
+				C28F1C5C1354A9CC0007DB89 /* OptionsButtonView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
