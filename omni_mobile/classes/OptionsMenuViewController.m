@@ -45,16 +45,39 @@
     // creates the options button view
     OptionsButtonView *optionsButton3View = [[OptionsButtonView alloc] init];
 
+    // creates the options button view
+    OptionsButtonView *optionsButton4View = [[OptionsButtonView alloc] init];
+    
+    // creates the options button view
+    OptionsButtonView *optionsButton5View = [[OptionsButtonView alloc] init];
+
+    // creates the options button view
+    OptionsButtonView *optionsButton6View = [[OptionsButtonView alloc] init];
+
+    
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(30, 30, 50, 50)];
+    imageView.image = [UIImage imageNamed:@"inventory_option.png"];
+    
+    [optionsButtonView addSubview:imageView];
+    
     // sets the initial frame
     optionsButton2View.frame = CGRectMake(106, 0, 108, 120);
     optionsButton2View.widthBorder = YES;
 
-    //optionsButton2View.backgroundColor = [UIColor greenColor];
-
     // sets the initial frame
     optionsButton3View.frame = CGRectMake(214, 0, 106, 120);
-    //optionsButton3View.backgroundColor = [UIColor blueColor];
-
+    
+    // sets the initial frame
+    optionsButton4View.frame = CGRectMake(0, 111, 106, 120);
+    
+    // sets the initial frame
+    optionsButton5View.frame = CGRectMake(106, 111, 106, 120);
+    optionsButton5View.widthBorder = YES;
+    
+    // sets the initial frame
+    optionsButton6View.frame = CGRectMake(214, 111, 106, 120);
+    
     // retrieves the scroll view
     UIScrollView *scrollView = (UIScrollView *) [self.view.subviews objectAtIndex:1];
 
@@ -64,6 +87,9 @@
     [scrollView addSubview:optionsButtonView];
     [scrollView addSubview:optionsButton2View];
     [scrollView addSubview:optionsButton3View];
+    [scrollView addSubview:optionsButton4View];
+    [scrollView addSubview:optionsButton5View];
+    [scrollView addSubview:optionsButton6View];
 
     // releases the options button view
     [optionsButtonView release];
