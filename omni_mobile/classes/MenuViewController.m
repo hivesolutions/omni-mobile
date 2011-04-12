@@ -239,7 +239,7 @@
 
     // unsets the session id in the preferences
     [preferences setValue:nil forKey:@"username"];
-    
+
     // syncs the preferences
     [preferences synchronize];
 
