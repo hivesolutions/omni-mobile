@@ -30,6 +30,11 @@
 #import "SalesViewController.h"
 #import "InventoryViewController.h"
 
+/**
+ * The description font size for menu items.
+ */
+#define MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE 18
+
 @interface MenuViewController : HMTableViewController<HMItemTableViewProvider, HMItemTableViewDelegate> {
     @private
     HMNamedItemGroup *_menuItemGroup;

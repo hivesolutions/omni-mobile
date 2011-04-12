@@ -61,6 +61,9 @@
 "Answer" = "Answer";
 "New User" = "New User";
 "New Item" = "New Item";
+"Add Inventory Line" = "Add Inventory Line";
+"Street Name" = "Street Name";
+"Country" = "Country";
 
 /* Global error values */
 "ServerError" = "There was a server problem";

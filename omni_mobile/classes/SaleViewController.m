@@ -178,11 +178,11 @@
     [title release];
 }
 
-- (NSMutableDictionary *)convertRemoteGroup:(HMItemOperationType)operationType {
+- (NSMutableArray *)convertRemoteGroup:(HMItemOperationType)operationType {
     return nil;
 }
 
-- (void)convertRemoteGroupUpdate:(NSMutableDictionary *)remoteData {
+- (void)convertRemoteGroupUpdate:(NSMutableArray *)remoteData {
 }
 
 @end

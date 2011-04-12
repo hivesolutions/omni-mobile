@@ -153,12 +153,9 @@
     // creates the first section footer item
     HMLabelItem *firstSectionFooterItem = [[HMLabelItem alloc] initWithIdentifier:@"first_section_footer"];
     firstSectionFooterItem.description =  NSLocalizedString(@"Sentence000002", @"Sentence000002");
-    firstSectionFooterItem.fontName = @"Helvetica";
-    firstSectionFooterItem.fontSize = 14;
-
-    // sets the footer's colors
-    HMColor *firstSectionFooterTextColor = [[HMColor alloc] initRed:1.0 green:1.0 blue:1.0 alpha:1.0];
-    firstSectionFooterItem.textColor = firstSectionFooterTextColor;
+    firstSectionFooterItem.descriptionFont = @"Helvetica";
+    firstSectionFooterItem.descriptionFontSize = 14;
+    firstSectionFooterItem.descriptionColor = [HMColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
 
     // creates the first section item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
@@ -195,7 +192,6 @@
     // releases the objects
     [menuNamedItemGroup release];
     [menuListGroup release];
-    [firstSectionFooterTextColor release];
     [firstSectionFooterItem release];
     [firstSectionItemGroup release];
     [passwordItem release];
