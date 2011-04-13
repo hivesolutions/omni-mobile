@@ -28,6 +28,7 @@
 /* Global util values */
 "Cancel" = "Cancelar";
 "Retry" = "Repetir";
+"Confirm" = "Confirmar";
 "Dismiss" = "Dispensar";
 "Edit" = "Editar";
 "Create" = "Criar";
@@ -71,10 +72,17 @@
 "Quantity" = "Quantidade";
 "Merchandise" = "Mercadoria";
 
+/* Global error names */
+"LoginErrorName" = "Erro de Login";
+
 /* Global error values */
 "ServerError" = "Ocorreu um problema no servidor";
 "ConnectionError" = "Ocorreu um problema de conexão";
 "ConfirmDeleteError" = "Tem a certeza que deseja apagar";
+
+/* Global error messages */
+"username and password combination does not match" = "Combinação de username e password inválida";
+"an username and a password must be provided" = "Um username e uma password têm de ser fornecidos";
 
 /* Global sentence values */
 "Sentence000001" = "Dados serão enviados para o seu telemóvel a partir do servidor";

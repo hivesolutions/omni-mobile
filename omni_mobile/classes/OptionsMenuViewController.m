@@ -28,7 +28,7 @@
 
 
 
-#import "OptionsButtonView.h"
+#import "HMOptionsButtonView.h"
 
 @implementation OptionsMenuViewController
 
@@ -37,31 +37,31 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 
     // creates the options button view
-    OptionsButtonView *optionsButtonView = [[OptionsButtonView alloc] init];
+    HMOptionsButtonView *optionsButtonView = [[HMOptionsButtonView alloc] init];
 
     // creates the options button view
-    OptionsButtonView *optionsButton2View = [[OptionsButtonView alloc] init];
+    HMOptionsButtonView *optionsButton2View = [[HMOptionsButtonView alloc] init];
 
     // creates the options button view
-    OptionsButtonView *optionsButton3View = [[OptionsButtonView alloc] init];
+    HMOptionsButtonView *optionsButton3View = [[HMOptionsButtonView alloc] init];
 
     // creates the options button view
-    OptionsButtonView *optionsButton4View = [[OptionsButtonView alloc] init];
+    HMOptionsButtonView *optionsButton4View = [[HMOptionsButtonView alloc] init];
 
     // creates the options button view
-    OptionsButtonView *optionsButton5View = [[OptionsButtonView alloc] init];
+    HMOptionsButtonView *optionsButton5View = [[HMOptionsButtonView alloc] init];
 
     // creates the options button view
-    OptionsButtonView *optionsButton6View = [[OptionsButtonView alloc] init];
+    HMOptionsButtonView *optionsButton6View = [[HMOptionsButtonView alloc] init];
 
     // creates the options button view
-    OptionsButtonView *optionsButton7View = [[OptionsButtonView alloc] init];
+    HMOptionsButtonView *optionsButton7View = [[HMOptionsButtonView alloc] init];
 
     // creates the options button view
-    OptionsButtonView *optionsButton8View = [[OptionsButtonView alloc] init];
+    HMOptionsButtonView *optionsButton8View = [[HMOptionsButtonView alloc] init];
 
     // creates the options button view
-    OptionsButtonView *optionsButton9View = [[OptionsButtonView alloc] init];
+    HMOptionsButtonView *optionsButton9View = [[HMOptionsButtonView alloc] init];
 
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(30, 22, 50, 50)];
     imageView.image = [UIImage imageNamed:@"box_option.png"];

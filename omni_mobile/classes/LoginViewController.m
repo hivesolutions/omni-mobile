@@ -103,7 +103,7 @@
     // creates the remote abstraction for the url
     HMRemoteAbstraction *remoteAbstraction = [[HMRemoteAbstraction alloc] initWithIdAndUrl:HMItemOperationRead url:url];
     remoteAbstraction.remoteDelegate = self;
-    remoteAbstraction.view = self.view.superview;
+    remoteAbstraction.view = self.view;
 
     // retrieves the background pattern image
     UIImage *backgroundPatternImage = [UIImage imageNamed:@"login_background.png"];
@@ -314,6 +314,15 @@
         // prints the error message
         NSLog(@"Error with status: %d name: %@ and message: %@", httpResponse.statusCode, exceptionName, message);
 
+        // creates the alert view to show the error message
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"LoginErrorName", @"LoginErrorName") message:NSLocalizedString(message, message) delegate:nil cancelButtonTitle:NSLocalizedString(@"Confirmar", @"Confirmar") otherButtonTitles: nil];
+
+        // shows the alert view
+        [alert show];
+
+        // releases the alert view
+        [alert release];
+
         // retrieves the first child as the table view
         UITableView *tableView = [self.view.subviews objectAtIndex:0];
 
@@ -326,7 +335,11 @@
 }
 
 - (void)remoteDidFail:(HMRemoteAbstraction *)remoteAbstraction data:(NSData *)data error:(NSError *)error {
-    NSLog(@"Falhou");
+    // retrieves the first child as the table view
+    UITableView *tableView = [self.view.subviews objectAtIndex:0];
+
+    // sets the table back to editing mode
+    [tableView setEditing:YES animated:YES];
 }
 
 @end

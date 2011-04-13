@@ -28,6 +28,7 @@
 /* Global util values */
 "Cancel" = "Cancel";
 "Retry" = "Retry";
+"Confirm" = "Confirm";
 "Dismiss" = "Dismiss";
 "Edit" = "Edit";
 "Create" = "Create";
@@ -71,10 +72,17 @@
 "Quantity" = "Quantity";
 "Merchandise" = "Merchandise";
 
+/* Global error names */
+"LoginErrorName" = "Login Error";
+
 /* Global error values */
 "ServerError" = "There was a server problem";
 "ConnectionError" = "There was a connection problem";
 "ConfirmDeleteError" = "Are you sure you want to delete";
+
+/* Global error messages */
+"username and password combination does not match" = "Username and password combination does not match";
+"an username and a password must be provided" = "An username and a password must be provided";
 
 /* Global sentence values */
 "Sentence000001" = "Data will be pushed to your phone from the server";
