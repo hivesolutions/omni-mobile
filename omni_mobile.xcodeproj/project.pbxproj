@@ -118,6 +118,7 @@
 		C26A00601355107E00CFB434 /* person_header_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C26A005C1355107E00CFB434 /* person_header_white@2x.png */; };
 		C270A7F01354C128004611EA /* menu_item_gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = C270A7EF1354C128004611EA /* menu_item_gradient.png */; };
 		C270A7F21354CAD9004611EA /* menu_item_gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C270A7F11354CAD9004611EA /* menu_item_gradient@2x.png */; };
+		C270A8181355A71B004611EA /* StyledPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C270A8171355A71B004611EA /* StyledPageControl.m */; };
 		C28EFF3B13295A31007CBA34 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3A13295A31007CBA34 /* UIKit.framework */; };
 		C28EFF3D13295A31007CBA34 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3C13295A31007CBA34 /* Foundation.framework */; };
 		C28EFF3F13295A31007CBA34 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3E13295A31007CBA34 /* CoreGraphics.framework */; };
@@ -349,6 +350,8 @@
 		C26A005C1355107E00CFB434 /* person_header_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "person_header_white@2x.png"; sourceTree = "<group>"; };
 		C270A7EF1354C128004611EA /* menu_item_gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_item_gradient.png; sourceTree = "<group>"; };
 		C270A7F11354CAD9004611EA /* menu_item_gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_item_gradient@2x.png"; sourceTree = "<group>"; };
+		C270A8161355A71B004611EA /* StyledPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StyledPageControl.h; path = classes/StyledPageControl.h; sourceTree = "<group>"; };
+		C270A8171355A71B004611EA /* StyledPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StyledPageControl.m; path = classes/StyledPageControl.m; sourceTree = "<group>"; };
 		C28EFF3613295A31007CBA34 /* omni_mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = omni_mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28EFF3A13295A31007CBA34 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C28EFF3C13295A31007CBA34 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -458,6 +461,8 @@
 		C20CDB8C1333780F008A4FE3 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C270A8161355A71B004611EA /* StyledPageControl.h */,
+				C270A8171355A71B004611EA /* StyledPageControl.m */,
 				C28F1C5A1354A9CC0007DB89 /* OptionsButtonView.h */,
 				C28F1C5B1354A9CC0007DB89 /* OptionsButtonView.m */,
 				C28F1C571354A7990007DB89 /* OptionsMenuViewController.h */,
@@ -1353,6 +1358,7 @@
 				C2BB8D2113549E0400E332F7 /* CreditsViewController.m in Sources */,
 				C28F1C591354A7990007DB89 /* OptionsMenuViewController.m in Sources */,
 				C28F1C5C1354A9CC0007DB89 /* OptionsButtonView.m in Sources */,
+				C270A8181355A71B004611EA /* StyledPageControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
