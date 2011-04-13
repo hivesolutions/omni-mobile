@@ -74,6 +74,9 @@
 "ConnectionError" = "Ocorreu um problema de conexão";
 "ConfirmDeleteError" = "Tem a certeza que deseja apagar";
 
+/* Global error messages */
+"username and password combination does not match" = "Combinação de username e password inválida";
+
 /* Global sentence values */
 "Sentence000001" = "Dados serão enviados para o seu telemóvel a partir do servidor";
 "Sentence000002" = "Fazer inscrição no Omni";

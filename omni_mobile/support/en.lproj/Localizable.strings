@@ -74,6 +74,9 @@
 "ConnectionError" = "There was a connection problem";
 "ConfirmDeleteError" = "Are you sure you want to delete";
 
+/* Global error messages */
+"username and password combination does not match" = "Username and password combination does not match";
+
 /* Global sentence values */
 "Sentence000001" = "Data will be pushed to your phone from the server";
 "Sentence000002" = "Sign Up for Omni";
