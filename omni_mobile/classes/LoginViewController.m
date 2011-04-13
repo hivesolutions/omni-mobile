@@ -186,9 +186,6 @@
     self.usernameItem = usernameItem;
     self.passwordItem = passwordItem;
 
-    // enables the table view's edit mode
-    [tableView setEditing:YES animated:NO];
-
     // releases the objects
     [menuNamedItemGroup release];
     [menuListGroup release];
