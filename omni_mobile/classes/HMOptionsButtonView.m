@@ -39,8 +39,8 @@
     // retrieves the background pattern image
     UIImage *backgroundPatternImage = [UIImage imageNamed:@"menu_item_gradient.png"];
 
-    // creates the backgroun color with the pattern image
-   // UIColor *backgroundColor = [UIColor colorWithPatternImage:backgroundPatternImage];
+    // creates the background color with the pattern image
+    // UIColor *backgroundColor = [UIColor colorWithPatternImage:backgroundPatternImage];
 
     // sets the background color
     self.backgroundColor = [UIColor clearColor];
