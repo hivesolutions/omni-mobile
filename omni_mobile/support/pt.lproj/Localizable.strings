@@ -28,6 +28,7 @@
 /* Global util values */
 "Cancel" = "Cancelar";
 "Retry" = "Repetir";
+"Confirm" = "Confirmar";
 "Dismiss" = "Dispensar";
 "Edit" = "Editar";
 "Create" = "Criar";

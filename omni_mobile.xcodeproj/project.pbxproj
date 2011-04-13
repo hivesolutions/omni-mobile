@@ -350,7 +350,7 @@
 		C26A005C1355107E00CFB434 /* person_header_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "person_header_white@2x.png"; sourceTree = "<group>"; };
 		C270A7EF1354C128004611EA /* menu_item_gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_item_gradient.png; sourceTree = "<group>"; };
 		C270A7F11354CAD9004611EA /* menu_item_gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_item_gradient@2x.png"; sourceTree = "<group>"; };
-		C270A8161355A71B004611EA /* HMStyledPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; name = HMStyledPageControl.h; path = classes/HMStyledPageControl.h; sourceTree = "<group>"; };
+		C270A8161355A71B004611EA /* HMStyledPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HMStyledPageControl.h; path = classes/HMStyledPageControl.h; sourceTree = "<group>"; };
 		C270A8171355A71B004611EA /* HMStyledPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HMStyledPageControl.m; path = classes/HMStyledPageControl.m; sourceTree = "<group>"; };
 		C28EFF3613295A31007CBA34 /* omni_mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = omni_mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28EFF3A13295A31007CBA34 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -359,7 +359,7 @@
 		C28F1C551354A6C40007DB89 /* OptionsMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OptionsMenuViewController.xib; path = nibs/OptionsMenuViewController.xib; sourceTree = "<group>"; };
 		C28F1C571354A7990007DB89 /* OptionsMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OptionsMenuViewController.h; path = classes/OptionsMenuViewController.h; sourceTree = "<group>"; };
 		C28F1C581354A7990007DB89 /* OptionsMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OptionsMenuViewController.m; path = classes/OptionsMenuViewController.m; sourceTree = "<group>"; };
-		C28F1C5A1354A9CC0007DB89 /* HMOptionsButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; name = HMOptionsButtonView.h; path = classes/HMOptionsButtonView.h; sourceTree = "<group>"; };
+		C28F1C5A1354A9CC0007DB89 /* HMOptionsButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HMOptionsButtonView.h; path = classes/HMOptionsButtonView.h; sourceTree = "<group>"; };
 		C28F1C5B1354A9CC0007DB89 /* HMOptionsButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HMOptionsButtonView.m; path = classes/HMOptionsButtonView.m; sourceTree = "<group>"; };
 		C28F3A3D13328DBC006F36F8 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		C28F3A3E13328DBC006F36F8 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };

@@ -28,6 +28,7 @@
 /* Global util values */
 "Cancel" = "Cancel";
 "Retry" = "Retry";
+"Confirm" = "Confirm";
 "Dismiss" = "Dismiss";
 "Edit" = "Edit";
 "Create" = "Create";
