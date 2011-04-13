@@ -16,7 +16,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Hive Omni Erp. If not, see <http://www.gnu.org/licenses/>.
 
-// __author__    = Lu’s Martinho <lmartinho@hive.pt>
+// __author__    = Lu’s Martinho <lmartinho@hive.pt> & Tiago Silva <tsilva@hive.pt>
 // __version__   = 1.0.0
 // __revision__  = $LastChangedRevision: 2390 $
 // __date__      = $LastChangedDate: 2009-04-02 08:36:50 +0100 (qui, 02 Abr 2009) $
@@ -66,21 +66,23 @@
     NSDictionary *moneySaleSlip = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"money_sale_slip"]);
     NSNumber *date = AVOID_NULL_NUMBER([remoteData objectForKey:@"date"]);
     NSDictionary *sellerStockHolder = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"seller_stockholder"]);
+    NSString *sellerStockHolderName = AVOID_NULL([sellerStockHolder objectForKey:@"name"]);
     NSDictionary *price = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"price"]);
+    NSNumber *priceValue = AVOID_NULL_NUMBER([price objectForKey:@"value"]);
     NSNumber *vat = AVOID_NULL_NUMBER([remoteData objectForKey:@"vat"]);
     NSDictionary *personBuyer = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"person_buyer"]);
-    NSString *moneySaleSlipIdentifier = AVOID_NULL([moneySaleSlip objectForKey:@"identifier"]);
-    NSString *sellerStockHolderName = AVOID_NULL([sellerStockHolder objectForKey:@"name"]);
-    NSNumber *priceValue = AVOID_NULL_NUMBER([price objectForKey:@"value"]);
     NSString *personBuyerName = AVOID_NULL([personBuyer objectForKey:@"name"]);
+    NSString *moneySaleSlipIdentifier = AVOID_NULL([moneySaleSlip objectForKey:@"identifier"]);
+    NSDictionary *saleLines = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"sale_lines"]);
+
+    // checks if the person is anonymous
+    BOOL isPersonAnonymous = [personBuyerName length] == 0;
 
     // computes the date string from the timestamp
     NSDate *dateDate = [NSDate dateWithTimeIntervalSince1970:[date floatValue]];
-
-    // retrieves the formatted date
     NSString *dateString = [dateDate description];
 
-    // computes the price vat
+    // calculates the price vat
     NSNumber *priceVat = [NSNumber numberWithFloat:([priceValue floatValue] + [vat floatValue])];
 
     // creates the menu header items
@@ -94,7 +96,12 @@
     // creates the store string table cell
     HMStringTableCellItem *storeItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"store"];
     storeItem.name = NSLocalizedString(@"Store", @"Store");
+    storeItem.data = sellerStockHolder;
     storeItem.description = sellerStockHolderName;
+    storeItem.accessoryType = @"disclosure_indicator";
+    storeItem.readViewController = [StoreViewController class];
+    storeItem.readNibName = @"StoreViewController";
+    storeItem.selectable = YES;
 
     // creates the price string table cell
     HMStringTableCellItem *priceItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"price"];
@@ -120,12 +127,15 @@
     // creates the customer name string table cell
     HMStringTableCellItem *customerItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"customer"];
     customerItem.name = NSLocalizedString(@"Customer", @"Customer");
-    customerItem.description = personBuyerName;
+    customerItem.description = isPersonAnonymous ? NSLocalizedString(@"Anonymous", @"Anonymous") : personBuyerName;
+    customerItem.accessoryType = isPersonAnonymous ? nil : @"disclosure_indicator";
+    customerItem.selectable = isPersonAnonymous ? NO : YES;
 
     // creates the sections item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
     HMTableSectionItemGroup *secondSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"second_section"];
     HMTableSectionItemGroup *thirdSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"third_section"];
+    HMTableSectionItemGroup *fourthSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"fourth_section"];
 
     // creates the menu list group
     HMItemGroup *menuListGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu_list"];
@@ -149,10 +159,40 @@
     // populates the third section item group
     [thirdSectionItemGroup addItem:customerItem];
 
+    // creates the items for the sale lines
+    // and adds them to the fourth item group
+    for(NSDictionary *saleLine in saleLines) {
+        // retrieves the sale line attributes
+        NSNumber *objectId = AVOID_NULL_NUMBER([saleLine objectForKey:@"object_id"]);
+        NSString *objectIdString = [objectId stringValue];
+        NSNumber *quantityNumber = AVOID_NULL_NUMBER([saleLine objectForKey:@"quantity"]);
+        NSString *quantityString = [NSString stringWithFormat:@"%d", [quantityNumber intValue]];
+        NSDictionary *merchandise = AVOID_NULL_DICTIONARY([saleLine objectForKey:@"merchandise"]);
+        NSString *merchandiseCompanyProductCode = AVOID_NULL([merchandise objectForKey:@"company_product_code"]);
+
+        // creates the sale line item
+        HMStringTableCellItem *saleLineItem = [[HMStringTableCellItem alloc] initWithIdentifier:objectIdString];
+        saleLineItem.description = merchandiseCompanyProductCode;
+        saleLineItem.data = saleLine;
+        saleLineItem.accessoryType = @"badge_label";
+        saleLineItem.accessoryValue = quantityString;
+        saleLineItem.readViewController = [SaleLineViewController class];
+        saleLineItem.readNibName = @"SaleLineViewController";
+        saleLineItem.selectable = YES;
+
+        // adds the sale line item to
+        // the fourth section item group
+        [fourthSectionItemGroup addItem:saleLineItem];
+
+        // releases the sale line item
+        [saleLineItem release];
+    }
+
     // adds the sections to the menu list
     [menuListGroup addItem:firstSectionItemGroup];
     [menuListGroup addItem:secondSectionItemGroup];
     [menuListGroup addItem:thirdSectionItemGroup];
+    [menuListGroup addItem:fourthSectionItemGroup];
 
     // adds the menu items to the menu item group
     [menuNamedItemGroup addItem:@"header" item:menuHeaderGroup];
@@ -164,6 +204,7 @@
     // releases the objects
     [menuNamedItemGroup release];
     [menuListGroup release];
+    [fourthSectionItemGroup release];
     [thirdSectionItemGroup release];
     [secondSectionItemGroup release];
     [firstSectionItemGroup release];
@@ -180,9 +221,6 @@
 
 - (NSMutableArray *)convertRemoteGroup:(HMItemOperationType)operationType {
     return nil;
-}
-
-- (void)convertRemoteGroupUpdate:(NSMutableArray *)remoteData {
 }
 
 @end

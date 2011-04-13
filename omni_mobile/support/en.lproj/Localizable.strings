@@ -64,6 +64,12 @@
 "Add Inventory Line" = "Add Inventory Line";
 "Street Name" = "Street Name";
 "Country" = "Country";
+"Unit Price" = "Unit Price";
+"Unit VAT" = "Unit VAT";
+"Discount" = "Discount";
+"Discount VAT" = "Discount VAT";
+"Quantity" = "Quantity";
+"Merchandise" = "Merchandise";
 
 /* Global error values */
 "ServerError" = "There was a server problem";

@@ -112,6 +112,7 @@
     employeeItem.editViewController = [EmployeesViewController class];
     employeeItem.editNibName = @"EmployeesViewController";
     employeeItem.deletableRow = YES;
+    employeeItem.deleteActionType = HMTableCellItemDeleteActionTypeClear;
     employeeItem.editableCell = NO;
     employeeItem.selectable = YES;
     employeeItem.selectableEdit = YES;
@@ -203,18 +204,25 @@
 
     // retrieves the employee object id
     NSNumber *employeeObjectId = [employee.data objectForKey:@"object_id"];
-    NSString *employeeObjectIdString = [NSString stringWithFormat:@"%d", [employeeObjectId intValue]];
 
     // sets the items in the remote data
     [remoteData addObject:[NSArray arrayWithObjects:@"user[username]", AVOID_NIL(username.identifier, NSString), nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"user[email]", AVOID_NIL(emailItem.description, NSString), nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"user[secret_question]", AVOID_NIL(secretQuestion.description, NSString), nil]];
-    [remoteData addObject:[NSArray arrayWithObjects:@"user[person][object_id]", AVOID_NIL(employeeObjectIdString, NSString), nil]];
 
     // sets the parameter items in the remote data
     [remoteData addObject:[NSArray arrayWithObjects:@"user[_parameters][password]", AVOID_NIL(passwordItem.description, NSString), nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"user[_parameters][confirm_password]", AVOID_NIL(passwordItem.description, NSString), nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"user[_parameters][secret_answer]", AVOID_NIL(secretAnswer.description, NSString), nil]];
+
+    // sets the employee to null in case it's not defined
+    if(employeeObjectId == nil) {
+        [remoteData addObject:[NSArray arrayWithObjects:@"user[person]", [NSNull null], nil]];
+    } else {
+        // otherwise sets the related employee
+        NSString *employeeObjectIdString = [NSString stringWithFormat:@"%d", [employeeObjectId intValue]];
+        [remoteData addObject:[NSArray arrayWithObjects:@"user[person][object_id]", employeeObjectIdString, nil]];
+    }
 
     // returns the remote data
     return remoteData;

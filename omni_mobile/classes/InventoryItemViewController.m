@@ -98,10 +98,7 @@
     [firstSectionItemGroup addItem:nameItem];
 
     // for each inventory line
-    for(int index = 0; index < [inventoryLines count]; index++) {
-        // retrieves the current inventory line
-        NSDictionary *inventoryLine = [inventoryLines objectAtIndex:index];
-
+    for(NSDictionary *inventoryLine in inventoryLines) {
         // retrieves the inventory line information
         NSNumber *objectId = AVOID_NULL_NUMBER([inventoryLine objectForKey:@"object_id"]);
         NSString *objectIdString = [objectId stringValue];
@@ -113,24 +110,27 @@
         NSString *storeName = AVOID_NULL([contactableOrganizationalHierarchyTreeNode objectForKey:@"name"]);
         NSString *storeStockOnHand = [NSString stringWithFormat:@"%d", stockOnHand];
 
-        // creates the store string table cell item
-        HMStringTableCellItem *storeItem = [[HMStringTableCellItem alloc] initWithIdentifier:objectIdString];
-        storeItem.description = storeName;
-        storeItem.data = inventoryLine;
-        storeItem.icon = @"building.png";
-        storeItem.highlightedIcon = @"building_white.png";
-        storeItem.accessoryType = @"badge_label";
-        storeItem.accessoryValue = storeStockOnHand;
-        storeItem.selectable = YES;
-        storeItem.indentable = YES;
-        storeItem.deletableRow = NO;
-        storeItem.editableCell = NO;
+        // creates the inventory line string table cell item
+        HMStringTableCellItem *inventoryLineItem = [[HMStringTableCellItem alloc] initWithIdentifier:objectIdString];
+        inventoryLineItem.description = storeName;
+        inventoryLineItem.data = inventoryLine;
+        inventoryLineItem.icon = @"building.png";
+        inventoryLineItem.highlightedIcon = @"building_white.png";
+        inventoryLineItem.accessoryType = @"badge_label";
+        inventoryLineItem.accessoryValue = storeStockOnHand;
+        inventoryLineItem.selectable = YES;
+        inventoryLineItem.indentable = YES;
+        inventoryLineItem.deletableRow = YES;
+        inventoryLineItem.deleteActionType = HMTableCellItemDeleteActionTypeDelete;
+        inventoryLineItem.editableCell = NO;
+        inventoryLineItem.readViewController = [InventoryItemStoreViewController class];
+        inventoryLineItem.readNibName = @"InventoryItemStoreViewController";
 
         // populates the second section item list
-        [secondSectionItemGroup addItem:storeItem];
+        [secondSectionItemGroup addItem:inventoryLineItem];
 
         // releases the store item
-        [storeItem release];
+        [inventoryLineItem release];
     }
 
     // adds the sections to the menu list
@@ -200,7 +200,7 @@
     }
 
     // sets the items in the remote data
-    [remoteData addObject:[NSArray arrayWithObjects:@"transactional_merchandise[company_product_code]", AVOID_NIL(companyProductCodeItem.description, NSString), nil]];
+    [remoteData addObject:[NSArray arrayWithObjects:@"transactional_merchandise[company_product_code]", AVOID_NIL(companyProductCodeItem.identifier, NSString), nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"transactional_merchandise[name]", AVOID_NIL(nameItem.description, NSString), nil]];
 
     // returns the remote data
@@ -217,27 +217,6 @@
     [remoteData addObject:[NSArray arrayWithObjects:@"object_id", AVOID_NIL(objectIdString, NSString), nil]];
 }
 
-- (void)didSelectItemRowWithItem:(HMItem *)item {
-    if([item.identifier isEqualToString:@"name"]) {
-    }
-    else {
-        // initializes the inventory item store view controller
-        InventoryItemStoreViewController *inventoryItemStoreViewController = [[InventoryItemStoreViewController alloc] initWithNibName:@"InventoryItemStoreViewController" bundle:[NSBundle mainBundle]];
-
-        // pushes the inventory item store view controller into the navigation controller
-        [self.navigationController pushViewController:inventoryItemStoreViewController animated:YES];
-
-        // retrieves the item identifier
-        NSString *itemIdentifier = item.identifier;
-
-        // sets the entity in the inventory item store
-        [inventoryItemStoreViewController changeIdentifier:itemIdentifier];
-
-        // releases the inventory item store view controller reference
-        [inventoryItemStoreViewController release];
-    }
-}
-
 - (HMTableCellItem *)createTableCellItem:(NSDictionary *)data {
     // retrieves the attributes
     NSNumber *objectId = AVOID_NULL_NUMBER([data objectForKey:@"object_id"]);
@@ -247,28 +226,30 @@
     // creates the inventory line's identifier
     NSString *identifier = [NSString stringWithFormat:@"new_inventory_line_%d", [objectId intValue]];
 
-    // creates the contactable organizational hierarchy tree node data
-    NSDictionary *contactableOrganizationalHierarchyTreeNodeData = [NSDictionary dictionaryWithObjectsAndKeys:
-                                                                    objectIdString, @"object_id", nil];
+    // creates the contactable organizational hierarchy tree node
+    NSDictionary *contactableOrganizationalHierarchyTreeNode = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                                objectIdString, @"object_id", nil];
 
-    // creates the inventory line data
-    NSDictionary *inventoryLineData = [NSDictionary dictionaryWithObjectsAndKeys:
-                                       contactableOrganizationalHierarchyTreeNodeData, @"contactable_organizational_hierarchy_tree_node",
-                                       nil];
+    // creates the inventory line
+    NSDictionary *inventoryLine = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   contactableOrganizationalHierarchyTreeNode, @"contactable_organizational_hierarchy_tree_node",
+                                   nil];
 
     // creates the inventory line item
     HMStringTableCellItem *inventoryLineItem = [[[HMStringTableCellItem alloc] initWithIdentifier:identifier] autorelease];
     inventoryLineItem.description = storeName;
-    inventoryLineItem.data = inventoryLineData;
+    inventoryLineItem.data = inventoryLine;
     inventoryLineItem.icon = @"building.png";
     inventoryLineItem.highlightedIcon = @"building_white.png";
     inventoryLineItem.accessoryType = @"badge_label";
     inventoryLineItem.accessoryValue = @"0";
     inventoryLineItem.selectable = YES;
-    inventoryLineItem.selectableEdit = NO;
     inventoryLineItem.indentable = YES;
-    inventoryLineItem.deletableRow = NO;
+    inventoryLineItem.deletableRow = YES;
+    inventoryLineItem.deleteActionType = HMTableCellItemDeleteActionTypeDelete;
     inventoryLineItem.editableCell = NO;
+    inventoryLineItem.readViewController = [InventoryItemStoreViewController class];
+    inventoryLineItem.readNibName = @"InventoryItemStoreViewController";
 
     // returns the inventory line item
     return inventoryLineItem;

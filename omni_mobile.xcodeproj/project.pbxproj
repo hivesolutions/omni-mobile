@@ -28,6 +28,8 @@
 		0EB880F21345079E00D94B07 /* building_header.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EB880F01345079E00D94B07 /* building_header.png */; };
 		0EB880F31345079E00D94B07 /* building_header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EB880F11345079E00D94B07 /* building_header@2x.png */; };
 		0ECC7AAB1349D0A700D39DBC /* EmployeeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ECC7AAA1349D0A700D39DBC /* EmployeeViewController.xib */; };
+		A57A09B71355A7840098A56A /* SaleLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A57A09B61355A7820098A56A /* SaleLineViewController.m */; };
+		A57A09BA1355A8F00098A56A /* SaleLineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A57A09B91355A8F00098A56A /* SaleLineViewController.xib */; };
 		C206D5B61354A12000B9FEB3 /* credits_background.png in Resources */ = {isa = PBXBuildFile; fileRef = C206D5B01354A12000B9FEB3 /* credits_background.png */; };
 		C206D5B71354A12000B9FEB3 /* credits_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C206D5B11354A12000B9FEB3 /* credits_background@2x.png */; };
 		C206D5B81354A12000B9FEB3 /* login_background.png in Resources */ = {isa = PBXBuildFile; fileRef = C206D5B21354A12000B9FEB3 /* login_background.png */; };
@@ -245,6 +247,9 @@
 		0EB880F01345079E00D94B07 /* building_header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = building_header.png; path = resources/images/header_icons/building/building_header.png; sourceTree = "<group>"; };
 		0EB880F11345079E00D94B07 /* building_header@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "building_header@2x.png"; path = "resources/images/header_icons/building/building_header@2x.png"; sourceTree = "<group>"; };
 		0ECC7AAA1349D0A700D39DBC /* EmployeeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EmployeeViewController.xib; path = nibs/EmployeeViewController.xib; sourceTree = "<group>"; };
+		A57A09B51355A7810098A56A /* SaleLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SaleLineViewController.h; path = classes/SaleLineViewController.h; sourceTree = "<group>"; };
+		A57A09B61355A7820098A56A /* SaleLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SaleLineViewController.m; path = classes/SaleLineViewController.m; sourceTree = "<group>"; };
+		A57A09B91355A8F00098A56A /* SaleLineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SaleLineViewController.xib; path = nibs/SaleLineViewController.xib; sourceTree = "<group>"; };
 		A57BEA56132E72F0000478F7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C206D5B01354A12000B9FEB3 /* credits_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = credits_background.png; sourceTree = "<group>"; };
 		C206D5B11354A12000B9FEB3 /* credits_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "credits_background@2x.png"; sourceTree = "<group>"; };
@@ -458,6 +463,8 @@
 		C20CDB8C1333780F008A4FE3 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A57A09B51355A7810098A56A /* SaleLineViewController.h */,
+				A57A09B61355A7820098A56A /* SaleLineViewController.m */,
 				C28F1C5A1354A9CC0007DB89 /* OptionsButtonView.h */,
 				C28F1C5B1354A9CC0007DB89 /* OptionsButtonView.m */,
 				C28F1C571354A7990007DB89 /* OptionsMenuViewController.h */,
@@ -532,6 +539,7 @@
 		C212D8C0132A481C00E2A078 /* Nibs */ = {
 			isa = PBXGroup;
 			children = (
+				A57A09B91355A8F00098A56A /* SaleLineViewController.xib */,
 				0E3BBC981345FABC00075437 /* EmployeesViewController.xib */,
 				0ECC7AAA1349D0A700D39DBC /* EmployeeViewController.xib */,
 				C24A0E6D1338B9BB00D8C7EC /* LoginViewController.xib */,
@@ -1301,6 +1309,7 @@
 				C26A005E1355107E00CFB434 /* person_header@2x.png in Resources */,
 				C26A005F1355107E00CFB434 /* person_header_white.png in Resources */,
 				C26A00601355107E00CFB434 /* person_header_white@2x.png in Resources */,
+				A57A09BA1355A8F00098A56A /* SaleLineViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1353,6 +1362,7 @@
 				C2BB8D2113549E0400E332F7 /* CreditsViewController.m in Sources */,
 				C28F1C591354A7990007DB89 /* OptionsMenuViewController.m in Sources */,
 				C28F1C5C1354A9CC0007DB89 /* OptionsButtonView.m in Sources */,
+				A57A09B71355A7840098A56A /* SaleLineViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

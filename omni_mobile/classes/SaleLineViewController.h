@@ -16,26 +16,18 @@
 // You should have received a copy of the GNU General Public License
 // along with Hive Omni Erp. If not, see <http://www.gnu.org/licenses/>.
 
-// __author__    = João Magalhães <joamag@hive.pt>
+// __author__    = Tiago Silva <tsilva@hive.pt>
 // __version__   = 1.0.0
 // __revision__  = $LastChangedRevision: 2390 $
 // __date__      = $LastChangedDate: 2009-04-02 08:36:50 +0100 (qui, 02 Abr 2009) $
 // __copyright__ = Copyright (c) 2008 Hive Solutions Lda.
 // __license__   = GNU General Public License (GPL), Version 3
 
-// dependencies includes
-#import "../classes/Dependencies.h"
+#import "Dependencies.h"
 
-// class includes
-#import "../classes/EmployeesViewController.h"
-#import "../classes/MenuViewController.h"
-#import "../classes/OmniMobileAppDelegate.h"
-#import "../classes/UsersViewController.h"
-#import "../classes/UserViewController.h"
-#import "../classes/LoginViewController.h"
-#import "../classes/InventoryViewController.h"
-#import "../classes/InventoryItemViewController.h"
-#import "../classes/InventoryItemStoreViewController.h"
-#import "../classes/StoresViewController.h"
-#import "../classes/StoreViewController.h"
-#import "../classes/SaleLineViewController.h"
+#import "InventoryItemViewController.h"
+
+@interface SaleLineViewController : HMRemoteHeaderItemTableViewController {
+}
+
+@end

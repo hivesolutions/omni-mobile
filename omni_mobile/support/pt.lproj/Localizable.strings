@@ -64,6 +64,12 @@
 "Add Inventory Line" = "Adicionar Linha Inventário";
 "Street Name" = "Morada";
 "Country" = "País";
+"Unit Price" = "Preço unitário";
+"Unit VAT" = "IVA unitário";
+"Discount" = "Desconto";
+"Discount VAT" = "Desconto IVA";
+"Quantity" = "Quantidade";
+"Merchandise" = "Mercadoria";
 
 /* Global error values */
 "ServerError" = "Ocorreu um problema no servidor";
