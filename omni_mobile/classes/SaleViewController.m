@@ -148,17 +148,6 @@
     [menuHeaderGroup addItem:@"subTitle" item:subTitle];
     [menuHeaderGroup addItem:@"image" item:image];
 
-    // populates the first section item group
-    [firstSectionItemGroup addItem:storeItem];
-
-    // populates the second section item group
-    [secondSectionItemGroup addItem:priceItem];
-    [secondSectionItemGroup addItem:vatItem];
-    [secondSectionItemGroup addItem:priceVatItem];
-
-    // populates the third section item group
-    [thirdSectionItemGroup addItem:customerItem];
-
     // creates the items for the sale lines
     // and adds them to the fourth item group
     for(NSDictionary *saleLine in saleLines) {
@@ -174,6 +163,8 @@
         HMStringTableCellItem *saleLineItem = [[HMStringTableCellItem alloc] initWithIdentifier:objectIdString];
         saleLineItem.description = merchandiseCompanyProductCode;
         saleLineItem.data = saleLine;
+        saleLineItem.icon = @"inventory_icon.png";
+        saleLineItem.highlightedIcon = @"inventory_icon_white.png";
         saleLineItem.accessoryType = @"badge_label";
         saleLineItem.accessoryValue = quantityString;
         saleLineItem.readViewController = [SaleLineViewController class];
@@ -181,12 +172,23 @@
         saleLineItem.selectable = YES;
 
         // adds the sale line item to
-        // the fourth section item group
-        [fourthSectionItemGroup addItem:saleLineItem];
+        // the first section item group
+        [firstSectionItemGroup addItem:saleLineItem];
 
         // releases the sale line item
         [saleLineItem release];
     }
+
+    // populates the second section item group
+    [secondSectionItemGroup addItem:storeItem];
+
+    // populates the third section item group
+    [thirdSectionItemGroup addItem:priceItem];
+    [thirdSectionItemGroup addItem:vatItem];
+    [thirdSectionItemGroup addItem:priceVatItem];
+
+    // populates the fourth section item group
+    [fourthSectionItemGroup addItem:customerItem];
 
     // adds the sections to the menu list
     [menuListGroup addItem:firstSectionItemGroup];
