@@ -76,6 +76,7 @@
 
 /* Global error messages */
 "username and password combination does not match" = "Username and password combination does not match";
+"an username and a password must be provided" = "An username and a password must be provided";
 
 /* Global sentence values */
 "Sentence000001" = "Data will be pushed to your phone from the server";
