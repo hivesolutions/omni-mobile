@@ -163,8 +163,8 @@
         HMStringTableCellItem *saleLineItem = [[HMStringTableCellItem alloc] initWithIdentifier:objectIdString];
         saleLineItem.description = merchandiseCompanyProductCode;
         saleLineItem.data = saleLine;
-        saleLineItem.icon = @"inventory_icon.png";
-        saleLineItem.highlightedIcon = @"inventory_icon_white.png";
+        saleLineItem.icon = @"box_icon.png";
+        saleLineItem.highlightedIcon = @"box_icon_white.png";
         saleLineItem.accessoryType = @"badge_label";
         saleLineItem.accessoryValue = quantityString;
         saleLineItem.readViewController = [SaleLineViewController class];
