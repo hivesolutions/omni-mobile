@@ -275,6 +275,27 @@
 }
 
 - (void)accountButtonClicked:(id)sender extra:(id)extra {
+    // initializes the user view controller
+    UserViewController *userViewController = [[UserViewController alloc] initWithNibName:@"UserViewController" bundle:[NSBundle mainBundle]];
+    userViewController.title = NSLocalizedString(@"Account", @"Account");
+
+    // retrieves the preferences
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+
+    // retrieves the current user object id
+    NSNumber *objectId = [preferences objectForKey:@"objectId"];
+
+    // creates the user entity
+    NSDictionary *userEntity = [NSDictionary dictionaryWithObjectsAndKeys:objectId, @"object_id", nil];
+
+    // changes the entity to the (current) user entity
+    [userViewController changeEntity:userEntity];
+
+    // pushes the user view controller
+    [self.navigationController pushViewController:userViewController animated:YES];
+
+    // releases the user view controller reference
+    [userViewController release];
 }
 
 - (void)didSelectUsersButton {

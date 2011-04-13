@@ -36,10 +36,13 @@
 "Done" = "Feito";
 "Search" = "Procurar";
 "Updated" = "Actualizado";
+"Login" = "Entrar";
+"Logout" = "Sair";
 
 /* Global dictionary values */
 "Title" = "Título";
 "Subtitle" = "Subtítulo";
+"Account" = "Conta";
 "Users" = "Utilizadores";
 "Employees" = "Empregados";
 "Sales" = "Vendas";

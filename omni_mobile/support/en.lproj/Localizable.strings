@@ -36,10 +36,13 @@
 "Done" = "Done";
 "Search" = "Search";
 "Updated" = "Updated";
+"Login" = "Login";
+"Logout" = "Logout";
 
 /* Global dictionary values */
 "Title" = "Title";
 "Subtitle" = "Subtitle";
+"Account" = "Account";
 "Users" = "Users";
 "Employees" = "Employees";
 "Sales" = "Sales";
