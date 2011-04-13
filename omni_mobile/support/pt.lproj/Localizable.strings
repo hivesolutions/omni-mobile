@@ -66,6 +66,9 @@
 "Street Name" = "Morada";
 "Country" = "País";
 
+/* Global error names */
+"LoginErrorName" = "Erro de Login";
+
 /* Global error values */
 "ServerError" = "Ocorreu um problema no servidor";
 "ConnectionError" = "Ocorreu um problema de conexão";
