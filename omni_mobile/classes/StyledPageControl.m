@@ -27,7 +27,7 @@
 
 @implementation StyledPageControl
 
-- (void) setCurrentPage:(NSInteger)page {
+- (void)setCurrentPage:(NSInteger)page {
     // calls the super
     [super setCurrentPage:page];
 
@@ -57,7 +57,7 @@
     }
 }
 
-- (void) setNumberOfPages:(NSInteger)pages {
+- (void)setNumberOfPages:(NSInteger)pages {
     // calls the super
     [super setNumberOfPages:pages];
 
