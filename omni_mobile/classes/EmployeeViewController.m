@@ -83,6 +83,7 @@
     HMStringTableCellItem *streetNameItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"street_name"];
     streetNameItem.name = NSLocalizedString(@"Street Name", @"Street Name");
     streetNameItem.description = streetName;
+    streetNameItem.multipleLines = YES;
 
     // creates the country string table cell item
     HMStringTableCellItem *countryItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"country"];
