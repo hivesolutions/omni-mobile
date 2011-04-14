@@ -31,8 +31,8 @@
 
 - (id)init {
     // loads the dot images
-    _imageActive = [UIImage imageNamed:DEFAULT_STYLE_PAGE_CONTROL_DOT_ACTIVE];
-    _imageInactive = [UIImage imageNamed:DEFAULT_STYLE_PAGE_CONTROL_DOT_INACTIVE];
+    _imageActive = [UIImage imageNamed:HM_STYLED_PAGE_CONTROL_DOT_ACTIVE];
+    _imageInactive = [UIImage imageNamed:HM_STYLED_PAGE_CONTROL_DOT_INACTIVE];
 
     // calls the super
     self = [super init];
@@ -43,8 +43,8 @@
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     // loads the dot images
-    _imageActive = [UIImage imageNamed:DEFAULT_STYLE_PAGE_CONTROL_DOT_ACTIVE];
-    _imageInactive = [UIImage imageNamed:DEFAULT_STYLE_PAGE_CONTROL_DOT_INACTIVE];
+    _imageActive = [UIImage imageNamed:HM_STYLED_PAGE_CONTROL_DOT_ACTIVE];
+    _imageInactive = [UIImage imageNamed:HM_STYLED_PAGE_CONTROL_DOT_INACTIVE];
 
     // calls the super
     self = [super initWithCoder:aDecoder];

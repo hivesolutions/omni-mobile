@@ -26,14 +26,14 @@
 #import "Dependencies.h"
 
 /**
- * The default style page control dot active image path.
+ * The styled page control dot active.
  */
-#define DEFAULT_STYLE_PAGE_CONTROL_DOT_ACTIVE @"page_control_dot_active.png"
+#define HM_STYLED_PAGE_CONTROL_DOT_ACTIVE @"page_control_dot_active.png"
 
 /**
- * The default style page control dot inactive image path.
+ * The styled page control dot inactive.
  */
-#define DEFAULT_STYLE_PAGE_CONTROL_DOT_INACTIVE @"page_control_dot_inactive.png"
+#define HM_STYLED_PAGE_CONTROL_DOT_INACTIVE @"page_control_dot_inactive.png"
 
 @interface HMStyledPageControl : UIPageControl {
     @private
