@@ -73,10 +73,17 @@
     NSDictionary *merchandise = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"merchandise"]);
     NSString *merchandiseCompanyProductCode = AVOID_NULL([merchandise objectForKey:@"company_product_code"]);
 
-    // creates the menu header items
-    HMItem *title = [[HMItem alloc] initWithIdentifier:AVOID_NULL(identifier)];
-    HMItem *subTitle = [[HMItem alloc] initWithIdentifier:AVOID_NULL(merchandiseCompanyProductCode)];
-    HMItem *image = [[HMItem alloc] initWithIdentifier:AVOID_NULL(@"box_building_header.png")];
+    // creates the title item
+    HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
+    titleItem.description = identifier;
+
+    // creates the subtitle item
+    HMItem *subTitleItem = [[HMItem alloc] initWithIdentifier:@"subTitle"];
+    subTitleItem.description = merchandiseCompanyProductCode;
+
+    // creates the image item
+    HMItem *imageItem = [[HMItem alloc] initWithIdentifier:@"image"];
+    imageItem.description = @"box_building_header.png";
 
     // creates the menu header group
     HMNamedItemGroup *menuHeaderGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu_header"];
@@ -137,9 +144,9 @@
     HMNamedItemGroup *menuNamedItemGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu"];
 
     // populates the menu header
-    [menuHeaderGroup addItem:@"title" item:title];
-    [menuHeaderGroup addItem:@"subTitle" item:subTitle];
-    [menuHeaderGroup addItem:@"image" item:image];
+    [menuHeaderGroup addItem:@"title" item:titleItem];
+    [menuHeaderGroup addItem:@"subTitle" item:subTitleItem];
+    [menuHeaderGroup addItem:@"image" item:imageItem];
 
     // populates the first section item group
     [firstSectionItemGroup addItem:unitPriceItem];
@@ -174,9 +181,9 @@
     [unitVatItem release];
     [unitPriceItem release];
     [menuHeaderGroup release];
-    [image release];
-    [subTitle release];
-    [title release];
+    [imageItem release];
+    [subTitleItem release];
+    [titleItem release];
 }
 
 - (NSMutableArray *)convertRemoteGroup:(HMItemOperationType)operationType {

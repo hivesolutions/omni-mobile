@@ -74,6 +74,9 @@
 "Discount VAT" = "Discount VAT";
 "Quantity" = "Quantity";
 "Merchandise" = "Merchandise";
+"Sale Lines" = "Sale Lines";
+"Sale Details" = "Sale Details";
+"Commission" = "Commission";
 
 /* Global error names */
 "LoginErrorName" = "Login Error";

@@ -33,7 +33,7 @@
 }
 
 - (NSString *)getRemoteUrlForOperation:(HMItemOperationType)operationType {
-    return [self.entityAbstraction getRemoteUrlForOperation:operationType entityName:@"transactional_merchandise" serializerName:@"json"];
+    return [self.entityAbstraction getRemoteUrlForOperation:operationType entityName:@"products" serializerName:@"json"];
 }
 
 - (void)processEmpty {
@@ -59,10 +59,17 @@
     NSString *name = AVOID_NULL([remoteData objectForKey:@"name"]);
     NSArray *inventoryLines = AVOID_NULL_ARRAY([remoteData objectForKey:@"inventory_lines"]);
 
-    // creates the menu header items
-    HMItem *title = [[HMItem alloc] initWithIdentifier:name];
-    HMItem *subTitle = [[HMItem alloc] initWithIdentifier:companyProductCode];
-    HMItem *image = [[HMItem alloc] initWithIdentifier:@"box_header.png"];
+    // creates the title item
+    HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
+    titleItem.description = name;
+
+    // creates the subtitle item
+    HMItem *subTitleItem = [[HMItem alloc] initWithIdentifier:@"subTitle"];
+    subTitleItem.description = companyProductCode;
+
+    // creates the image item
+    HMItem *imageItem = [[HMItem alloc] initWithIdentifier:@"image"];
+    imageItem.description = @"box_header.png";
 
     // creates the menu header group
     HMNamedItemGroup *menuHeaderGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu_header"];
@@ -91,9 +98,9 @@
     HMNamedItemGroup *menuNamedItemGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu"];
 
     // populates the menu header
-    [menuHeaderGroup addItem:@"title" item:title];
-    [menuHeaderGroup addItem:@"subTitle" item:subTitle];
-    [menuHeaderGroup addItem:@"image" item:image];
+    [menuHeaderGroup addItem:@"title" item:titleItem];
+    [menuHeaderGroup addItem:@"subTitle" item:subTitleItem];
+    [menuHeaderGroup addItem:@"image" item:imageItem];
 
     // populates the first section item list
     [firstSectionItemGroup addItem:nameItem];
@@ -153,9 +160,9 @@
     [firstSectionItemGroup release];
     [menuHeaderGroup release];
     [nameItem release];
-    [image release];
-    [subTitle release];
-    [title release];
+    [imageItem release];
+    [subTitleItem release];
+    [titleItem release];
 }
 
 - (NSMutableArray *)convertRemoteGroup:(HMItemOperationType)operationType {
@@ -189,7 +196,7 @@
         // sets the object id in case it's defined
         if(inventoryLineObjectId != nil) {
             NSString *inventoryLineObjectIdString = [NSString stringWithFormat:@"%d", [inventoryLineObjectId intValue]];
-            [remoteData addObject:[NSArray arrayWithObjects:@"transactional_merchandise[inventory_lines][][object_id]", AVOID_NIL(inventoryLineObjectIdString, NSString), nil]];
+            [remoteData addObject:[NSArray arrayWithObjects:@"product[inventory_lines][][object_id]", AVOID_NIL(inventoryLineObjectIdString, NSString), nil]];
         }
 
         // retrieves the inventory line's attributes
@@ -198,12 +205,12 @@
         NSString *inventoryLineContactableOrganizationalHierarchyTreeNodeObjectIdString = [NSString stringWithFormat:@"%d", [inventoryLineContactableOrganizationalHierarchyTreeNodeObjectId intValue]];
 
         // sets the items in the remote data
-        [remoteData addObject:[NSArray arrayWithObjects:@"transactional_merchandise[inventory_lines][][contactable_organizational_hierarchy_tree_node][object_id]", AVOID_NIL(inventoryLineContactableOrganizationalHierarchyTreeNodeObjectIdString, NSString), nil]];
+        [remoteData addObject:[NSArray arrayWithObjects:@"product[inventory_lines][][contactable_organizational_hierarchy_tree_node][object_id]", AVOID_NIL(inventoryLineContactableOrganizationalHierarchyTreeNodeObjectIdString, NSString), nil]];
     }
 
     // sets the items in the remote data
-    [remoteData addObject:[NSArray arrayWithObjects:@"transactional_merchandise[company_product_code]", AVOID_NIL(companyProductCodeItem.identifier, NSString), nil]];
-    [remoteData addObject:[NSArray arrayWithObjects:@"transactional_merchandise[name]", AVOID_NIL(nameItem.description, NSString), nil]];
+    [remoteData addObject:[NSArray arrayWithObjects:@"product[company_product_code]", AVOID_NIL(companyProductCodeItem.description, NSString), nil]];
+    [remoteData addObject:[NSArray arrayWithObjects:@"product[name]", AVOID_NIL(nameItem.description, NSString), nil]];
 
     // returns the remote data
     return remoteData;
@@ -215,7 +222,7 @@
     NSString *objectIdString = [objectId stringValue];
 
     // sets the object id (structured and unstructured)
-    [remoteData addObject:[NSArray arrayWithObjects:@"transactional_merchandise[object_id]", AVOID_NIL(objectIdString, NSString), nil]];
+    [remoteData addObject:[NSArray arrayWithObjects:@"product[object_id]", AVOID_NIL(objectIdString, NSString), nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"object_id", AVOID_NIL(objectIdString, NSString), nil]];
 }
 

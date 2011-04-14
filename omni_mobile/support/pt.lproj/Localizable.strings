@@ -40,6 +40,7 @@
 "Logout" = "Sair";
 
 /* Global dictionary values */
+"Name"  = "Nome";
 "Title" = "Título";
 "Subtitle" = "Subtítulo";
 "Account" = "Conta";
@@ -60,6 +61,7 @@
 "Price" = "Preço";
 "Price VAT" = "Preço IVA";
 "VAT" = "IVA";
+"Password" = "Palavra-passe";
 "Question" = "Questão";
 "Secret Question" = "Questão Secreta";
 "Answer" = "Resposta";
@@ -74,6 +76,9 @@
 "Discount VAT" = "Desconto IVA";
 "Quantity" = "Quantidade";
 "Merchandise" = "Mercadoria";
+"Sale Lines" = "Linhas Venda";
+"Sale Details" = "Detalhes Venda";
+"Commission" = "Comissão";
 
 /* Global error names */
 "LoginErrorName" = "Erro de Login";

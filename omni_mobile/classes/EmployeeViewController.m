@@ -64,6 +64,7 @@
 
     // retrieves the remote data attributes
     NSString *name = AVOID_NULL([remoteData objectForKey:@"name"]);
+    NSNumber *commission = AVOID_NULL([remoteData objectForKey:@"commission"]);
     NSDictionary *primaryAddress = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"primary_address"]);
     NSDictionary *primaryContactInformation = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"primary_contact_information"]);
     NSString *streetName = AVOID_NULL([primaryAddress objectForKey:@"street_name"]);
@@ -71,10 +72,24 @@
     NSString *email = AVOID_NULL([primaryContactInformation objectForKey:@"email"]);
     NSString *phoneNumber = AVOID_NULL([primaryContactInformation objectForKey:@"phone_number"]);
 
-    // creates the menu header items
-    HMItem *title = [[HMItem alloc] initWithIdentifier:AVOID_NULL(name)];
-    HMItem *subTitle = [[HMItem alloc] initWithIdentifier:AVOID_NULL(@"")];
-    HMItem *image = [[HMItem alloc] initWithIdentifier:AVOID_NULL(@"person_header.png")];
+    // creates a string representation of
+    // the commission in percentage format
+    float commissionPercentageFloat = [commission floatValue] * 100;
+    NSNumber *commissionPercentageNumber = [NSNumber numberWithFloat:commissionPercentageFloat];
+    int commissionPercentageInteger = [commissionPercentageNumber intValue];
+    NSString *commissionString = [NSString stringWithFormat:@"%d", commissionPercentageInteger];
+
+    // creates the title item
+    HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
+    titleItem.description = name;
+
+    // creates the subtitle item
+    HMItem *subTitleItem = [[HMItem alloc] initWithIdentifier:@"subTitle"];
+    subTitleItem.description = @"";
+
+    // creates the image item
+    HMItem *imageItem = [[HMItem alloc] initWithIdentifier:@"image"];
+    imageItem.description = @"person_header.png";
 
     // creates the menu header group
     HMNamedItemGroup *menuHeaderGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu_header"];
@@ -100,9 +115,17 @@
     emailItem.name = NSLocalizedString(@"E-mail", @"E-mail");
     emailItem.description = email;
 
+    // creates the commission string table cell item
+    HMStringTableCellItem *commissionItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"commission"];
+    commissionItem.name = NSLocalizedString(@"Commission", @"Commission");
+    commissionItem.description = commissionString;
+    commissionItem.accessoryType = @"badge_label";
+    commissionItem.accessoryValue = @"%";
+
     // creates the sections item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
     HMTableSectionItemGroup *secondSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"second_section"];
+    HMTableSectionItemGroup *thirdSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"third_section"];
 
     // creates the menu list group
     HMItemGroup *menuListGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu_list"];
@@ -111,9 +134,9 @@
     HMNamedItemGroup *menuNamedItemGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu"];
 
     // populates the menu header
-    [menuHeaderGroup addItem:@"title" item:title];
-    [menuHeaderGroup addItem:@"subTitle" item:subTitle];
-    [menuHeaderGroup addItem:@"image" item:image];
+    [menuHeaderGroup addItem:@"title" item:titleItem];
+    [menuHeaderGroup addItem:@"subTitle" item:subTitleItem];
+    [menuHeaderGroup addItem:@"image" item:imageItem];
 
     // populates the first section item group
     [firstSectionItemGroup addItem:streetNameItem];
@@ -123,9 +146,13 @@
     [secondSectionItemGroup addItem:phoneNumberItem];
     [secondSectionItemGroup addItem:emailItem];
 
+    // populates the third section item group
+    [thirdSectionItemGroup addItem:commissionItem];
+
     // adds the sections to the menu list
     [menuListGroup addItem:firstSectionItemGroup];
     [menuListGroup addItem:secondSectionItemGroup];
+    [menuListGroup addItem:thirdSectionItemGroup];
 
     // adds the menu items to the menu item group
     [menuNamedItemGroup addItem:@"header" item:menuHeaderGroup];
@@ -137,16 +164,18 @@
     // releases the objects
     [menuNamedItemGroup release];
     [menuListGroup release];
+    [thirdSectionItemGroup release];
     [secondSectionItemGroup release];
     [firstSectionItemGroup release];
+    [commissionItem release];
     [emailItem release];
     [phoneNumberItem release];
     [countryItem release];
     [streetNameItem release];
     [menuHeaderGroup release];
-    [image release];
-    [subTitle release];
-    [title release];
+    [imageItem release];
+    [subTitleItem release];
+    [titleItem release];
 }
 
 - (NSMutableArray *)convertRemoteGroup:(HMItemOperationType)operationType {
@@ -165,17 +194,28 @@
     // retrieves the section item groups
     HMItemGroup *firstSectionItemGroup = (HMItemGroup *) [menuListGroup getItem:0];
     HMItemGroup *secondSectionItemGroup = (HMItemGroup *) [menuListGroup getItem:1];
+    HMItemGroup *thirdSectionItemGroup = (HMItemGroup *) [menuListGroup getItem:2];
 
     // retrieves the first section items
-    HMItem *streetNameItem = [firstSectionItemGroup getItem:0];
-    HMItem *countryItem = [firstSectionItemGroup getItem:1];
+    HMItem *commissionItem = [firstSectionItemGroup getItem:0];
 
     // retrieves the second section items
-    HMItem *phoneNumberItem = [secondSectionItemGroup getItem:0];
-    HMItem *emailItem = [secondSectionItemGroup getItem:1];
+    HMItem *streetNameItem = [secondSectionItemGroup getItem:0];
+    HMItem *countryItem = [secondSectionItemGroup getItem:1];
+
+    // retrieves the third section items
+    HMItem *phoneNumberItem = [thirdSectionItemGroup getItem:0];
+    HMItem *emailItem = [thirdSectionItemGroup getItem:1];
+
+    // calculates the commission value
+    NSString *commissionPercentageString = commissionItem.description;
+    float commissionPercentage = [commissionPercentageString floatValue];
+    float commission = commissionPercentage / 100;
+    NSString *commissionString = [NSString stringWithFormat:@"%f", commission];
 
     // sets the items in the remote data
-    [remoteData addObject:[NSArray arrayWithObjects:@"employee[name]", AVOID_NIL(nameItem.identifier, NSString), nil]];
+    [remoteData addObject:[NSArray arrayWithObjects:@"employee[name]", AVOID_NIL(nameItem.description, NSString), nil]];
+    [remoteData addObject:[NSArray arrayWithObjects:@"employee[commission]", AVOID_NIL(commissionString, NSString), nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"employee[primary_address][street_name]", AVOID_NIL(streetNameItem.description, NSString), nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"employee[primary_address][country]", AVOID_NIL(countryItem.description, NSString), nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"employee[primary_contact_information][phone_number]", AVOID_NIL(phoneNumberItem.description, NSString), nil]];

@@ -63,10 +63,17 @@
     NSString *email = AVOID_NULL([primaryContactInformation objectForKey:@"email"]);
     NSString *phoneNumber = AVOID_NULL([primaryContactInformation objectForKey:@"phone_number"]);
 
-    // creates the menu header items
-    HMItem *title = [[HMItem alloc] initWithIdentifier:AVOID_NULL(name)];
-    HMItem *subTitle = [[HMItem alloc] initWithIdentifier:AVOID_NULL(@"")];
-    HMItem *image = [[HMItem alloc] initWithIdentifier:AVOID_NULL(@"building_header.png")];
+    // creates the title item
+    HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
+    titleItem.description = name;
+
+    // creates the subtitle item
+    HMItem *subTitleItem = [[HMItem alloc] initWithIdentifier:@"subTitle"];
+    subTitleItem.description = @"";
+
+    // creates the image item
+    HMItem *imageItem = [[HMItem alloc] initWithIdentifier:@"image"];
+    imageItem.description = @"building_header.png";
 
     // creates the menu header group
     HMNamedItemGroup *menuHeaderGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu_header"];
@@ -103,9 +110,9 @@
     HMNamedItemGroup *menuNamedItemGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu"];
 
     // populates the menu header
-    [menuHeaderGroup addItem:@"title" item:title];
-    [menuHeaderGroup addItem:@"subTitle" item:subTitle];
-    [menuHeaderGroup addItem:@"image" item:image];
+    [menuHeaderGroup addItem:@"title" item:titleItem];
+    [menuHeaderGroup addItem:@"subTitle" item:subTitleItem];
+    [menuHeaderGroup addItem:@"image" item:imageItem];
 
     // populates the first section item group
     [firstSectionItemGroup addItem:streetNameItem];
@@ -136,9 +143,9 @@
     [countryItem release];
     [streetNameItem release];
     [menuHeaderGroup release];
-    [image release];
-    [subTitle release];
-    [title release];
+    [imageItem release];
+    [subTitleItem release];
+    [titleItem release];
 }
 
 - (NSMutableArray *)convertRemoteGroup:(HMItemOperationType)operationType {
@@ -167,7 +174,7 @@
     HMItem *emailItem = [secondSectionItemGroup getItem:1];
 
     // sets the items in the remote data
-    [remoteData addObject:[NSArray arrayWithObjects:@"store[name]", AVOID_NIL(nameItem.identifier, NSString), nil]];
+    [remoteData addObject:[NSArray arrayWithObjects:@"store[name]", AVOID_NIL(nameItem.description, NSString), nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"store[primary_address][street_name]", AVOID_NIL(streetNameItem.description, NSString), nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"store[primary_address][country]", AVOID_NIL(countryItem.description, NSString), nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"store[primary_contact_information][phone_number]", AVOID_NIL(phoneNumberItem.description, NSString), nil]];

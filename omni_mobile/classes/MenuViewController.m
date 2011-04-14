@@ -188,6 +188,10 @@
     HMTableSectionItemGroup *secondSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"second_section"];
     secondSectionItemGroup.footerString = NSLocalizedString(@"Sentence000001", @"Sentence000001");
 
+    // customizes the second section footer item
+    HMLabelItem *secondSectionFooterItem = secondSectionItemGroup.footer;
+    secondSectionFooterItem.textAlignment = HMLabelItemTextAlignmentCenter;
+
     // creates the menu list group
     HMItemGroup *menuListGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu_list"];
 
@@ -206,6 +210,7 @@
     [secondSectionItemGroup addItem:optionsMenuItem];
     [secondSectionItemGroup addItem:creditsItem];
 
+    // populates the menu list group
     [menuListGroup addItem:firstSectionItemGroup];
     [menuListGroup addItem:secondSectionItemGroup];
 

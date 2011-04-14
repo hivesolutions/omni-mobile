@@ -57,7 +57,7 @@
 }
 
 - (NSString *)getRemoteUrl {
-    return [self.entityAbstraction constructClassUrl:@"transactional_merchandise" serializerName:@"json"];
+    return [self.entityAbstraction constructClassUrl:@"products" serializerName:@"json"];
 }
 
 - (HMRemoteTableViewSerialized)getRemoteType {

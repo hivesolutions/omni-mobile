@@ -63,7 +63,7 @@
     [super processRemoteData:remoteData];
 
     // retrieves the remote data attributes
-    NSDictionary *moneySaleSlip = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"money_sale_slip"]);
+    NSString *saleIdentifier = AVOID_NULL([remoteData objectForKey:@"identifier"]);
     NSNumber *date = AVOID_NULL_NUMBER([remoteData objectForKey:@"date"]);
     NSDictionary *sellerStockHolder = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"seller_stockholder"]);
     NSString *sellerStockHolderName = AVOID_NULL([sellerStockHolder objectForKey:@"name"]);
@@ -72,7 +72,6 @@
     NSNumber *vat = AVOID_NULL_NUMBER([remoteData objectForKey:@"vat"]);
     NSDictionary *personBuyer = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"person_buyer"]);
     NSString *personBuyerName = AVOID_NULL([personBuyer objectForKey:@"name"]);
-    NSString *moneySaleSlipIdentifier = AVOID_NULL([moneySaleSlip objectForKey:@"identifier"]);
     NSDictionary *saleLines = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"sale_lines"]);
 
     // checks if the person is anonymous
@@ -80,15 +79,22 @@
 
     // computes the date string from the timestamp
     NSDate *dateDate = [NSDate dateWithTimeIntervalSince1970:[date floatValue]];
-    NSString *dateString = [dateDate description];
+    NSString *dateString = AVOID_NULL([dateDate description]);
 
     // calculates the price vat
     NSNumber *priceVat = [NSNumber numberWithFloat:([priceValue floatValue] + [vat floatValue])];
 
-    // creates the menu header items
-    HMItem *title = [[HMItem alloc] initWithIdentifier:AVOID_NULL(moneySaleSlipIdentifier)];
-    HMItem *subTitle = [[HMItem alloc] initWithIdentifier:AVOID_NULL(dateString)];
-    HMItem *image = [[HMItem alloc] initWithIdentifier:AVOID_NULL(@"box_building_header.png")];
+    // creates the title item
+    HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
+    titleItem.description = saleIdentifier;
+
+    // creates the subtitle item
+    HMItem *subTitleItem = [[HMItem alloc] initWithIdentifier:@"subTitle"];
+    subTitleItem.description = dateString;
+
+    // creates the image item
+    HMItem *imageItem = [[HMItem alloc] initWithIdentifier:@"image"];
+    imageItem.description = @"box_building_header.png";
 
     // creates the menu header group
     HMNamedItemGroup *menuHeaderGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu_header"];
@@ -131,9 +137,15 @@
     customerItem.accessoryType = isPersonAnonymous ? nil : @"disclosure_indicator";
     customerItem.selectable = isPersonAnonymous ? NO : YES;
 
-    // creates the sections item group
+    // creates the first section item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
+    firstSectionItemGroup.headerString = NSLocalizedString(@"Sale Lines", @"Sale Lines");
+
+    // creates the second section item group
     HMTableSectionItemGroup *secondSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"second_section"];
+    secondSectionItemGroup.headerString = NSLocalizedString(@"Sale Details", @"Sale Details");
+
+    // creates remaining section item groups
     HMTableSectionItemGroup *thirdSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"third_section"];
     HMTableSectionItemGroup *fourthSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"fourth_section"];
 
@@ -144,9 +156,9 @@
     HMNamedItemGroup *menuNamedItemGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu"];
 
     // populates the menu header
-    [menuHeaderGroup addItem:@"title" item:title];
-    [menuHeaderGroup addItem:@"subTitle" item:subTitle];
-    [menuHeaderGroup addItem:@"image" item:image];
+    [menuHeaderGroup addItem:@"title" item:titleItem];
+    [menuHeaderGroup addItem:@"subTitle" item:subTitleItem];
+    [menuHeaderGroup addItem:@"image" item:imageItem];
 
     // creates the items for the sale lines
     // and adds them to the fourth item group
@@ -216,9 +228,9 @@
     [priceItem release];
     [storeItem release];
     [menuHeaderGroup release];
-    [image release];
-    [subTitle release];
-    [title release];
+    [imageItem release];
+    [subTitleItem release];
+    [titleItem release];
 }
 
 - (NSMutableArray *)convertRemoteGroup:(HMItemOperationType)operationType {

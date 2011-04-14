@@ -67,10 +67,17 @@
     NSNumber *priceValue = AVOID_NULL_NUMBER([price objectForKey:@"value"]);
     NSNumber *retailPriceValue = AVOID_NULL_NUMBER([retailPrice objectForKey:@"value"]);
 
-    // creates the menu header items
-    HMItem *title = [[HMItem alloc] initWithIdentifier:merchandiseCompanyProductCode];
-    HMItem *subTitle = [[HMItem alloc] initWithIdentifier:storeName];
-    HMItem *image = [[HMItem alloc] initWithIdentifier:@"box_building_header.png"];
+    // creates the title item
+    HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
+    titleItem.description = merchandiseCompanyProductCode;
+
+    // creates the subtitle item
+    HMItem *subTitleItem = [[HMItem alloc] initWithIdentifier:@"subTitle"];
+    subTitleItem.description = storeName;
+
+    // creates the image item
+    HMItem *imageItem = [[HMItem alloc] initWithIdentifier:@"image"];
+    imageItem.description = @"box_building_header.png";
 
     // creates the menu header group
     HMNamedItemGroup *menuHeaderGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu_header"];
@@ -107,9 +114,9 @@
     HMNamedItemGroup *menuNamedItemGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu"];
 
     // populates the menu header
-    [menuHeaderGroup addItem:@"title" item:title];
-    [menuHeaderGroup addItem:@"subTitle" item:subTitle];
-    [menuHeaderGroup addItem:@"image" item:image];
+    [menuHeaderGroup addItem:@"title" item:titleItem];
+    [menuHeaderGroup addItem:@"subTitle" item:subTitleItem];
+    [menuHeaderGroup addItem:@"image" item:imageItem];
 
     // populates the first section item list
     [firstSectionItemGroup addItem:stockOnHandItem];
@@ -134,9 +141,9 @@
     [priceItem release];
     [retailPriceItem release];
     [stockOnHandItem release];
-    [image release];
-    [subTitle release];
-    [title release];
+    [imageItem release];
+    [subTitleItem release];
+    [titleItem release];
 }
 
 - (NSMutableArray *)convertRemoteGroup:(HMItemOperationType)operationType {

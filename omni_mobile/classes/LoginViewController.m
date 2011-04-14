@@ -150,16 +150,16 @@
     passwordItem.returnDisablesEdit = YES;
     passwordItem.autocapitalizationType = nil;
 
-    // creates the first section footer item
-    HMLabelItem *firstSectionFooterItem = [[HMLabelItem alloc] initWithIdentifier:@"first_section_footer"];
-    firstSectionFooterItem.description =  NSLocalizedString(@"Sentence000002", @"Sentence000002");
-    firstSectionFooterItem.descriptionFont = @"Helvetica";
-    firstSectionFooterItem.descriptionFontSize = 14;
-    firstSectionFooterItem.descriptionColor = [HMColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
-
     // creates the first section item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
-    firstSectionItemGroup.footer = firstSectionFooterItem;
+    firstSectionItemGroup.footerString = NSLocalizedString(@"Sentence000002", @"Sentence000002");
+
+    // customizes the first section footer item
+    HMLabelItem *firstSectionFooterItem = firstSectionItemGroup.footer;
+    firstSectionFooterItem.descriptionFontSize = 14;
+    firstSectionFooterItem.descriptionColor = [HMColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+    firstSectionFooterItem.descriptionShadowColor = nil;
+    firstSectionFooterItem.textAlignment = HMLabelItemTextAlignmentCenter;
 
     // creates the menu list group
     HMItemGroup *menuListGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu_list"];
@@ -171,6 +171,7 @@
     [firstSectionItemGroup addItem:usernameItem];
     [firstSectionItemGroup addItem:passwordItem];
 
+    // populates the menu list group
     [menuListGroup addItem:firstSectionItemGroup];
 
     // adds the menu items to the menu item group
@@ -189,7 +190,6 @@
     // releases the objects
     [menuNamedItemGroup release];
     [menuListGroup release];
-    [firstSectionFooterItem release];
     [firstSectionItemGroup release];
     [passwordItem release];
     [usernameItem release];

@@ -71,10 +71,20 @@
     NSDictionary *person = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"person"]);
     NSString *personName = AVOID_NULL([person objectForKey:@"name"]);
 
-    // creates the menu header items
-    HMItem *title = [[HMItem alloc] initWithIdentifier:AVOID_NULL(username)];
-    HMItem *subTitle = [[HMItem alloc] initWithIdentifier:AVOID_NULL(username)];
-    HMItem *image = [[HMItem alloc] initWithIdentifier:AVOID_NULL(@"person_header.png")];
+    // checks if the persons is available
+    BOOL isPersonAvailable = [person count] == 0 ? NO : YES;
+
+    // creates the title item
+    HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
+    titleItem.description = username;
+
+    // creates the subtitle item
+    HMItem *subTitleItem = [[HMItem alloc] initWithIdentifier:@"subTitle"];
+    subTitleItem.description = @"";
+
+    // creates the image item
+    HMItem *imageItem = [[HMItem alloc] initWithIdentifier:@"image"];
+    imageItem.description = @"person_header.png";
 
     // creates the menu header group
     HMNamedItemGroup *menuHeaderGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu_header"];
@@ -114,7 +124,7 @@
     employeeItem.deletableRow = YES;
     employeeItem.deleteActionType = HMTableCellItemDeleteActionTypeClear;
     employeeItem.editableCell = NO;
-    employeeItem.selectable = YES;
+    employeeItem.selectable = isPersonAvailable;
     employeeItem.selectableEdit = YES;
 
     // creates the sections item group
@@ -129,9 +139,9 @@
     HMNamedItemGroup *menuNamedItemGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu"];
 
     // populates the menu header
-    [menuHeaderGroup addItem:@"title" item:title];
-    [menuHeaderGroup addItem:@"subTitle" item:subTitle];
-    [menuHeaderGroup addItem:@"image" item:image];
+    [menuHeaderGroup addItem:@"title" item:titleItem];
+    [menuHeaderGroup addItem:@"subTitle" item:subTitleItem];
+    [menuHeaderGroup addItem:@"image" item:imageItem];
 
     // populates the first section item group
     [firstSectionItemGroup addItem:passwordItem];
@@ -168,9 +178,9 @@
     [passwordItem release];
     [emailItem release];
     [menuHeaderGroup release];
-    [image release];
-    [subTitle release];
-    [title release];
+    [imageItem release];
+    [subTitleItem release];
+    [titleItem release];
 }
 
 - (NSMutableArray *)convertRemoteGroup:(HMItemOperationType)operationType {
@@ -206,7 +216,7 @@
     NSNumber *employeeObjectId = [employee.data objectForKey:@"object_id"];
 
     // sets the items in the remote data
-    [remoteData addObject:[NSArray arrayWithObjects:@"user[username]", AVOID_NIL(username.identifier, NSString), nil]];
+    [remoteData addObject:[NSArray arrayWithObjects:@"user[username]", AVOID_NIL(username.description, NSString), nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"user[email]", AVOID_NIL(emailItem.description, NSString), nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"user[secret_question]", AVOID_NIL(secretQuestion.description, NSString), nil]];
 
