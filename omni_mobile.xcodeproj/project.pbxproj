@@ -56,6 +56,10 @@
 		C212D8D3132A488200E2A078 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C212D8CC132A484700E2A078 /* InfoPlist.strings */; };
 		C226C242132A781B00427656 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C226C241132A781B00427656 /* MenuViewController.m */; };
 		C226C244132A782500427656 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C226C243132A782500427656 /* MenuViewController.xib */; };
+		C22DFEDA1357157B006A4F61 /* page_control_dot_active.png in Resources */ = {isa = PBXBuildFile; fileRef = C22DFED61357157B006A4F61 /* page_control_dot_active.png */; };
+		C22DFEDB1357157B006A4F61 /* page_control_dot_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C22DFED71357157B006A4F61 /* page_control_dot_active@2x.png */; };
+		C22DFEDC1357157B006A4F61 /* page_control_dot_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = C22DFED81357157B006A4F61 /* page_control_dot_inactive.png */; };
+		C22DFEDD1357157B006A4F61 /* page_control_dot_inactive@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C22DFED91357157B006A4F61 /* page_control_dot_inactive@2x.png */; };
 		C23F3D86132E5932003155EE /* libjson_mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C23F3D85132E5932003155EE /* libjson_mobile.a */; };
 		C23F3D8A132E5965003155EE /* libcommons_mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C23F3D89132E5965003155EE /* libcommons_mobile.a */; };
 		C23F3DA7132E737B003155EE /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23F3DA6132E737B003155EE /* MainWindow-iPad.xib */; };
@@ -290,6 +294,10 @@
 		C226C240132A781B00427656 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = classes/MenuViewController.h; sourceTree = "<group>"; };
 		C226C241132A781B00427656 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = classes/MenuViewController.m; sourceTree = "<group>"; };
 		C226C243132A782500427656 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuViewController.xib; path = nibs/MenuViewController.xib; sourceTree = "<group>"; };
+		C22DFED61357157B006A4F61 /* page_control_dot_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page_control_dot_active.png; sourceTree = "<group>"; };
+		C22DFED71357157B006A4F61 /* page_control_dot_active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_control_dot_active@2x.png"; sourceTree = "<group>"; };
+		C22DFED81357157B006A4F61 /* page_control_dot_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page_control_dot_inactive.png; sourceTree = "<group>"; };
+		C22DFED91357157B006A4F61 /* page_control_dot_inactive@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_control_dot_inactive@2x.png"; sourceTree = "<group>"; };
 		C23F3D85132E5932003155EE /* libjson_mobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libjson_mobile.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C23F3D89132E5965003155EE /* libcommons_mobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libcommons_mobile.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C23F3DA6132E737B003155EE /* MainWindow-iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "ipad/nibs/MainWindow-iPad.xib"; sourceTree = "<group>"; };
@@ -971,6 +979,10 @@
 		C28F3A7213328DBC006F36F8 /* System */ = {
 			isa = PBXGroup;
 			children = (
+				C22DFED61357157B006A4F61 /* page_control_dot_active.png */,
+				C22DFED71357157B006A4F61 /* page_control_dot_active@2x.png */,
+				C22DFED81357157B006A4F61 /* page_control_dot_inactive.png */,
+				C22DFED91357157B006A4F61 /* page_control_dot_inactive@2x.png */,
 				C270A7F11354CAD9004611EA /* menu_item_gradient@2x.png */,
 				C270A7EF1354C128004611EA /* menu_item_gradient.png */,
 				C20FC5A41337B97600FDBE8D /* white_button.png */,
@@ -1317,6 +1329,10 @@
 				C2616DC81356289A00D494F8 /* phone_icon@2x.png in Resources */,
 				C2616DC91356289A00D494F8 /* phone_icon_white.png in Resources */,
 				C2616DCA1356289A00D494F8 /* phone_icon_white@2x.png in Resources */,
+				C22DFEDA1357157B006A4F61 /* page_control_dot_active.png in Resources */,
+				C22DFEDB1357157B006A4F61 /* page_control_dot_active@2x.png in Resources */,
+				C22DFEDC1357157B006A4F61 /* page_control_dot_inactive.png in Resources */,
+				C22DFEDD1357157B006A4F61 /* page_control_dot_inactive@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
