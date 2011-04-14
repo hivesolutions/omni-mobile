@@ -27,13 +27,41 @@
 
 @implementation HMStyledPageControl
 
+@synthesize currentCachePage = _currentCachePage;
+
+- (id)init {
+    // loads the dot images
+    _imageActive = [UIImage imageNamed:DEFAULT_STYLE_PAGE_CONTROL_DOT_ACTIVE];
+    _imageInactive = [UIImage imageNamed:DEFAULT_STYLE_PAGE_CONTROL_DOT_INACTIVE];
+
+    // calls the super
+    self = [super init];
+
+    // returns self
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    // loads the dot images
+    _imageActive = [UIImage imageNamed:DEFAULT_STYLE_PAGE_CONTROL_DOT_ACTIVE];
+    _imageInactive = [UIImage imageNamed:DEFAULT_STYLE_PAGE_CONTROL_DOT_INACTIVE];
+
+    // calls the super
+    self = [super initWithCoder:aDecoder];
+
+    // returns self
+    return self;
+}
+
 - (void)setCurrentPage:(NSInteger)page {
     // calls the super
     [super setCurrentPage:page];
 
-    // loads the active and inactive images
-    NSString *imageActive = [[NSBundle mainBundle] pathForResource:@"credits_icon.png" ofType:nil];
-    NSString *imageInactive = [[NSBundle mainBundle] pathForResource:@"credits_icon_white.png" ofType:nil];
+    // in case the page is already cached
+    if(page == self.currentCachePage) {
+        // returns immediately
+        return;
+    }
 
     // retrieves the subviews count
     NSUInteger subviewsCount = [self.subviews count];
@@ -47,28 +75,27 @@
         // the currently selected page
         if(subviewIndex == page) {
             // sets the active image in the subview
-            [subview setImage:[UIImage imageWithContentsOfFile:imageActive]];
+            [subview setImage:_imageActive];
         }
         // otherwise it must be not selected
         else {
             // sets the inactive image in the subview
-            [subview setImage:[UIImage imageWithContentsOfFile:imageInactive]];
+            [subview setImage:_imageInactive];
         }
     }
+
+    // sets the current cache page
+    self.currentCachePage = page;
 }
 
 - (void)setNumberOfPages:(NSInteger)pages {
     // calls the super
     [super setNumberOfPages:pages];
 
-    // loads the active and inactive images
-    NSString *imageActive = [[NSBundle mainBundle] pathForResource:@"credits_icon.png" ofType:nil];
-    NSString *imageInactive = [[NSBundle mainBundle] pathForResource:@"credits_icon_white.png" ofType:nil];
-
     // retrieves the first subview and sets the active
     // image for it (selected page controls)
     UIImageView *subview = [self.subviews objectAtIndex:0];
-    [subview setImage:[UIImage imageWithContentsOfFile:imageActive]];
+    [subview setImage:_imageActive];
 
     // retrieves the subviews count
     NSUInteger subviewsCount = [self.subviews count];
@@ -80,7 +107,7 @@
         UIImageView *subview = [self.subviews objectAtIndex:subviewIndex];
 
         // sets the inactive image in the subview
-        [subview setImage:[UIImage imageWithContentsOfFile:imageInactive]];
+        [subview setImage:_imageInactive];
     }
 }
 

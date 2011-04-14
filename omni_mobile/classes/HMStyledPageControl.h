@@ -25,7 +25,27 @@
 
 #import "Dependencies.h"
 
+/**
+ * The default style page control dot active image path.
+ */
+#define DEFAULT_STYLE_PAGE_CONTROL_DOT_ACTIVE @"page_control_dot_active.png"
+
+/**
+ * The default style page control dot inactive image path.
+ */
+#define DEFAULT_STYLE_PAGE_CONTROL_DOT_INACTIVE @"page_control_dot_inactive.png"
+
 @interface HMStyledPageControl : UIPageControl {
+    @private
+    int _currentCachePage;
+    UIImage *_imageActive;
+    UIImage *_imageInactive;
 }
+
+/**
+ * Controls the cache of the current page.
+ * This avoids extra drawing.
+ */
+@property (assign) int currentCachePage;
 
 @end
