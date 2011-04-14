@@ -85,6 +85,7 @@
 
     // creates the menu list group
     HMItemGroup *menuListGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu_list"];
+    menuListGroup.mutableParent = YES;
 
     // creates the menu named item group
     HMNamedItemGroup *menuNamedItemGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu"];
@@ -119,6 +120,7 @@
         inventoryLineItem.accessoryType = @"badge_label";
         inventoryLineItem.accessoryValue = storeStockOnHand;
         inventoryLineItem.selectable = YES;
+        inventoryLineItem.selectableEdit = NO;
         inventoryLineItem.indentable = YES;
         inventoryLineItem.deletableRow = YES;
         inventoryLineItem.deleteActionType = HMTableCellItemDeleteActionTypeDelete;
@@ -244,6 +246,7 @@
     inventoryLineItem.accessoryType = @"badge_label";
     inventoryLineItem.accessoryValue = @"0";
     inventoryLineItem.selectable = YES;
+    inventoryLineItem.selectableEdit = NO;
     inventoryLineItem.indentable = YES;
     inventoryLineItem.deletableRow = YES;
     inventoryLineItem.deleteActionType = HMTableCellItemDeleteActionTypeDelete;
