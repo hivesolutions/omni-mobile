@@ -41,6 +41,18 @@
     return self;
 }
 
+- (id)initWithFrame:(CGRect)frame {
+    // loads the dot images
+    _imageActive = [UIImage imageNamed:HM_STYLED_PAGE_CONTROL_DOT_ACTIVE];
+    _imageInactive = [UIImage imageNamed:HM_STYLED_PAGE_CONTROL_DOT_INACTIVE];
+
+    // calls the super
+    self = [super initWithFrame:frame];
+
+    // returns self
+    return self;
+}
+
 - (id)initWithCoder:(NSCoder *)aDecoder {
     // loads the dot images
     _imageActive = [UIImage imageNamed:HM_STYLED_PAGE_CONTROL_DOT_ACTIVE];

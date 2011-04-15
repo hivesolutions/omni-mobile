@@ -45,15 +45,33 @@
  */
 #define HM_OPTIONS_VIEW_EXTRA_HEIGHT 80
 
-@interface HMOptionsView : UIView {
+@interface HMOptionsView : UIView<UIScrollViewDelegate> {
     @private
     NSMutableArray *_optionsButtons;
+    UISearchBar *_searchBar;
+    UIScrollView *_scrollView;
+    HMStyledPageControl *_styledPageControl;
 }
 
 /**
  * The list of options buttons.
  */
 @property (retain) NSMutableArray *optionsButtons;
+
+/**
+ * The search bar component.
+ */
+@property (retain) UISearchBar *searchBar;
+
+/**
+ * The scroll view component.
+ */
+@property (retain) UIScrollView *scrollView;
+
+/**
+ * The styled page control component.
+ */
+@property (retain) HMStyledPageControl *styledPageControl;
 
 /**
  * Initializes the structures.

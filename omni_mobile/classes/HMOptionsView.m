@@ -28,6 +28,9 @@
 @implementation HMOptionsView
 
 @synthesize optionsButtons = _optionsButtons;
+@synthesize searchBar = _searchBar;
+@synthesize scrollView = _scrollView;
+@synthesize styledPageControl = _styledPageControl;
 
 - (id)init {
     // calls the super
@@ -55,6 +58,15 @@
     // releases the options buttons
     [_optionsButtons release];
 
+    // releases the search bar
+    [_searchBar release];
+
+    // releases scroll view
+    [_scrollView release];
+
+    // releases the styled page control
+    [_styledPageControl release];
+
     // calls the super
     [super dealloc];
 }
@@ -63,20 +75,46 @@
     // creates tje options buttons
     NSMutableArray *optionsButtons = [[NSMutableArray alloc] init];
 
+    // creates the search bar
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
+    searchBar.barStyle = UIBarStyleBlackTranslucent;
+    searchBar.tintColor = [UIColor colorWithRed:0.48 green:0.48 blue:0.48 alpha:1.0];
+
+    // creates the scroll view
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 44, 320, 336)];
+    scrollView.showsHorizontalScrollIndicator = NO;
+    scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    scrollView.delegate = self;
+
+    // creates the scroll view
+    HMStyledPageControl *styledPageControl = [[HMStyledPageControl alloc] initWithFrame:CGRectMake(0, 380, 320, 36)];
+    styledPageControl.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+
+    // adds the subviews
+    [self addSubview:searchBar];
+    [self addSubview:scrollView];
+    [self addSubview:styledPageControl];
+
     // sets the attributes
     self.optionsButtons = optionsButtons;
+    self.searchBar = searchBar;
+    self.scrollView = scrollView;
+    self.styledPageControl = styledPageControl;
 
     // releases the objects
+    [styledPageControl release];
+    [scrollView release];
+    [searchBar release];
     [optionsButtons release];
 }
 
 - (void)doLayout {
-    if([self.subviews count] < 1) {
+    // in case the scroll view is not set
+    if(!self.scrollView) {
+        // returns immediately
         return;
     }
-
-    // retrieves the scroll view
-    UIScrollView *scrollView = (UIScrollView *) [self.subviews objectAtIndex:1];
 
     // retrieves the width
     CGFloat width = self.frame.size.width;
@@ -91,10 +129,10 @@
     CGFloat lineMargin = [self getLineMargin];
 
     // retrieves the scroll view width
-    CGFloat scrollViewWidth = scrollView.frame.size.width;
+    CGFloat scrollViewWidth = self.scrollView.frame.size.width;
 
     // retrieves the scroll view height
-    CGFloat scrollViewHeight = scrollView.frame.size.height;
+    CGFloat scrollViewHeight = self.scrollView.frame.size.height;
 
     // sets the remaining width the scroll view width
     CGFloat remainingWidth = scrollViewWidth;
@@ -179,25 +217,23 @@
         currentX += optionsButtonWidth;
     }
 
+    // calculates the number of pages
+    CGFloat numberPages = currentPage + 1;
+
     // updates the scroll view content size
-    scrollView.contentSize = CGSizeMake(width * (currentPage + 1), height - HM_OPTIONS_VIEW_EXTRA_HEIGHT);
+    self.scrollView.contentSize = CGSizeMake(width * numberPages, height - HM_OPTIONS_VIEW_EXTRA_HEIGHT);
 
-    // retrieves the styled page control
-    HMStyledPageControl *styledPageControl = (HMStyledPageControl *) [self.subviews objectAtIndex:2];
-
-    styledPageControl.numberOfPages = currentPage + 1;
+    // updates the number of pages
+    self.styledPageControl.numberOfPages = numberPages;
 }
 
 - (void)addOptionsButton:(HMOptionsButtonView *)optionsButton {
     // adds the options butotn to the options buttons list
     [self.optionsButtons addObject:optionsButton];
 
-    // retrieves the scroll view
-    UIScrollView *scrollView = (UIScrollView *) [self.subviews objectAtIndex:1];
-
     // adds the options button as sub view
     // of the scroll view
-    [scrollView addSubview:optionsButton];
+    [self.scrollView addSubview:optionsButton];
 
     // redoes the layout
     [self doLayout];
@@ -239,6 +275,30 @@
     // does the layout of the view
     // in order to expand the option items
     [self doLayout];
+}
+
+- (void)setBackgroundColor:(UIColor *)backgroundColor {
+    // calls the super
+    [super setBackgroundColor:backgroundColor];
+
+    // sets the background color in the scroll view
+    // and in the styled page control
+    self.scrollView.backgroundColor = backgroundColor;
+    self.styledPageControl.backgroundColor = backgroundColor;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    // retrieves the page width
+    CGFloat pageWidth = scrollView.frame.size.width;
+
+    // retrieves the content offset in x
+    CGFloat contentOffsetX = scrollView.contentOffset.x;
+
+    // calculates the current page based on the current x offset
+    int page = floor((contentOffsetX - pageWidth / 2) / pageWidth) + 1;
+
+    // sets the current page
+    self.styledPageControl.currentPage = page;
 }
 
 @end

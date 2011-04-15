@@ -27,7 +27,7 @@
 
 #import "HMOptionsView.h"
 
-@interface OptionsMenuViewController : UIViewController<UIScrollViewDelegate> {
+@interface OptionsMenuViewController : UIViewController {
 }
 
 @end

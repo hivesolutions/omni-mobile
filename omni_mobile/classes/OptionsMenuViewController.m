@@ -28,6 +28,7 @@
 
 
 
+
 #import "HMOptionsButtonView.h"
 
 @implementation OptionsMenuViewController
@@ -123,23 +124,6 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    // retrieves the page width
-    CGFloat pageWidth = scrollView.frame.size.width;
-
-    // retrieves the content offset in x
-    CGFloat contentOffsetX = scrollView.contentOffset.x;
-
-    // calculates the current page based on the current x offset
-    int page = floor((contentOffsetX - pageWidth / 2) / pageWidth) + 1;
-
-    // retrieves the page control
-    UIPageControl *pageControl = [self.view.subviews objectAtIndex:2];
-
-    // sets the current page
-    pageControl.currentPage = page;
 }
 
 @end
