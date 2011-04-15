@@ -27,101 +27,112 @@
 
 @implementation HMOptionsButtonView
 
-@synthesize iconImage = _iconImage;
+@synthesize button = _button;
+@synthesize label = _label;
+@synthesize text = _text;
 
 - (id)init {
     // calls the super
     self = [super init];
 
-    // sets the initial frame
-    self.frame = CGRectMake(0, 0, 106, 120);
-
-    // retrieves the background pattern image
-    UIImage *backgroundPatternImage = [UIImage imageNamed:@"menu_item_gradient.png"];
-
-    // creates the background color with the pattern image
-    // UIColor *backgroundColor = [UIColor colorWithPatternImage:backgroundPatternImage];
-
-    // sets the background color
-    self.backgroundColor = [UIColor clearColor];
+    // initializes the structures
+    [self initStructures];
 
     // returns self
     return self;
 }
 
-- (void)drawRect:(CGRect)rect {
+- (void)dealloc {
+    // releases the button
+    [_button release];
+    
+    // releases the label
+    [_label release];
+    
+    // releases the icon image
+    [_iconImage release];
+    
+    // releases the text
+    [_text release];
+    
     // calls the super
-    [super drawRect:rect];
+    [super dealloc];
+}
 
-  /*  if(self.widthBorder) {
-        // retrieves the current graphics context
-        CGContextRef context = UIGraphicsGetCurrentContext();
+- (void)initStructures {
+    // sets the initial frame with the default values
+    self.frame = CGRectMake(0, 0, HM_OPTIONS_BUTTON_VIEW_WIDTH, HM_OPTIONS_BUTTON_VIEW_HEIGHT);
+    
+    // sets the background color
+    self.backgroundColor = [UIColor clearColor];
+    
+    // initializes the button with the initial position
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(30, 22, 50, 50)];
 
-        // configures the context
-        const CGColorRef grayColor = [[UIColor colorWithRed:0.47 green:0.47 blue:0.47 alpha:1.0] CGColor];
-        CGContextSetStrokeColorWithColor(context, grayColor);
-        CGContextSetLineWidth(context, 1);
-        CGContextSetAllowsAntialiasing(context, YES);
-        CGContextSetShouldAntialias(context, YES);
+    // initializes the label and the value of it
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 74, HM_OPTIONS_BUTTON_VIEW_WIDTH, 20)];
+    label.font = [UIFont fontWithName:@"Helvetica-Bold" size:13];
+    label.textColor = [UIColor colorWithRed:0.24 green:0.24 blue:0.24 alpha:1.0];
+    label.backgroundColor = [UIColor redColor];
+    label.shadowColor = [UIColor whiteColor];
+    label.shadowOffset = CGSizeMake(0, 1);
+    label.textAlignment = UITextAlignmentCenter;
+    
+    // adds the button as subview of self
+    [self addSubview:button];
+    
+    // adds the label as subview of self
+    [self addSubview:label];
+    
+    // sets the attributes
+    self.button = button;
+    self.label = label;
+    
+    // releases the objects
+    [label release];
+    [button release];
+}
 
-        // creates the cell's border
-        CGMutablePathRef path = CGPathCreateMutable();
-        CGPathMoveToPoint(path, NULL, 0, 0);
-        CGPathAddLineToPoint(path, NULL, 0, self.frame.size.height - 9);
-        CGPathCloseSubpath(path);
+- (UIImage *)iconImage {
+    return _iconImage;
+}
 
-        // creates the cell's border
-        CGMutablePathRef path2 = CGPathCreateMutable();
-        CGPathMoveToPoint(path2, NULL, self.frame.size.width, 0);
-        CGPathAddLineToPoint(path2, NULL, self.frame.size.width, self.frame.size.height - 9);
-        CGPathCloseSubpath(path2);
-
-        // adds the paths
-        CGContextAddPath(context, path);
-        CGContextAddPath(context, path2);
-
-        // releases the paths
-        CGPathRelease(path);
-        CGPathRelease(path2);
-
-        // strokes the context
-        CGContextStrokePath(context);
+- (void)setIconImage:(UIImage *)iconImage {
+    // in case the object is the same
+    if(iconImage == _iconImage) {
+        // returns immediately
+        return;
     }
+    
+    // releases the object
+    [_iconImage release];
+    
+    // sets and retains the object
+    _iconImage = [iconImage retain];
+    
+    // sets the ui control state normal
+    [self.button setImage:iconImage forState:UIControlStateNormal];
+}
 
-    if(self.heightBorder) {
-        // retrieves the current graphics context
-        CGContextRef context = UIGraphicsGetCurrentContext();
+- (NSString *)text {
+    return _text;
+}
 
-        // configures the context
-        const CGColorRef grayColor = [[UIColor colorWithRed:0.47 green:0.47 blue:0.47 alpha:1.0] CGColor];
-        CGContextSetStrokeColorWithColor(context, grayColor);
-        CGContextSetLineWidth(context, 1);
-        CGContextSetAllowsAntialiasing(context, YES);
-        CGContextSetShouldAntialias(context, YES);
-
-        // creates the cell's border
-        CGMutablePathRef path = CGPathCreateMutable();
-        CGPathMoveToPoint(path, NULL, 0, 0);
-        CGPathAddLineToPoint(path, NULL, self.frame.size.width, 0);
-        CGPathCloseSubpath(path);
-
-        // creates the cell's border
-        CGMutablePathRef path2 = CGPathCreateMutable();
-        CGPathMoveToPoint(path2, NULL, 0, self.frame.size.height - 9);
-        CGPathAddLineToPoint(path2, NULL, self.frame.size.width, self.frame.size.height - 9);
-        CGPathCloseSubpath(path2);
-
-        // adds the paths
-        CGContextAddPath(context, path);
-        CGContextAddPath(context, path2);
-
-        // releases the paths
-        CGPathRelease(path);
-        CGPathRelease(path2);
-
-        // strokes the context
-        CGContextStrokePath(context);
-    }*/
+- (void)setText:(NSString *)text {
+    // in case the object is the same
+    if(text == _text) {
+        // returns immediately
+        return;
+    }
+    
+    // releases the object
+    [_text release];
+    
+    // sets and retains the object
+    _text = [text retain];
+    
+    // sets the text in the label
+    self.label.text = text;
 }
 
 - (BOOL)widthBorder {
@@ -131,15 +142,24 @@
 - (void)setWidthBorder:(BOOL)widthBorder {
     _widthBorder = widthBorder;
 
+    // in case theb wdth border is set
     if(widthBorder) {
+        // retrieves the current frame
         CGRect currentFrame = self.frame;
-        currentFrame.size.width = 108;
+        
+        // sets the current frame width (with border)
+        currentFrame.size.width = HM_OPTIONS_BUTTON_VIEW_BORDER_WIDTH;
 
+        // sets the frame
         self.frame = currentFrame;
     } else {
+        // retrieves the current frame 
         CGRect currentFrame = self.frame;
-        currentFrame.size.width = 106;
+        
+        // sets the current frame width (normal)
+        currentFrame.size.width = HM_OPTIONS_BUTTON_VIEW_WIDTH;
 
+        // sets the frame
         self.frame = currentFrame;
     }
 }

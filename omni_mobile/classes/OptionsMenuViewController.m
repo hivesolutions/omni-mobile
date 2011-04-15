@@ -63,76 +63,22 @@
     // creates the options button view
     HMOptionsButtonView *optionsButton9View = [[HMOptionsButtonView alloc] init];
 
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(30, 22, 50, 50)];
-    imageView.image = [UIImage imageNamed:@"box_option.png"];
+    // sets the icon image in the options button
+    optionsButtonView.iconImage = [UIImage imageNamed:@"box_option.png"];
+    optionsButtonView.text = NSLocalizedString(@"Inventory", @"Inventory");
+    
+    // sets the icon image in the options button
+    optionsButton2View.iconImage = [UIImage imageNamed:@"box_down_option.png"];
+    optionsButton2View.text = NSLocalizedString(@"Purchases", @"Purchases");
 
-    // adds the image view to the options button view
-    [optionsButtonView addSubview:imageView];
-
-    UILabel *labelView = [[UILabel alloc] initWithFrame:CGRectMake(26, 32, 80, 100)];
-    labelView.font = [UIFont fontWithName:@"Helvetica-Bold" size:13];
-    labelView.text = @"Inventory";
-    labelView.textColor = [UIColor colorWithRed:0.24 green:0.24 blue:0.24 alpha:1.0];
-    labelView.backgroundColor = [UIColor clearColor];
-    labelView.shadowColor = [UIColor whiteColor];
-    labelView.shadowOffset = CGSizeMake(0, 1);
-
-    [optionsButtonView addSubview:labelView];
-
-
-
-    UIImageView *image2View = [[UIImageView alloc] initWithFrame:CGRectMake(30, 22, 50, 50)];
-    image2View.image = [UIImage imageNamed:@"box_down_option.png"];
-
-    // adds the image view to the options button view
-    [optionsButton2View addSubview:image2View];
-
-    UILabel *label2View = [[UILabel alloc] initWithFrame:CGRectMake(22, 32, 80, 100)];
-    label2View.font = [UIFont fontWithName:@"Helvetica-Bold" size:13];
-    label2View.text = @"Purchases";
-    label2View.textColor = [UIColor colorWithRed:0.24 green:0.24 blue:0.24 alpha:1.0];
-    label2View.backgroundColor = [UIColor clearColor];
-    label2View.shadowColor = [UIColor whiteColor];
-    label2View.shadowOffset = CGSizeMake(0, 1);
-
-    [optionsButton2View addSubview:label2View];
-
-
-
-    UIImageView *image3View = [[UIImageView alloc] initWithFrame:CGRectMake(26, 22, 50, 50)];
-    image3View.image = [UIImage imageNamed:@"person_option.png"];
-
-    // adds the image view to the options button view
-    [optionsButton3View addSubview:image3View];
-
-    UILabel *label3View = [[UILabel alloc] initWithFrame:CGRectMake(32, 32, 80, 100)];
-    label3View.font = [UIFont fontWithName:@"Helvetica-Bold" size:13];
-    label3View.text = @"Users";
-    label3View.textColor = [UIColor colorWithRed:0.24 green:0.24 blue:0.24 alpha:1.0];
-    label3View.backgroundColor = [UIColor clearColor];
-    label3View.shadowColor = [UIColor whiteColor];
-    label3View.shadowOffset = CGSizeMake(0, 1);
-
-    [optionsButton3View addSubview:label3View];
-
-
-    UIImageView *image4View = [[UIImageView alloc] initWithFrame:CGRectMake(26, 22, 50, 50)];
-    image4View.image = [UIImage imageNamed:@"building_option.png"];
-
-    // adds the image view to the options button view
-    [optionsButton4View addSubview:image4View];
-
-    UILabel *label4View = [[UILabel alloc] initWithFrame:CGRectMake(32, 32, 80, 100)];
-    label4View.font = [UIFont fontWithName:@"Helvetica-Bold" size:13];
-    label4View.text = @"Stores";
-    label4View.textColor = [UIColor colorWithRed:0.24 green:0.24 blue:0.24 alpha:1.0];
-    label4View.backgroundColor = [UIColor clearColor];
-    label4View.shadowColor = [UIColor whiteColor];
-    label4View.shadowOffset = CGSizeMake(0, 1);
-
-    [optionsButton4View addSubview:label4View];
-
-
+    // sets the icon image in the options button
+    optionsButton3View.iconImage = [UIImage imageNamed:@"person_option.png"];
+    optionsButton3View.text = NSLocalizedString(@"Users", @"Users");
+    
+    // sets the icon image in the options button
+    optionsButton4View.iconImage = [UIImage imageNamed:@"building_option.png"];
+    optionsButton4View.text = NSLocalizedString(@"Stores", @"Stores");
+    
     // sets the initial frame
     optionsButton2View.frame = CGRectMake(106, 0, 108, 120);
     optionsButton2View.widthBorder = YES;

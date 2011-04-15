@@ -25,12 +25,42 @@
 
 #import "Dependencies.h"
 
+/**
+ * The options button view width.
+ */
+#define HM_OPTIONS_BUTTON_VIEW_WIDTH 106
+
+/**
+ * The options button view border width.
+ */
+#define HM_OPTIONS_BUTTON_VIEW_BORDER_WIDTH 108
+
+/**
+ * The options button view height.
+ */
+#define HM_OPTIONS_BUTTON_VIEW_HEIGHT 120
+
 @interface HMOptionsButtonView : UIView {
     @private
+    UIButton *_button;
+    UILabel *_label;
     UIImage *_iconImage;
+    NSString *_text;
     BOOL _widthBorder;
     BOOL _heightBorder;
 }
+
+/**
+ * The button to be used internally for
+ * state control.
+ */
+@property (retain) UIButton *button;
+
+/**
+ * The label to be used internally for
+ * state control.
+ */
+@property (retain) UILabel *label;
 
 /**
  * The icon image that represents the
@@ -38,8 +68,27 @@
  */
 @property (retain) UIImage *iconImage;
 
+/**
+ * The text to be presented in the label.
+ * This text should represent the button.
+ */
+@property (retain) NSString *text;
+
+/**
+ * Controls if a width border should
+ * be drawn to separate items.
+ */
 @property (assign) BOOL widthBorder;
 
+/**
+ * Controls if a height border should
+ * be drawn to separate items.
+ */
 @property (assign) BOOL heightBorder;
+
+/**
+ * Initializes the structures.
+ */
+- (void)initStructures;
 
 @end
