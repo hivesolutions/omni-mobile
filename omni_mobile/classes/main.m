@@ -40,6 +40,7 @@ int main(int argc, char *argv[]) {
     [HMRemoteTableView _keepAtLinkTime];
     [HMRemoteTableViewDataSource _keepAtLinkTime];
     [HMHeaderItemTableView _keepAtLinkTime];
+    [HMOptionsView _keepAtLinkTime];
 
     // creates a new auto release pool
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];

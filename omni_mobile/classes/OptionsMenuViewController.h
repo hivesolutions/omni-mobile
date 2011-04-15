@@ -25,8 +25,6 @@
 
 #import "Dependencies.h"
 
-#import "HMOptionsView.h"
-
 @interface OptionsMenuViewController : UIViewController {
 }
 
