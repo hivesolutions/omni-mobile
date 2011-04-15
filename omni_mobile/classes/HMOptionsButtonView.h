@@ -35,6 +35,41 @@
  */
 #define HM_OPTIONS_BUTTON_VIEW_HEIGHT 94
 
+/**
+ * The options button view image width.
+ */
+#define HM_OPTIONS_BUTTON_VIEW_IMAGE_WIDTH 50
+
+/**
+ * The options button view image height.
+ */
+#define HM_OPTIONS_BUTTON_VIEW_IMAGE_HEIGHT 50
+
+/**
+ * The options button view image x.
+ */
+#define HM_OPTIONS_BUTTON_VIEW_IMAGE_X 28
+
+/**
+ * The options button view image y.
+ */
+#define HM_OPTIONS_BUTTON_VIEW_IMAGE_Y 12
+
+/**
+ * The options button view label height.
+ */
+#define HM_OPTIONS_BUTTON_VIEW_LABEL_HEIGHT 20
+
+/**
+ * The options button view label x.
+ */
+#define HM_OPTIONS_BUTTON_VIEW_LABEL_X 0
+
+/**
+ * The options button view label y.
+ */
+#define HM_OPTIONS_BUTTON_VIEW_LABEL_Y 68
+
 @interface HMOptionsButtonView : UIView {
     @private
     UIButton *_button;
