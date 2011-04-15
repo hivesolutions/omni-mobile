@@ -37,6 +37,12 @@
     // calls the super
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 
+    // changes the title's image view
+    UIImageView *imageHeaderView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 74, 22)];
+    UIImage *logoImage = [UIImage imageNamed:@"header_logo.png"];
+    [imageHeaderView setImage:logoImage];
+    self.navigationItem.titleView = imageHeaderView;
+
     // creates the options button views
     HMOptionsButtonView *optionsButton1View = [[HMOptionsButtonView alloc] init];
     HMOptionsButtonView *optionsButton2View = [[HMOptionsButtonView alloc] init];
@@ -97,12 +103,6 @@
     [optionsView addOptionsButton:optionsButton7View];
     [optionsView addOptionsButton:optionsButton8View];
     [optionsView addOptionsButton:optionsButton9View];
-
-    // changes the title's image view
-    UIImageView *imageHeaderView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 74, 22)];
-    UIImage *logoImage = [UIImage imageNamed:@"header_logo.png"];
-    [imageHeaderView setImage:logoImage];
-    self.navigationItem.titleView = imageHeaderView;
 
     // releases the options button view
     [optionsButton1View release];
