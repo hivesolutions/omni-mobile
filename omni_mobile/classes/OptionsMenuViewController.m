@@ -81,30 +81,24 @@
 
     // sets the initial frame
     optionsButton2View.frame = CGRectMake(106, 0, 108, 120);
-    optionsButton2View.widthBorder = YES;
 
     // sets the initial frame
     optionsButton3View.frame = CGRectMake(214, 0, 106, 120);
 
     // sets the initial frame
     optionsButton4View.frame = CGRectMake(0, 111, 106, 120);
-    optionsButton4View.heightBorder = YES;
 
     // sets the initial frame
     optionsButton5View.frame = CGRectMake(106, 111, 106, 120);
-    optionsButton5View.widthBorder = YES;
-    optionsButton5View.heightBorder = YES;
 
     // sets the initial frame
     optionsButton6View.frame = CGRectMake(214, 111, 106, 120);
-    optionsButton6View.heightBorder = YES;
 
     // sets the initial frame
     optionsButton7View.frame = CGRectMake(0, 222, 106, 120);
 
     // sets the initial frame
     optionsButton8View.frame = CGRectMake(106, 222, 106, 120);
-    optionsButton8View.widthBorder = YES;
 
     // sets the initial frame
     optionsButton9View.frame = CGRectMake(214, 222, 106, 120);
@@ -155,8 +149,11 @@
     // retrieves the page width
     CGFloat pageWidth = scrollView.frame.size.width;
 
+    // retrieves the content offset in x
+    CGFloat contentOffsetX = scrollView.contentOffset.x;
+
     // calculates the current page based on the current x offset
-    int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    int page = floor((contentOffsetX - pageWidth / 2) / pageWidth) + 1;
 
     // retrieves the page control
     UIPageControl *pageControl = [self.view.subviews objectAtIndex:2];

@@ -29,7 +29,6 @@
 
 @synthesize button = _button;
 @synthesize label = _label;
-@synthesize text = _text;
 
 - (id)init {
     // calls the super
@@ -67,13 +66,14 @@
     self.backgroundColor = [UIColor clearColor];
 
     // initializes the button with the initial position
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(30, 22, 50, 50)];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(28, 22, 50, 50)];
+    button.backgroundColor = [UIColor clearColor];
 
     // initializes the label and the value of it
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 74, HM_OPTIONS_BUTTON_VIEW_WIDTH, 20)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 74, HM_OPTIONS_BUTTON_VIEW_WIDTH - 2, 20)];
     label.font = [UIFont fontWithName:@"Helvetica-Bold" size:13];
     label.textColor = [UIColor colorWithRed:0.24 green:0.24 blue:0.24 alpha:1.0];
-    label.backgroundColor = [UIColor redColor];
+    label.backgroundColor = [UIColor clearColor];
     label.shadowColor = [UIColor whiteColor];
     label.shadowOffset = CGSizeMake(0, 1);
     label.textAlignment = UITextAlignmentCenter;
@@ -133,55 +133,6 @@
 
     // sets the text in the label
     self.label.text = text;
-}
-
-- (BOOL)widthBorder {
-    return _widthBorder;
-}
-
-- (void)setWidthBorder:(BOOL)widthBorder {
-    _widthBorder = widthBorder;
-
-    // in case theb wdth border is set
-    if(widthBorder) {
-        // retrieves the current frame
-        CGRect currentFrame = self.frame;
-
-        // sets the current frame width (with border)
-        currentFrame.size.width = HM_OPTIONS_BUTTON_VIEW_BORDER_WIDTH;
-
-        // sets the frame
-        self.frame = currentFrame;
-    } else {
-        // retrieves the current frame
-        CGRect currentFrame = self.frame;
-
-        // sets the current frame width (normal)
-        currentFrame.size.width = HM_OPTIONS_BUTTON_VIEW_WIDTH;
-
-        // sets the frame
-        self.frame = currentFrame;
-    }
-}
-
-- (BOOL)heightBorder {
-    return _heightBorder;
-}
-
-- (void)setHeightBorder:(BOOL)heightBorder {
-    _heightBorder = heightBorder;
-
-   /* if(heightBorder) {
-        CGRect currentFrame = self.frame;
-        currentFrame.size.height = 108;
-
-        self.frame = currentFrame;
-    } else {
-        CGRect currentFrame = self.frame;
-        currentFrame.size.width = 106;
-
-        self.frame = currentFrame;
-    }*/
 }
 
 @end

@@ -46,8 +46,6 @@
     UILabel *_label;
     UIImage *_iconImage;
     NSString *_text;
-    BOOL _widthBorder;
-    BOOL _heightBorder;
 }
 
 /**
@@ -73,18 +71,6 @@
  * This text should represent the button.
  */
 @property (retain) NSString *text;
-
-/**
- * Controls if a width border should
- * be drawn to separate items.
- */
-@property (assign) BOOL widthBorder;
-
-/**
- * Controls if a height border should
- * be drawn to separate items.
- */
-@property (assign) BOOL heightBorder;
 
 /**
  * Initializes the structures.
