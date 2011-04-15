@@ -212,10 +212,6 @@
     return self.loginItemGroup;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return interfaceOrientation == UIInterfaceOrientationPortrait;
 }

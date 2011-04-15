@@ -41,7 +41,7 @@
 			</object>
 			<object class="IBUIView" id="1004921343">
 				<reference key="NSNextResponder"/>
-				<int key="NSvFlags">292</int>
+				<int key="NSvFlags">274</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUISearchBar" id="716077252">
@@ -65,7 +65,7 @@
 					</object>
 					<object class="IBUIScrollView" id="292796421">
 						<reference key="NSNextResponder" ref="1004921343"/>
-						<int key="NSvFlags">268</int>
+						<int key="NSvFlags">274</int>
 						<string key="NSFrame">{{0, 44}, {320, 336}}</string>
 						<reference key="NSSuperview" ref="1004921343"/>
 						<reference key="NSWindow"/>
@@ -83,7 +83,7 @@
 					</object>
 					<object class="IBUIPageControl" id="399443282">
 						<reference key="NSNextResponder" ref="1004921343"/>
-						<int key="NSvFlags">1316</int>
+						<int key="NSvFlags">1290</int>
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrame">{{0, 380}, {320, 36}}</string>
 						<reference key="NSSuperview" ref="1004921343"/>
