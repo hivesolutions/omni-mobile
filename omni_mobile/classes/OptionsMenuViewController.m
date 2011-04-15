@@ -201,6 +201,10 @@
     return self;
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return interfaceOrientation == UIInterfaceOrientationPortrait;
+}
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     // retrieves the page width
     CGFloat pageWidth = scrollView.frame.size.width;
