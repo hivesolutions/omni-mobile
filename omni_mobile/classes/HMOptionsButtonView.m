@@ -45,16 +45,16 @@
 - (void)dealloc {
     // releases the button
     [_button release];
-    
+
     // releases the label
     [_label release];
-    
+
     // releases the icon image
     [_iconImage release];
-    
+
     // releases the text
     [_text release];
-    
+
     // calls the super
     [super dealloc];
 }
@@ -62,10 +62,10 @@
 - (void)initStructures {
     // sets the initial frame with the default values
     self.frame = CGRectMake(0, 0, HM_OPTIONS_BUTTON_VIEW_WIDTH, HM_OPTIONS_BUTTON_VIEW_HEIGHT);
-    
+
     // sets the background color
     self.backgroundColor = [UIColor clearColor];
-    
+
     // initializes the button with the initial position
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(30, 22, 50, 50)];
 
@@ -77,17 +77,17 @@
     label.shadowColor = [UIColor whiteColor];
     label.shadowOffset = CGSizeMake(0, 1);
     label.textAlignment = UITextAlignmentCenter;
-    
+
     // adds the button as subview of self
     [self addSubview:button];
-    
+
     // adds the label as subview of self
     [self addSubview:label];
-    
+
     // sets the attributes
     self.button = button;
     self.label = label;
-    
+
     // releases the objects
     [label release];
     [button release];
@@ -103,13 +103,13 @@
         // returns immediately
         return;
     }
-    
+
     // releases the object
     [_iconImage release];
-    
+
     // sets and retains the object
     _iconImage = [iconImage retain];
-    
+
     // sets the ui control state normal
     [self.button setImage:iconImage forState:UIControlStateNormal];
 }
@@ -124,13 +124,13 @@
         // returns immediately
         return;
     }
-    
+
     // releases the object
     [_text release];
-    
+
     // sets and retains the object
     _text = [text retain];
-    
+
     // sets the text in the label
     self.label.text = text;
 }
@@ -146,16 +146,16 @@
     if(widthBorder) {
         // retrieves the current frame
         CGRect currentFrame = self.frame;
-        
+
         // sets the current frame width (with border)
         currentFrame.size.width = HM_OPTIONS_BUTTON_VIEW_BORDER_WIDTH;
 
         // sets the frame
         self.frame = currentFrame;
     } else {
-        // retrieves the current frame 
+        // retrieves the current frame
         CGRect currentFrame = self.frame;
-        
+
         // sets the current frame width (normal)
         currentFrame.size.width = HM_OPTIONS_BUTTON_VIEW_WIDTH;
 

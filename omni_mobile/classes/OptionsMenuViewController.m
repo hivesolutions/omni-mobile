@@ -66,7 +66,7 @@
     // sets the icon image in the options button
     optionsButtonView.iconImage = [UIImage imageNamed:@"box_option.png"];
     optionsButtonView.text = NSLocalizedString(@"Inventory", @"Inventory");
-    
+
     // sets the icon image in the options button
     optionsButton2View.iconImage = [UIImage imageNamed:@"box_down_option.png"];
     optionsButton2View.text = NSLocalizedString(@"Purchases", @"Purchases");
@@ -74,11 +74,11 @@
     // sets the icon image in the options button
     optionsButton3View.iconImage = [UIImage imageNamed:@"person_option.png"];
     optionsButton3View.text = NSLocalizedString(@"Users", @"Users");
-    
+
     // sets the icon image in the options button
     optionsButton4View.iconImage = [UIImage imageNamed:@"building_option.png"];
     optionsButton4View.text = NSLocalizedString(@"Stores", @"Stores");
-    
+
     // sets the initial frame
     optionsButton2View.frame = CGRectMake(106, 0, 108, 120);
     optionsButton2View.widthBorder = YES;
