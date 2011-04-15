@@ -190,6 +190,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>-1.CustomClassName</string>
 					<string>-2.CustomClassName</string>
+					<string>10.CustomClassName</string>
 					<string>10.IBPluginDependency</string>
 					<string>12.IBPluginDependency</string>
 					<string>5.IBPluginDependency</string>
@@ -200,6 +201,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>OptionsMenuViewController</string>
 					<string>UIResponder</string>
+					<string>HMOptionsView</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -224,6 +226,14 @@
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<bool key="EncodedWithXMLCoder">YES</bool>
+				<object class="IBPartialClassDescription">
+					<string key="className">HMOptionsView</string>
+					<string key="superclassName">UIView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/HMOptionsView.h</string>
+					</object>
+				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">HMStyledPageControl</string>
 					<string key="superclassName">UIPageControl</string>

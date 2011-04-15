@@ -66,11 +66,11 @@
     self.backgroundColor = [UIColor clearColor];
 
     // initializes the button with the initial position
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(28, 22, 50, 50)];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(28, 14, 50, 50)];
     button.backgroundColor = [UIColor clearColor];
 
     // initializes the label and the value of it
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 74, HM_OPTIONS_BUTTON_VIEW_WIDTH - 2, 20)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 66, HM_OPTIONS_BUTTON_VIEW_WIDTH - 2, 20)];
     label.font = [UIFont fontWithName:@"Helvetica-Bold" size:13];
     label.textColor = [UIColor colorWithRed:0.24 green:0.24 blue:0.24 alpha:1.0];
     label.backgroundColor = [UIColor clearColor];

@@ -25,51 +25,63 @@
 
 #import "Dependencies.h"
 
-/**
- * The options button view width.
- */
-#define HM_OPTIONS_BUTTON_VIEW_WIDTH 106
+#import "HMOptionsButtonView.h"
+#import "HMStyledPageControl.h"
 
 /**
- * The options button view height.
+ * The value to be used as maximum to activate
+ * vertical margin.
  */
-#define HM_OPTIONS_BUTTON_VIEW_HEIGHT 94
+#define HM_OPTIONS_VIEW_MAXIMUM_HEIGHT_MARGIN 268
 
-@interface HMOptionsButtonView : UIView {
+/**
+ * The value to be used as vertical margin.
+ */
+#define HM_OPTIONS_VIEW_VERTICAL_MARGIN 14
+
+/**
+ * The extra heigh representing the heights of the
+ * search bar and the styled page control.
+ */
+#define HM_OPTIONS_VIEW_EXTRA_HEIGHT 80
+
+@interface HMOptionsView : UIView {
     @private
-    UIButton *_button;
-    UILabel *_label;
-    UIImage *_iconImage;
-    NSString *_text;
+    NSMutableArray *_optionsButtons;
 }
 
 /**
- * The button to be used internally for
- * state control.
+ * The list of options buttons.
  */
-@property (retain) UIButton *button;
-
-/**
- * The label to be used internally for
- * state control.
- */
-@property (retain) UILabel *label;
-
-/**
- * The icon image that represents the
- * options button.
- */
-@property (retain) UIImage *iconImage;
-
-/**
- * The text to be presented in the label.
- * This text should represent the button.
- */
-@property (retain) NSString *text;
+@property (retain) NSMutableArray *optionsButtons;
 
 /**
  * Initializes the structures.
  */
 - (void)initStructures;
+
+/**
+ * Does the layout of the view repositioning
+ * all the items.
+ */
+- (void)doLayout;
+
+/**
+ * Adds the given options button to the options
+ * button view.
+ *
+ * @param optionsButton The options button to be
+ * added to the options button view.
+ */
+- (void)addOptionsButton:(HMOptionsButtonView *)optionsButton;
+
+/**
+ * Retrieves the line margin for the
+ * current options view state.
+ *
+ * @return The line margin for the
+ * current options view state.
+ */
+- (CGFloat)getLineMargin;
 
 @end

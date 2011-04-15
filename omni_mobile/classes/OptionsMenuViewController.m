@@ -36,36 +36,20 @@
     // calls the super
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 
-    // creates the options button view
-    HMOptionsButtonView *optionsButtonView = [[HMOptionsButtonView alloc] init];
-
-    // creates the options button view
+    // creates the options button views
+    HMOptionsButtonView *optionsButton1View = [[HMOptionsButtonView alloc] init];
     HMOptionsButtonView *optionsButton2View = [[HMOptionsButtonView alloc] init];
-
-    // creates the options button view
     HMOptionsButtonView *optionsButton3View = [[HMOptionsButtonView alloc] init];
-
-    // creates the options button view
     HMOptionsButtonView *optionsButton4View = [[HMOptionsButtonView alloc] init];
-
-    // creates the options button view
     HMOptionsButtonView *optionsButton5View = [[HMOptionsButtonView alloc] init];
-
-    // creates the options button view
     HMOptionsButtonView *optionsButton6View = [[HMOptionsButtonView alloc] init];
-
-    // creates the options button view
     HMOptionsButtonView *optionsButton7View = [[HMOptionsButtonView alloc] init];
-
-    // creates the options button view
     HMOptionsButtonView *optionsButton8View = [[HMOptionsButtonView alloc] init];
-
-    // creates the options button view
     HMOptionsButtonView *optionsButton9View = [[HMOptionsButtonView alloc] init];
 
     // sets the icon image in the options button
-    optionsButtonView.iconImage = [UIImage imageNamed:@"box_option.png"];
-    optionsButtonView.text = NSLocalizedString(@"Inventory", @"Inventory");
+    optionsButton1View.iconImage = [UIImage imageNamed:@"box_option.png"];
+    optionsButton1View.text = NSLocalizedString(@"Inventory", @"Inventory");
 
     // sets the icon image in the options button
     optionsButton2View.iconImage = [UIImage imageNamed:@"box_down_option.png"];
@@ -79,46 +63,39 @@
     optionsButton4View.iconImage = [UIImage imageNamed:@"building_option.png"];
     optionsButton4View.text = NSLocalizedString(@"Stores", @"Stores");
 
-    // sets the initial frame
-    optionsButton2View.frame = CGRectMake(106, 0, 108, 120);
+    // sets the icon image in the options button
+    optionsButton5View.iconImage = [UIImage imageNamed:@"building_option.png"];
+    optionsButton5View.text = NSLocalizedString(@"Stores", @"Stores");
 
-    // sets the initial frame
-    optionsButton3View.frame = CGRectMake(214, 0, 106, 120);
+    // sets the icon image in the options button
+    optionsButton6View.iconImage = [UIImage imageNamed:@"building_option.png"];
+    optionsButton6View.text = NSLocalizedString(@"Stores", @"Stores");
 
-    // sets the initial frame
-    optionsButton4View.frame = CGRectMake(0, 111, 106, 120);
+    // sets the icon image in the options button
+    optionsButton7View.iconImage = [UIImage imageNamed:@"building_option.png"];
+    optionsButton7View.text = NSLocalizedString(@"Stores", @"Stores");
 
-    // sets the initial frame
-    optionsButton5View.frame = CGRectMake(106, 111, 106, 120);
+    // sets the icon image in the options button
+    optionsButton8View.iconImage = [UIImage imageNamed:@"building_option.png"];
+    optionsButton8View.text = NSLocalizedString(@"Stores", @"Stores");
 
-    // sets the initial frame
-    optionsButton6View.frame = CGRectMake(214, 111, 106, 120);
+    // sets the icon image in the options button
+    optionsButton9View.iconImage = [UIImage imageNamed:@"building_option.png"];
+    optionsButton9View.text = NSLocalizedString(@"Stores", @"Stores");
 
-    // sets the initial frame
-    optionsButton7View.frame = CGRectMake(0, 222, 106, 120);
-
-    // sets the initial frame
-    optionsButton8View.frame = CGRectMake(106, 222, 106, 120);
-
-    // sets the initial frame
-    optionsButton9View.frame = CGRectMake(214, 222, 106, 120);
-
-    // retrieves the scroll view
-    UIScrollView *scrollView = (UIScrollView *) [self.view.subviews objectAtIndex:1];
-
-    // sets the scroll view content size
-    scrollView.contentSize = CGSizeMake(1080, 336);
+    // retrieves the options view
+    HMOptionsView *optionsView = (HMOptionsView *) self.view;
 
     // adds the option button views
-    [scrollView addSubview:optionsButtonView];
-    [scrollView addSubview:optionsButton2View];
-    [scrollView addSubview:optionsButton3View];
-    [scrollView addSubview:optionsButton4View];
-    [scrollView addSubview:optionsButton5View];
-    [scrollView addSubview:optionsButton6View];
-    [scrollView addSubview:optionsButton7View];
-    [scrollView addSubview:optionsButton8View];
-    [scrollView addSubview:optionsButton9View];
+    [optionsView addOptionsButton:optionsButton1View];
+    [optionsView addOptionsButton:optionsButton2View];
+    [optionsView addOptionsButton:optionsButton3View];
+    [optionsView addOptionsButton:optionsButton4View];
+    [optionsView addOptionsButton:optionsButton5View];
+    [optionsView addOptionsButton:optionsButton6View];
+    [optionsView addOptionsButton:optionsButton7View];
+    [optionsView addOptionsButton:optionsButton8View];
+    [optionsView addOptionsButton:optionsButton9View];
 
     // changes the title's image view
     UIImageView *imageHeaderView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 74, 22)];
@@ -127,7 +104,7 @@
     self.navigationItem.titleView = imageHeaderView;
 
     // releases the options button view
-    [optionsButtonView release];
+    [optionsButton1View release];
     [optionsButton2View release];
     [optionsButton3View release];
     [optionsButton4View release];
@@ -141,8 +118,11 @@
     return self;
 }
 
+- (void)addOptionsButtonView:(HMOptionsButtonView *)optionsButtonView {
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return interfaceOrientation == UIInterfaceOrientationPortrait;
+    return YES;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

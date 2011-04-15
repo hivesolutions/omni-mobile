@@ -54,6 +54,7 @@
 		C212D8C6132A482800E2A078 /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C212D8C3132A482800E2A078 /* UserViewController.xib */; };
 		C212D8D2132A487A00E2A078 /* OmniMobileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C212D8C9132A483D00E2A078 /* OmniMobileTest.m */; };
 		C212D8D3132A488200E2A078 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C212D8CC132A484700E2A078 /* InfoPlist.strings */; };
+		C219F9D6135866B100C3C192 /* HMOptionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C219F9D5135866B000C3C192 /* HMOptionsView.m */; };
 		C226C242132A781B00427656 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C226C241132A781B00427656 /* MenuViewController.m */; };
 		C226C244132A782500427656 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C226C243132A782500427656 /* MenuViewController.xib */; };
 		C22DFEDA1357157B006A4F61 /* page_control_dot_active.png in Resources */ = {isa = PBXBuildFile; fileRef = C22DFED61357157B006A4F61 /* page_control_dot_active.png */; };
@@ -291,6 +292,8 @@
 		C212D8CD132A484700E2A078 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		C212D8CE132A484700E2A078 /* omni_mobile_test-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "omni_mobile_test-Info.plist"; path = "support/omni_mobile_test-Info.plist"; sourceTree = "<group>"; };
 		C212D8CF132A484700E2A078 /* omni_mobile_test-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "omni_mobile_test-Prefix.pch"; path = "support/omni_mobile_test-Prefix.pch"; sourceTree = "<group>"; };
+		C219F9D4135866B000C3C192 /* HMOptionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HMOptionsView.h; path = classes/HMOptionsView.h; sourceTree = "<group>"; };
+		C219F9D5135866B000C3C192 /* HMOptionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HMOptionsView.m; path = classes/HMOptionsView.m; sourceTree = "<group>"; };
 		C226C240132A781B00427656 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = classes/MenuViewController.h; sourceTree = "<group>"; };
 		C226C241132A781B00427656 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = classes/MenuViewController.m; sourceTree = "<group>"; };
 		C226C243132A782500427656 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuViewController.xib; path = nibs/MenuViewController.xib; sourceTree = "<group>"; };
@@ -474,6 +477,8 @@
 		C20CDB8C1333780F008A4FE3 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C219F9D4135866B000C3C192 /* HMOptionsView.h */,
+				C219F9D5135866B000C3C192 /* HMOptionsView.m */,
 				A57A09B51355A7810098A56A /* SaleLineViewController.h */,
 				A57A09B61355A7820098A56A /* SaleLineViewController.m */,
 				C270A8161355A71B004611EA /* HMStyledPageControl.h */,
@@ -1387,6 +1392,7 @@
 				A57A09B71355A7840098A56A /* SaleLineViewController.m in Sources */,
 				C28F1C5C1354A9CC0007DB89 /* HMOptionsButtonView.m in Sources */,
 				C270A8181355A71B004611EA /* HMStyledPageControl.m in Sources */,
+				C219F9D6135866B100C3C192 /* HMOptionsView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
