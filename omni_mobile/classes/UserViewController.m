@@ -76,6 +76,7 @@
 
     // creates the title item
     HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
+    titleItem.defaultValue = NSLocalizedString(@"Username", @"Username");
     titleItem.description = username;
 
     // creates the subtitle item
@@ -189,8 +190,8 @@
     // retrieves the menu header named group
     HMNamedItemGroup *menuHeaderNamedGroup = (HMNamedItemGroup *) [self.remoteGroup getItem:@"header"];
 
-    // retrieves the items
-    HMItem *username = [menuHeaderNamedGroup getItem:@"title"];
+    // configures the username item
+    HMItem *usernameItem = [menuHeaderNamedGroup getItem:@"title"];
 
     // retrieves the menu list group
     HMItemGroup *menuListGroup = (HMItemGroup *) [self.remoteGroup getItem:@"list"];
@@ -212,10 +213,11 @@
     HMItem *employee = [thirdSectionItemGroup getItem:0];
 
     // retrieves the employee object id
-    NSNumber *employeeObjectId = [employee.data objectForKey:@"object_id"];
+    NSDictionary *employeeData = (NSDictionary *) employee.data;
+    NSNumber *employeeObjectId = [employeeData objectForKey:@"object_id"];
 
     // sets the items in the remote data
-    [remoteData addObject:[NSArray arrayWithObjects:@"user[username]", AVOID_NIL(username.description, NSString), nil]];
+    [remoteData addObject:[NSArray arrayWithObjects:@"user[username]", AVOID_NIL(usernameItem.description, NSString), nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"user[email]", AVOID_NIL(emailItem.description, NSString), nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"user[secret_question]", AVOID_NIL(secretQuestion.description, NSString), nil]];
 

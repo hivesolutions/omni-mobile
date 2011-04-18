@@ -80,6 +80,9 @@
 "Sale Lines" = "Linhas Venda";
 "Sale Details" = "Detalhes Venda";
 "Commission" = "Comissão";
+"Code" = "Código";
+"Username" = "Nome Utilizador";
+"Anonymous" = "Anónimo";
 
 /* Global error names */
 "LoginErrorName" = "Erro de Login";

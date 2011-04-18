@@ -40,6 +40,7 @@
 "Logout" = "Logout";
 
 /* Global dictionary values */
+"Name" = "Name";
 "Title" = "Title";
 "Subtitle" = "Subtitle";
 "Account" = "Account";
@@ -61,6 +62,7 @@
 "Price" = "Price";
 "Price VAT" = "Price VAT";
 "VAT" = "VAT";
+"Password" = "Password";
 "Question" = "Question";
 "Secret Question" = "Secret Question";
 "Answer" = "Answer";
@@ -78,6 +80,9 @@
 "Sale Lines" = "Sale Lines";
 "Sale Details" = "Sale Details";
 "Commission" = "Commission";
+"Code" = "Code";
+"Username" = "Username";
+"Anonymous" = "Anonymous";
 
 /* Global error names */
 "LoginErrorName" = "Login Error";

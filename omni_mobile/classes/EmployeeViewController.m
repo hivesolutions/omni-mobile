@@ -81,6 +81,7 @@
 
     // creates the title item
     HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
+    titleItem.defaultValue = NSLocalizedString(@"Name", @"Name");
     titleItem.description = name;
 
     // creates the subtitle item

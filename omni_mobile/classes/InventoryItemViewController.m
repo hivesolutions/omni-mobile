@@ -61,10 +61,12 @@
 
     // creates the title item
     HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
+    titleItem.defaultValue = NSLocalizedString(@"Name", @"Name");
     titleItem.description = name;
 
     // creates the subtitle item
     HMItem *subTitleItem = [[HMItem alloc] initWithIdentifier:@"subTitle"];
+    subTitleItem.defaultValue = NSLocalizedString(@"Code", @"Code");
     subTitleItem.description = companyProductCode;
 
     // creates the image item
@@ -74,21 +76,12 @@
     // creates the menu header group
     HMNamedItemGroup *menuHeaderGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu_header"];
 
-    // creates the name string table cell item
-    HMStringTableCellItem *nameItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"name"];
-    nameItem.name = NSLocalizedString(@"Name", @"Name");
-    nameItem.description = name;
-    nameItem.multipleLines = YES;
-
     // creates the first section item group
-    HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
-
-    // creates the second section item group
-    HMTableMutableSectionItemGroup *secondSectionItemGroup = [[HMTableMutableSectionItemGroup alloc] initWithIdentifier:@"stores"];
-    secondSectionItemGroup.name = NSLocalizedString(@"Add inventory line", @"Add inventory line");
-    secondSectionItemGroup.addViewController = [StoresViewController class];
-    secondSectionItemGroup.addNibName = @"StoresViewController";
-    secondSectionItemGroup.tableCellItemCreationDelegate = self;
+    HMTableMutableSectionItemGroup *firstSectionItemGroup = [[HMTableMutableSectionItemGroup alloc] initWithIdentifier:@"stores"];
+    firstSectionItemGroup.name = NSLocalizedString(@"Add inventory line", @"Add inventory line");
+    firstSectionItemGroup.addViewController = [StoresViewController class];
+    firstSectionItemGroup.addNibName = @"StoresViewController";
+    firstSectionItemGroup.tableCellItemCreationDelegate = self;
 
     // creates the menu list group
     HMItemGroup *menuListGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu_list"];
@@ -101,9 +94,6 @@
     [menuHeaderGroup addItem:@"title" item:titleItem];
     [menuHeaderGroup addItem:@"subTitle" item:subTitleItem];
     [menuHeaderGroup addItem:@"image" item:imageItem];
-
-    // populates the first section item list
-    [firstSectionItemGroup addItem:nameItem];
 
     // for each inventory line
     for(NSDictionary *inventoryLine in inventoryLines) {
@@ -135,16 +125,15 @@
         inventoryLineItem.readViewController = [InventoryItemStoreViewController class];
         inventoryLineItem.readNibName = @"InventoryItemStoreViewController";
 
-        // populates the second section item list
-        [secondSectionItemGroup addItem:inventoryLineItem];
+        // populates the first section item group
+        [firstSectionItemGroup addItem:inventoryLineItem];
 
         // releases the store item
         [inventoryLineItem release];
     }
 
     // adds the sections to the menu list
-    [menuListGroup addItem:firstSectionItemGroup];
-    [menuListGroup addItem:secondSectionItemGroup];
+    [menuListGroup addItem:firstSectionItemGroup];;
 
     // adds the menu items to the menu item group
     [menuNamedItemGroup addItem:@"header" item:menuHeaderGroup];
@@ -156,10 +145,8 @@
     // releases the objects
     [menuNamedItemGroup release];
     [menuListGroup release];
-    [secondSectionItemGroup release];
     [firstSectionItemGroup release];
     [menuHeaderGroup release];
-    [nameItem release];
     [imageItem release];
     [subTitleItem release];
     [titleItem release];
@@ -173,25 +160,23 @@
     HMNamedItemGroup *menuHeaderNamedGroup = (HMNamedItemGroup *) [self.remoteGroup getItem:@"header"];
 
     // retrieves the items
+    HMItem *nameItem = [menuHeaderNamedGroup getItem:@"title"];
     HMItem *companyProductCodeItem = [menuHeaderNamedGroup getItem:@"subTitle"];
 
     // retrieves the menu list group
     HMItemGroup *menuListGroup = (HMItemGroup *) [self.remoteGroup getItem:@"list"];
 
     // retreves the section item groups
-    HMItemGroup *firstSectionItemGroup = (HMItemGroup *) [menuListGroup getItem:0];
-    HMTableMutableSectionItemGroup *secondSectionItemGroup = (HMTableMutableSectionItemGroup *) [menuListGroup getItem:1];
-
-    // retrieves the first section items
-    HMItem *nameItem = [firstSectionItemGroup getItem:0];
+    HMTableMutableSectionItemGroup *firstSectionItemGroup = (HMTableMutableSectionItemGroup *) [menuListGroup getItem:0];
 
     // retrieves the data items
-    NSArray *dataItems = [secondSectionItemGroup dataItems];
+    NSArray *dataItems = [firstSectionItemGroup dataItems];
 
     // iterates over the second item group enumerator
     for(HMTableCellItem *inventoryLineItem in dataItems) {
         // retrieves the inventory line object id
-        NSNumber *inventoryLineObjectId = [inventoryLineItem.data objectForKey:@"object_id"];
+        NSDictionary *inventoryLineItemData = (NSDictionary *) inventoryLineItem.data;
+        NSNumber *inventoryLineObjectId = [inventoryLineItemData objectForKey:@"object_id"];
 
         // sets the object id in case it's defined
         if(inventoryLineObjectId != nil) {
@@ -200,7 +185,7 @@
         }
 
         // retrieves the inventory line's attributes
-        NSDictionary *inventoryLineContactableOrganizationalHierarchyTreeNode = [inventoryLineItem.data objectForKey:@"contactable_organizational_hierarchy_tree_node"];
+        NSDictionary *inventoryLineContactableOrganizationalHierarchyTreeNode = [inventoryLineItemData objectForKey:@"contactable_organizational_hierarchy_tree_node"];
         NSNumber *inventoryLineContactableOrganizationalHierarchyTreeNodeObjectId = [inventoryLineContactableOrganizationalHierarchyTreeNode objectForKey:@"object_id"];
         NSString *inventoryLineContactableOrganizationalHierarchyTreeNodeObjectIdString = [NSString stringWithFormat:@"%d", [inventoryLineContactableOrganizationalHierarchyTreeNodeObjectId intValue]];
 
@@ -221,9 +206,23 @@
     NSNumber *objectId = [self.entity objectForKey:@"object_id"];
     NSString *objectIdString = [objectId stringValue];
 
+    // retrieves the data items count
+    HMItemGroup *menuListGroup = (HMItemGroup *) [self.remoteGroup getItem:@"list"];
+    HMTableMutableSectionItemGroup *firstSectionItemGroup = (HMTableMutableSectionItemGroup *) [menuListGroup getItem:0];
+    NSArray *dataItems = [firstSectionItemGroup dataItems];
+    NSUInteger dataItemsCount = [dataItems count];
+    
     // sets the object id (structured and unstructured)
     [remoteData addObject:[NSArray arrayWithObjects:@"product[object_id]", AVOID_NIL(objectIdString, NSString), nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"object_id", AVOID_NIL(objectIdString, NSString), nil]];
+
+    // in case there are no
+    // inventory lines
+    if(dataItemsCount == 0) {
+        // sets an empty inventory lines entry to
+        // erase all inventory lines in the data base
+        [remoteData addObject:[NSArray arrayWithObjects:@"product[inventory_lines]", [NSNull null], nil]];
+    }
 }
 
 - (HMTableCellItem *)createTableCellItem:(NSDictionary *)data {
