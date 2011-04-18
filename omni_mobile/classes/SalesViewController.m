@@ -67,4 +67,8 @@
     return @"identifier";
 }
 
+- (BOOL)createEntityHidden {
+    return YES;
+}
+
 @end
