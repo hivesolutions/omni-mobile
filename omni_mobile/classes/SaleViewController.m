@@ -236,4 +236,8 @@
     return nil;
 }
 
+- (BOOL)editHidden {
+    return YES;
+}
+
 @end

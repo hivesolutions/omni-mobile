@@ -71,4 +71,8 @@
     return YES;
 }
 
+- (BOOL)searchBarHidden {
+    return YES;
+}
+
 @end
