@@ -112,7 +112,7 @@
     secretAnswerItem.secure = YES;
 
     // creates the employee string table cell
-    HMStringTableCellItem *employeeItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"employee"];
+    HMConstantStringTableCellItem *employeeItem = [[HMConstantStringTableCellItem alloc] initWithIdentifier:@"employee"];
     employeeItem.name = NSLocalizedString(@"Employee", @"Employee");
     employeeItem.description = personName;
     employeeItem.data = person;
@@ -123,7 +123,6 @@
     employeeItem.editNibName = @"EmployeesViewController";
     employeeItem.deletableRow = YES;
     employeeItem.deleteActionType = HMTableCellItemDeleteActionTypeClear;
-    employeeItem.editableCell = NO;
     employeeItem.selectable = isPersonAvailable;
     employeeItem.selectableEdit = YES;
 

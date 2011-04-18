@@ -246,6 +246,7 @@
 
     // creates the inventory line item
     HMStringTableCellItem *inventoryLineItem = [[[HMStringTableCellItem alloc] initWithIdentifier:identifier] autorelease];
+    inventoryLineItem.transientState = HMItemStateNew;
     inventoryLineItem.description = storeName;
     inventoryLineItem.data = inventoryLine;
     inventoryLineItem.icon = @"building.png";

@@ -197,15 +197,15 @@
     HMItemGroup *thirdSectionItemGroup = (HMItemGroup *) [menuListGroup getItem:2];
 
     // retrieves the first section items
-    HMItem *commissionItem = [firstSectionItemGroup getItem:0];
+    HMItem *streetNameItem = [firstSectionItemGroup getItem:0];
+    HMItem *countryItem = [firstSectionItemGroup getItem:1];
 
     // retrieves the second section items
-    HMItem *streetNameItem = [secondSectionItemGroup getItem:0];
-    HMItem *countryItem = [secondSectionItemGroup getItem:1];
+    HMItem *phoneNumberItem = [secondSectionItemGroup getItem:0];
+    HMItem *emailItem = [secondSectionItemGroup getItem:1];
 
-    // retrieves the third section items
-    HMItem *phoneNumberItem = [thirdSectionItemGroup getItem:0];
-    HMItem *emailItem = [thirdSectionItemGroup getItem:1];
+    // retrieves the commission section items
+    HMItem *commissionItem = [thirdSectionItemGroup getItem:0];
 
     // calculates the commission value
     NSString *commissionPercentageString = commissionItem.description;

@@ -134,8 +134,7 @@
     HMStringTableCellItem *customerItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"customer"];
     customerItem.name = NSLocalizedString(@"Customer", @"Customer");
     customerItem.description = isPersonAnonymous ? NSLocalizedString(@"Anonymous", @"Anonymous") : personBuyerName;
-    customerItem.accessoryType = isPersonAnonymous ? nil : @"disclosure_indicator";
-    customerItem.selectable = isPersonAnonymous ? NO : YES;
+    customerItem.selectable = NO;
 
     // creates the first section item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
