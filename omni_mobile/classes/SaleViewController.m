@@ -240,4 +240,8 @@
     return YES;
 }
 
+- (BOOL)deleteHidden {
+    return YES;
+}
+
 @end
