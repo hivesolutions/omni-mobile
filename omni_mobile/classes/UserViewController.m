@@ -194,6 +194,7 @@
 
     // retrieves the items
     HMItem *username = [menuHeaderNamedGroup getItem:@"title"];
+    HMItem *image = [menuHeaderNamedGroup getItem:@"image"];
 
     // retrieves the menu list group
     HMItemGroup *menuListGroup = (HMItemGroup *) [self.remoteGroup getItem:@"list"];
@@ -234,6 +235,15 @@
         // otherwise sets the related employee
         NSString *employeeObjectIdString = [NSString stringWithFormat:@"%d", [employeeObjectId intValue]];
         [remoteData addObject:[NSArray arrayWithObjects:@"user[person][object_id]", employeeObjectIdString, nil]];
+    }
+
+    // in case the image data is not set
+    if(image.data != nil) {
+        // retrieves the base 64 data from the image data
+        NSString *base64Data = [HMBase64Util encodeBase64WithData:(NSData *) image.data];
+
+        // sets the primary media attributes
+        [remoteData addObject:[NSArray arrayWithObjects:@"user[primary_media][base_64_data]", AVOID_NIL(base64Data, NSString), nil]];
     }
 
     // returns the remote data
