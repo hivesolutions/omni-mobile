@@ -85,7 +85,7 @@
     optionsButton9View.text = NSLocalizedString(@"Stores", @"Stores");
 
     // creates the button clicked selector
-    [optionsButton9View addTarget:self action:@selector(buttonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [optionsButton1View addTarget:self action:@selector(buttonClicked) forControlEvents:UIControlEventTouchUpInside];
 
     // retrieves the options view
     HMOptionsView *optionsView = (HMOptionsView *) self.view;
@@ -117,7 +117,7 @@
 }
 
 - (void)buttonClicked {
-    NSLog(@"optionsButton9View");
+    NSLog(@"Button Clicked");
 }
 
 - (void)addOptionsButtonView:(HMOptionsButtonView *)optionsButtonView {
