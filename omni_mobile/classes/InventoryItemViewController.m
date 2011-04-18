@@ -58,6 +58,8 @@
     NSString *companyProductCode = AVOID_NULL([remoteData objectForKey:@"company_product_code"]);
     NSString *name = AVOID_NULL([remoteData objectForKey:@"name"]);
     NSArray *inventoryLines = AVOID_NULL_ARRAY([remoteData objectForKey:@"inventory_lines"]);
+    NSDictionary *primaryMedia = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"primary_media"]);
+    NSString *base64Data = AVOID_NULL([primaryMedia objectForKey:@"base_64_data"]);
 
     // creates the title item
     HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
@@ -72,6 +74,7 @@
     // creates the image item
     HMItem *imageItem = [[HMItem alloc] initWithIdentifier:@"image"];
     imageItem.description = @"box_header.png";
+    imageItem.data = [HMBase64Util decodeBase64WithString:base64Data];
 
     // creates the menu header group
     HMNamedItemGroup *menuHeaderGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu_header"];

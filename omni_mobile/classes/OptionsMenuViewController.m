@@ -84,6 +84,9 @@
     optionsButton9View.iconImage = [UIImage imageNamed:@"building_option.png"];
     optionsButton9View.text = NSLocalizedString(@"Stores", @"Stores");
 
+    // creates the button clicked selector
+    [optionsButton1View addTarget:self action:@selector(buttonClicked) forControlEvents:UIControlEventTouchUpInside];
+
     // retrieves the options view
     HMOptionsView *optionsView = (HMOptionsView *) self.view;
 
@@ -111,6 +114,10 @@
 
     // returns self
     return self;
+}
+
+- (void)buttonClicked {
+    NSLog(@"Button Clicked");
 }
 
 - (void)addOptionsButtonView:(HMOptionsButtonView *)optionsButtonView {

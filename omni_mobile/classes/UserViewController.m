@@ -70,6 +70,8 @@
     NSString *secretAnswer = AVOID_NULL([remoteData objectForKey:@"secret_answer_hash"]);
     NSDictionary *person = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"person"]);
     NSString *personName = AVOID_NULL([person objectForKey:@"name"]);
+    NSDictionary *primaryMedia = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"primary_media"]);
+    NSString *base64Data = AVOID_NULL([primaryMedia objectForKey:@"base_64_data"]);
 
     // checks if the persons is available
     BOOL isPersonAvailable = [person count] == 0 ? NO : YES;
@@ -86,6 +88,7 @@
     // creates the image item
     HMItem *imageItem = [[HMItem alloc] initWithIdentifier:@"image"];
     imageItem.description = @"person_header.png";
+    imageItem.data = [HMBase64Util decodeBase64WithString:base64Data];
 
     // creates the menu header group
     HMNamedItemGroup *menuHeaderGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu_header"];
@@ -190,8 +193,9 @@
     // retrieves the menu header named group
     HMNamedItemGroup *menuHeaderNamedGroup = (HMNamedItemGroup *) [self.remoteGroup getItem:@"header"];
 
-    // configures the username item
+    // retrieves the header items
     HMItem *usernameItem = [menuHeaderNamedGroup getItem:@"title"];
+    HMItem *imageItem = [menuHeaderNamedGroup getItem:@"image"];
 
     // retrieves the menu list group
     HMItemGroup *menuListGroup = (HMItemGroup *) [self.remoteGroup getItem:@"list"];
@@ -233,6 +237,15 @@
         // otherwise sets the related employee
         NSString *employeeObjectIdString = [NSString stringWithFormat:@"%d", [employeeObjectId intValue]];
         [remoteData addObject:[NSArray arrayWithObjects:@"user[person][object_id]", employeeObjectIdString, nil]];
+    }
+
+    // in case the image data is not set
+    if(imageItem.data != nil) {
+        // retrieves the base 64 data from the image data
+        NSString *base64Data = [HMBase64Util encodeBase64WithData:(NSData *) imageItem.data];
+
+        // sets the primary media attributes
+        [remoteData addObject:[NSArray arrayWithObjects:@"user[primary_media][base_64_data]", AVOID_NIL(base64Data, NSString), nil]];
     }
 
     // returns the remote data
