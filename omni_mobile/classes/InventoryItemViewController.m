@@ -214,7 +214,7 @@
     HMTableMutableSectionItemGroup *firstSectionItemGroup = (HMTableMutableSectionItemGroup *) [menuListGroup getItem:0];
     NSArray *dataItems = [firstSectionItemGroup dataItems];
     NSUInteger dataItemsCount = [dataItems count];
-    
+
     // sets the object id (structured and unstructured)
     [remoteData addObject:[NSArray arrayWithObjects:@"product[object_id]", AVOID_NIL(objectIdString, NSString), nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"object_id", AVOID_NIL(objectIdString, NSString), nil]];
