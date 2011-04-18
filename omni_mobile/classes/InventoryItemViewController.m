@@ -162,9 +162,10 @@
     // retrieves the menu header named group
     HMNamedItemGroup *menuHeaderNamedGroup = (HMNamedItemGroup *) [self.remoteGroup getItem:@"header"];
 
-    // retrieves the items
+    // retrieves the header items
     HMItem *nameItem = [menuHeaderNamedGroup getItem:@"title"];
     HMItem *companyProductCodeItem = [menuHeaderNamedGroup getItem:@"subTitle"];
+    HMItem *imageItem = [menuHeaderNamedGroup getItem:@"image"];
 
     // retrieves the menu list group
     HMItemGroup *menuListGroup = (HMItemGroup *) [self.remoteGroup getItem:@"list"];
@@ -200,6 +201,15 @@
     [remoteData addObject:[NSArray arrayWithObjects:@"product[company_product_code]", AVOID_NIL(companyProductCodeItem.description, NSString), nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"product[name]", AVOID_NIL(nameItem.description, NSString), nil]];
 
+    // in case the image data is not set
+    if(imageItem.data != nil) {
+        // retrieves the base 64 data from the image data
+        NSString *base64Data = [HMBase64Util encodeBase64WithData:(NSData *) imageItem.data];
+
+        // sets the primary media attributes
+        [remoteData addObject:[NSArray arrayWithObjects:@"product[primary_media][base_64_data]", AVOID_NIL(base64Data, NSString), nil]];
+    }
+
     // returns the remote data
     return remoteData;
 }
@@ -214,7 +224,7 @@
     HMTableMutableSectionItemGroup *firstSectionItemGroup = (HMTableMutableSectionItemGroup *) [menuListGroup getItem:0];
     NSArray *dataItems = [firstSectionItemGroup dataItems];
     NSUInteger dataItemsCount = [dataItems count];
-    
+
     // sets the object id (structured and unstructured)
     [remoteData addObject:[NSArray arrayWithObjects:@"product[object_id]", AVOID_NIL(objectIdString, NSString), nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"object_id", AVOID_NIL(objectIdString, NSString), nil]];

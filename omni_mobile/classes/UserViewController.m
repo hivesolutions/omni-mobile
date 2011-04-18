@@ -253,7 +253,7 @@
 }
 
 - (void)convertRemoteGroupUpdate:(NSMutableArray *)remoteData {
-    // retrieves the object id
+    // retrieves the attributes
     NSNumber *objectId = [self.entity objectForKey:@"object_id"];
     NSString *objectIdString = [objectId stringValue];
 

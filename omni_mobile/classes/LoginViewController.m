@@ -152,7 +152,7 @@
 
     // creates the first section item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
-    firstSectionItemGroup.footerString = NSLocalizedString(@"Sentence000002", @"Sentence000002");
+    //firstSectionItemGroup.footerString = NSLocalizedString(@"Sentence000002", @"Sentence000002");
 
     // customizes the first section footer item
     HMLabelItem *firstSectionFooterItem = firstSectionItemGroup.footer;

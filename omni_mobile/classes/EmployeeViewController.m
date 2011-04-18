@@ -71,6 +71,8 @@
     NSString *country = AVOID_NULL([primaryAddress objectForKey:@"country"]);
     NSString *email = AVOID_NULL([primaryContactInformation objectForKey:@"email"]);
     NSString *phoneNumber = AVOID_NULL([primaryContactInformation objectForKey:@"phone_number"]);
+    NSDictionary *primaryMedia = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"primary_media"]);
+    NSString *base64Data = AVOID_NULL([primaryMedia objectForKey:@"base_64_data"]);
 
     // creates a string representation of
     // the commission in percentage format
@@ -91,6 +93,7 @@
     // creates the image item
     HMItem *imageItem = [[HMItem alloc] initWithIdentifier:@"image"];
     imageItem.description = @"person_header.png";
+    imageItem.data = [HMBase64Util decodeBase64WithString:base64Data];
 
     // creates the menu header group
     HMNamedItemGroup *menuHeaderGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu_header"];
@@ -186,8 +189,9 @@
     // retrieves the menu header named group
     HMNamedItemGroup *menuHeaderNamedGroup = (HMNamedItemGroup *) [self.remoteGroup getItem:@"header"];
 
-    // retrieves the items
+    // retrieves the header items
     HMItem *nameItem = [menuHeaderNamedGroup getItem:@"title"];
+    HMItem *imageItem = [menuHeaderNamedGroup getItem:@"image"];
 
     // retrieves the menu list group
     HMItemGroup *menuListGroup = (HMItemGroup *) [self.remoteGroup getItem:@"list"];
@@ -221,6 +225,15 @@
     [remoteData addObject:[NSArray arrayWithObjects:@"employee[primary_address][country]", AVOID_NIL(countryItem.description, NSString), nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"employee[primary_contact_information][phone_number]", AVOID_NIL(phoneNumberItem.description, NSString), nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"employee[primary_contact_information][email]", AVOID_NIL(emailItem.description, NSString), nil]];
+
+    // in case the image data is not set
+    if(imageItem.data != nil) {
+        // retrieves the base 64 data from the image data
+        NSString *base64Data = [HMBase64Util encodeBase64WithData:(NSData *) imageItem.data];
+
+        // sets the primary media attributes
+        [remoteData addObject:[NSArray arrayWithObjects:@"employee[primary_media][base_64_data]", AVOID_NIL(base64Data, NSString), nil]];
+    }
 
     // returns the remote data
     return remoteData;
