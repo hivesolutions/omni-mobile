@@ -235,8 +235,8 @@
     // casts the table view as item table view
     HMItemTableView *itemTableView = (HMItemTableView *) tableView;
 
-    // flushes the item specification
-    [itemTableView flushItemSpecification];
+    // flushes the item specification (transient mode)
+    [itemTableView flushItemSpecificationTransient:YES];
 
     // creates the login dictionary
     NSMutableDictionary *loginDictionary = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
