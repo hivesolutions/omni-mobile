@@ -25,7 +25,7 @@
 
 #import "Dependencies.h"
 
-@interface OptionsMenuViewController : UIViewController<UIScrollViewDelegate> {
+@interface OptionsMenuViewController : UIViewController {
 }
 
 @end

@@ -25,160 +25,11 @@
 
 #import "OptionsMenuViewController.h"
 
-
-
-
-#import "HMOptionsButtonView.h"
-
 @implementation OptionsMenuViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     // calls the super
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-
-    // creates the options button view
-    HMOptionsButtonView *optionsButtonView = [[HMOptionsButtonView alloc] init];
-
-    // creates the options button view
-    HMOptionsButtonView *optionsButton2View = [[HMOptionsButtonView alloc] init];
-
-    // creates the options button view
-    HMOptionsButtonView *optionsButton3View = [[HMOptionsButtonView alloc] init];
-
-    // creates the options button view
-    HMOptionsButtonView *optionsButton4View = [[HMOptionsButtonView alloc] init];
-
-    // creates the options button view
-    HMOptionsButtonView *optionsButton5View = [[HMOptionsButtonView alloc] init];
-
-    // creates the options button view
-    HMOptionsButtonView *optionsButton6View = [[HMOptionsButtonView alloc] init];
-
-    // creates the options button view
-    HMOptionsButtonView *optionsButton7View = [[HMOptionsButtonView alloc] init];
-
-    // creates the options button view
-    HMOptionsButtonView *optionsButton8View = [[HMOptionsButtonView alloc] init];
-
-    // creates the options button view
-    HMOptionsButtonView *optionsButton9View = [[HMOptionsButtonView alloc] init];
-
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(30, 22, 50, 50)];
-    imageView.image = [UIImage imageNamed:@"box_option.png"];
-
-    // adds the image view to the options button view
-    [optionsButtonView addSubview:imageView];
-
-    UILabel *labelView = [[UILabel alloc] initWithFrame:CGRectMake(26, 32, 80, 100)];
-    labelView.font = [UIFont fontWithName:@"Helvetica-Bold" size:13];
-    labelView.text = @"Inventory";
-    labelView.textColor = [UIColor colorWithRed:0.24 green:0.24 blue:0.24 alpha:1.0];
-    labelView.backgroundColor = [UIColor clearColor];
-    labelView.shadowColor = [UIColor whiteColor];
-    labelView.shadowOffset = CGSizeMake(0, 1);
-
-    [optionsButtonView addSubview:labelView];
-
-
-
-    UIImageView *image2View = [[UIImageView alloc] initWithFrame:CGRectMake(30, 22, 50, 50)];
-    image2View.image = [UIImage imageNamed:@"box_down_option.png"];
-
-    // adds the image view to the options button view
-    [optionsButton2View addSubview:image2View];
-
-    UILabel *label2View = [[UILabel alloc] initWithFrame:CGRectMake(22, 32, 80, 100)];
-    label2View.font = [UIFont fontWithName:@"Helvetica-Bold" size:13];
-    label2View.text = @"Purchases";
-    label2View.textColor = [UIColor colorWithRed:0.24 green:0.24 blue:0.24 alpha:1.0];
-    label2View.backgroundColor = [UIColor clearColor];
-    label2View.shadowColor = [UIColor whiteColor];
-    label2View.shadowOffset = CGSizeMake(0, 1);
-
-    [optionsButton2View addSubview:label2View];
-
-
-
-    UIImageView *image3View = [[UIImageView alloc] initWithFrame:CGRectMake(26, 22, 50, 50)];
-    image3View.image = [UIImage imageNamed:@"person_option.png"];
-
-    // adds the image view to the options button view
-    [optionsButton3View addSubview:image3View];
-
-    UILabel *label3View = [[UILabel alloc] initWithFrame:CGRectMake(32, 32, 80, 100)];
-    label3View.font = [UIFont fontWithName:@"Helvetica-Bold" size:13];
-    label3View.text = @"Users";
-    label3View.textColor = [UIColor colorWithRed:0.24 green:0.24 blue:0.24 alpha:1.0];
-    label3View.backgroundColor = [UIColor clearColor];
-    label3View.shadowColor = [UIColor whiteColor];
-    label3View.shadowOffset = CGSizeMake(0, 1);
-
-    [optionsButton3View addSubview:label3View];
-
-
-    UIImageView *image4View = [[UIImageView alloc] initWithFrame:CGRectMake(26, 22, 50, 50)];
-    image4View.image = [UIImage imageNamed:@"building_option.png"];
-
-    // adds the image view to the options button view
-    [optionsButton4View addSubview:image4View];
-
-    UILabel *label4View = [[UILabel alloc] initWithFrame:CGRectMake(32, 32, 80, 100)];
-    label4View.font = [UIFont fontWithName:@"Helvetica-Bold" size:13];
-    label4View.text = @"Stores";
-    label4View.textColor = [UIColor colorWithRed:0.24 green:0.24 blue:0.24 alpha:1.0];
-    label4View.backgroundColor = [UIColor clearColor];
-    label4View.shadowColor = [UIColor whiteColor];
-    label4View.shadowOffset = CGSizeMake(0, 1);
-
-    [optionsButton4View addSubview:label4View];
-
-
-    // sets the initial frame
-    optionsButton2View.frame = CGRectMake(106, 0, 108, 120);
-    optionsButton2View.widthBorder = YES;
-
-    // sets the initial frame
-    optionsButton3View.frame = CGRectMake(214, 0, 106, 120);
-
-    // sets the initial frame
-    optionsButton4View.frame = CGRectMake(0, 111, 106, 120);
-    optionsButton4View.heightBorder = YES;
-
-    // sets the initial frame
-    optionsButton5View.frame = CGRectMake(106, 111, 106, 120);
-    optionsButton5View.widthBorder = YES;
-    optionsButton5View.heightBorder = YES;
-
-    // sets the initial frame
-    optionsButton6View.frame = CGRectMake(214, 111, 106, 120);
-    optionsButton6View.heightBorder = YES;
-
-    // sets the initial frame
-    optionsButton7View.frame = CGRectMake(0, 222, 106, 120);
-
-    // sets the initial frame
-    optionsButton8View.frame = CGRectMake(106, 222, 106, 120);
-    optionsButton8View.widthBorder = YES;
-
-    // sets the initial frame
-    optionsButton9View.frame = CGRectMake(214, 222, 106, 120);
-
-    // retrieves the scroll view
-    UIScrollView *scrollView = (UIScrollView *) [self.view.subviews objectAtIndex:1];
-
-    // sets the scroll view content size
-    scrollView.contentSize = CGSizeMake(1080, 336);
-
-    // adds the option button views
-    [scrollView addSubview:optionsButtonView];
-    [scrollView addSubview:optionsButton2View];
-    [scrollView addSubview:optionsButton3View];
-    [scrollView addSubview:optionsButton4View];
-    [scrollView addSubview:optionsButton5View];
-    [scrollView addSubview:optionsButton6View];
-    [scrollView addSubview:optionsButton7View];
-    [scrollView addSubview:optionsButton8View];
-    [scrollView addSubview:optionsButton9View];
 
     // changes the title's image view
     UIImageView *imageHeaderView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 74, 22)];
@@ -186,8 +37,69 @@
     [imageHeaderView setImage:logoImage];
     self.navigationItem.titleView = imageHeaderView;
 
+    // creates the options button views
+    HMOptionsButtonView *optionsButton1View = [[HMOptionsButtonView alloc] init];
+    HMOptionsButtonView *optionsButton2View = [[HMOptionsButtonView alloc] init];
+    HMOptionsButtonView *optionsButton3View = [[HMOptionsButtonView alloc] init];
+    HMOptionsButtonView *optionsButton4View = [[HMOptionsButtonView alloc] init];
+    HMOptionsButtonView *optionsButton5View = [[HMOptionsButtonView alloc] init];
+    HMOptionsButtonView *optionsButton6View = [[HMOptionsButtonView alloc] init];
+    HMOptionsButtonView *optionsButton7View = [[HMOptionsButtonView alloc] init];
+    HMOptionsButtonView *optionsButton8View = [[HMOptionsButtonView alloc] init];
+    HMOptionsButtonView *optionsButton9View = [[HMOptionsButtonView alloc] init];
+
+    // sets the icon image in the options button
+    optionsButton1View.iconImage = [UIImage imageNamed:@"box_option.png"];
+    optionsButton1View.text = NSLocalizedString(@"Inventory", @"Inventory");
+
+    // sets the icon image in the options button
+    optionsButton2View.iconImage = [UIImage imageNamed:@"box_down_option.png"];
+    optionsButton2View.text = NSLocalizedString(@"Purchases", @"Purchases");
+
+    // sets the icon image in the options button
+    optionsButton3View.iconImage = [UIImage imageNamed:@"person_option.png"];
+    optionsButton3View.text = NSLocalizedString(@"Users", @"Users");
+
+    // sets the icon image in the options button
+    optionsButton4View.iconImage = [UIImage imageNamed:@"building_option.png"];
+    optionsButton4View.text = NSLocalizedString(@"Stores", @"Stores");
+
+    // sets the icon image in the options button
+    optionsButton5View.iconImage = [UIImage imageNamed:@"building_option.png"];
+    optionsButton5View.text = NSLocalizedString(@"Stores", @"Stores");
+
+    // sets the icon image in the options button
+    optionsButton6View.iconImage = [UIImage imageNamed:@"building_option.png"];
+    optionsButton6View.text = NSLocalizedString(@"Stores", @"Stores");
+
+    // sets the icon image in the options button
+    optionsButton7View.iconImage = [UIImage imageNamed:@"building_option.png"];
+    optionsButton7View.text = NSLocalizedString(@"Stores", @"Stores");
+
+    // sets the icon image in the options button
+    optionsButton8View.iconImage = [UIImage imageNamed:@"building_option.png"];
+    optionsButton8View.text = NSLocalizedString(@"Stores", @"Stores");
+
+    // sets the icon image in the options button
+    optionsButton9View.iconImage = [UIImage imageNamed:@"building_option.png"];
+    optionsButton9View.text = NSLocalizedString(@"Stores", @"Stores");
+
+    // retrieves the options view
+    HMOptionsView *optionsView = (HMOptionsView *) self.view;
+
+    // adds the option button views
+    [optionsView addOptionsButton:optionsButton1View];
+    [optionsView addOptionsButton:optionsButton2View];
+    [optionsView addOptionsButton:optionsButton3View];
+    [optionsView addOptionsButton:optionsButton4View];
+    [optionsView addOptionsButton:optionsButton5View];
+    [optionsView addOptionsButton:optionsButton6View];
+    [optionsView addOptionsButton:optionsButton7View];
+    [optionsView addOptionsButton:optionsButton8View];
+    [optionsView addOptionsButton:optionsButton9View];
+
     // releases the options button view
-    [optionsButtonView release];
+    [optionsButton1View release];
     [optionsButton2View release];
     [optionsButton3View release];
     [optionsButton4View release];
@@ -201,18 +113,11 @@
     return self;
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    // retrieves the page width
-    CGFloat pageWidth = scrollView.frame.size.width;
+- (void)addOptionsButtonView:(HMOptionsButtonView *)optionsButtonView {
+}
 
-    // calculates the current page based on the current x offset
-    int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-
-    // retrieves the page control
-    UIPageControl *pageControl = [self.view.subviews objectAtIndex:2];
-
-    // sets the current page
-    pageControl.currentPage = page;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return YES;
 }
 
 @end
