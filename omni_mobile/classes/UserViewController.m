@@ -119,7 +119,7 @@
     HMConstantStringTableCellItem *employeeItem = [[HMConstantStringTableCellItem alloc] initWithIdentifier:@"employee"];
     employeeItem.name = NSLocalizedString(@"Employee", @"Employee");
     employeeItem.description = personName;
-    employeeItem.data = person;
+    employeeItem.data = isPersonAvailable ? person : nil;
     employeeItem.accessoryType = @"disclosure_indicator";
     employeeItem.readViewController = [EmployeeViewController class];
     employeeItem.readNibName = @"EmployeeViewController";
@@ -127,7 +127,7 @@
     employeeItem.editNibName = @"EmployeesViewController";
     employeeItem.deletableRow = YES;
     employeeItem.deleteActionType = HMTableCellItemDeleteActionTypeClear;
-    employeeItem.selectable = isPersonAvailable;
+    employeeItem.selectable = YES;
     employeeItem.selectableEdit = YES;
 
     // creates the sections item group

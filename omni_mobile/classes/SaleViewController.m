@@ -65,11 +65,15 @@
     // retrieves the remote data attributes
     NSString *saleIdentifier = AVOID_NULL([remoteData objectForKey:@"identifier"]);
     NSNumber *date = AVOID_NULL_NUMBER([remoteData objectForKey:@"date"]);
-    NSDictionary *sellerStockHolder = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"seller_stockholder"]);
-    NSString *sellerStockHolderName = AVOID_NULL([sellerStockHolder objectForKey:@"name"]);
+    NSArray *sellers = AVOID_NULL_ARRAY([remoteData objectForKey:@"sellers"]);
+    NSDictionary *seller = AVOID_NULL_DICTIONARY([sellers objectAtIndex:0]);
+    NSString *sellerName = AVOID_NULL([seller objectForKey:@"name"]);
+    NSDictionary *sellerStockholder = AVOID_NULL([remoteData objectForKey:@"seller_stockholder"]);
+    NSString *sellerStockHolderName = AVOID_NULL([sellerStockholder objectForKey:@"name"]);
+    NSNumber *discountVatNumber = AVOID_NULL_NUMBER([remoteData objectForKey:@"discount_vat"]);
     NSDictionary *price = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"price"]);
-    NSNumber *priceValue = AVOID_NULL_NUMBER([price objectForKey:@"value"]);
-    NSNumber *vat = AVOID_NULL_NUMBER([remoteData objectForKey:@"vat"]);
+    NSNumber *priceNumber = AVOID_NULL_NUMBER([price objectForKey:@"value"]);
+    NSNumber *vatNumber = AVOID_NULL_NUMBER([remoteData objectForKey:@"vat"]);
     NSDictionary *personBuyer = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"person_buyer"]);
     NSString *personBuyerName = AVOID_NULL([personBuyer objectForKey:@"name"]);
     NSDictionary *saleLines = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"sale_lines"]);
@@ -82,7 +86,7 @@
     NSString *dateString = AVOID_NULL([dateDate description]);
 
     // calculates the price vat
-    NSNumber *priceVat = [NSNumber numberWithFloat:([priceValue floatValue] + [vat floatValue])];
+    NSNumber *priceVat = [NSNumber numberWithFloat:([priceNumber floatValue] + [vatNumber floatValue])];
 
     // creates the title item
     HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
@@ -102,30 +106,47 @@
     // creates the store string table cell
     HMStringTableCellItem *storeItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"store"];
     storeItem.name = NSLocalizedString(@"Store", @"Store");
-    storeItem.data = sellerStockHolder;
+    storeItem.data = sellerStockholder;
     storeItem.description = sellerStockHolderName;
     storeItem.accessoryType = @"disclosure_indicator";
     storeItem.readViewController = [StoreViewController class];
     storeItem.readNibName = @"StoreViewController";
     storeItem.selectable = YES;
 
+    // creates the seller string table cell
+    HMStringTableCellItem *sellerItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"seller"];
+    sellerItem.name = NSLocalizedString(@"Seller", @"Seller");
+    sellerItem.data = seller;
+    sellerItem.description = sellerName;
+    sellerItem.accessoryType = @"disclosure_indicator";
+    sellerItem.readViewController = [EmployeeViewController class];
+    sellerItem.readNibName = @"EmployeeViewController";
+    sellerItem.selectable = YES;
+
+    // creates the discount vat string table cell
+    HMStringTableCellItem *discountVatItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"discount_vat"];
+    discountVatItem.name = NSLocalizedString(@"Discount VAT", @"Discount VAT");
+    discountVatItem.description = [NSString stringWithFormat:@"%.2f", [discountVatNumber floatValue]];
+    discountVatItem.accessoryType = @"badge_label";
+    discountVatItem.accessoryValue = @"EUR";
+
     // creates the price string table cell
     HMStringTableCellItem *priceItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"price"];
-    priceItem.name = NSLocalizedString(@"Price", @"Price");
-    priceItem.description = [NSString stringWithFormat:@"%.2f", [priceValue floatValue]];
+    priceItem.name = NSLocalizedString(@"Total", @"Total");
+    priceItem.description = [NSString stringWithFormat:@"%.2f", [priceNumber floatValue]];
     priceItem.accessoryType = @"badge_label";
     priceItem.accessoryValue = @"EUR";
 
     // creates the vat string table cell
     HMStringTableCellItem *vatItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"vat"];
     vatItem.name = NSLocalizedString(@"VAT", @"VAT");
-    vatItem.description = [NSString stringWithFormat:@"%.2f", [vat floatValue]];
+    vatItem.description = [NSString stringWithFormat:@"%.2f", [vatNumber floatValue]];
     vatItem.accessoryType = @"badge_label";
     vatItem.accessoryValue = @"EUR";
 
     // creates the price vat string table cell
     HMStringTableCellItem *priceVatItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"price_vat"];
-    priceVatItem.name = NSLocalizedString(@"Price VAT", @"Price VAT");
+    priceVatItem.name = NSLocalizedString(@"Total VAT", @"Total VAT");
     priceVatItem.description = [NSString stringWithFormat:@"%.2f", [priceVat floatValue]];
     priceVatItem.accessoryType = @"badge_label";
     priceVatItem.accessoryValue = @"EUR";
@@ -138,15 +159,15 @@
 
     // creates the first section item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
-    firstSectionItemGroup.headerString = NSLocalizedString(@"Sale Lines", @"Sale Lines");
+    firstSectionItemGroup.headerString = NSLocalizedString(@"Sale Details", @"Sale Details");
 
     // creates the second section item group
     HMTableSectionItemGroup *secondSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"second_section"];
-    secondSectionItemGroup.headerString = NSLocalizedString(@"Sale Details", @"Sale Details");
+    secondSectionItemGroup.headerString = NSLocalizedString(@"Sale Lines", @"Sale Lines");
 
     // creates remaining section item groups
     HMTableSectionItemGroup *thirdSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"third_section"];
-    HMTableSectionItemGroup *fourthSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"fourth_section"];
+    thirdSectionItemGroup.headerString = NSLocalizedString(@"Sale Values", @"Sale Values");
 
     // creates the menu list group
     HMItemGroup *menuListGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu_list"];
@@ -158,6 +179,11 @@
     [menuHeaderGroup addItem:@"title" item:titleItem];
     [menuHeaderGroup addItem:@"subTitle" item:subTitleItem];
     [menuHeaderGroup addItem:@"image" item:imageItem];
+
+    // populates the first section item group
+    [firstSectionItemGroup addItem:storeItem];
+    [firstSectionItemGroup addItem:sellerItem];
+    [firstSectionItemGroup addItem:customerItem];
 
     // creates the items for the sale lines
     // and adds them to the fourth item group
@@ -174,8 +200,6 @@
         HMStringTableCellItem *saleLineItem = [[HMStringTableCellItem alloc] initWithIdentifier:objectIdString];
         saleLineItem.description = merchandiseCompanyProductCode;
         saleLineItem.data = saleLine;
-        saleLineItem.icon = @"box_icon.png";
-        saleLineItem.highlightedIcon = @"box_icon_white.png";
         saleLineItem.accessoryType = @"badge_label";
         saleLineItem.accessoryValue = quantityString;
         saleLineItem.readViewController = [SaleLineViewController class];
@@ -183,29 +207,23 @@
         saleLineItem.selectable = YES;
 
         // adds the sale line item to
-        // the first section item group
-        [firstSectionItemGroup addItem:saleLineItem];
+        // the second section item group
+        [secondSectionItemGroup addItem:saleLineItem];
 
         // releases the sale line item
         [saleLineItem release];
     }
 
-    // populates the second section item group
-    [secondSectionItemGroup addItem:storeItem];
-
     // populates the third section item group
+    [thirdSectionItemGroup addItem:discountVatItem];
     [thirdSectionItemGroup addItem:priceItem];
     [thirdSectionItemGroup addItem:vatItem];
     [thirdSectionItemGroup addItem:priceVatItem];
-
-    // populates the fourth section item group
-    [fourthSectionItemGroup addItem:customerItem];
 
     // adds the sections to the menu list
     [menuListGroup addItem:firstSectionItemGroup];
     [menuListGroup addItem:secondSectionItemGroup];
     [menuListGroup addItem:thirdSectionItemGroup];
-    [menuListGroup addItem:fourthSectionItemGroup];
 
     // adds the menu items to the menu item group
     [menuNamedItemGroup addItem:@"header" item:menuHeaderGroup];
@@ -217,7 +235,6 @@
     // releases the objects
     [menuNamedItemGroup release];
     [menuListGroup release];
-    [fourthSectionItemGroup release];
     [thirdSectionItemGroup release];
     [secondSectionItemGroup release];
     [firstSectionItemGroup release];
@@ -225,6 +242,8 @@
     [priceVatItem release];
     [vatItem release];
     [priceItem release];
+    [discountVatItem release];
+    [sellerItem release];
     [storeItem release];
     [menuHeaderGroup release];
     [imageItem release];
