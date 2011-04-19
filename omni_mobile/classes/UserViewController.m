@@ -70,11 +70,16 @@
     NSString *secretAnswer = AVOID_NULL([remoteData objectForKey:@"secret_answer_hash"]);
     NSDictionary *person = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"person"]);
     NSString *personName = AVOID_NULL([person objectForKey:@"name"]);
+    NSDictionary *defaultFunctionalUnit = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"default_functional_unit"]);
+    NSString *defaultFunctionalUnitName = AVOID_NULL([defaultFunctionalUnit objectForKey:@"name"]);
     NSDictionary *primaryMedia = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"primary_media"]);
     NSString *base64Data = AVOID_NULL([primaryMedia objectForKey:@"base_64_data"]);
 
     // checks if the persons is available
     BOOL isPersonAvailable = [person count] == 0 ? NO : YES;
+
+    // checks if the default functional unit is available
+    BOOL isDefaultFunctionalUnitAvailable = [defaultFunctionalUnit count] == 0 ? NO : YES;
 
     // creates the title item
     HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
@@ -114,6 +119,21 @@
     secretAnswerItem.name = NSLocalizedString(@"Answer", @"Answer");
     secretAnswerItem.description = secretAnswer;
     secretAnswerItem.secure = YES;
+
+    // creates the default functional unit string table cell
+    HMConstantStringTableCellItem *defaultFunctionalUnitItem = [[HMConstantStringTableCellItem alloc] initWithIdentifier:@"stores"];
+    defaultFunctionalUnitItem.name = NSLocalizedString(@"Store", @"Store");
+    defaultFunctionalUnitItem.description = defaultFunctionalUnitName;
+    defaultFunctionalUnitItem.data = isDefaultFunctionalUnitAvailable ? defaultFunctionalUnit : nil;
+    defaultFunctionalUnitItem.accessoryType = @"disclosure_indicator";
+    defaultFunctionalUnitItem.readViewController = [StoreViewController class];
+    defaultFunctionalUnitItem.readNibName = @"StoreViewController";
+    defaultFunctionalUnitItem.editViewController = [StoresViewController class];
+    defaultFunctionalUnitItem.editNibName = @"StoresViewController";
+    defaultFunctionalUnitItem.deletableRow = YES;
+    defaultFunctionalUnitItem.deleteActionType = HMTableCellItemDeleteActionTypeClear;
+    defaultFunctionalUnitItem.selectable = YES;
+    defaultFunctionalUnitItem.selectableEdit = YES;
 
     // creates the employee string table cell
     HMConstantStringTableCellItem *employeeItem = [[HMConstantStringTableCellItem alloc] initWithIdentifier:@"employee"];
@@ -155,6 +175,7 @@
     [secondSectionItemGroup addItem:secretAnswerItem];
 
     // populates the third section item group
+    [thirdSectionItemGroup addItem:defaultFunctionalUnitItem];
     [thirdSectionItemGroup addItem:employeeItem];
 
     // adds the sections to the menu list
@@ -176,6 +197,7 @@
     [secondSectionItemGroup release];
     [firstSectionItemGroup release];
     [employeeItem release];
+    [defaultFunctionalUnitItem release];
     [secretAnswerItem release];
     [secretQuestionItem release];
     [passwordItem release];
@@ -214,10 +236,15 @@
     HMItem *secretAnswer = [secondSectionItemGroup getItem:1];
 
     // retrieves the third section items
-    HMItem *employee = [thirdSectionItemGroup getItem:0];
+    HMItem *defaultFunctionalUnitItem = [thirdSectionItemGroup getItem:0];
+    HMItem *employeeItem = [thirdSectionItemGroup getItem:1];
+
+    // retrieves the default functional unit object id
+    NSDictionary *defaultFunctionalUnitData = (NSDictionary *) defaultFunctionalUnitItem.data;
+    NSNumber *defaultFunctionalUnitObjectId = [defaultFunctionalUnitData objectForKey:@"object_id"];
 
     // retrieves the employee object id
-    NSDictionary *employeeData = (NSDictionary *) employee.data;
+    NSDictionary *employeeData = (NSDictionary *) employeeItem.data;
     NSNumber *employeeObjectId = [employeeData objectForKey:@"object_id"];
 
     // sets the items in the remote data
@@ -229,6 +256,15 @@
     [remoteData addObject:[NSArray arrayWithObjects:@"user[_parameters][password]", AVOID_NIL(passwordItem.description, NSString), nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"user[_parameters][confirm_password]", AVOID_NIL(passwordItem.description, NSString), nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"user[_parameters][secret_answer]", AVOID_NIL(secretAnswer.description, NSString), nil]];
+
+    // sets the default functional unit to null in case it's not defined
+    if(defaultFunctionalUnitObjectId == nil) {
+        [remoteData addObject:[NSArray arrayWithObjects:@"user[default_functional_unit]", [NSNull null], nil]];
+    } else {
+        // otherwise sets the related default functional unit
+        NSString *defaultFunctionalUnitObjectIdString = [NSString stringWithFormat:@"%d", [defaultFunctionalUnitObjectId intValue]];
+        [remoteData addObject:[NSArray arrayWithObjects:@"user[default_functional_unit][object_id]", defaultFunctionalUnitObjectIdString, nil]];
+    }
 
     // sets the employee to null in case it's not defined
     if(employeeObjectId == nil) {
