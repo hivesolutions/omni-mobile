@@ -280,4 +280,8 @@
     return YES;
 }
 
+- (BOOL)updateRemoteUpdate {
+    return YES;
+}
+
 @end
