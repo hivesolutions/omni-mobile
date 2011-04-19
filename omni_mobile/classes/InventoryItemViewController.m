@@ -278,4 +278,8 @@
     return inventoryLineItem;
 }
 
+- (BOOL)updateRemoteUpdate {
+    return YES;
+}
+
 @end
