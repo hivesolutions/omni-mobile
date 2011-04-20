@@ -68,7 +68,6 @@
 		C243126F135DE85A002D9198 /* green_screen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C243126B135DE85A002D9198 /* green_screen@2x.png */; };
 		C2431270135DE85A002D9198 /* red_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = C243126C135DE85A002D9198 /* red_screen.png */; };
 		C2431271135DE85A002D9198 /* red_screen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C243126D135DE85A002D9198 /* red_screen@2x.png */; };
-		C2431274135DE98F002D9198 /* WeekWidgetView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2431273135DE98E002D9198 /* WeekWidgetView.m */; };
 		C2431277135DED3A002D9198 /* SalesWeekViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2431276135DED39002D9198 /* SalesWeekViewController.m */; };
 		C2431279135DED7F002D9198 /* SalesWeekViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2431278135DED7F002D9198 /* SalesWeekViewController.xib */; };
 		C243127E135DF6F1002D9198 /* page_control_dot_active_white.png in Resources */ = {isa = PBXBuildFile; fileRef = C243127A135DF6EF002D9198 /* page_control_dot_active_white.png */; };
@@ -318,8 +317,6 @@
 		C243126B135DE85A002D9198 /* green_screen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green_screen@2x.png"; sourceTree = "<group>"; };
 		C243126C135DE85A002D9198 /* red_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_screen.png; sourceTree = "<group>"; };
 		C243126D135DE85A002D9198 /* red_screen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red_screen@2x.png"; sourceTree = "<group>"; };
-		C2431272135DE98E002D9198 /* WeekWidgetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeekWidgetView.h; path = classes/WeekWidgetView.h; sourceTree = "<group>"; };
-		C2431273135DE98E002D9198 /* WeekWidgetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeekWidgetView.m; path = classes/WeekWidgetView.m; sourceTree = "<group>"; };
 		C2431275135DED38002D9198 /* SalesWeekViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SalesWeekViewController.h; path = classes/SalesWeekViewController.h; sourceTree = "<group>"; };
 		C2431276135DED39002D9198 /* SalesWeekViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SalesWeekViewController.m; path = classes/SalesWeekViewController.m; sourceTree = "<group>"; };
 		C2431278135DED7F002D9198 /* SalesWeekViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SalesWeekViewController.xib; path = nibs/SalesWeekViewController.xib; sourceTree = "<group>"; };
@@ -502,8 +499,6 @@
 			children = (
 				C2431275135DED38002D9198 /* SalesWeekViewController.h */,
 				C2431276135DED39002D9198 /* SalesWeekViewController.m */,
-				C2431272135DE98E002D9198 /* WeekWidgetView.h */,
-				C2431273135DE98E002D9198 /* WeekWidgetView.m */,
 				A57A09B51355A7810098A56A /* SaleLineViewController.h */,
 				A57A09B61355A7820098A56A /* SaleLineViewController.m */,
 				C28F1C571354A7990007DB89 /* OptionsMenuViewController.h */,
@@ -1464,7 +1459,6 @@
 				C2BB8D2113549E0400E332F7 /* CreditsViewController.m in Sources */,
 				C28F1C591354A7990007DB89 /* OptionsMenuViewController.m in Sources */,
 				A57A09B71355A7840098A56A /* SaleLineViewController.m in Sources */,
-				C2431274135DE98F002D9198 /* WeekWidgetView.m in Sources */,
 				C2431277135DED3A002D9198 /* SalesWeekViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

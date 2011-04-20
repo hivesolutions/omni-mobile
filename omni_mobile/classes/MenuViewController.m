@@ -209,8 +209,8 @@
     [firstSectionItemGroup addItem:employeesItem];
     //[firstSectionItemGroup addItem:highlightsItem];
     //[secondSectionItemGroup addItem:notificationsItem];
-    //[secondSectionItemGroup addItem:optionsMenuItem];
-    //[secondSectionItemGroup addItem:salesWeekItem];
+    [secondSectionItemGroup addItem:optionsMenuItem];
+    [secondSectionItemGroup addItem:salesWeekItem];
     [secondSectionItemGroup addItem:creditsItem];
 
     // populates the menu list group
