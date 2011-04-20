@@ -32,6 +32,7 @@
 #import "EmployeesViewController.h"
 #import "CreditsViewController.h"
 #import "OptionsMenuViewController.h"
+#import "SalesWeekViewController.h"
 
 /**
  * The description font size for menu items.

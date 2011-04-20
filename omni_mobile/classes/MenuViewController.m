@@ -172,6 +172,11 @@
     optionsMenuItem.accessoryType = @"disclosure_indicator";
     optionsMenuItem.selectable = YES;
 
+    // creates the sales week button item
+    HMTableCellItem *salesWeekItem = [[HMTableCellItem alloc] initWithIdentifier:@"sales_week"];
+    salesWeekItem.name = NSLocalizedString(@"Sales Week", @"Sales Week");
+    salesWeekItem.selectable = YES;
+
     // creates the credits button item
     HMTableCellItem *creditsItem = [[HMTableCellItem alloc] initWithIdentifier:@"credits"];
     creditsItem.name = NSLocalizedString(@"Credits", @"Credits");
@@ -210,7 +215,8 @@
     [firstSectionItemGroup addItem:employeesItem];
     //[firstSectionItemGroup addItem:highlightsItem];
     //[secondSectionItemGroup addItem:notificationsItem];
-    //[secondSectionItemGroup addItem:optionsMenuItem];
+    [secondSectionItemGroup addItem:optionsMenuItem];
+    [secondSectionItemGroup addItem:salesWeekItem];
     [secondSectionItemGroup addItem:creditsItem];
 
     // populates the menu list group
@@ -409,11 +415,21 @@
         // initializes the options menu view controller
         OptionsMenuViewController *optionsMenuViewController = [[OptionsMenuViewController alloc] initWithNibName:@"OptionsMenuViewController" bundle:[NSBundle mainBundle]];
 
-        // pushes the credits view controller
+        // pushes the options menu view controller
         [self.navigationController pushViewController:optionsMenuViewController animated:YES];
 
         // releases the options menu view controller reference
         [optionsMenuViewController release];
+    }
+    else if([item.identifier isEqualToString:@"sales_week"]) {
+        // initializes the sales week view controller
+        SalesWeekViewController *salesWeekViewController = [[SalesWeekViewController alloc] initWithNibName:@"SalesWeekViewController" bundle:[NSBundle mainBundle]];
+
+        // presents the sales week view controller
+        [self presentModalViewController:salesWeekViewController animated:YES];
+
+        // releases the sales week view controller reference
+        [salesWeekViewController release];
     }
     else if([item.identifier isEqualToString:@"credits"]) {
         // calls the did select credits button

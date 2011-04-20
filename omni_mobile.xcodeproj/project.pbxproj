@@ -64,6 +64,21 @@
 		C23F3D8A132E5965003155EE /* libcommons_mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C23F3D89132E5965003155EE /* libcommons_mobile.a */; };
 		C23F3DA7132E737B003155EE /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23F3DA6132E737B003155EE /* MainWindow-iPad.xib */; };
 		C23F3DAF132E7480003155EE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A57BEA56132E72F0000478F7 /* QuartzCore.framework */; };
+		C243126E135DE85A002D9198 /* green_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = C243126A135DE85A002D9198 /* green_screen.png */; };
+		C243126F135DE85A002D9198 /* green_screen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C243126B135DE85A002D9198 /* green_screen@2x.png */; };
+		C2431270135DE85A002D9198 /* red_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = C243126C135DE85A002D9198 /* red_screen.png */; };
+		C2431271135DE85A002D9198 /* red_screen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C243126D135DE85A002D9198 /* red_screen@2x.png */; };
+		C2431274135DE98F002D9198 /* WeekWidgetView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2431273135DE98E002D9198 /* WeekWidgetView.m */; };
+		C2431277135DED3A002D9198 /* SalesWeekViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2431276135DED39002D9198 /* SalesWeekViewController.m */; };
+		C2431279135DED7F002D9198 /* SalesWeekViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2431278135DED7F002D9198 /* SalesWeekViewController.xib */; };
+		C243127E135DF6F1002D9198 /* page_control_dot_active_white.png in Resources */ = {isa = PBXBuildFile; fileRef = C243127A135DF6EF002D9198 /* page_control_dot_active_white.png */; };
+		C243127F135DF6F1002D9198 /* page_control_dot_active_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C243127B135DF6EF002D9198 /* page_control_dot_active_white@2x.png */; };
+		C2431280135DF6F1002D9198 /* page_control_dot_inactive_white.png in Resources */ = {isa = PBXBuildFile; fileRef = C243127C135DF6F0002D9198 /* page_control_dot_inactive_white.png */; };
+		C2431281135DF6F1002D9198 /* page_control_dot_inactive_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C243127D135DF6F1002D9198 /* page_control_dot_inactive_white@2x.png */; };
+		C2431289135DF81B002D9198 /* minus_widget.png in Resources */ = {isa = PBXBuildFile; fileRef = C2431284135DF81B002D9198 /* minus_widget.png */; };
+		C243128A135DF81B002D9198 /* minus_widget@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2431285135DF81B002D9198 /* minus_widget@2x.png */; };
+		C243128B135DF81B002D9198 /* plus_widget.png in Resources */ = {isa = PBXBuildFile; fileRef = C2431287135DF81B002D9198 /* plus_widget.png */; };
+		C243128C135DF81B002D9198 /* plus_widget@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2431288135DF81B002D9198 /* plus_widget@2x.png */; };
 		C24A0E641338B1F100D8C7EC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C24A0E631338B1F000D8C7EC /* LoginViewController.m */; };
 		C24A0E6E1338B9BB00D8C7EC /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C24A0E6D1338B9BB00D8C7EC /* LoginViewController.xib */; };
 		C2616D9F1356289A00D494F8 /* box_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C2616D691356289A00D494F8 /* box_icon.png */; };
@@ -299,6 +314,23 @@
 		C23F3D85132E5932003155EE /* libjson_mobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libjson_mobile.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C23F3D89132E5965003155EE /* libcommons_mobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libcommons_mobile.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C23F3DA6132E737B003155EE /* MainWindow-iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "ipad/nibs/MainWindow-iPad.xib"; sourceTree = "<group>"; };
+		C243126A135DE85A002D9198 /* green_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_screen.png; sourceTree = "<group>"; };
+		C243126B135DE85A002D9198 /* green_screen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green_screen@2x.png"; sourceTree = "<group>"; };
+		C243126C135DE85A002D9198 /* red_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_screen.png; sourceTree = "<group>"; };
+		C243126D135DE85A002D9198 /* red_screen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red_screen@2x.png"; sourceTree = "<group>"; };
+		C2431272135DE98E002D9198 /* WeekWidgetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeekWidgetView.h; path = classes/WeekWidgetView.h; sourceTree = "<group>"; };
+		C2431273135DE98E002D9198 /* WeekWidgetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeekWidgetView.m; path = classes/WeekWidgetView.m; sourceTree = "<group>"; };
+		C2431275135DED38002D9198 /* SalesWeekViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SalesWeekViewController.h; path = classes/SalesWeekViewController.h; sourceTree = "<group>"; };
+		C2431276135DED39002D9198 /* SalesWeekViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SalesWeekViewController.m; path = classes/SalesWeekViewController.m; sourceTree = "<group>"; };
+		C2431278135DED7F002D9198 /* SalesWeekViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SalesWeekViewController.xib; path = nibs/SalesWeekViewController.xib; sourceTree = "<group>"; };
+		C243127A135DF6EF002D9198 /* page_control_dot_active_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page_control_dot_active_white.png; sourceTree = "<group>"; };
+		C243127B135DF6EF002D9198 /* page_control_dot_active_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_control_dot_active_white@2x.png"; sourceTree = "<group>"; };
+		C243127C135DF6F0002D9198 /* page_control_dot_inactive_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page_control_dot_inactive_white.png; sourceTree = "<group>"; };
+		C243127D135DF6F1002D9198 /* page_control_dot_inactive_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_control_dot_inactive_white@2x.png"; sourceTree = "<group>"; };
+		C2431284135DF81B002D9198 /* minus_widget.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minus_widget.png; sourceTree = "<group>"; };
+		C2431285135DF81B002D9198 /* minus_widget@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "minus_widget@2x.png"; sourceTree = "<group>"; };
+		C2431287135DF81B002D9198 /* plus_widget.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus_widget.png; sourceTree = "<group>"; };
+		C2431288135DF81B002D9198 /* plus_widget@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus_widget@2x.png"; sourceTree = "<group>"; };
 		C24323F2132E2D2800BB72E0 /* commons_mobile.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = commons_mobile.xcodeproj; path = ../commons_mobile/commons_mobile.xcodeproj; sourceTree = "<group>"; };
 		C24A0E621338B1F000D8C7EC /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = classes/LoginViewController.h; sourceTree = "<group>"; };
 		C24A0E631338B1F000D8C7EC /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = classes/LoginViewController.m; sourceTree = "<group>"; };
@@ -468,6 +500,10 @@
 		C20CDB8C1333780F008A4FE3 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C2431275135DED38002D9198 /* SalesWeekViewController.h */,
+				C2431276135DED39002D9198 /* SalesWeekViewController.m */,
+				C2431272135DE98E002D9198 /* WeekWidgetView.h */,
+				C2431273135DE98E002D9198 /* WeekWidgetView.m */,
 				A57A09B51355A7810098A56A /* SaleLineViewController.h */,
 				A57A09B61355A7820098A56A /* SaleLineViewController.m */,
 				C28F1C571354A7990007DB89 /* OptionsMenuViewController.h */,
@@ -559,6 +595,7 @@
 				0E85BD03133B7BD900F3E65B /* InventoryViewController.xib */,
 				C2BB8D101354791700E332F7 /* CreditsViewController.xib */,
 				C28F1C551354A6C40007DB89 /* OptionsMenuViewController.xib */,
+				C2431278135DED7F002D9198 /* SalesWeekViewController.xib */,
 			);
 			name = Nibs;
 			sourceTree = "<group>";
@@ -593,6 +630,7 @@
 		C226C24F132A7D7100427656 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C2431282135DF81A002D9198 /* Widget Icons */,
 				C270A7F31354CD7B004611EA /* Option Icons */,
 				C2FEBD5E1340AB6F00CBB51E /* Header Icons */,
 				C28F3A3C13328DBC006F36F8 /* Base */,
@@ -635,6 +673,36 @@
 				C28F3AA313328E34006F36F8 /* Base */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		C2431282135DF81A002D9198 /* Widget Icons */ = {
+			isa = PBXGroup;
+			children = (
+				C2431283135DF81B002D9198 /* Minus */,
+				C2431286135DF81B002D9198 /* Plus */,
+			);
+			name = "Widget Icons";
+			path = resources/images/widget_icons;
+			sourceTree = "<group>";
+		};
+		C2431283135DF81B002D9198 /* Minus */ = {
+			isa = PBXGroup;
+			children = (
+				C2431284135DF81B002D9198 /* minus_widget.png */,
+				C2431285135DF81B002D9198 /* minus_widget@2x.png */,
+			);
+			name = Minus;
+			path = minus;
+			sourceTree = "<group>";
+		};
+		C2431286135DF81B002D9198 /* Plus */ = {
+			isa = PBXGroup;
+			children = (
+				C2431287135DF81B002D9198 /* plus_widget.png */,
+				C2431288135DF81B002D9198 /* plus_widget@2x.png */,
+			);
+			name = Plus;
+			path = plus;
 			sourceTree = "<group>";
 		};
 		C24323F3132E2D2800BB72E0 /* Products */ = {
@@ -969,6 +1037,14 @@
 		C28F3A7213328DBC006F36F8 /* System */ = {
 			isa = PBXGroup;
 			children = (
+				C243127A135DF6EF002D9198 /* page_control_dot_active_white.png */,
+				C243127B135DF6EF002D9198 /* page_control_dot_active_white@2x.png */,
+				C243127C135DF6F0002D9198 /* page_control_dot_inactive_white.png */,
+				C243127D135DF6F1002D9198 /* page_control_dot_inactive_white@2x.png */,
+				C243126A135DE85A002D9198 /* green_screen.png */,
+				C243126B135DE85A002D9198 /* green_screen@2x.png */,
+				C243126C135DE85A002D9198 /* red_screen.png */,
+				C243126D135DE85A002D9198 /* red_screen@2x.png */,
 				C22DFED61357157B006A4F61 /* page_control_dot_active.png */,
 				C22DFED71357157B006A4F61 /* page_control_dot_active@2x.png */,
 				C22DFED81357157B006A4F61 /* page_control_dot_inactive.png */,
@@ -1323,6 +1399,19 @@
 				C22DFEDB1357157B006A4F61 /* page_control_dot_active@2x.png in Resources */,
 				C22DFEDC1357157B006A4F61 /* page_control_dot_inactive.png in Resources */,
 				C22DFEDD1357157B006A4F61 /* page_control_dot_inactive@2x.png in Resources */,
+				C243126E135DE85A002D9198 /* green_screen.png in Resources */,
+				C243126F135DE85A002D9198 /* green_screen@2x.png in Resources */,
+				C2431270135DE85A002D9198 /* red_screen.png in Resources */,
+				C2431271135DE85A002D9198 /* red_screen@2x.png in Resources */,
+				C2431279135DED7F002D9198 /* SalesWeekViewController.xib in Resources */,
+				C243127E135DF6F1002D9198 /* page_control_dot_active_white.png in Resources */,
+				C243127F135DF6F1002D9198 /* page_control_dot_active_white@2x.png in Resources */,
+				C2431280135DF6F1002D9198 /* page_control_dot_inactive_white.png in Resources */,
+				C2431281135DF6F1002D9198 /* page_control_dot_inactive_white@2x.png in Resources */,
+				C2431289135DF81B002D9198 /* minus_widget.png in Resources */,
+				C243128A135DF81B002D9198 /* minus_widget@2x.png in Resources */,
+				C243128B135DF81B002D9198 /* plus_widget.png in Resources */,
+				C243128C135DF81B002D9198 /* plus_widget@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1375,6 +1464,8 @@
 				C2BB8D2113549E0400E332F7 /* CreditsViewController.m in Sources */,
 				C28F1C591354A7990007DB89 /* OptionsMenuViewController.m in Sources */,
 				A57A09B71355A7840098A56A /* SaleLineViewController.m in Sources */,
+				C2431274135DE98F002D9198 /* WeekWidgetView.m in Sources */,
+				C2431277135DED3A002D9198 /* SalesWeekViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
