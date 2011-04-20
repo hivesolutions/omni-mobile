@@ -27,4 +27,35 @@
 
 @implementation SalesWeekViewController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    // calls the super
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+
+    // casts the view as a week widget view (safe)
+    HMWeekWidgetView *weekWidgetView = (HMWeekWidgetView *) self.view;
+
+    // creates the week widget panel view
+    HMWeekWidgetPanelView *weekWidgetPanelView = [[HMWeekWidgetPanelView alloc] initWithFrame:CGRectMake(320, 0, 320, 428)];
+    weekWidgetPanelView.title = @"Galeria da Joia";
+    weekWidgetPanelView.subTitle = @"Loja";
+    weekWidgetPanelView.image = [UIImage imageNamed:@"minus_widget.png"];
+    weekWidgetPanelView.weekItems = [[NSArray alloc] initWithObjects:
+                                     @"Terca-Feira", @"1,500 EUR",
+                                     @"Quarta-Feira", @"50 EUR",
+                                     @"Quinta-Feira", @"642 EUR",
+                                     @"Sexta-Feira", @"3,452 EUR",
+                                     @"Sabado", @"52 EUR",
+                                     @"Domingo", @"743 EUR",
+                                     nil];
+
+    // updates the status value in the week widget panel view
+    [weekWidgetPanelView updateStatus];
+
+    // adds the week widget panel view
+    [weekWidgetView addWeekWidgetPanel:weekWidgetPanelView panelType:HMWeekWidgetRedPanel];
+
+    // returns self
+    return self;
+}
+
 @end
