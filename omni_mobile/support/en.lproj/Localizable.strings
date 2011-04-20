@@ -79,10 +79,15 @@
 "Merchandise" = "Merchandise";
 "Sale Lines" = "Sale Lines";
 "Sale Details" = "Sale Details";
+"Sale Values" = "Sale Values";
 "Commission" = "Commission";
 "Code" = "Code";
 "Username" = "Username";
 "Anonymous" = "Anonymous";
+"Unit Price VAT" = "Unit Price VAT";
+"Retail Price" = "Retail Price";
+"Total" = "Total";
+"Total VAT" = "Total VAT";
 
 /* Global error names */
 "LoginErrorName" = "Login Error";

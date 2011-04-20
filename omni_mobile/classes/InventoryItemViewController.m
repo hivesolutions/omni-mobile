@@ -81,7 +81,7 @@
 
     // creates the first section item group
     HMTableMutableSectionItemGroup *firstSectionItemGroup = [[HMTableMutableSectionItemGroup alloc] initWithIdentifier:@"stores"];
-    firstSectionItemGroup.name = NSLocalizedString(@"Add inventory line", @"Add inventory line");
+    firstSectionItemGroup.name = NSLocalizedString(@"Add Inventory Line", @"Add Inventory Line");
     firstSectionItemGroup.addViewController = [StoresViewController class];
     firstSectionItemGroup.addNibName = @"StoresViewController";
     firstSectionItemGroup.tableCellItemCreationDelegate = self;
@@ -112,7 +112,7 @@
         NSString *storeStockOnHand = [NSString stringWithFormat:@"%d", stockOnHand];
 
         // creates the inventory line string table cell item
-        HMStringTableCellItem *inventoryLineItem = [[HMStringTableCellItem alloc] initWithIdentifier:objectIdString];
+        HMConstantStringTableCellItem *inventoryLineItem = [[HMConstantStringTableCellItem alloc] initWithIdentifier:objectIdString];
         inventoryLineItem.description = storeName;
         inventoryLineItem.data = inventoryLine;
         inventoryLineItem.icon = @"building.png";
@@ -124,7 +124,6 @@
         inventoryLineItem.indentable = YES;
         inventoryLineItem.deletableRow = YES;
         inventoryLineItem.deleteActionType = HMTableCellItemDeleteActionTypeDelete;
-        inventoryLineItem.editableCell = NO;
         inventoryLineItem.readViewController = [InventoryItemStoreViewController class];
         inventoryLineItem.readNibName = @"InventoryItemStoreViewController";
 
@@ -257,7 +256,7 @@
                                    nil];
 
     // creates the inventory line item
-    HMStringTableCellItem *inventoryLineItem = [[[HMStringTableCellItem alloc] initWithIdentifier:identifier] autorelease];
+    HMConstantStringTableCellItem *inventoryLineItem = [[[HMConstantStringTableCellItem alloc] initWithIdentifier:identifier] autorelease];
     inventoryLineItem.transientState = HMItemStateNew;
     inventoryLineItem.description = storeName;
     inventoryLineItem.data = inventoryLine;
@@ -270,12 +269,15 @@
     inventoryLineItem.indentable = YES;
     inventoryLineItem.deletableRow = YES;
     inventoryLineItem.deleteActionType = HMTableCellItemDeleteActionTypeDelete;
-    inventoryLineItem.editableCell = NO;
     inventoryLineItem.readViewController = [InventoryItemStoreViewController class];
     inventoryLineItem.readNibName = @"InventoryItemStoreViewController";
 
     // returns the inventory line item
     return inventoryLineItem;
+}
+
+- (BOOL)deleteHidden {
+    return YES;
 }
 
 - (BOOL)updateRemoteUpdate {

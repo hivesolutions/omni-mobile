@@ -90,12 +90,11 @@
     stockOnHandItem.accessoryValue = @"UN";
 
     // creates the price string table cell
-    HMStringTableCellItem *priceItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"price"];
+    HMConstantStringTableCellItem *priceItem = [[HMConstantStringTableCellItem alloc] initWithIdentifier:@"price"];
     priceItem.name = NSLocalizedString(@"Price", @"Price");
     priceItem.description = [NSString stringWithFormat:@"%.2f", [priceValue floatValue]];
     priceItem.accessoryType = @"badge_label";
     priceItem.accessoryValue = @"EUR";
-    priceItem.editableCell = NO;
 
     // creates the retail price string table cell
     HMStringTableCellItem *retailPriceItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"retail_price"];
@@ -198,6 +197,10 @@
     // releases the objects
     [entity release];
     [numberFormatter release];
+}
+
+- (BOOL)deleteHidden {
+    return YES;
 }
 
 @end

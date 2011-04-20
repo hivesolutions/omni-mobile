@@ -79,10 +79,15 @@
 "Merchandise" = "Mercadoria";
 "Sale Lines" = "Linhas Venda";
 "Sale Details" = "Detalhes Venda";
+"Sale Values" = "Valores Venda";
 "Commission" = "Comissão";
 "Code" = "Código";
 "Username" = "Nome Utilizador";
 "Anonymous" = "Anónimo";
+"Unit Price VAT" = "Preço Unitário IVA";
+"Retail Price" = "Preço Retalho";
+"Total" = "Total";
+"Total VAT" = "Total IVA";
 
 /* Global error names */
 "LoginErrorName" = "Erro de Login";

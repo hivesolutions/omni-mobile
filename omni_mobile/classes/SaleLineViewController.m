@@ -67,11 +67,13 @@
     NSDictionary *unitPrice = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"unit_price"]);
     NSNumber *unitPriceNumber = AVOID_NULL_NUMBER([unitPrice objectForKey:@"value"]);
     NSNumber *unitVatNumber = AVOID_NULL_NUMBER([remoteData objectForKey:@"unit_vat"]);
-    NSNumber *discountNumber = AVOID_NULL_NUMBER([remoteData objectForKey:@"discount"]);
     NSNumber *discountVatNumber = AVOID_NULL_NUMBER([remoteData objectForKey:@"discount_vat"]);
     NSNumber *quantityNumber = AVOID_NULL_NUMBER([remoteData objectForKey:@"quantity"]);
     NSDictionary *merchandise = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"merchandise"]);
     NSString *merchandiseCompanyProductCode = AVOID_NULL([merchandise objectForKey:@"company_product_code"]);
+
+    // calculates the unit price vat
+    float unitPriceVat = [unitPriceNumber floatValue] + [unitVatNumber floatValue];
 
     // creates the title item
     HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
@@ -89,25 +91,11 @@
     HMNamedItemGroup *menuHeaderGroup = [[HMNamedItemGroup alloc] initWithIdentifier:@"menu_header"];
 
     // creates the unit price table cell
-    HMStringTableCellItem *unitPriceItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"unit_price"];
-    unitPriceItem.name = NSLocalizedString(@"Unit Price", @"Unit Price");
-    unitPriceItem.description = [NSString stringWithFormat:@"%.2f", [unitPriceNumber floatValue]];
-    unitPriceItem.accessoryType = @"badge_label";
-    unitPriceItem.accessoryValue = @"EUR";
-
-    // creates the unit vat table cell
-    HMStringTableCellItem *unitVatItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"unit_vat"];
-    unitVatItem.name = NSLocalizedString(@"Unit VAT", @"Unit VAT");
-    unitVatItem.description = [NSString stringWithFormat:@"%.2f", [unitVatNumber floatValue]];
-    unitVatItem.accessoryType = @"badge_label";
-    unitVatItem.accessoryValue = @"EUR";
-
-    // creates the discount table cell
-    HMStringTableCellItem *discountItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"discount"];
-    discountItem.name = NSLocalizedString(@"Discount", @"Discount");
-    discountItem.description = [NSString stringWithFormat:@"%.2f", [discountNumber floatValue]];
-    discountItem.accessoryType = @"badge_label";
-    discountItem.accessoryValue = @"EUR";
+    HMStringTableCellItem *unitPriceVatItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"unit_price"];
+    unitPriceVatItem.name = NSLocalizedString(@"Unit Price VAT", @"Unit Price VAT");
+    unitPriceVatItem.description = [NSString stringWithFormat:@"%.2f", unitPriceVat];
+    unitPriceVatItem.accessoryType = @"badge_label";
+    unitPriceVatItem.accessoryValue = @"EUR";
 
     // creates the discount vat table cell
     HMStringTableCellItem *discountVatItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"discount_vat"];
@@ -149,9 +137,7 @@
     [menuHeaderGroup addItem:@"image" item:imageItem];
 
     // populates the first section item group
-    [firstSectionItemGroup addItem:unitPriceItem];
-    [firstSectionItemGroup addItem:unitVatItem];
-    [firstSectionItemGroup addItem:discountItem];
+    [firstSectionItemGroup addItem:unitPriceVatItem];
     [firstSectionItemGroup addItem:discountVatItem];
     [firstSectionItemGroup addItem:quantityItem];
 
@@ -177,9 +163,7 @@
     [merchandiseItem release];
     [quantityItem release];
     [discountVatItem release];
-    [discountItem release];
-    [unitVatItem release];
-    [unitPriceItem release];
+    [unitPriceVatItem release];
     [menuHeaderGroup release];
     [imageItem release];
     [subTitleItem release];
@@ -188,6 +172,14 @@
 
 - (NSMutableArray *)convertRemoteGroup:(HMItemOperationType)operationType {
     return nil;
+}
+
+- (BOOL)editHidden {
+    return YES;
+}
+
+- (BOOL)deleteHidden {
+    return YES;
 }
 
 @end

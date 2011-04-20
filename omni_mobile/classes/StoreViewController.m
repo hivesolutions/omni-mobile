@@ -224,4 +224,8 @@
     }
 }
 
+- (BOOL)deleteHidden {
+    return YES;
+}
+
 @end
