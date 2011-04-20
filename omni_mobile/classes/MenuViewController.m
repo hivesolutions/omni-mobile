@@ -171,6 +171,9 @@
     // creates the sales week button item
     HMTableCellItem *salesWeekItem = [[HMTableCellItem alloc] initWithIdentifier:@"sales_week"];
     salesWeekItem.name = NSLocalizedString(@"Sales Week", @"Sales Week");
+    salesWeekItem.icon = @"dashboard_icon.png";
+    salesWeekItem.highlightedIcon = @"dashboard_icon_white.png";
+    salesWeekItem.accessoryType = @"disclosure_indicator";
     salesWeekItem.selectable = YES;
 
     // creates the credits button item

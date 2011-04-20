@@ -175,6 +175,10 @@
 		C2DBDC14132A42D5006C6E07 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3A13295A31007CBA34 /* UIKit.framework */; };
 		C2DBDC15132A42D5006C6E07 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3C13295A31007CBA34 /* Foundation.framework */; };
 		C2DBDC16132A42D5006C6E07 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28EFF3E13295A31007CBA34 /* CoreGraphics.framework */; };
+		C2F03763135F56B5007474F4 /* dashboard_icon_white.png in Resources */ = {isa = PBXBuildFile; fileRef = C2F0375F135F56B5007474F4 /* dashboard_icon_white.png */; };
+		C2F03764135F56B5007474F4 /* dashboard_icon_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2F03760135F56B5007474F4 /* dashboard_icon_white@2x.png */; };
+		C2F03765135F56B5007474F4 /* dashboard_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C2F03761135F56B5007474F4 /* dashboard_icon.png */; };
+		C2F03766135F56B5007474F4 /* dashboard_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2F03762135F56B5007474F4 /* dashboard_icon@2x.png */; };
 		C2FEBD671340ABA500CBB51E /* box_header.png in Resources */ = {isa = PBXBuildFile; fileRef = C2FEBD651340ABA500CBB51E /* box_header.png */; };
 		C2FEBD681340ABA500CBB51E /* box_header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2FEBD661340ABA500CBB51E /* box_header@2x.png */; };
 		C2FEBD6B1340ABAD00CBB51E /* box_building_header.png in Resources */ = {isa = PBXBuildFile; fileRef = C2FEBD691340ABAD00CBB51E /* box_building_header.png */; };
@@ -432,6 +436,10 @@
 		C2D1760C133046D000095322 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C2D1760E133046DB00095322 /* pt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C2DBDC13132A42D5006C6E07 /* omni_mobile_test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = omni_mobile_test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2F0375F135F56B5007474F4 /* dashboard_icon_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dashboard_icon_white.png; path = dashboard/dashboard_icon_white.png; sourceTree = "<group>"; };
+		C2F03760135F56B5007474F4 /* dashboard_icon_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dashboard_icon_white@2x.png"; path = "dashboard/dashboard_icon_white@2x.png"; sourceTree = "<group>"; };
+		C2F03761135F56B5007474F4 /* dashboard_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dashboard_icon.png; path = dashboard/dashboard_icon.png; sourceTree = "<group>"; };
+		C2F03762135F56B5007474F4 /* dashboard_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dashboard_icon@2x.png"; path = "dashboard/dashboard_icon@2x.png"; sourceTree = "<group>"; };
 		C2FEBD651340ABA500CBB51E /* box_header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = box_header.png; path = resources/images/header_icons/box/box_header.png; sourceTree = "<group>"; };
 		C2FEBD661340ABA500CBB51E /* box_header@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "box_header@2x.png"; path = "resources/images/header_icons/box/box_header@2x.png"; sourceTree = "<group>"; };
 		C2FEBD691340ABAD00CBB51E /* box_building_header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = box_building_header.png; path = resources/images/header_icons/box_building/box_building_header.png; sourceTree = "<group>"; };
@@ -1013,6 +1021,7 @@
 		C28F3A4413328DBC006F36F8 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				C2F0375D135F56A3007474F4 /* Dashboard */,
 				C2616D681356289A00D494F8 /* Box */,
 				C2616D6D1356289A00D494F8 /* Box Down */,
 				C2616D721356289A00D494F8 /* Box Up */,
@@ -1122,6 +1131,17 @@
 				C212D8CF132A484700E2A078 /* omni_mobile_test-Prefix.pch */,
 			);
 			name = Support;
+			sourceTree = "<group>";
+		};
+		C2F0375D135F56A3007474F4 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				C2F0375F135F56B5007474F4 /* dashboard_icon_white.png */,
+				C2F03760135F56B5007474F4 /* dashboard_icon_white@2x.png */,
+				C2F03761135F56B5007474F4 /* dashboard_icon.png */,
+				C2F03762135F56B5007474F4 /* dashboard_icon@2x.png */,
+			);
+			name = Dashboard;
 			sourceTree = "<group>";
 		};
 		C2FEBD5E1340AB6F00CBB51E /* Header Icons */ = {
@@ -1407,6 +1427,10 @@
 				C243128A135DF81B002D9198 /* minus_widget@2x.png in Resources */,
 				C243128B135DF81B002D9198 /* plus_widget.png in Resources */,
 				C243128C135DF81B002D9198 /* plus_widget@2x.png in Resources */,
+				C2F03763135F56B5007474F4 /* dashboard_icon_white.png in Resources */,
+				C2F03764135F56B5007474F4 /* dashboard_icon_white@2x.png in Resources */,
+				C2F03765135F56B5007474F4 /* dashboard_icon.png in Resources */,
+				C2F03766135F56B5007474F4 /* dashboard_icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

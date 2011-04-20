@@ -35,11 +35,11 @@
     HMWeekWidgetView *weekWidgetView = (HMWeekWidgetView *) self.view;
 
     // creates the week widget panel view
-    HMWeekWidgetPanelView *weekWidgetPanelView = [[HMWeekWidgetPanelView alloc] initWithFrame:CGRectMake(320, 0, 320, 428)];
-    weekWidgetPanelView.title = @"Galeria da Joia";
-    weekWidgetPanelView.subTitle = @"Loja";
-    weekWidgetPanelView.image = [UIImage imageNamed:@"minus_widget.png"];
-    weekWidgetPanelView.weekItems = [[NSArray alloc] initWithObjects:
+    HMWeekWidgetPanelView *weekWidgetPanelView1 = [[HMWeekWidgetPanelView alloc] initWithFrame:CGRectMake(0, 0, 320, 428)];
+    weekWidgetPanelView1.title = @"Galeria da Joia";
+    weekWidgetPanelView1.subTitle = @"Loja";
+    weekWidgetPanelView1.image = [UIImage imageNamed:@"minus_widget.png"];
+    weekWidgetPanelView1.weekItems = [[NSArray alloc] initWithObjects:
                                      @"Terca-Feira", @"1,500 EUR",
                                      @"Quarta-Feira", @"50 EUR",
                                      @"Quinta-Feira", @"642 EUR",
@@ -49,10 +49,34 @@
                                      nil];
 
     // updates the status value in the week widget panel view
-    [weekWidgetPanelView updateStatus];
+    [weekWidgetPanelView1 updateStatus];
 
     // adds the week widget panel view
-    [weekWidgetView addWeekWidgetPanel:weekWidgetPanelView panelType:HMWeekWidgetRedPanel];
+    [weekWidgetView addWeekWidgetPanel:weekWidgetPanelView1 panelType:HMWeekWidgetRedPanel];
+
+    // creates the week widget panel view
+    HMWeekWidgetPanelView *weekWidgetPanelView2 = [[HMWeekWidgetPanelView alloc] initWithFrame:CGRectMake(0, 0, 320, 428)];
+    weekWidgetPanelView2.title = @"Galeria da Joia";
+    weekWidgetPanelView2.subTitle = @"Loja";
+    weekWidgetPanelView2.image = [UIImage imageNamed:@"plus_widget.png"];
+    weekWidgetPanelView2.weekItems = [[NSArray alloc] initWithObjects:
+                                     @"Terca-Feira", @"1,500 EUR",
+                                     @"Quarta-Feira", @"50 EUR",
+                                     @"Quinta-Feira", @"642 EUR",
+                                     @"Sexta-Feira", @"3,452 EUR",
+                                     @"Sabado", @"52 EUR",
+                                     @"Domingo", @"743 EUR",
+                                     nil];
+
+    // updates the status value in the week widget panel view
+    [weekWidgetPanelView2 updateStatus];
+
+    // adds the week widget panel view
+    [weekWidgetView addWeekWidgetPanel:weekWidgetPanelView2 panelType:HMWeekWidgetGreenPanel];
+
+    // releases the objects
+    [weekWidgetPanelView1 release];
+    [weekWidgetPanelView2 release];
 
     // returns self
     return self;
