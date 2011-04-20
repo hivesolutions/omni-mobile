@@ -115,7 +115,6 @@
     salesItem.accessoryType = @"disclosure_indicator";
     salesItem.selectable = YES;
 
-    /*
     // creates the purchases button item
     HMTableCellItem *purchasesItem = [[HMTableCellItem alloc] initWithIdentifier:@"purchases"];
     purchasesItem.name = NSLocalizedString(@"Purchases", @"Purchases");
@@ -124,7 +123,6 @@
     purchasesItem.highlightedIcon = @"box_down_icon_white.png";
     purchasesItem.accessoryType = @"disclosure_indicator";
     purchasesItem.selectable = YES;
-    */
 
     // creates the inventory button item
     HMTableCellItem *inventoryItem = [[HMTableCellItem alloc] initWithIdentifier:@"inventory"];
@@ -153,7 +151,6 @@
     employeesItem.accessoryType = @"disclosure_indicator";
     employeesItem.selectable = YES;
 
-    /*
     // creates the highlights button item
     HMTableCellItem *highlightsItem = [[HMTableCellItem alloc] initWithIdentifier:@"highlights"];
     highlightsItem.name = NSLocalizedString(@"Highlights", @"Highlights");
@@ -162,7 +159,6 @@
     highlightsItem.highlightedIcon = @"megaphone_icon_white.png";
     highlightsItem.accessoryType = @"disclosure_indicator";
     highlightsItem.selectable = YES;
-    */
 
     // creates the options menu button item
     HMTableCellItem *optionsMenuItem = [[HMTableCellItem alloc] initWithIdentifier:@"options_menu"];
@@ -185,12 +181,10 @@
     creditsItem.accessoryType = @"disclosure_indicator";
     creditsItem.selectable = YES;
 
-    /*
     // creates the notifications button item
     HMTableCellItem *notificationsItem = [[HMTableCellItem alloc] initWithIdentifier:@"notifications"];
     notificationsItem.name = NSLocalizedString(@"Notifications", @"Notifications");
     notificationsItem.accessoryType = @"switch";
-    */
 
     // creates the section item groups
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
@@ -215,8 +209,8 @@
     [firstSectionItemGroup addItem:employeesItem];
     //[firstSectionItemGroup addItem:highlightsItem];
     //[secondSectionItemGroup addItem:notificationsItem];
-    [secondSectionItemGroup addItem:optionsMenuItem];
-    [secondSectionItemGroup addItem:salesWeekItem];
+    //[secondSectionItemGroup addItem:optionsMenuItem];
+    //[secondSectionItemGroup addItem:salesWeekItem];
     [secondSectionItemGroup addItem:creditsItem];
 
     // populates the menu list group
@@ -234,14 +228,15 @@
     [menuListGroup release];
     [secondSectionItemGroup release];
     [firstSectionItemGroup release];
-    //[notificationsItem release];
+    [notificationsItem release];
     [creditsItem release];
+    [salesWeekItem release];
     [optionsMenuItem release];
-    //[highlightsItem release];
+    [highlightsItem release];
     [inventoryItem release];
     [employeesItem release];
     [storesItem release];
-    //[purchasesItem release];
+    [purchasesItem release];
     [salesItem release];
     [usersItem release];
     [logoutBarButton release];

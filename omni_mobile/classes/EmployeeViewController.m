@@ -27,6 +27,10 @@
 
 @implementation EmployeeViewController
 
+- (NSString *)getTitle {
+    return NSLocalizedString(@"Employee", @"Employee");
+}
+
 - (NSString *)getRemoteUrl {
     // returns the url using the current operation type
     return [self getRemoteUrlForOperation:self.operationType];

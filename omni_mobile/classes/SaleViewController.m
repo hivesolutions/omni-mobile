@@ -27,6 +27,10 @@
 
 @implementation SaleViewController
 
+- (NSString *)getTitle {
+    return NSLocalizedString(@"Sale", @"Sale");
+}
+
 - (NSString *)getRemoteUrl {
     // returns the url using the current operation type
     return [self getRemoteUrlForOperation:self.operationType];

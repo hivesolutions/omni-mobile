@@ -27,6 +27,10 @@
 
 @implementation UserViewController
 
+- (NSString *)getTitle {
+    return NSLocalizedString(@"User", @"User");
+}
+
 - (NSString *)getRemoteUrl {
     // returns the url using the current operation type
     return [self getRemoteUrlForOperation:self.operationType];

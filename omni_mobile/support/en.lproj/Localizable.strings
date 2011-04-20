@@ -57,6 +57,9 @@
 "Employee" = "Employee";
 "Customer" = "Customer";
 "Store" = "Store";
+"Sale" = "Sale";
+"Item" = "Item";
+"Inventory Line" = "Inventory Line";
 "E-mail" = "E-mail";
 "Phone" = "Phone";
 "Price" = "Price";
@@ -68,6 +71,8 @@
 "Answer" = "Answer";
 "New User" = "New User";
 "New Item" = "New Item";
+"New Store" = "New Store";
+"New Employee" = "New Employee";
 "Add Inventory Line" = "Add Inventory Line";
 "Street Name" = "Street Name";
 "Country" = "Country";

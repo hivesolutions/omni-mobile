@@ -57,6 +57,9 @@
 "Employee" = "Empregado";
 "Customer" = "Cliente";
 "Store" = "Loja";
+"Sale" = "Venda";
+"Item" = "Artigo";
+"Inventory Line" = "Linha Inventário";
 "E-mail" = "E-mail";
 "Phone" = "Telefone";
 "Price" = "Preço";
@@ -67,7 +70,9 @@
 "Secret Question" = "Questão Secreta";
 "Answer" = "Resposta";
 "New User" = "Novo Utilizador";
-"New Item" = "Novo Item";
+"New Item" = "Novo Artigo";
+"New Store" = "Nova Loja";
+"New Employee" = "Novo Empregado";
 "Add Inventory Line" = "Adicionar Linha Inventário";
 "Street Name" = "Morada";
 "Country" = "País";

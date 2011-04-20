@@ -29,6 +29,10 @@
 
 @synthesize identifier = _identifier;
 
+- (NSString *)getTitle {
+    return NSLocalizedString(@"Inventory Line", @"Inventory Line");
+}
+
 - (NSString *)getRemoteUrl {
     // returns the url using the current operation type
     return [self getRemoteUrlForOperation:self.operationType];

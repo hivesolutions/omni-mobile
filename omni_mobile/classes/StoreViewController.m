@@ -27,6 +27,10 @@
 
 @implementation StoreViewController
 
+- (NSString *)getTitle {
+    return NSLocalizedString(@"Store", @"Store");
+}
+
 - (NSString *)getRemoteUrl {
     // returns the url using the current operation type
     return [self getRemoteUrlForOperation:self.operationType];

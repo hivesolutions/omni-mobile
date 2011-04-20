@@ -55,6 +55,12 @@
 }
 
 - (void)dealloc {
+    // releases the green background color
+    [_greenBackgroundColor release];
+
+    // releases the red background color
+    [_redBackgroundColor release];
+
     // releases scroll view
     [_scrollView release];
 
@@ -307,9 +313,6 @@
     fieldValueLabel5.shadowColor = [UIColor blackColor];
     fieldValueLabel5.shadowOffset = CGSizeMake(0, 1);
 
-    // flexible item used to separate the left groups items and right grouped items
-    UIBarButtonItem *flexibleSpaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-
     // creates the standard text color for toolbar labels
     UIColor *toolbarLabelTextColor = [UIColor whiteColor];
 
@@ -453,10 +456,26 @@
     [centerLabel release];
     [rightLabel release];
     [dateFormatter release];
-    [flexibleSpaceItem release];
+
+    [titleLabel release];
+    [subTitleLabel release];
+    [valueLabel release];
+    [fieldKeyLabel release];
+    [fieldValueLabel release];
+    [fieldKeyLabel1 release];
+    [fieldValueLabel1 release];
+    [fieldKeyLabel2 release];
+    [fieldValueLabel2 release];
+    [fieldKeyLabel3 release];
+    [fieldValueLabel3 release];
+    [fieldKeyLabel4 release];
+    [fieldValueLabel4 release];
+    [fieldKeyLabel5 release];
+    [fieldValueLabel5 release];
+    [image release];
 
     // returns the panel view
-    return panelView;
+    return [panelView autorelease];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
