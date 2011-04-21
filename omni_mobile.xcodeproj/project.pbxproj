@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E0BC4ED133B795000C38C28 /* welcome_background~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E0BC4EC133B795000C38C28 /* welcome_background~ipad.png */; };
 		0E23AEDD13462C210061FBE9 /* SaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E23AEDC13462C210061FBE9 /* SaleViewController.m */; };
 		0E23AEE013462D230061FBE9 /* SaleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E23AEDF13462D230061FBE9 /* SaleViewController.xib */; };
 		0E23AEE61346388B0061FBE9 /* EmployeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E23AEE5134638880061FBE9 /* EmployeeViewController.m */; };
@@ -54,6 +53,8 @@
 		C212D8C6132A482800E2A078 /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C212D8C3132A482800E2A078 /* UserViewController.xib */; };
 		C212D8D2132A487A00E2A078 /* OmniMobileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C212D8C9132A483D00E2A078 /* OmniMobileTest.m */; };
 		C212D8D3132A488200E2A078 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C212D8CC132A484700E2A078 /* InfoPlist.strings */; };
+		C213371313608C1700F89D08 /* linen_light_background.png in Resources */ = {isa = PBXBuildFile; fileRef = C213371113608C1700F89D08 /* linen_light_background.png */; };
+		C213371413608C1700F89D08 /* linen_light_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C213371213608C1700F89D08 /* linen_light_background@2x.png */; };
 		C226C242132A781B00427656 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C226C241132A781B00427656 /* MenuViewController.m */; };
 		C226C244132A782500427656 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C226C243132A782500427656 /* MenuViewController.xib */; };
 		C22DFEDA1357157B006A4F61 /* page_control_dot_active.png in Resources */ = {isa = PBXBuildFile; fileRef = C22DFED61357157B006A4F61 /* page_control_dot_active.png */; };
@@ -179,6 +180,9 @@
 		C2F03764135F56B5007474F4 /* dashboard_icon_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2F03760135F56B5007474F4 /* dashboard_icon_white@2x.png */; };
 		C2F03765135F56B5007474F4 /* dashboard_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C2F03761135F56B5007474F4 /* dashboard_icon.png */; };
 		C2F03766135F56B5007474F4 /* dashboard_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2F03762135F56B5007474F4 /* dashboard_icon@2x.png */; };
+		C2F394D71360639E0003CB15 /* login_background~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C2F394D61360639E0003CB15 /* login_background~ipad.png */; };
+		C2F394DA136064840003CB15 /* UIImage+HMImageDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F394D9136064840003CB15 /* UIImage+HMImageDevice.m */; };
+		C2F394DC13607E810003CB15 /* credits_background~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C2F394DB13607E810003CB15 /* credits_background~ipad.png */; };
 		C2FEBD671340ABA500CBB51E /* box_header.png in Resources */ = {isa = PBXBuildFile; fileRef = C2FEBD651340ABA500CBB51E /* box_header.png */; };
 		C2FEBD681340ABA500CBB51E /* box_header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2FEBD661340ABA500CBB51E /* box_header@2x.png */; };
 		C2FEBD6B1340ABAD00CBB51E /* box_building_header.png in Resources */ = {isa = PBXBuildFile; fileRef = C2FEBD691340ABAD00CBB51E /* box_building_header.png */; };
@@ -238,7 +242,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0E0BC4EC133B795000C38C28 /* welcome_background~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "welcome_background~ipad.png"; path = "ipad/resources/images/ui/welcome_background~ipad.png"; sourceTree = "<group>"; };
 		0E23AEDB13462C210061FBE9 /* SaleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SaleViewController.h; path = classes/SaleViewController.h; sourceTree = "<group>"; };
 		0E23AEDC13462C210061FBE9 /* SaleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SaleViewController.m; path = classes/SaleViewController.m; sourceTree = "<group>"; };
 		0E23AEDF13462D230061FBE9 /* SaleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SaleViewController.xib; path = nibs/SaleViewController.xib; sourceTree = "<group>"; };
@@ -307,6 +310,8 @@
 		C212D8CD132A484700E2A078 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		C212D8CE132A484700E2A078 /* omni_mobile_test-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "omni_mobile_test-Info.plist"; path = "support/omni_mobile_test-Info.plist"; sourceTree = "<group>"; };
 		C212D8CF132A484700E2A078 /* omni_mobile_test-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "omni_mobile_test-Prefix.pch"; path = "support/omni_mobile_test-Prefix.pch"; sourceTree = "<group>"; };
+		C213371113608C1700F89D08 /* linen_light_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = linen_light_background.png; sourceTree = "<group>"; };
+		C213371213608C1700F89D08 /* linen_light_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "linen_light_background@2x.png"; sourceTree = "<group>"; };
 		C226C240132A781B00427656 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = classes/MenuViewController.h; sourceTree = "<group>"; };
 		C226C241132A781B00427656 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = classes/MenuViewController.m; sourceTree = "<group>"; };
 		C226C243132A782500427656 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuViewController.xib; path = nibs/MenuViewController.xib; sourceTree = "<group>"; };
@@ -440,6 +445,10 @@
 		C2F03760135F56B5007474F4 /* dashboard_icon_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dashboard_icon_white@2x.png"; path = "dashboard/dashboard_icon_white@2x.png"; sourceTree = "<group>"; };
 		C2F03761135F56B5007474F4 /* dashboard_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dashboard_icon.png; path = dashboard/dashboard_icon.png; sourceTree = "<group>"; };
 		C2F03762135F56B5007474F4 /* dashboard_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dashboard_icon@2x.png"; path = "dashboard/dashboard_icon@2x.png"; sourceTree = "<group>"; };
+		C2F394D61360639E0003CB15 /* login_background~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "login_background~ipad.png"; path = "ipad/resources/images/ui/login_background~ipad.png"; sourceTree = "<group>"; };
+		C2F394D8136064840003CB15 /* UIImage+HMImageDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+HMImageDevice.h"; path = "classes/UIImage+HMImageDevice.h"; sourceTree = "<group>"; };
+		C2F394D9136064840003CB15 /* UIImage+HMImageDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+HMImageDevice.m"; path = "classes/UIImage+HMImageDevice.m"; sourceTree = "<group>"; };
+		C2F394DB13607E810003CB15 /* credits_background~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "credits_background~ipad.png"; path = "ipad/resources/images/ui/credits_background~ipad.png"; sourceTree = "<group>"; };
 		C2FEBD651340ABA500CBB51E /* box_header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = box_header.png; path = resources/images/header_icons/box/box_header.png; sourceTree = "<group>"; };
 		C2FEBD661340ABA500CBB51E /* box_header@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "box_header@2x.png"; path = "resources/images/header_icons/box/box_header@2x.png"; sourceTree = "<group>"; };
 		C2FEBD691340ABAD00CBB51E /* box_building_header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = box_building_header.png; path = resources/images/header_icons/box_building/box_building_header.png; sourceTree = "<group>"; };
@@ -505,6 +514,8 @@
 		C20CDB8C1333780F008A4FE3 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C2F394D8136064840003CB15 /* UIImage+HMImageDevice.h */,
+				C2F394D9136064840003CB15 /* UIImage+HMImageDevice.m */,
 				C2431275135DED38002D9198 /* SalesWeekViewController.h */,
 				C2431276135DED39002D9198 /* SalesWeekViewController.m */,
 				A57A09B51355A7810098A56A /* SaleLineViewController.h */,
@@ -851,7 +862,8 @@
 		C264B2B5133B671700A87388 /* Ui */ = {
 			isa = PBXGroup;
 			children = (
-				0E0BC4EC133B795000C38C28 /* welcome_background~ipad.png */,
+				C2F394DB13607E810003CB15 /* credits_background~ipad.png */,
+				C2F394D61360639E0003CB15 /* login_background~ipad.png */,
 			);
 			name = Ui;
 			sourceTree = "<group>";
@@ -1067,6 +1079,8 @@
 		C28F3A7513328DBC006F36F8 /* Ui */ = {
 			isa = PBXGroup;
 			children = (
+				C213371113608C1700F89D08 /* linen_light_background.png */,
+				C213371213608C1700F89D08 /* linen_light_background@2x.png */,
 				C206D5B01354A12000B9FEB3 /* credits_background.png */,
 				C206D5B11354A12000B9FEB3 /* credits_background@2x.png */,
 				C206D5B21354A12000B9FEB3 /* login_background.png */,
@@ -1313,7 +1327,6 @@
 				C20FC5A61337B97600FDBE8D /* white_button.png in Resources */,
 				C20FC5A71337B97600FDBE8D /* white_button_pressed.png in Resources */,
 				C24A0E6E1338B9BB00D8C7EC /* LoginViewController.xib in Resources */,
-				0E0BC4ED133B795000C38C28 /* welcome_background~ipad.png in Resources */,
 				0E85BD04133B7BD900F3E65B /* InventoryViewController.xib in Resources */,
 				0E85BD0C133B826600F3E65B /* InventoryItemViewController.xib in Resources */,
 				0E85BD11133BB71400F3E65B /* InventoryItemStoreViewController.xib in Resources */,
@@ -1431,6 +1444,10 @@
 				C2F03764135F56B5007474F4 /* dashboard_icon_white@2x.png in Resources */,
 				C2F03765135F56B5007474F4 /* dashboard_icon.png in Resources */,
 				C2F03766135F56B5007474F4 /* dashboard_icon@2x.png in Resources */,
+				C2F394D71360639E0003CB15 /* login_background~ipad.png in Resources */,
+				C2F394DC13607E810003CB15 /* credits_background~ipad.png in Resources */,
+				C213371313608C1700F89D08 /* linen_light_background.png in Resources */,
+				C213371413608C1700F89D08 /* linen_light_background@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1484,6 +1501,7 @@
 				C28F1C591354A7990007DB89 /* OptionsMenuViewController.m in Sources */,
 				A57A09B71355A7840098A56A /* SaleLineViewController.m in Sources */,
 				C2431277135DED3A002D9198 /* SalesWeekViewController.m in Sources */,
+				C2F394DA136064840003CB15 /* UIImage+HMImageDevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

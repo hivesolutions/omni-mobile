@@ -91,6 +91,11 @@
     // sets the bar buttons
     [self.navigationItem setRightBarButtonItem:accountBarButton animated:YES];
 
+    // sets the background color in the view
+    UIImage *backgroundPatternImage = [UIImage imageNamed:@"linen_light_background.png"];
+    UIColor *backgroundColor = [UIColor colorWithPatternImage:backgroundPatternImage];
+    self.view.backgroundColor = backgroundColor;
+
     // changes the title's image view
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 74, 22)];
     UIImage *logoImage = [UIImage imageNamed:@"header_logo.png"];

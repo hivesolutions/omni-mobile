@@ -106,7 +106,7 @@
     remoteAbstraction.view = self.view;
 
     // retrieves the background pattern image
-    UIImage *backgroundPatternImage = [UIImage imageNamed:@"login_background.png"];
+    UIImage *backgroundPatternImage = [UIImage imageNamedDevice:@"login_background.png"];
 
     // creates the backgroun color with the pattern image
     UIColor *backgroundColor = [UIColor colorWithPatternImage:backgroundPatternImage];

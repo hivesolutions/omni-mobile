@@ -38,6 +38,7 @@
     HMWeekWidgetPanelView *weekWidgetPanelView1 = [[HMWeekWidgetPanelView alloc] initWithFrame:CGRectMake(0, 0, 320, 428)];
     weekWidgetPanelView1.title = @"Galeria da Joia";
     weekWidgetPanelView1.subTitle = @"Loja";
+    weekWidgetPanelView1.value = @"127 EUR";
     weekWidgetPanelView1.image = [UIImage imageNamed:@"minus_widget.png"];
     weekWidgetPanelView1.weekItems = [[NSArray alloc] initWithObjects:
                                      @"Terca-Feira", @"1,500 EUR",
@@ -58,6 +59,7 @@
     HMWeekWidgetPanelView *weekWidgetPanelView2 = [[HMWeekWidgetPanelView alloc] initWithFrame:CGRectMake(0, 0, 320, 428)];
     weekWidgetPanelView2.title = @"Galeria da Joia";
     weekWidgetPanelView2.subTitle = @"Loja";
+    weekWidgetPanelView2.value = @"999 EUR";
     weekWidgetPanelView2.image = [UIImage imageNamed:@"plus_widget.png"];
     weekWidgetPanelView2.weekItems = [[NSArray alloc] initWithObjects:
                                      @"Terca-Feira", @"1,500 EUR",

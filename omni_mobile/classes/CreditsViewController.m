@@ -35,7 +35,7 @@
     self.title = NSLocalizedString(@"Credits", @"Credits");
 
     // retrieves the background pattern image
-    UIImage *backgroundPatternImage = [UIImage imageNamed:@"credits_background.png"];
+    UIImage *backgroundPatternImage = [UIImage imageNamedDevice:@"credits_background.png"];
 
     // creates the backgroun color with the pattern image
     UIColor *backgroundColor = [UIColor colorWithPatternImage:backgroundPatternImage];
