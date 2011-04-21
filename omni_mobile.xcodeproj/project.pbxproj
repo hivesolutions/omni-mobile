@@ -53,8 +53,10 @@
 		C212D8C6132A482800E2A078 /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C212D8C3132A482800E2A078 /* UserViewController.xib */; };
 		C212D8D2132A487A00E2A078 /* OmniMobileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C212D8C9132A483D00E2A078 /* OmniMobileTest.m */; };
 		C212D8D3132A488200E2A078 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C212D8CC132A484700E2A078 /* InfoPlist.strings */; };
-		C213371313608C1700F89D08 /* linen_light_background.png in Resources */ = {isa = PBXBuildFile; fileRef = C213371113608C1700F89D08 /* linen_light_background.png */; };
-		C213371413608C1700F89D08 /* linen_light_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C213371213608C1700F89D08 /* linen_light_background@2x.png */; };
+		C2133717136090A400F89D08 /* linen_background.png in Resources */ = {isa = PBXBuildFile; fileRef = C2133715136090A400F89D08 /* linen_background.png */; };
+		C2133718136090A400F89D08 /* linen_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2133716136090A400F89D08 /* linen_background@2x.png */; };
+		C213371B136094AA00F89D08 /* linen_shadow_background.png in Resources */ = {isa = PBXBuildFile; fileRef = C2133719136094A900F89D08 /* linen_shadow_background.png */; };
+		C213371C136094AA00F89D08 /* linen_shadow_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C213371A136094A900F89D08 /* linen_shadow_background@2x.png */; };
 		C226C242132A781B00427656 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C226C241132A781B00427656 /* MenuViewController.m */; };
 		C226C244132A782500427656 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C226C243132A782500427656 /* MenuViewController.xib */; };
 		C22DFEDA1357157B006A4F61 /* page_control_dot_active.png in Resources */ = {isa = PBXBuildFile; fileRef = C22DFED61357157B006A4F61 /* page_control_dot_active.png */; };
@@ -310,8 +312,10 @@
 		C212D8CD132A484700E2A078 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		C212D8CE132A484700E2A078 /* omni_mobile_test-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "omni_mobile_test-Info.plist"; path = "support/omni_mobile_test-Info.plist"; sourceTree = "<group>"; };
 		C212D8CF132A484700E2A078 /* omni_mobile_test-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "omni_mobile_test-Prefix.pch"; path = "support/omni_mobile_test-Prefix.pch"; sourceTree = "<group>"; };
-		C213371113608C1700F89D08 /* linen_light_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = linen_light_background.png; sourceTree = "<group>"; };
-		C213371213608C1700F89D08 /* linen_light_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "linen_light_background@2x.png"; sourceTree = "<group>"; };
+		C2133715136090A400F89D08 /* linen_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = linen_background.png; sourceTree = "<group>"; };
+		C2133716136090A400F89D08 /* linen_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "linen_background@2x.png"; sourceTree = "<group>"; };
+		C2133719136094A900F89D08 /* linen_shadow_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = linen_shadow_background.png; sourceTree = "<group>"; };
+		C213371A136094A900F89D08 /* linen_shadow_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "linen_shadow_background@2x.png"; sourceTree = "<group>"; };
 		C226C240132A781B00427656 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = classes/MenuViewController.h; sourceTree = "<group>"; };
 		C226C241132A781B00427656 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = classes/MenuViewController.m; sourceTree = "<group>"; };
 		C226C243132A782500427656 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuViewController.xib; path = nibs/MenuViewController.xib; sourceTree = "<group>"; };
@@ -1079,8 +1083,10 @@
 		C28F3A7513328DBC006F36F8 /* Ui */ = {
 			isa = PBXGroup;
 			children = (
-				C213371113608C1700F89D08 /* linen_light_background.png */,
-				C213371213608C1700F89D08 /* linen_light_background@2x.png */,
+				C2133719136094A900F89D08 /* linen_shadow_background.png */,
+				C213371A136094A900F89D08 /* linen_shadow_background@2x.png */,
+				C2133715136090A400F89D08 /* linen_background.png */,
+				C2133716136090A400F89D08 /* linen_background@2x.png */,
 				C206D5B01354A12000B9FEB3 /* credits_background.png */,
 				C206D5B11354A12000B9FEB3 /* credits_background@2x.png */,
 				C206D5B21354A12000B9FEB3 /* login_background.png */,
@@ -1446,8 +1452,10 @@
 				C2F03766135F56B5007474F4 /* dashboard_icon@2x.png in Resources */,
 				C2F394D71360639E0003CB15 /* login_background~ipad.png in Resources */,
 				C2F394DC13607E810003CB15 /* credits_background~ipad.png in Resources */,
-				C213371313608C1700F89D08 /* linen_light_background.png in Resources */,
-				C213371413608C1700F89D08 /* linen_light_background@2x.png in Resources */,
+				C2133717136090A400F89D08 /* linen_background.png in Resources */,
+				C2133718136090A400F89D08 /* linen_background@2x.png in Resources */,
+				C213371B136094AA00F89D08 /* linen_shadow_background.png in Resources */,
+				C213371C136094AA00F89D08 /* linen_shadow_background@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

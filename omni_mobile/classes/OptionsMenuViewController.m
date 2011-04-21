@@ -32,7 +32,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 
     // sets the background color in the view
-    UIImage *backgroundPatternImage = [UIImage imageNamed:@"linen_light_background.png"];
+    UIImage *backgroundPatternImage = [UIImage imageNamed:@"linen_background.png"];
     UIColor *backgroundColor = [UIColor colorWithPatternImage:backgroundPatternImage];
     self.view.backgroundColor = backgroundColor;
 
