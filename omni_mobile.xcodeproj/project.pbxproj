@@ -55,8 +55,10 @@
 		C212D8D3132A488200E2A078 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C212D8CC132A484700E2A078 /* InfoPlist.strings */; };
 		C2133717136090A400F89D08 /* linen_background.png in Resources */ = {isa = PBXBuildFile; fileRef = C2133715136090A400F89D08 /* linen_background.png */; };
 		C2133718136090A400F89D08 /* linen_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2133716136090A400F89D08 /* linen_background@2x.png */; };
-		C213371B136094AA00F89D08 /* linen_shadow_background.png in Resources */ = {isa = PBXBuildFile; fileRef = C2133719136094A900F89D08 /* linen_shadow_background.png */; };
-		C213371C136094AA00F89D08 /* linen_shadow_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C213371A136094A900F89D08 /* linen_shadow_background@2x.png */; };
+		C213371E13609A2100F89D08 /* linen_background~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C213371D13609A2000F89D08 /* linen_background~ipad.png */; };
+		C213372113609E3300F89D08 /* linen_shadow_background.png in Resources */ = {isa = PBXBuildFile; fileRef = C213371F13609E3200F89D08 /* linen_shadow_background.png */; };
+		C213372213609E3300F89D08 /* linen_shadow_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C213372013609E3300F89D08 /* linen_shadow_background@2x.png */; };
+		C213372413609E3F00F89D08 /* linen_shadow_background~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C213372313609E3F00F89D08 /* linen_shadow_background~ipad.png */; };
 		C226C242132A781B00427656 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C226C241132A781B00427656 /* MenuViewController.m */; };
 		C226C244132A782500427656 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C226C243132A782500427656 /* MenuViewController.xib */; };
 		C22DFEDA1357157B006A4F61 /* page_control_dot_active.png in Resources */ = {isa = PBXBuildFile; fileRef = C22DFED61357157B006A4F61 /* page_control_dot_active.png */; };
@@ -183,7 +185,6 @@
 		C2F03765135F56B5007474F4 /* dashboard_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C2F03761135F56B5007474F4 /* dashboard_icon.png */; };
 		C2F03766135F56B5007474F4 /* dashboard_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2F03762135F56B5007474F4 /* dashboard_icon@2x.png */; };
 		C2F394D71360639E0003CB15 /* login_background~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C2F394D61360639E0003CB15 /* login_background~ipad.png */; };
-		C2F394DA136064840003CB15 /* UIImage+HMImageDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F394D9136064840003CB15 /* UIImage+HMImageDevice.m */; };
 		C2F394DC13607E810003CB15 /* credits_background~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C2F394DB13607E810003CB15 /* credits_background~ipad.png */; };
 		C2FEBD671340ABA500CBB51E /* box_header.png in Resources */ = {isa = PBXBuildFile; fileRef = C2FEBD651340ABA500CBB51E /* box_header.png */; };
 		C2FEBD681340ABA500CBB51E /* box_header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2FEBD661340ABA500CBB51E /* box_header@2x.png */; };
@@ -314,8 +315,10 @@
 		C212D8CF132A484700E2A078 /* omni_mobile_test-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "omni_mobile_test-Prefix.pch"; path = "support/omni_mobile_test-Prefix.pch"; sourceTree = "<group>"; };
 		C2133715136090A400F89D08 /* linen_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = linen_background.png; sourceTree = "<group>"; };
 		C2133716136090A400F89D08 /* linen_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "linen_background@2x.png"; sourceTree = "<group>"; };
-		C2133719136094A900F89D08 /* linen_shadow_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = linen_shadow_background.png; sourceTree = "<group>"; };
-		C213371A136094A900F89D08 /* linen_shadow_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "linen_shadow_background@2x.png"; sourceTree = "<group>"; };
+		C213371D13609A2000F89D08 /* linen_background~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "linen_background~ipad.png"; path = "ipad/resources/images/ui/linen_background~ipad.png"; sourceTree = "<group>"; };
+		C213371F13609E3200F89D08 /* linen_shadow_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = linen_shadow_background.png; sourceTree = "<group>"; };
+		C213372013609E3300F89D08 /* linen_shadow_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "linen_shadow_background@2x.png"; sourceTree = "<group>"; };
+		C213372313609E3F00F89D08 /* linen_shadow_background~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "linen_shadow_background~ipad.png"; path = "ipad/resources/images/ui/linen_shadow_background~ipad.png"; sourceTree = "<group>"; };
 		C226C240132A781B00427656 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = classes/MenuViewController.h; sourceTree = "<group>"; };
 		C226C241132A781B00427656 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = classes/MenuViewController.m; sourceTree = "<group>"; };
 		C226C243132A782500427656 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuViewController.xib; path = nibs/MenuViewController.xib; sourceTree = "<group>"; };
@@ -450,8 +453,6 @@
 		C2F03761135F56B5007474F4 /* dashboard_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dashboard_icon.png; path = dashboard/dashboard_icon.png; sourceTree = "<group>"; };
 		C2F03762135F56B5007474F4 /* dashboard_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dashboard_icon@2x.png"; path = "dashboard/dashboard_icon@2x.png"; sourceTree = "<group>"; };
 		C2F394D61360639E0003CB15 /* login_background~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "login_background~ipad.png"; path = "ipad/resources/images/ui/login_background~ipad.png"; sourceTree = "<group>"; };
-		C2F394D8136064840003CB15 /* UIImage+HMImageDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+HMImageDevice.h"; path = "classes/UIImage+HMImageDevice.h"; sourceTree = "<group>"; };
-		C2F394D9136064840003CB15 /* UIImage+HMImageDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+HMImageDevice.m"; path = "classes/UIImage+HMImageDevice.m"; sourceTree = "<group>"; };
 		C2F394DB13607E810003CB15 /* credits_background~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "credits_background~ipad.png"; path = "ipad/resources/images/ui/credits_background~ipad.png"; sourceTree = "<group>"; };
 		C2FEBD651340ABA500CBB51E /* box_header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = box_header.png; path = resources/images/header_icons/box/box_header.png; sourceTree = "<group>"; };
 		C2FEBD661340ABA500CBB51E /* box_header@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "box_header@2x.png"; path = "resources/images/header_icons/box/box_header@2x.png"; sourceTree = "<group>"; };
@@ -518,8 +519,6 @@
 		C20CDB8C1333780F008A4FE3 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C2F394D8136064840003CB15 /* UIImage+HMImageDevice.h */,
-				C2F394D9136064840003CB15 /* UIImage+HMImageDevice.m */,
 				C2431275135DED38002D9198 /* SalesWeekViewController.h */,
 				C2431276135DED39002D9198 /* SalesWeekViewController.m */,
 				A57A09B51355A7810098A56A /* SaleLineViewController.h */,
@@ -866,6 +865,8 @@
 		C264B2B5133B671700A87388 /* Ui */ = {
 			isa = PBXGroup;
 			children = (
+				C213372313609E3F00F89D08 /* linen_shadow_background~ipad.png */,
+				C213371D13609A2000F89D08 /* linen_background~ipad.png */,
 				C2F394DB13607E810003CB15 /* credits_background~ipad.png */,
 				C2F394D61360639E0003CB15 /* login_background~ipad.png */,
 			);
@@ -1083,8 +1084,8 @@
 		C28F3A7513328DBC006F36F8 /* Ui */ = {
 			isa = PBXGroup;
 			children = (
-				C2133719136094A900F89D08 /* linen_shadow_background.png */,
-				C213371A136094A900F89D08 /* linen_shadow_background@2x.png */,
+				C213371F13609E3200F89D08 /* linen_shadow_background.png */,
+				C213372013609E3300F89D08 /* linen_shadow_background@2x.png */,
 				C2133715136090A400F89D08 /* linen_background.png */,
 				C2133716136090A400F89D08 /* linen_background@2x.png */,
 				C206D5B01354A12000B9FEB3 /* credits_background.png */,
@@ -1454,8 +1455,10 @@
 				C2F394DC13607E810003CB15 /* credits_background~ipad.png in Resources */,
 				C2133717136090A400F89D08 /* linen_background.png in Resources */,
 				C2133718136090A400F89D08 /* linen_background@2x.png in Resources */,
-				C213371B136094AA00F89D08 /* linen_shadow_background.png in Resources */,
-				C213371C136094AA00F89D08 /* linen_shadow_background@2x.png in Resources */,
+				C213371E13609A2100F89D08 /* linen_background~ipad.png in Resources */,
+				C213372113609E3300F89D08 /* linen_shadow_background.png in Resources */,
+				C213372213609E3300F89D08 /* linen_shadow_background@2x.png in Resources */,
+				C213372413609E3F00F89D08 /* linen_shadow_background~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1509,7 +1512,6 @@
 				C28F1C591354A7990007DB89 /* OptionsMenuViewController.m in Sources */,
 				A57A09B71355A7840098A56A /* SaleLineViewController.m in Sources */,
 				C2431277135DED3A002D9198 /* SalesWeekViewController.m in Sources */,
-				C2F394DA136064840003CB15 /* UIImage+HMImageDevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1633,6 +1635,10 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -1651,6 +1657,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

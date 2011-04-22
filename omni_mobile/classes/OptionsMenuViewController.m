@@ -31,10 +31,16 @@
     // calls the super
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 
-    // sets the background color in the view
-    UIImage *backgroundPatternImage = [UIImage imageNamed:@"linen_background.png"];
-    UIColor *backgroundColor = [UIColor colorWithPatternImage:backgroundPatternImage];
-    self.view.backgroundColor = backgroundColor;
+    // constructs the structures
+    [self constructStructures];
+
+    // returns self
+    return self;
+}
+
+- (void)constructStructures {
+    // initializes the background view
+    [self initBackgroundView];
 
     // changes the title's image view
     UIImageView *imageHeaderView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 74, 22)];
@@ -116,9 +122,15 @@
     [optionsButton7View release];
     [optionsButton8View release];
     [optionsButton9View release];
+}
 
-    // returns self
-    return self;
+- (void)initBackgroundView {
+    // sets the background color in the view
+    UIImage *backgroundPatternImage = [UIImage imageNamedDevice:@"linen_shadow_background.png"];
+    UIColor *backgroundColor = [UIColor colorWithPatternImage:backgroundPatternImage];
+
+    // sets the background color in the view
+    self.view.backgroundColor = backgroundColor;
 }
 
 - (void)buttonClicked {

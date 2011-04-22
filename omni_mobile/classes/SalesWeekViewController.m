@@ -31,6 +31,12 @@
     // calls the super
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 
+    // retrieves the application
+    UIApplication *application = [UIApplication sharedApplication];
+
+    // sets the status bar in the application to black
+    [application setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:YES];
+
     // casts the view as a week widget view (safe)
     HMWeekWidgetView *weekWidgetView = (HMWeekWidgetView *) self.view;
 

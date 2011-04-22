@@ -28,4 +28,14 @@
 @interface OptionsMenuViewController : UIViewController {
 }
 
+/**
+ * Constructs the structures.
+ */
+- (void)constructStructures;
+
+/**
+ * Initializes the background view.
+ */
+- (void)initBackgroundView;
+
 @end

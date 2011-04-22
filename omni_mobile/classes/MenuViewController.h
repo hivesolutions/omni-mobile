@@ -37,7 +37,7 @@
 /**
  * The description font size for menu items.
  */
-#define MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE 15
+#define MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE 17
 
 @interface MenuViewController : HMTableViewController<HMItemTableViewProvider, HMItemTableViewDelegate> {
     @private
@@ -53,6 +53,11 @@
  * Constructs the internal data structures.
  */
 - (void)constructStructures;
+
+/**
+ * Initializes the background view.
+ */
+- (void)initBackgroundView;
 
 /**
  * Refreshes the login structures, showing the login screen

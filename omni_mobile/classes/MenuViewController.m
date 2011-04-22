@@ -79,6 +79,9 @@
 }
 
 - (void)constructStructures {
+    // initializes the background view
+    [self initBackgroundView];
+
     // creates the logout bar button
     UIBarButtonItem *logoutBarButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Logout", @"Logout") style:UIBarButtonItemStylePlain target:self action: @selector(logoutButtonClicked:extra:)];
 
@@ -90,11 +93,6 @@
 
     // sets the bar buttons
     [self.navigationItem setRightBarButtonItem:accountBarButton animated:YES];
-
-    // sets the background color in the view
-    UIImage *backgroundPatternImage = [UIImage imageNamed:@"linen_background.png"];
-    UIColor *backgroundColor = [UIColor colorWithPatternImage:backgroundPatternImage];
-    self.view.backgroundColor = backgroundColor;
 
     // changes the title's image view
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 74, 22)];
@@ -168,6 +166,7 @@
     // creates the options menu button item
     HMTableCellItem *optionsMenuItem = [[HMTableCellItem alloc] initWithIdentifier:@"options_menu"];
     optionsMenuItem.name = NSLocalizedString(@"Options Menu", @"Options Menu");
+    optionsMenuItem.descriptionFontSize = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
     optionsMenuItem.icon = @"credits_icon.png";
     optionsMenuItem.highlightedIcon = @"credits_icon_white.png";
     optionsMenuItem.accessoryType = @"disclosure_indicator";
@@ -176,6 +175,7 @@
     // creates the sales week button item
     HMTableCellItem *salesWeekItem = [[HMTableCellItem alloc] initWithIdentifier:@"sales_week"];
     salesWeekItem.name = NSLocalizedString(@"Sales Week", @"Sales Week");
+    salesWeekItem.descriptionFontSize = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
     salesWeekItem.icon = @"dashboard_icon.png";
     salesWeekItem.highlightedIcon = @"dashboard_icon_white.png";
     salesWeekItem.accessoryType = @"disclosure_indicator";
@@ -184,6 +184,7 @@
     // creates the credits button item
     HMTableCellItem *creditsItem = [[HMTableCellItem alloc] initWithIdentifier:@"credits"];
     creditsItem.name = NSLocalizedString(@"Credits", @"Credits");
+    creditsItem.descriptionFontSize = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
     creditsItem.icon = @"credits_icon.png";
     creditsItem.highlightedIcon = @"credits_icon_white.png";
     creditsItem.accessoryType = @"disclosure_indicator";
@@ -192,6 +193,7 @@
     // creates the notifications button item
     HMTableCellItem *notificationsItem = [[HMTableCellItem alloc] initWithIdentifier:@"notifications"];
     notificationsItem.name = NSLocalizedString(@"Notifications", @"Notifications");
+    notificationsItem.descriptionFontSize = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
     notificationsItem.accessoryType = @"switch";
 
     // creates the section item groups
@@ -249,6 +251,20 @@
     [usersItem release];
     [logoutBarButton release];
     [accountBarButton release];
+}
+
+- (void)initBackgroundView {
+    // sets the background color in the view
+    UIImage *backgroundPatternImage = [UIImage imageNamedDevice:@"linen_shadow_background.png"];
+    UIColor *backgroundColor = [UIColor colorWithPatternImage:backgroundPatternImage];
+
+    // creates the background view and sets it with
+    // the created background color
+    UIView *backgroundView = [[[UIView alloc] init] autorelease];
+    backgroundView.backgroundColor = backgroundColor;
+
+    // sets the background view in the table view
+    self.tableView.backgroundView = backgroundView;
 }
 
 - (void)refreshLogin {
