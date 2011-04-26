@@ -93,6 +93,7 @@
 "Retail Price" = "Retail Price";
 "Total" = "Total";
 "Total VAT" = "Total VAT";
+"Seller" = "Seller";
 
 /* Global error names */
 "LoginErrorName" = "Login Error";
