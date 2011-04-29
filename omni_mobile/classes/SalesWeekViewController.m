@@ -40,20 +40,33 @@
     // casts the view as a week widget view (safe)
     HMWeekWidgetView *weekWidgetView = (HMWeekWidgetView *) self.view;
 
+    // creates the week widget panel view 1 week items
+    NSArray *weekWidgetPanelView1WeekItems = [[NSArray alloc] initWithObjects:
+                                              @"Terca-Feira", @"1,500 EUR",
+                                              @"Quarta-Feira", @"50 EUR",
+                                              @"Quinta-Feira", @"642 EUR",
+                                              @"Sexta-Feira", @"3,452 EUR",
+                                              @"Sabado", @"52 EUR",
+                                              @"Domingo", @"743 EUR",
+                                              nil];
+
+    // creates the week widget panel view 2 week items
+    NSArray *weekWidgetPanelView2WeekItems = [[NSArray alloc] initWithObjects:
+                                              @"Terca-Feira", @"1,500 EUR",
+                                              @"Quarta-Feira", @"50 EUR",
+                                              @"Quinta-Feira", @"642 EUR",
+                                              @"Sexta-Feira", @"3,452 EUR",
+                                              @"Sabado", @"52 EUR",
+                                              @"Domingo", @"743 EUR",
+                                              nil];
+
     // creates the week widget panel view
     HMWeekWidgetPanelView *weekWidgetPanelView1 = [[HMWeekWidgetPanelView alloc] initWithFrame:CGRectMake(0, 0, 320, 428)];
     weekWidgetPanelView1.title = @"Galeria da Joia";
     weekWidgetPanelView1.subTitle = @"Loja";
     weekWidgetPanelView1.value = @"127 EUR";
     weekWidgetPanelView1.image = [UIImage imageNamed:@"minus_widget.png"];
-    weekWidgetPanelView1.weekItems = [[NSArray alloc] initWithObjects:
-                                     @"Terca-Feira", @"1,500 EUR",
-                                     @"Quarta-Feira", @"50 EUR",
-                                     @"Quinta-Feira", @"642 EUR",
-                                     @"Sexta-Feira", @"3,452 EUR",
-                                     @"Sabado", @"52 EUR",
-                                     @"Domingo", @"743 EUR",
-                                     nil];
+    weekWidgetPanelView1.weekItems = weekWidgetPanelView1WeekItems;
 
     // updates the status value in the week widget panel view
     [weekWidgetPanelView1 updateStatus];
@@ -67,14 +80,7 @@
     weekWidgetPanelView2.subTitle = @"Loja";
     weekWidgetPanelView2.value = @"999 EUR";
     weekWidgetPanelView2.image = [UIImage imageNamed:@"plus_widget.png"];
-    weekWidgetPanelView2.weekItems = [[NSArray alloc] initWithObjects:
-                                     @"Terca-Feira", @"1,500 EUR",
-                                     @"Quarta-Feira", @"50 EUR",
-                                     @"Quinta-Feira", @"642 EUR",
-                                     @"Sexta-Feira", @"3,452 EUR",
-                                     @"Sabado", @"52 EUR",
-                                     @"Domingo", @"743 EUR",
-                                     nil];
+    weekWidgetPanelView2.weekItems = weekWidgetPanelView2WeekItems;
 
     // updates the status value in the week widget panel view
     [weekWidgetPanelView2 updateStatus];
@@ -85,6 +91,8 @@
     // releases the objects
     [weekWidgetPanelView1 release];
     [weekWidgetPanelView2 release];
+    [weekWidgetPanelView1WeekItems release];
+    [weekWidgetPanelView2WeekItems release];
 
     // returns self
     return self;

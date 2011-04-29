@@ -249,6 +249,7 @@
     [purchasesItem release];
     [salesItem release];
     [usersItem release];
+    [imageView release];
     [logoutBarButton release];
     [accountBarButton release];
 }

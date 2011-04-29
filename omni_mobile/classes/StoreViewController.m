@@ -107,9 +107,13 @@
     emailItem.name = NSLocalizedString(@"E-mail", @"E-mail");
     emailItem.description = email;
 
-    // creates the sections item group
+    // creates the first section item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
+    firstSectionItemGroup.data = primaryAddress;
+
+    // creates the second section item group
     HMTableSectionItemGroup *secondSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"second_section"];
+    secondSectionItemGroup.data = primaryContactInformation;
 
     // creates the menu list group
     HMItemGroup *menuListGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu_list"];
@@ -203,15 +207,22 @@
 }
 
 - (void)convertRemoteGroupUpdate:(NSMutableArray *)remoteData {
-    // retrieves the object id
+    // retrieves the menu list group
+    HMItemGroup *menuListGroup = (HMItemGroup *) [self.remoteGroup getItem:@"list"];
+
+    // retrieves the section item groups
+    HMItemGroup *firstSectionItemGroup = (HMItemGroup *) [menuListGroup getItem:0];
+    HMItemGroup *secondSectionItemGroup = (HMItemGroup *) [menuListGroup getItem:1];
+
+    // retrieves the attributes
     NSNumber *objectId = [self.entity objectForKey:@"object_id"];
-    NSDictionary *primaryAddress = AVOID_NULL_DICTIONARY([self.entity objectForKey:@"primary_address"]);
-    NSDictionary *primaryContactInformation = AVOID_NULL_DICTIONARY([self.entity objectForKey:@"primary_contact_information"]);
+    NSString *objectIdString = [objectId stringValue];
+    NSDictionary *primaryAddress = AVOID_NULL_DICTIONARY(firstSectionItemGroup.data);
+    NSDictionary *primaryContactInformation = AVOID_NULL_DICTIONARY(secondSectionItemGroup.data);
     NSNumber *primaryAddressObjectId = [primaryAddress objectForKey:@"object_id"];
     NSNumber *primaryContactInformationObjectId = [primaryContactInformation objectForKey:@"object_id"];
 
     // sets the object id (structured and unstructured)
-    NSString *objectIdString = [objectId stringValue];
     [remoteData addObject:[NSArray arrayWithObjects:@"store[object_id]", AVOID_NIL(objectIdString, NSString), nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"object_id", AVOID_NIL(objectIdString, NSString), nil]];
 

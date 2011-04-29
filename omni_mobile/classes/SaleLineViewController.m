@@ -40,14 +40,6 @@
     return [self.entityAbstraction getRemoteUrlForOperation:operationType entityName:@"sale_lines" serializerName:@"json"];
 }
 
-- (void)changeEntity:(NSDictionary *)entity {
-    // sets the entity
-    self.entity = entity;
-
-    // updates the remote
-    [self updateRemote];
-}
-
 - (void)processEmpty {
     // calls the super
     [super processEmpty];
@@ -67,7 +59,6 @@
     [super processRemoteData:remoteData];
 
     // retrieves the remote data attributes
-    NSString *identifier = AVOID_NULL([remoteData objectForKey:@"identifier"]);
     NSDictionary *unitPrice = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"unit_price"]);
     NSNumber *unitPriceNumber = AVOID_NULL_NUMBER([unitPrice objectForKey:@"value"]);
     NSNumber *unitVatNumber = AVOID_NULL_NUMBER([remoteData objectForKey:@"unit_vat"]);
@@ -75,13 +66,24 @@
     NSNumber *quantityNumber = AVOID_NULL_NUMBER([remoteData objectForKey:@"quantity"]);
     NSDictionary *merchandise = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"merchandise"]);
     NSString *merchandiseCompanyProductCode = AVOID_NULL([merchandise objectForKey:@"company_product_code"]);
+    NSDictionary *sale = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"sale"]);
+    NSDictionary *moneySaleSlip = AVOID_NULL_DICTIONARY([sale objectForKey:@"money_sale_slip"]);
+    NSDictionary *invoice = AVOID_NULL_DICTIONARY([sale objectForKey:@"invoice"]);
+
+    // checks if the money sale slip is available
+    BOOL isMoneySaleSlipAvailable = [moneySaleSlip count] > 0;
+
+    // retrieves the sale identifier from the
+    // money sale slip or the invoice depending
+    // on which document is available
+    NSString *saleIdentifier = isMoneySaleSlipAvailable ? AVOID_NULL([moneySaleSlip objectForKey:@"identifier"]) : AVOID_NULL([invoice objectForKey:@"identifier"]);
 
     // calculates the unit price vat
     float unitPriceVat = [unitPriceNumber floatValue] + [unitVatNumber floatValue];
 
     // creates the title item
     HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
-    titleItem.description = identifier;
+    titleItem.description = saleIdentifier;
 
     // creates the subtitle item
     HMItem *subTitleItem = [[HMItem alloc] initWithIdentifier:@"subTitle"];

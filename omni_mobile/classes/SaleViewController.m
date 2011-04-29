@@ -40,14 +40,6 @@
     return [self.entityAbstraction getRemoteUrlForOperation:operationType entityName:@"sale_transactions" serializerName:@"json"];
 }
 
-- (void)changeEntity:(NSDictionary *)entity {
-    // sets the entity
-    self.entity = entity;
-
-    // updates the remote
-    [self updateRemote];
-}
-
 - (void)processEmpty {
     // calls the super
     [super processEmpty];
@@ -67,7 +59,6 @@
     [super processRemoteData:remoteData];
 
     // retrieves the remote data attributes
-    NSString *saleIdentifier = AVOID_NULL([remoteData objectForKey:@"identifier"]);
     NSNumber *date = AVOID_NULL_NUMBER([remoteData objectForKey:@"date"]);
     NSArray *sellers = AVOID_NULL_ARRAY([remoteData objectForKey:@"sellers"]);
     NSDictionary *seller = AVOID_NULL_DICTIONARY([sellers objectAtIndex:0]);
@@ -81,9 +72,19 @@
     NSDictionary *personBuyer = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"person_buyer"]);
     NSString *personBuyerName = AVOID_NULL([personBuyer objectForKey:@"name"]);
     NSDictionary *saleLines = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"sale_lines"]);
+    NSDictionary *moneySaleSlip = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"money_sale_slip"]);
+    NSDictionary *invoice = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"invoice"]);
+
+    // checks if the money sale slip is available
+    BOOL isMoneySaleSlipAvailable = [moneySaleSlip count] > 0;
 
     // checks if the person is anonymous
     BOOL isPersonAnonymous = [personBuyerName length] == 0;
+
+    // retrieves the sale identifier from the
+    // money sale slip or the invoice depending
+    // on which document is available
+    NSString *saleIdentifier = isMoneySaleSlipAvailable ? AVOID_NULL([moneySaleSlip objectForKey:@"identifier"]) : AVOID_NULL([invoice objectForKey:@"identifier"]);
 
     // computes the date string from the timestamp
     NSDate *dateDate = [NSDate dateWithTimeIntervalSince1970:[date floatValue]];
