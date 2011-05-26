@@ -122,6 +122,7 @@
     [optionsButton7View release];
     [optionsButton8View release];
     [optionsButton9View release];
+    [imageHeaderView release];
 }
 
 - (void)initBackgroundView {

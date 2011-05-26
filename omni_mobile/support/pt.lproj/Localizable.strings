@@ -93,6 +93,7 @@
 "Retail Price" = "Preço Retalho";
 "Total" = "Total";
 "Total VAT" = "Total IVA";
+"Seller" = "Vendedor";
 
 /* Global error names */
 "LoginErrorName" = "Erro de Login";

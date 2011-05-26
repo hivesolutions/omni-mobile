@@ -193,6 +193,7 @@
     [firstSectionItemGroup release];
     [passwordItem release];
     [usernameItem release];
+    [imageView release];
     [backgroundView release];
     [remoteAbstraction release];
 }
