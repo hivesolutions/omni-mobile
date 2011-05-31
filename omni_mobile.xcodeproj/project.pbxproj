@@ -35,6 +35,7 @@
 		C206D5B91354A12000B9FEB3 /* login_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C206D5B31354A12000B9FEB3 /* login_background@2x.png */; };
 		C206D5BA1354A12000B9FEB3 /* login_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C206D5B41354A12000B9FEB3 /* login_logo.png */; };
 		C206D5BB1354A12000B9FEB3 /* login_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C206D5B51354A12000B9FEB3 /* login_logo@2x.png */; };
+		C209221113954C5200CDE3F1 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = C209221013954C5200CDE3F1 /* Entitlements.plist */; };
 		C20FC5A61337B97600FDBE8D /* white_button.png in Resources */ = {isa = PBXBuildFile; fileRef = C20FC5A41337B97600FDBE8D /* white_button.png */; };
 		C20FC5A71337B97600FDBE8D /* white_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = C20FC5A51337B97600FDBE8D /* white_button_pressed.png */; };
 		C210CB51134E2A420026BE3B /* building_header_white.png in Resources */ = {isa = PBXBuildFile; fileRef = C210CB4F134E2A420026BE3B /* building_header_white.png */; };
@@ -284,6 +285,7 @@
 		C206D5B31354A12000B9FEB3 /* login_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_background@2x.png"; sourceTree = "<group>"; };
 		C206D5B41354A12000B9FEB3 /* login_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_logo.png; sourceTree = "<group>"; };
 		C206D5B51354A12000B9FEB3 /* login_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_logo@2x.png"; sourceTree = "<group>"; };
+		C209221013954C5200CDE3F1 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		C20CDB8E1333782D008A4FE3 /* Dependencies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dependencies.h; path = classes/Dependencies.h; sourceTree = "<group>"; };
 		C20CDB9013337933008A4FE3 /* omni_mobile_test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = omni_mobile_test.h; path = headers/omni_mobile_test.h; sourceTree = "<group>"; };
 		C20CDB9113337953008A4FE3 /* Dependencies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dependencies.h; path = classes/Dependencies.h; sourceTree = "<group>"; };
@@ -497,6 +499,14 @@
 				0EB880F11345079E00D94B07 /* building_header@2x.png */,
 			);
 			name = Building;
+			sourceTree = "<group>";
+		};
+		C209222413955B1600CDE3F1 /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				C209221013954C5200CDE3F1 /* Entitlements.plist */,
+			);
+			name = Extras;
 			sourceTree = "<group>";
 		};
 		C20CDB8A133377F5008A4FE3 /* Main */ = {
@@ -968,6 +978,7 @@
 				C2DBDC17132A42D5006C6E07 /* Omni Mobile Test */,
 				C28EFF3913295A31007CBA34 /* Frameworks */,
 				C28EFF3713295A31007CBA34 /* Products */,
+				C209222413955B1600CDE3F1 /* Extras */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1459,6 +1470,7 @@
 				C213372113609E3300F89D08 /* linen_shadow_background.png in Resources */,
 				C213372213609E3300F89D08 /* linen_shadow_background@2x.png in Resources */,
 				C213372413609E3F00F89D08 /* linen_shadow_background~ipad.png in Resources */,
+				C209221113954C5200CDE3F1 /* Entitlements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1588,6 +1600,68 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C209221213954DBE00CDE3F1 /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hive Solutions Lda. 508605989";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+			};
+			name = "Ad Hoc";
+		};
+		C209221313954DBE00CDE3F1 /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "omni_mobile/support/omni_mobile-Prefix.pch";
+				INFOPLIST_FILE = "omni_mobile/support/omni_mobile-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = "Ad Hoc";
+		};
+		C209221413954DBE00CDE3F1 /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "omni_mobile_test/support/omni_mobile_test-Prefix.pch";
+				INFOPLIST_FILE = "omni_mobile_test/support/omni_mobile_test-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = "Ad Hoc";
+		};
 		C28EFF6B13295A32007CBA34 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1719,6 +1793,7 @@
 			buildConfigurations = (
 				C28EFF6B13295A32007CBA34 /* Debug */,
 				C28EFF6C13295A32007CBA34 /* Release */,
+				C209221213954DBE00CDE3F1 /* Ad Hoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1728,6 +1803,7 @@
 			buildConfigurations = (
 				C28EFF6E13295A32007CBA34 /* Debug */,
 				C28EFF6F13295A32007CBA34 /* Release */,
+				C209221313954DBE00CDE3F1 /* Ad Hoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1737,6 +1813,7 @@
 			buildConfigurations = (
 				C2DBDC23132A42D5006C6E07 /* Debug */,
 				C2DBDC24132A42D5006C6E07 /* Release */,
+				C209221413954DBE00CDE3F1 /* Ad Hoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
