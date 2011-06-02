@@ -30,7 +30,14 @@
 @interface OmniMobileAppDelegate : NSObject<UIApplicationDelegate, HMApplicationDelegate> {
 }
 
+/**
+ * The application's main window.
+ */
 @property (nonatomic, retain) IBOutlet UIWindow *window;
+
+/**
+ * The main navigation controller to be used by the application.
+ */
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 
 /**
