@@ -37,7 +37,7 @@
 }
 
 - (NSString *)getRemoteUrlForOperation:(HMItemOperationType)operationType {
-    return [self.entityAbstraction getRemoteUrlForOperation:operationType entityName:@"products" serializerName:@"json"];
+    return [self.entityAbstraction getRemoteUrlForOperation:operationType entityName:@"transactional_merchandise" serializerName:@"json"];
 }
 
 - (void)processEmpty {
@@ -188,7 +188,7 @@
         // sets the object id in case it's defined
         if(inventoryLineObjectId != nil) {
             NSString *inventoryLineObjectIdString = [NSString stringWithFormat:@"%d", [inventoryLineObjectId intValue]];
-            [remoteData addObject:[NSArray arrayWithObjects:@"product[inventory_lines][][object_id]", AVOID_NIL(inventoryLineObjectIdString, NSString), nil]];
+            [remoteData addObject:[NSArray arrayWithObjects:@"transactional_merchandise[inventory_lines][][object_id]", AVOID_NIL(inventoryLineObjectIdString, NSString), nil]];
         }
 
         // retrieves the inventory line's attributes
@@ -197,12 +197,12 @@
         NSString *inventoryLineContactableOrganizationalHierarchyTreeNodeObjectIdString = [NSString stringWithFormat:@"%d", [inventoryLineContactableOrganizationalHierarchyTreeNodeObjectId intValue]];
 
         // sets the items in the remote data
-        [remoteData addObject:[NSArray arrayWithObjects:@"product[inventory_lines][][contactable_organizational_hierarchy_tree_node][object_id]", AVOID_NIL(inventoryLineContactableOrganizationalHierarchyTreeNodeObjectIdString, NSString), nil]];
+        [remoteData addObject:[NSArray arrayWithObjects:@"transactional_merchandise[inventory_lines][][contactable_organizational_hierarchy_tree_node][object_id]", AVOID_NIL(inventoryLineContactableOrganizationalHierarchyTreeNodeObjectIdString, NSString), nil]];
     }
 
     // sets the items in the remote data
-    [remoteData addObject:[NSArray arrayWithObjects:@"product[company_product_code]", AVOID_NIL(companyProductCodeItem.description, NSString), nil]];
-    [remoteData addObject:[NSArray arrayWithObjects:@"product[name]", AVOID_NIL(nameItem.description, NSString), nil]];
+    [remoteData addObject:[NSArray arrayWithObjects:@"transactional_merchandise[company_product_code]", AVOID_NIL(companyProductCodeItem.description, NSString), nil]];
+    [remoteData addObject:[NSArray arrayWithObjects:@"transactional_merchandise[name]", AVOID_NIL(nameItem.description, NSString), nil]];
 
     // in case the image data is not set
     if(imageItem.data != nil) {
@@ -210,7 +210,7 @@
         NSString *base64Data = [HMBase64Util encodeBase64WithData:(NSData *) imageItem.data];
 
         // sets the primary media attributes
-        [remoteData addObject:[NSArray arrayWithObjects:@"product[primary_media][base_64_data]", AVOID_NIL(base64Data, NSString), nil]];
+        [remoteData addObject:[NSArray arrayWithObjects:@"transactional_merchandise[primary_media][base_64_data]", AVOID_NIL(base64Data, NSString), nil]];
     }
 
     // returns the remote data
@@ -229,7 +229,7 @@
     NSUInteger dataItemsCount = [dataItems count];
 
     // sets the object id (structured and unstructured)
-    [remoteData addObject:[NSArray arrayWithObjects:@"product[object_id]", AVOID_NIL(objectIdString, NSString), nil]];
+    [remoteData addObject:[NSArray arrayWithObjects:@"transactional_merchandise[object_id]", AVOID_NIL(objectIdString, NSString), nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"object_id", AVOID_NIL(objectIdString, NSString), nil]];
 
     // in case there are no
@@ -237,7 +237,7 @@
     if(dataItemsCount == 0) {
         // sets an empty inventory lines entry to
         // erase all inventory lines in the data base
-        [remoteData addObject:[NSArray arrayWithObjects:@"product[inventory_lines]", [NSNull null], nil]];
+        [remoteData addObject:[NSArray arrayWithObjects:@"transactional_merchandise[inventory_lines]", [NSNull null], nil]];
     }
 }
 
