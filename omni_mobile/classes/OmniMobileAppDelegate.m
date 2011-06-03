@@ -28,7 +28,6 @@
 @implementation OmniMobileAppDelegate
 
 @synthesize window = _window;
-
 @synthesize navigationController = _navigationController;
 
 - (void)dealloc {
