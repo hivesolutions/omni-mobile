@@ -62,7 +62,7 @@
     NSDictionary *unitPrice = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"unit_price"]);
     NSNumber *unitPriceNumber = AVOID_NULL_NUMBER([unitPrice objectForKey:@"value"]);
     NSNumber *unitVatNumber = AVOID_NULL_NUMBER([remoteData objectForKey:@"unit_vat"]);
-    NSNumber *discountVatNumber = AVOID_NULL_NUMBER([remoteData objectForKey:@"discount_vat"]);
+    NSNumber *unitDiscountVatNumber = AVOID_NULL_NUMBER([remoteData objectForKey:@"unit_discount_vat"]);
     NSNumber *quantityNumber = AVOID_NULL_NUMBER([remoteData objectForKey:@"quantity"]);
     NSDictionary *merchandise = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"merchandise"]);
     NSString *merchandiseCompanyProductCode = AVOID_NULL([merchandise objectForKey:@"company_product_code"]);
@@ -106,7 +106,7 @@
     // creates the discount vat table cell
     HMStringTableCellItem *discountVatItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"discount_vat"];
     discountVatItem.name = NSLocalizedString(@"Discount VAT", @"Discount VAT");
-    discountVatItem.description = [NSString stringWithFormat:@"%.2f", [discountVatNumber floatValue]];
+    discountVatItem.description = [NSString stringWithFormat:@"%.2f", [unitDiscountVatNumber floatValue]];
     discountVatItem.accessoryType = @"badge_label";
     discountVatItem.accessoryValue = @"EUR";
 
