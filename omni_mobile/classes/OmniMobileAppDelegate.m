@@ -42,6 +42,12 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // retrieves the current application
+    UIApplication *currentApplication = [UIApplication sharedApplication];
+
+    // registers for the notifications
+    [currentApplication registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
+    
     // sets the window as the key one and visible
     [self.window makeKeyAndVisible];
 
@@ -63,6 +69,19 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)notificationToken {
+    // converts the notification token into base64
+    NSString *notificationTokenBase64 = [HMBase64Util encodeBase64WithData:notificationToken];
+    
+    // prints a debug message
+    NSLog(@"Registered with token: %@", notificationTokenBase64);
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    // prints a debug message
+    NSLog(@"Error in registration: %@", error);
 }
 
 - (id)getAuthenticationViewController {
