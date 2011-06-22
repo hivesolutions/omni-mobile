@@ -21,12 +21,28 @@
 		<dict>
 			<key>DefaultValue</key>
 			<true/>
-			<key>Key</key>
-			<string>notifications</string>
 			<key>Title</key>
 			<string>Notifications</string>
+			<key>Key</key>
+			<string>notifications</string>
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>User Interface</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Key</key>
+			<string>backgroundImage</string>
+			<key>Title</key>
+			<string>Background Image</string>
+			<key>DefaultValue</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>Title</key>

@@ -82,7 +82,7 @@
     NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
 
     // sets the preferences default value
-    [self setPreferencesDefaultValue:preferences defaultValue:@"http://erp.startomni.com:8080/colony_mod_python/rest/mvc/omni" key:@"baseUrl"];
+    [self setPreferencesDefaultValue:preferences defaultValue:@"http://erp.startomni.com:8080/colony_dynamic/rest/mvc/omni" key:@"baseUrl"];
 
     // syncs the preferences
     [preferences synchronize];
