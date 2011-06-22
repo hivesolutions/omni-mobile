@@ -42,17 +42,14 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // retrieves the current application
-    UIApplication *currentApplication = [UIApplication sharedApplication];
-
-    // registers for the notifications
-    [currentApplication registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
-    
     // sets the window as the key one and visible
     [self.window makeKeyAndVisible];
 
-    // loads the settgins
+    // loads the settings
     [self loadSettings];
+    
+    // loads the notifications
+    [self loadNotifications];
 
     // returns valid
     return YES;
@@ -72,11 +69,14 @@
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)notificationToken {
+    // converts the notification token into hexadecimal
+    NSString *notificationTokenHexadecimal = [HMHexadecimalUtil hexlifyData:notificationToken];
+    
     // converts the notification token into base64
     NSString *notificationTokenBase64 = [HMBase64Util encodeBase64WithData:notificationToken];
     
     // prints a debug message
-    NSLog(@"Registered with token: %@", notificationTokenBase64);
+    NSLog(@"Registered with token: %@ / %@", notificationTokenHexadecimal, notificationTokenBase64);
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
@@ -105,6 +105,17 @@
 
     // syncs the preferences
     [preferences synchronize];
+}
+
+- (void)loadNotifications {
+    // retrieves the current application
+    UIApplication *currentApplication = [UIApplication sharedApplication];
+    
+    // creates the notification types for the notification registration
+    UIRemoteNotificationType notificationTypes = UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound;
+    
+    // registers for the notifications
+    [currentApplication registerForRemoteNotificationTypes:notificationTypes];
 }
 
 - (void)saveSettings:(NSString *)data {

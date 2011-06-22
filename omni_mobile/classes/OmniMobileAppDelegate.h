@@ -46,6 +46,11 @@
 - (void)loadSettings;
 
 /**
+ * Loads the notifications system.
+ */
+- (void)loadNotifications;
+
+/**
  * Saves the current user settings.
  *
  * @param data The data to be used in the saving.
