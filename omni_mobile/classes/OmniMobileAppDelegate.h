@@ -74,6 +74,6 @@
  * @param defaultValue The default value to be set.
  * @param key The key value to be used.
  */
-- (void)setPreferencesDefaultValue:(NSUserDefaults *)preferences defaultValue:(NSString *)defaultValue key:(NSString *)key;
+- (void)setPreferencesDefaultValue:(NSUserDefaults *)preferences defaultValue:(NSObject *)defaultValue key:(NSString *)key;
 
 @end

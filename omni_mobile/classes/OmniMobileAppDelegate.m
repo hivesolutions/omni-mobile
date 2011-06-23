@@ -128,8 +128,9 @@
     // retrieves the preferences
     NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
 
-    // sets the preferences default value
+    // sets the preferences default values
     [self setPreferencesDefaultValue:preferences defaultValue:@"http://erp.startomni.com:8080/colony_dynamic/rest/mvc/omni" key:@"baseUrl"];
+    [self setPreferencesDefaultValue:preferences defaultValue:[NSNumber numberWithInt:1] key:@"backgroundImage"];
 
     // syncs the preferences
     [preferences synchronize];
@@ -154,12 +155,12 @@
     [preferences synchronize];
 }
 
-- (void)setPreferencesDefaultValue:(NSUserDefaults *)preferences defaultValue:(NSString *)defaultValue key:(NSString *)key {
+- (void)setPreferencesDefaultValue:(NSUserDefaults *)preferences defaultValue:(NSObject *)defaultValue key:(NSString *)key {
     // retrieves the preferences value
-    NSString *preferencesValue = [preferences valueForKey:key];
+    NSObject *preferencesValue = [preferences valueForKey:key];
 
-    // in case the preferences value is invalid or empty
-    if(preferencesValue == nil || [preferencesValue isEqualToString:@""]) {
+    // in case the preferences value is invalid
+    if(preferencesValue == nil) {
         // sets the base url
         [preferences setValue:defaultValue forKey:key];
     }
