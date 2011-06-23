@@ -42,12 +42,15 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // checks for user information in the launch options
+    [self checkUserInformation:launchOptions];
+
     // sets the window as the key one and visible
     [self.window makeKeyAndVisible];
 
     // loads the settings
     [self loadSettings];
-    
+
     // loads the notifications
     [self loadNotifications];
 
@@ -71,10 +74,10 @@
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)notificationToken {
     // converts the notification token into hexadecimal
     NSString *notificationTokenHexadecimal = [HMHexadecimalUtil hexlifyData:notificationToken];
-    
+
     // converts the notification token into base64
     NSString *notificationTokenBase64 = [HMBase64Util encodeBase64WithData:notificationToken];
-    
+
     // prints a debug message
     NSLog(@"Registered with token: %@ / %@", notificationTokenHexadecimal, notificationTokenBase64);
 }
@@ -82,6 +85,14 @@
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     // prints a debug message
     NSLog(@"Error in registration: %@", error);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInformation {
+    // retrievs the aps map
+    NSDictionary *apsMap = [userInformation objectForKey:@"aps"];
+
+    // prints a debug message
+    NSLog(@"Received notification: %@", [apsMap objectForKey:@"alert"]);
 }
 
 - (id)getAuthenticationViewController {
@@ -94,6 +105,23 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     [self saveSettings:nil];
+}
+
+- (void)checkUserInformation:(NSDictionary *)launchOptions {
+    // tries to retrieve the user information from the launch options
+    NSDictionary *userInformation = [launchOptions objectForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"];
+
+    // in case the user information is not defined
+    if(!userInformation) {
+        // returns immediately
+        return;
+    }
+
+    // retrievs the aps map
+    NSDictionary *apsMap = [userInformation objectForKey:@"aps"];
+
+    // prints a debug message
+    NSLog(@"Called with message: %@", [apsMap objectForKey:@"alert"]);
 }
 
 - (void)loadSettings {
@@ -110,10 +138,10 @@
 - (void)loadNotifications {
     // retrieves the current application
     UIApplication *currentApplication = [UIApplication sharedApplication];
-    
+
     // creates the notification types for the notification registration
     UIRemoteNotificationType notificationTypes = UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound;
-    
+
     // registers for the notifications
     [currentApplication registerForRemoteNotificationTypes:notificationTypes];
 }

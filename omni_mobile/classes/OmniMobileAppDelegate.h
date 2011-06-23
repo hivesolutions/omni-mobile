@@ -41,6 +41,14 @@
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 
 /**
+ * Checks the launch options trying to find the user
+ * information map.
+ *
+ * @param launchOptions The options used to launch the application.
+ */
+- (void)checkUserInformation:(NSDictionary *)launchOptions;
+
+/**
  * Loads the current user settings.
  */
 - (void)loadSettings;
