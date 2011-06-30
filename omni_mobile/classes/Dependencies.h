@@ -31,6 +31,7 @@
 // framework dependency includes
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 #import <Foundation/Foundation.h>
 
 // library dependency includes
