@@ -80,10 +80,10 @@
     NSString *base64Data = AVOID_NULL([primaryMedia objectForKey:@"base_64_data"]);
 
     // checks if the persons is available
-    BOOL isPersonAvailable = [person count] == 0 ? NO : YES;
+    BOOL isPersonAvailable = person.count == 0 ? NO : YES;
 
     // checks if the default functional unit is available
-    BOOL isDefaultFunctionalUnitAvailable = [defaultFunctionalUnit count] == 0 ? NO : YES;
+    BOOL isDefaultFunctionalUnitAvailable = defaultFunctionalUnit.count == 0 ? NO : YES;
 
     // creates the title item
     HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
@@ -266,7 +266,7 @@
         [remoteData addObject:[NSArray arrayWithObjects:@"user[default_functional_unit]", [NSNull null], nil]];
     } else {
         // otherwise sets the related default functional unit
-        NSString *defaultFunctionalUnitObjectIdString = [NSString stringWithFormat:@"%d", [defaultFunctionalUnitObjectId intValue]];
+        NSString *defaultFunctionalUnitObjectIdString = [NSString stringWithFormat:@"%d", defaultFunctionalUnitObjectId.intValue];
         [remoteData addObject:[NSArray arrayWithObjects:@"user[default_functional_unit][object_id]", defaultFunctionalUnitObjectIdString, nil]];
     }
 
@@ -275,7 +275,7 @@
         [remoteData addObject:[NSArray arrayWithObjects:@"user[person]", [NSNull null], nil]];
     } else {
         // otherwise sets the related employee
-        NSString *employeeObjectIdString = [NSString stringWithFormat:@"%d", [employeeObjectId intValue]];
+        NSString *employeeObjectIdString = [NSString stringWithFormat:@"%d", employeeObjectId.intValue];
         [remoteData addObject:[NSArray arrayWithObjects:@"user[person][object_id]", employeeObjectIdString, nil]];
     }
 
@@ -295,7 +295,7 @@
 - (void)convertRemoteGroupUpdate:(NSMutableArray *)remoteData {
     // retrieves the attributes
     NSNumber *objectId = [self.entity objectForKey:@"object_id"];
-    NSString *objectIdString = [objectId stringValue];
+    NSString *objectIdString = objectId.stringValue;
 
     // sets the object id (structured and unstructured)
     [remoteData addObject:[NSArray arrayWithObjects:@"user[object_id]", AVOID_NIL(objectIdString, NSString), nil]];

@@ -89,21 +89,21 @@
     // creates the stock on hand string table cell
     HMStringTableCellItem *stockOnHandItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"stock_on_hand"];
     stockOnHandItem.name = NSLocalizedString(@"Stock", @"Stock");
-    stockOnHandItem.description = [NSString stringWithFormat:@"%d", [stockOnHand intValue]];
+    stockOnHandItem.description = [NSString stringWithFormat:@"%d", stockOnHand.intValue];
     stockOnHandItem.accessoryType = @"badge_label";
     stockOnHandItem.accessoryValue = @"UN";
 
     // creates the price string table cell
     HMConstantStringTableCellItem *priceItem = [[HMConstantStringTableCellItem alloc] initWithIdentifier:@"price"];
     priceItem.name = NSLocalizedString(@"Price", @"Price");
-    priceItem.description = [NSString stringWithFormat:@"%.2f", [priceValue floatValue]];
+    priceItem.description = [NSString stringWithFormat:@"%.2f", priceValue.floatValue];
     priceItem.accessoryType = @"badge_label";
     priceItem.accessoryValue = @"EUR";
 
     // creates the retail price string table cell
     HMStringTableCellItem *retailPriceItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"retail_price"];
     retailPriceItem.name = NSLocalizedString(@"Retail Price", @"Retail Price");
-    retailPriceItem.description = [NSString stringWithFormat:@"%.2f", [retailPriceValue floatValue]];
+    retailPriceItem.description = [NSString stringWithFormat:@"%.2f", retailPriceValue.floatValue];
     retailPriceItem.accessoryType = @"badge_label";
     retailPriceItem.accessoryValue = @"EUR";
 
@@ -174,7 +174,7 @@
 - (void)convertRemoteGroupUpdate:(NSMutableArray *)remoteData {
     // retrieves the attributes
     NSNumber *objectId = [self.entity objectForKey:@"object_id"];
-    NSString *objectIdString = [objectId stringValue];
+    NSString *objectIdString = objectId.stringValue;
 
     // sets the object id (structured and unstructured)
     [remoteData addObject:[NSArray arrayWithObjects:@"inventory_line[object_id]", AVOID_NIL(objectIdString, NSString), nil]];

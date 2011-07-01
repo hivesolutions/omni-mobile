@@ -106,10 +106,10 @@
     for(NSDictionary *inventoryLine in inventoryLines) {
         // retrieves the inventory line information
         NSNumber *objectId = AVOID_NULL_NUMBER([inventoryLine objectForKey:@"object_id"]);
-        NSString *objectIdString = [objectId stringValue];
+        NSString *objectIdString = objectId.stringValue;
         NSDictionary *contactableOrganizationalHierarchyTreeNode = AVOID_NULL_DICTIONARY([inventoryLine objectForKey:@"contactable_organizational_hierarchy_tree_node"]);
         NSNumber *stockOnHandNumber = AVOID_NULL_NUMBER([inventoryLine objectForKey:@"stock_on_hand"]);
-        int stockOnHand = [stockOnHandNumber intValue];
+        int stockOnHand = stockOnHandNumber.intValue;
 
         // retrieves the store information
         NSString *storeName = AVOID_NULL([contactableOrganizationalHierarchyTreeNode objectForKey:@"name"]);
@@ -187,14 +187,14 @@
 
         // sets the object id in case it's defined
         if(inventoryLineObjectId != nil) {
-            NSString *inventoryLineObjectIdString = [NSString stringWithFormat:@"%d", [inventoryLineObjectId intValue]];
+            NSString *inventoryLineObjectIdString = [NSString stringWithFormat:@"%d", inventoryLineObjectId.intValue];
             [remoteData addObject:[NSArray arrayWithObjects:@"transactional_merchandise[inventory_lines][][object_id]", AVOID_NIL(inventoryLineObjectIdString, NSString), nil]];
         }
 
         // retrieves the inventory line's attributes
         NSDictionary *inventoryLineContactableOrganizationalHierarchyTreeNode = [inventoryLineItemData objectForKey:@"contactable_organizational_hierarchy_tree_node"];
         NSNumber *inventoryLineContactableOrganizationalHierarchyTreeNodeObjectId = [inventoryLineContactableOrganizationalHierarchyTreeNode objectForKey:@"object_id"];
-        NSString *inventoryLineContactableOrganizationalHierarchyTreeNodeObjectIdString = [NSString stringWithFormat:@"%d", [inventoryLineContactableOrganizationalHierarchyTreeNodeObjectId intValue]];
+        NSString *inventoryLineContactableOrganizationalHierarchyTreeNodeObjectIdString = [NSString stringWithFormat:@"%d", inventoryLineContactableOrganizationalHierarchyTreeNodeObjectId.intValue];
 
         // sets the items in the remote data
         [remoteData addObject:[NSArray arrayWithObjects:@"transactional_merchandise[inventory_lines][][contactable_organizational_hierarchy_tree_node][object_id]", AVOID_NIL(inventoryLineContactableOrganizationalHierarchyTreeNodeObjectIdString, NSString), nil]];
@@ -220,13 +220,13 @@
 - (void)convertRemoteGroupUpdate:(NSMutableArray *)remoteData {
     // retrieves the object id
     NSNumber *objectId = [self.entity objectForKey:@"object_id"];
-    NSString *objectIdString = [objectId stringValue];
+    NSString *objectIdString = objectId.stringValue;
 
     // retrieves the data items count
     HMItemGroup *menuListGroup = (HMItemGroup *) [self.remoteGroup getItem:@"list"];
     HMTableMutableSectionItemGroup *firstSectionItemGroup = (HMTableMutableSectionItemGroup *) [menuListGroup getItem:0];
-    NSArray *dataItems = [firstSectionItemGroup dataItems];
-    NSUInteger dataItemsCount = [dataItems count];
+    NSArray *dataItems = firstSectionItemGroup.dataItems;
+    NSUInteger dataItemsCount = dataItems.count;
 
     // sets the object id (structured and unstructured)
     [remoteData addObject:[NSArray arrayWithObjects:@"transactional_merchandise[object_id]", AVOID_NIL(objectIdString, NSString), nil]];
@@ -244,11 +244,11 @@
 - (HMTableCellItem *)createTableCellItem:(NSDictionary *)data {
     // retrieves the attributes
     NSNumber *objectId = AVOID_NULL_NUMBER([data objectForKey:@"object_id"]);
-    NSString *objectIdString = [objectId stringValue];
+    NSString *objectIdString = objectId.stringValue;
     NSString *storeName = [data objectForKey:@"name"];
 
     // creates the inventory line's identifier
-    NSString *identifier = [NSString stringWithFormat:@"new_inventory_line_%d", [objectId intValue]];
+    NSString *identifier = [NSString stringWithFormat:@"new_inventory_line_%d", objectId.intValue];
 
     // creates the contactable organizational hierarchy tree node
     NSDictionary *contactableOrganizationalHierarchyTreeNode = [NSDictionary dictionaryWithObjectsAndKeys:

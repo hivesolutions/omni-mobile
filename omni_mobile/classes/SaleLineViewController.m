@@ -71,7 +71,7 @@
     NSDictionary *invoice = AVOID_NULL_DICTIONARY([sale objectForKey:@"invoice"]);
 
     // checks if the money sale slip is available
-    BOOL isMoneySaleSlipAvailable = [moneySaleSlip count] > 0;
+    BOOL isMoneySaleSlipAvailable = moneySaleSlip.count > 0;
 
     // retrieves the sale identifier from the
     // money sale slip or the invoice depending
@@ -79,7 +79,7 @@
     NSString *saleIdentifier = isMoneySaleSlipAvailable ? AVOID_NULL([moneySaleSlip objectForKey:@"identifier"]) : AVOID_NULL([invoice objectForKey:@"identifier"]);
 
     // calculates the unit price vat
-    float unitPriceVat = [unitPriceNumber floatValue] + [unitVatNumber floatValue];
+    float unitPriceVat = unitPriceNumber.floatValue + unitVatNumber.floatValue;
 
     // creates the title item
     HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
@@ -106,14 +106,14 @@
     // creates the discount vat table cell
     HMStringTableCellItem *discountVatItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"discount_vat"];
     discountVatItem.name = NSLocalizedString(@"Discount VAT", @"Discount VAT");
-    discountVatItem.description = [NSString stringWithFormat:@"%.2f", [unitDiscountVatNumber floatValue]];
+    discountVatItem.description = [NSString stringWithFormat:@"%.2f", unitDiscountVatNumber.floatValue];
     discountVatItem.accessoryType = @"badge_label";
     discountVatItem.accessoryValue = @"EUR";
 
     // creates the quantity table cell
     HMStringTableCellItem *quantityItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"quantity"];
     quantityItem.name = NSLocalizedString(@"Quantity", @"Quantity");
-    quantityItem.description = [NSString stringWithFormat:@"%d", [quantityNumber intValue]];
+    quantityItem.description = [NSString stringWithFormat:@"%d", quantityNumber.intValue];
     quantityItem.accessoryType = @"badge_label";
     quantityItem.accessoryValue = @"UN";
 

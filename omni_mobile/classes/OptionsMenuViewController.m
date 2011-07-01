@@ -133,7 +133,7 @@
     NSNumber *backgroundImage = [preferences valueForKey:@"backgroundImage"];
 
     // in case the background image is not enabled
-    if([backgroundImage intValue] == 0) {
+    if(backgroundImage.intValue == 0) {
         // returns immediately
         return;
     }

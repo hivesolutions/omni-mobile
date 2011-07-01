@@ -80,9 +80,9 @@
 
     // creates a string representation of
     // the commission in percentage format
-    float commissionPercentageFloat = [commission floatValue] * 100;
+    float commissionPercentageFloat = commission.floatValue * 100;
     NSNumber *commissionPercentageNumber = [NSNumber numberWithFloat:commissionPercentageFloat];
-    int commissionPercentageInteger = [commissionPercentageNumber intValue];
+    int commissionPercentageInteger = commissionPercentageNumber.intValue;
     NSString *commissionString = [NSString stringWithFormat:@"%d", commissionPercentageInteger];
 
     // creates the title item
@@ -224,7 +224,7 @@
 
     // calculates the commission value
     NSString *commissionPercentageString = commissionItem.description;
-    float commissionPercentage = [commissionPercentageString floatValue];
+    float commissionPercentage = commissionPercentageString.floatValue;
     float commission = commissionPercentage / 100;
     NSString *commissionString = [NSString stringWithFormat:@"%f", commission];
 
@@ -259,7 +259,7 @@
 
     // retrieves the attributes
     NSNumber *objectId = [self.entity objectForKey:@"object_id"];
-    NSString *objectIdString = [objectId stringValue];
+    NSString *objectIdString = objectId.stringValue;
     NSDictionary *primaryAddress = AVOID_NULL_DICTIONARY(firstSectionItemGroup.data);
     NSDictionary *primaryContactInformation = AVOID_NULL_DICTIONARY(secondSectionItemGroup.data);
     NSNumber *primaryAddressObjectId = [primaryAddress objectForKey:@"object_id"];
@@ -271,13 +271,13 @@
 
     // sets the primary address's object id in case it's defined
     if(primaryAddressObjectId != nil) {
-        NSString *primaryAddressObjectIdString = [primaryAddressObjectId stringValue];
+        NSString *primaryAddressObjectIdString = primaryAddressObjectId.stringValue;
         [remoteData addObject:[NSArray arrayWithObjects:@"employee[primary_address][object_id]", AVOID_NIL(primaryAddressObjectIdString, NSString), nil]];
     }
 
     // sets the primary contact information's object id in case it's defined
     if(primaryContactInformationObjectId != nil) {
-        NSString *primaryContactInformationObjectIdString = [primaryContactInformationObjectId stringValue];
+        NSString *primaryContactInformationObjectIdString = primaryContactInformationObjectId.stringValue;
         [remoteData addObject:[NSArray arrayWithObjects:@"employee[primary_contact_information][object_id]", AVOID_NIL(primaryContactInformationObjectIdString, NSString), nil]];
     }
 }

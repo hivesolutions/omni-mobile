@@ -76,10 +76,10 @@
     NSDictionary *invoice = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"invoice"]);
 
     // checks if the money sale slip is available
-    BOOL isMoneySaleSlipAvailable = [moneySaleSlip count] > 0;
+    BOOL isMoneySaleSlipAvailable = moneySaleSlip.count > 0;
 
     // checks if the person is anonymous
-    BOOL isPersonAnonymous = [personBuyerName length] == 0;
+    BOOL isPersonAnonymous = personBuyerName.length == 0;
 
     // retrieves the sale identifier from the
     // money sale slip or the invoice depending
@@ -87,11 +87,11 @@
     NSString *saleIdentifier = isMoneySaleSlipAvailable ? AVOID_NULL([moneySaleSlip objectForKey:@"identifier"]) : AVOID_NULL([invoice objectForKey:@"identifier"]);
 
     // computes the date string from the timestamp
-    NSDate *dateDate = [NSDate dateWithTimeIntervalSince1970:[date floatValue]];
+    NSDate *dateDate = [NSDate dateWithTimeIntervalSince1970:date.floatValue];
     NSString *dateString = AVOID_NULL([dateDate description]);
 
     // calculates the price vat
-    NSNumber *priceVat = [NSNumber numberWithFloat:([priceNumber floatValue] + [vatNumber floatValue])];
+    NSNumber *priceVat = [NSNumber numberWithFloat:(priceNumber.floatValue + vatNumber.floatValue)];
 
     // creates the title item
     HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
@@ -131,28 +131,28 @@
     // creates the discount vat string table cell
     HMStringTableCellItem *discountVatItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"discount_vat"];
     discountVatItem.name = NSLocalizedString(@"Discount VAT", @"Discount VAT");
-    discountVatItem.description = [NSString stringWithFormat:@"%.2f", [discountVatNumber floatValue]];
+    discountVatItem.description = [NSString stringWithFormat:@"%.2f", discountVatNumber.floatValue];
     discountVatItem.accessoryType = @"badge_label";
     discountVatItem.accessoryValue = @"EUR";
 
     // creates the price string table cell
     HMStringTableCellItem *priceItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"price"];
     priceItem.name = NSLocalizedString(@"Total", @"Total");
-    priceItem.description = [NSString stringWithFormat:@"%.2f", [priceNumber floatValue]];
+    priceItem.description = [NSString stringWithFormat:@"%.2f", priceNumber.floatValue];
     priceItem.accessoryType = @"badge_label";
     priceItem.accessoryValue = @"EUR";
 
     // creates the vat string table cell
     HMStringTableCellItem *vatItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"vat"];
     vatItem.name = NSLocalizedString(@"VAT", @"VAT");
-    vatItem.description = [NSString stringWithFormat:@"%.2f", [vatNumber floatValue]];
+    vatItem.description = [NSString stringWithFormat:@"%.2f", vatNumber.floatValue];
     vatItem.accessoryType = @"badge_label";
     vatItem.accessoryValue = @"EUR";
 
     // creates the price vat string table cell
     HMStringTableCellItem *priceVatItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"price_vat"];
     priceVatItem.name = NSLocalizedString(@"Total VAT", @"Total VAT");
-    priceVatItem.description = [NSString stringWithFormat:@"%.2f", [priceVat floatValue]];
+    priceVatItem.description = [NSString stringWithFormat:@"%.2f", priceVat.floatValue];
     priceVatItem.accessoryType = @"badge_label";
     priceVatItem.accessoryValue = @"EUR";
 
@@ -195,9 +195,9 @@
     for(NSDictionary *saleLine in saleLines) {
         // retrieves the sale line attributes
         NSNumber *objectId = AVOID_NULL_NUMBER([saleLine objectForKey:@"object_id"]);
-        NSString *objectIdString = [objectId stringValue];
+        NSString *objectIdString = objectId.stringValue;
         NSNumber *quantityNumber = AVOID_NULL_NUMBER([saleLine objectForKey:@"quantity"]);
-        NSString *quantityString = [NSString stringWithFormat:@"%d", [quantityNumber intValue]];
+        NSString *quantityString = [NSString stringWithFormat:@"%d", quantityNumber.intValue];
         NSDictionary *merchandise = AVOID_NULL_DICTIONARY([saleLine objectForKey:@"merchandise"]);
         NSString *merchandiseCompanyProductCode = AVOID_NULL([merchandise objectForKey:@"company_product_code"]);
 
