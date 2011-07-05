@@ -115,14 +115,20 @@
         NSString *storeName = AVOID_NULL([contactableOrganizationalHierarchyTreeNode objectForKey:@"name"]);
         NSString *storeStockOnHand = [NSString stringWithFormat:@"%d", stockOnHand];
 
+        // creates the stock accessory item
+        HMAccessoryItem *stockAccessoryItem = [[HMAccessoryItem alloc] init];
+        stockAccessoryItem.description = storeStockOnHand;
+        stockAccessoryItem.textColorNormal = [HMColor whiteColor];
+        stockAccessoryItem.imageNormal = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
+        stockAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
+
         // creates the inventory line string table cell item
         HMConstantStringTableCellItem *inventoryLineItem = [[HMConstantStringTableCellItem alloc] initWithIdentifier:objectIdString];
         inventoryLineItem.description = storeName;
         inventoryLineItem.data = inventoryLine;
-        inventoryLineItem.icon = @"building.png";
-        inventoryLineItem.highlightedIcon = @"building_white.png";
-        inventoryLineItem.accessoryType = @"badge_label";
-        inventoryLineItem.accessoryValue = storeStockOnHand;
+        inventoryLineItem.icon = [HMImage imageNamed:@"building.png"];
+        inventoryLineItem.highlightedIcon = [HMImage imageNamed:@"building_white.png"];
+        inventoryLineItem.accessory = stockAccessoryItem;
         inventoryLineItem.selectable = YES;
         inventoryLineItem.selectableEdit = NO;
         inventoryLineItem.indentable = YES;
@@ -136,6 +142,7 @@
 
         // releases the store item
         [inventoryLineItem release];
+        [stockAccessoryItem release];
     }
 
     // adds the sections to the menu list
@@ -259,15 +266,21 @@
                                    contactableOrganizationalHierarchyTreeNode, @"contactable_organizational_hierarchy_tree_node",
                                    nil];
 
+    // creates the stock accessory item
+    HMAccessoryItem *stockAccessoryItem = [[HMAccessoryItem alloc] init];
+    stockAccessoryItem.description = @"0";
+    stockAccessoryItem.textColorNormal = [HMColor whiteColor];
+    stockAccessoryItem.imageNormal = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
+    stockAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
+
     // creates the inventory line item
     HMConstantStringTableCellItem *inventoryLineItem = [[[HMConstantStringTableCellItem alloc] initWithIdentifier:identifier] autorelease];
     inventoryLineItem.transientState = HMItemStateNew;
     inventoryLineItem.description = storeName;
     inventoryLineItem.data = inventoryLine;
-    inventoryLineItem.icon = @"building.png";
-    inventoryLineItem.highlightedIcon = @"building_white.png";
-    inventoryLineItem.accessoryType = @"badge_label";
-    inventoryLineItem.accessoryValue = @"0";
+    inventoryLineItem.icon = [HMImage imageNamed:@"building.png"];
+    inventoryLineItem.highlightedIcon = [HMImage imageNamed:@"building_white.png"];
+    inventoryLineItem.accessory = stockAccessoryItem;
     inventoryLineItem.selectable = YES;
     inventoryLineItem.selectableEdit = NO;
     inventoryLineItem.indentable = YES;
@@ -275,6 +288,9 @@
     inventoryLineItem.deleteActionType = HMTableCellItemDeleteActionTypeDelete;
     inventoryLineItem.readViewController = [InventoryItemStoreViewController class];
     inventoryLineItem.readNibName = @"InventoryItemStoreViewController";
+
+    // releases the objects
+    [stockAccessoryItem release];
 
     // returns the inventory line item
     return inventoryLineItem;

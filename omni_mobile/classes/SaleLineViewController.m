@@ -81,6 +81,25 @@
     // calculates the unit price vat
     float unitPriceVat = unitPriceNumber.floatValue + unitVatNumber.floatValue;
 
+    // creates the currency accessory item
+    HMAccessoryItem *currencyAccessoryItem = [[HMAccessoryItem alloc] init];
+    currencyAccessoryItem.description = @"EUR";
+    currencyAccessoryItem.textColorNormal = [HMColor whiteColor];
+    currencyAccessoryItem.imageNormal = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
+    currencyAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
+
+    // creates the unit accessory item
+    HMAccessoryItem *unitAccessoryItem = [[HMAccessoryItem alloc] init];
+    unitAccessoryItem.description = @"UN";
+    unitAccessoryItem.textColorNormal = [HMColor whiteColor];
+    unitAccessoryItem.imageNormal = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
+    unitAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
+
+    // creates the disclosure indicator accessory item
+    HMAccessoryItem *disclosureIndicatorAccessoryItem = [[HMAccessoryItem alloc] init];
+    disclosureIndicatorAccessoryItem.imageNormal = [HMImage imageNamed:@"disclosure_indicator"];
+    disclosureIndicatorAccessoryItem.imageHighlighted = [HMImage imageNamed:@"disclosure_indicator_highlighted"];
+
     // creates the title item
     HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
     titleItem.description = saleIdentifier;
@@ -100,29 +119,26 @@
     HMStringTableCellItem *unitPriceVatItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"unit_price"];
     unitPriceVatItem.name = NSLocalizedString(@"Unit Price VAT", @"Unit Price VAT");
     unitPriceVatItem.description = [NSString stringWithFormat:@"%.2f", unitPriceVat];
-    unitPriceVatItem.accessoryType = @"badge_label";
-    unitPriceVatItem.accessoryValue = @"EUR";
+    unitPriceVatItem.accessory = currencyAccessoryItem;
 
     // creates the discount vat table cell
     HMStringTableCellItem *discountVatItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"discount_vat"];
     discountVatItem.name = NSLocalizedString(@"Discount VAT", @"Discount VAT");
     discountVatItem.description = [NSString stringWithFormat:@"%.2f", unitDiscountVatNumber.floatValue];
-    discountVatItem.accessoryType = @"badge_label";
-    discountVatItem.accessoryValue = @"EUR";
+    discountVatItem.accessory = currencyAccessoryItem;
 
     // creates the quantity table cell
     HMStringTableCellItem *quantityItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"quantity"];
     quantityItem.name = NSLocalizedString(@"Quantity", @"Quantity");
     quantityItem.description = [NSString stringWithFormat:@"%d", quantityNumber.intValue];
-    quantityItem.accessoryType = @"badge_label";
-    quantityItem.accessoryValue = @"UN";
+    quantityItem.accessory = unitAccessoryItem;
 
     // creates the merchandise table cell
     HMStringTableCellItem *merchandiseItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"merchandise"];
     merchandiseItem.name = NSLocalizedString(@"Merchandise", @"Merchandise");
     merchandiseItem.description = merchandiseCompanyProductCode;
     merchandiseItem.data = merchandise;
-    merchandiseItem.accessoryType = @"disclosure_indicator";
+    merchandiseItem.accessory = disclosureIndicatorAccessoryItem;
     merchandiseItem.selectable = YES;
     merchandiseItem.readViewController = [InventoryItemViewController class];
     merchandiseItem.readNibName = @"InventoryItemViewController";
@@ -174,6 +190,9 @@
     [imageItem release];
     [subTitleItem release];
     [titleItem release];
+    [disclosureIndicatorAccessoryItem release];
+    [unitAccessoryItem release];
+    [currencyAccessoryItem release];
 }
 
 - (NSMutableArray *)convertRemoteGroup:(HMItemOperationType)operationType {

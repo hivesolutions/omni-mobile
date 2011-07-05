@@ -100,101 +100,105 @@
     [imageView setImage:logoImage];
     self.navigationItem.titleView = imageView;
 
+    // creates the disclosure indicator accessory item
+    HMAccessoryItem *disclosureIndicatorAccessoryItem = [[HMAccessoryItem alloc] init];
+    disclosureIndicatorAccessoryItem.imageNormal = [HMImage imageNamed:@"disclosure_indicator"];
+    disclosureIndicatorAccessoryItem.imageHighlighted = [HMImage imageNamed:@"disclosure_indicator_highlighted"];
+
     // creates the users button item
     HMTableCellItem *usersItem = [[HMTableCellItem alloc] initWithIdentifier:@"users"];
     usersItem.name = NSLocalizedString(@"Users", @"Users");
-    usersItem.descriptionFontSize = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
-    usersItem.icon = @"person_icon.png";
-    usersItem.highlightedIcon = @"person_icon_white.png";
-    usersItem.accessoryType = @"disclosure_indicator";
+    usersItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
+    usersItem.icon = [HMImage imageNamed:@"person_icon.png"];
+    usersItem.highlightedIcon = [HMImage imageNamed:@"person_icon_white.png"];
+    usersItem.accessory = disclosureIndicatorAccessoryItem;
     usersItem.selectable = YES;
 
     // creates the sales button item
     HMTableCellItem *salesItem = [[HMTableCellItem alloc] initWithIdentifier:@"sales"];
     salesItem.name = NSLocalizedString(@"Sales", @"Sales");
-    salesItem.descriptionFontSize = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
-    salesItem.icon = @"box_up_icon.png";
-    salesItem.highlightedIcon = @"box_up_icon_white.png";
-    salesItem.accessoryType = @"disclosure_indicator";
+    salesItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
+    salesItem.icon = [HMImage imageNamed:@"box_up_icon.png"];
+    salesItem.highlightedIcon = [HMImage imageNamed:@"box_up_icon_white.png"];
+    salesItem.accessory = disclosureIndicatorAccessoryItem;
     salesItem.selectable = YES;
 
     // creates the purchases button item
     HMTableCellItem *purchasesItem = [[HMTableCellItem alloc] initWithIdentifier:@"purchases"];
     purchasesItem.name = NSLocalizedString(@"Purchases", @"Purchases");
-    purchasesItem.descriptionFontSize = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
-    purchasesItem.icon = @"box_down_icon.png";
-    purchasesItem.highlightedIcon = @"box_down_icon_white.png";
-    purchasesItem.accessoryType = @"disclosure_indicator";
+    purchasesItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
+    purchasesItem.icon = [HMImage imageNamed:@"box_down_icon.png"];
+    purchasesItem.highlightedIcon = [HMImage imageNamed:@"box_down_icon_white.png"];
+    purchasesItem.accessory = disclosureIndicatorAccessoryItem;
     purchasesItem.selectable = YES;
 
     // creates the inventory button item
     HMTableCellItem *inventoryItem = [[HMTableCellItem alloc] initWithIdentifier:@"inventory"];
     inventoryItem.name = NSLocalizedString(@"Inventory", @"Inventory");
-    inventoryItem.descriptionFontSize = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
-    inventoryItem.icon = @"box_icon.png";
-    inventoryItem.highlightedIcon = @"box_icon_white.png";
-    inventoryItem.accessoryType = @"disclosure_indicator";
+    inventoryItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
+    inventoryItem.icon = [HMImage imageNamed:@"box_icon.png"];
+    inventoryItem.highlightedIcon = [HMImage imageNamed:@"box_icon_white.png"];
+    inventoryItem.accessory = disclosureIndicatorAccessoryItem;
     inventoryItem.selectable = YES;
 
     // creates the stores button item
     HMTableCellItem *storesItem = [[HMTableCellItem alloc] initWithIdentifier:@"stores"];
     storesItem.name = NSLocalizedString(@"Stores", @"Stores");
-    storesItem.descriptionFontSize = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
-    storesItem.icon = @"building_icon.png";
-    storesItem.highlightedIcon = @"building_icon_white.png";
-    storesItem.accessoryType = @"disclosure_indicator";
+    storesItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
+    storesItem.icon = [HMImage imageNamed:@"building_icon.png"];
+    storesItem.highlightedIcon = [HMImage imageNamed:@"building_icon_white.png"];
+    storesItem.accessory = disclosureIndicatorAccessoryItem;
     storesItem.selectable = YES;
 
     // creates the employees button item
     HMTableCellItem *employeesItem = [[HMTableCellItem alloc] initWithIdentifier:@"employees"];
     employeesItem.name = NSLocalizedString(@"Employees", @"Employees");
-    employeesItem.descriptionFontSize = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
-    employeesItem.icon = @"person_icon.png";
-    employeesItem.highlightedIcon = @"person_icon_white.png";
-    employeesItem.accessoryType = @"disclosure_indicator";
+    employeesItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
+    employeesItem.icon = [HMImage imageNamed:@"person_icon.png"];
+    employeesItem.highlightedIcon = [HMImage imageNamed:@"person_icon_white.png"];
+    employeesItem.accessory = disclosureIndicatorAccessoryItem;
     employeesItem.selectable = YES;
 
     // creates the highlights button item
     HMTableCellItem *highlightsItem = [[HMTableCellItem alloc] initWithIdentifier:@"highlights"];
     highlightsItem.name = NSLocalizedString(@"Highlights", @"Highlights");
-    highlightsItem.descriptionFontSize = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
-    highlightsItem.icon = @"megaphone_icon.png";
-    highlightsItem.highlightedIcon = @"megaphone_icon_white.png";
-    highlightsItem.accessoryType = @"disclosure_indicator";
+    highlightsItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
+    highlightsItem.icon = [HMImage imageNamed:@"megaphone_icon.png"];
+    highlightsItem.highlightedIcon = [HMImage imageNamed:@"megaphone_icon_white.png"];
+    highlightsItem.accessory = disclosureIndicatorAccessoryItem;
     highlightsItem.selectable = YES;
 
     // creates the options menu button item
     HMTableCellItem *optionsMenuItem = [[HMTableCellItem alloc] initWithIdentifier:@"options_menu"];
     optionsMenuItem.name = NSLocalizedString(@"Options Menu", @"Options Menu");
-    optionsMenuItem.descriptionFontSize = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
-    optionsMenuItem.icon = @"credits_icon.png";
-    optionsMenuItem.highlightedIcon = @"credits_icon_white.png";
-    optionsMenuItem.accessoryType = @"disclosure_indicator";
+    optionsMenuItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
+    optionsMenuItem.icon = [HMImage imageNamed:@"credits_icon.png"];
+    optionsMenuItem.highlightedIcon = [HMImage imageNamed:@"credits_icon_white.png"];
+    optionsMenuItem.accessory = disclosureIndicatorAccessoryItem;
     optionsMenuItem.selectable = YES;
 
     // creates the sales week button item
     HMTableCellItem *salesWeekItem = [[HMTableCellItem alloc] initWithIdentifier:@"sales_week"];
     salesWeekItem.name = NSLocalizedString(@"Sales Week", @"Sales Week");
-    salesWeekItem.descriptionFontSize = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
-    salesWeekItem.icon = @"dashboard_icon.png";
-    salesWeekItem.highlightedIcon = @"dashboard_icon_white.png";
-    salesWeekItem.accessoryType = @"disclosure_indicator";
+    salesWeekItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
+    salesWeekItem.icon = [HMImage imageNamed:@"dashboard_icon.png"];
+    salesWeekItem.highlightedIcon = [HMImage imageNamed:@"dashboard_icon_white.png"];
+    salesWeekItem.accessory = disclosureIndicatorAccessoryItem;
     salesWeekItem.selectable = YES;
 
     // creates the credits button item
     HMTableCellItem *creditsItem = [[HMTableCellItem alloc] initWithIdentifier:@"credits"];
     creditsItem.name = NSLocalizedString(@"Credits", @"Credits");
-    creditsItem.descriptionFontSize = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
-    creditsItem.icon = @"credits_icon.png";
-    creditsItem.highlightedIcon = @"credits_icon_white.png";
-    creditsItem.accessoryType = @"disclosure_indicator";
+    creditsItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
+    creditsItem.icon = [HMImage imageNamed:@"credits_icon.png"];
+    creditsItem.highlightedIcon = [HMImage imageNamed:@"credits_icon_white.png"];
+    creditsItem.accessory = disclosureIndicatorAccessoryItem;
     creditsItem.selectable = YES;
 
     // creates the notifications button item
     HMTableCellItem *notificationsItem = [[HMTableCellItem alloc] initWithIdentifier:@"notifications"];
     notificationsItem.name = NSLocalizedString(@"Notifications", @"Notifications");
-    notificationsItem.descriptionFontSize = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
-    notificationsItem.accessoryType = @"switch";
+    notificationsItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
 
     // creates the section item groups
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
@@ -249,6 +253,7 @@
     [purchasesItem release];
     [salesItem release];
     [usersItem release];
+    [disclosureIndicatorAccessoryItem release];
     [imageView release];
     [logoutBarButton release];
     [accountBarButton release];

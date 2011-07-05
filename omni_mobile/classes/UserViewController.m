@@ -85,6 +85,11 @@
     // checks if the default functional unit is available
     BOOL isDefaultFunctionalUnitAvailable = defaultFunctionalUnit.count == 0 ? NO : YES;
 
+    // creates the disclosure indicator accessory item
+    HMAccessoryItem *disclosureIndicatorAccessoryItem = [[HMAccessoryItem alloc] init];
+    disclosureIndicatorAccessoryItem.imageNormal = [HMImage imageNamed:@"disclosure_indicator"];
+    disclosureIndicatorAccessoryItem.imageHighlighted = [HMImage imageNamed:@"disclosure_indicator_highlighted"];
+
     // creates the title item
     HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
     titleItem.defaultValue = NSLocalizedString(@"Username", @"Username");
@@ -129,7 +134,7 @@
     defaultFunctionalUnitItem.name = NSLocalizedString(@"Store", @"Store");
     defaultFunctionalUnitItem.description = defaultFunctionalUnitName;
     defaultFunctionalUnitItem.data = isDefaultFunctionalUnitAvailable ? defaultFunctionalUnit : nil;
-    defaultFunctionalUnitItem.accessoryType = @"disclosure_indicator";
+    defaultFunctionalUnitItem.accessory = disclosureIndicatorAccessoryItem;
     defaultFunctionalUnitItem.readViewController = [StoreViewController class];
     defaultFunctionalUnitItem.readNibName = @"StoreViewController";
     defaultFunctionalUnitItem.editViewController = [StoresViewController class];
@@ -144,7 +149,7 @@
     employeeItem.name = NSLocalizedString(@"Employee", @"Employee");
     employeeItem.description = personName;
     employeeItem.data = isPersonAvailable ? person : nil;
-    employeeItem.accessoryType = @"disclosure_indicator";
+    employeeItem.accessory = disclosureIndicatorAccessoryItem;
     employeeItem.readViewController = [EmployeeViewController class];
     employeeItem.readNibName = @"EmployeeViewController";
     employeeItem.editViewController = [EmployeesViewController class];
@@ -210,6 +215,7 @@
     [imageItem release];
     [subTitleItem release];
     [titleItem release];
+    [disclosureIndicatorAccessoryItem release];
 }
 
 - (NSMutableArray *)convertRemoteGroup:(HMItemOperationType)operationType {

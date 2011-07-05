@@ -71,6 +71,20 @@
     NSNumber *priceValue = AVOID_NULL_NUMBER([price objectForKey:@"value"]);
     NSNumber *retailPriceValue = AVOID_NULL_NUMBER([retailPrice objectForKey:@"value"]);
 
+    // creates the unit accessory item
+    HMAccessoryItem *unitAccessoryItem = [[HMAccessoryItem alloc] init];
+    unitAccessoryItem.description = @"UN";
+    unitAccessoryItem.textColorNormal = [HMColor whiteColor];
+    unitAccessoryItem.imageNormal = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
+    unitAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
+
+    // creates the currency accessory item
+    HMAccessoryItem *currencyAccessoryItem = [[HMAccessoryItem alloc] init];
+    currencyAccessoryItem.description = @"EUR";
+    currencyAccessoryItem.textColorNormal = [HMColor whiteColor];
+    currencyAccessoryItem.imageNormal = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
+    currencyAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
+
     // creates the title item
     HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
     titleItem.description = merchandiseCompanyProductCode;
@@ -90,22 +104,19 @@
     HMStringTableCellItem *stockOnHandItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"stock_on_hand"];
     stockOnHandItem.name = NSLocalizedString(@"Stock", @"Stock");
     stockOnHandItem.description = [NSString stringWithFormat:@"%d", stockOnHand.intValue];
-    stockOnHandItem.accessoryType = @"badge_label";
-    stockOnHandItem.accessoryValue = @"UN";
+    stockOnHandItem.accessory = unitAccessoryItem;
 
     // creates the price string table cell
     HMConstantStringTableCellItem *priceItem = [[HMConstantStringTableCellItem alloc] initWithIdentifier:@"price"];
     priceItem.name = NSLocalizedString(@"Price", @"Price");
     priceItem.description = [NSString stringWithFormat:@"%.2f", priceValue.floatValue];
-    priceItem.accessoryType = @"badge_label";
-    priceItem.accessoryValue = @"EUR";
+    priceItem.accessory = currencyAccessoryItem;
 
     // creates the retail price string table cell
     HMStringTableCellItem *retailPriceItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"retail_price"];
     retailPriceItem.name = NSLocalizedString(@"Retail Price", @"Retail Price");
     retailPriceItem.description = [NSString stringWithFormat:@"%.2f", retailPriceValue.floatValue];
-    retailPriceItem.accessoryType = @"badge_label";
-    retailPriceItem.accessoryValue = @"EUR";
+    retailPriceItem.accessory = currencyAccessoryItem;
 
     // creates the sections item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
@@ -147,6 +158,8 @@
     [imageItem release];
     [subTitleItem release];
     [titleItem release];
+    [currencyAccessoryItem release];
+    [unitAccessoryItem release];
 }
 
 - (NSMutableArray *)convertRemoteGroup:(HMItemOperationType)operationType {

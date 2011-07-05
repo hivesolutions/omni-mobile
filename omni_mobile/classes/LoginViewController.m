@@ -156,8 +156,8 @@
 
     // customizes the first section footer item
     HMLabelItem *firstSectionFooterItem = firstSectionItemGroup.footer;
-    firstSectionFooterItem.descriptionFontSize = 14;
-    firstSectionFooterItem.descriptionColor = [HMColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+    firstSectionFooterItem.descriptionFont.size = 14;
+    firstSectionFooterItem.descriptionColor = [HMColor whiteColor];
     firstSectionFooterItem.descriptionShadowColor = nil;
     firstSectionFooterItem.textAlignment = HMLabelItemTextAlignmentCenter;
 

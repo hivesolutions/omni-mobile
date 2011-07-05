@@ -85,6 +85,13 @@
     int commissionPercentageInteger = commissionPercentageNumber.intValue;
     NSString *commissionString = [NSString stringWithFormat:@"%d", commissionPercentageInteger];
 
+    // creates the percentage accessory item
+    HMAccessoryItem *percentageAccessoryItem = [[HMAccessoryItem alloc] init];
+    percentageAccessoryItem.description = @"%";
+    percentageAccessoryItem.textColorNormal = [HMColor whiteColor];
+    percentageAccessoryItem.imageNormal = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
+    percentageAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
+
     // creates the title item
     HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
     titleItem.defaultValue = NSLocalizedString(@"Name", @"Name");
@@ -127,8 +134,7 @@
     HMStringTableCellItem *commissionItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"commission"];
     commissionItem.name = NSLocalizedString(@"Commission", @"Commission");
     commissionItem.description = commissionString;
-    commissionItem.accessoryType = @"badge_label";
-    commissionItem.accessoryValue = @"%";
+    commissionItem.accessory = percentageAccessoryItem;
 
     // creates the first section item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
@@ -190,6 +196,7 @@
     [imageItem release];
     [subTitleItem release];
     [titleItem release];
+    [percentageAccessoryItem release];
 }
 
 - (NSMutableArray *)convertRemoteGroup:(HMItemOperationType)operationType {
