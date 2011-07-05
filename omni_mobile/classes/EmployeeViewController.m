@@ -89,8 +89,9 @@
     HMAccessoryItem *percentageAccessoryItem = [[HMAccessoryItem alloc] init];
     percentageAccessoryItem.description = @"%";
     percentageAccessoryItem.textColorNormal = [HMColor whiteColor];
+    percentageAccessoryItem.textColorHighlighted = [HMColor colorWithRed:0.54 green:0.56 blue:0.62 alpha:1.0];
     percentageAccessoryItem.imageNormal = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
-    percentageAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
+    percentageAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge_highlighted" leftCap:4 topCap:4];
 
     // creates the title item
     HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];

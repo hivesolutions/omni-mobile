@@ -75,15 +75,17 @@
     HMAccessoryItem *unitAccessoryItem = [[HMAccessoryItem alloc] init];
     unitAccessoryItem.description = @"UN";
     unitAccessoryItem.textColorNormal = [HMColor whiteColor];
+    unitAccessoryItem.textColorHighlighted = [HMColor colorWithRed:0.54 green:0.56 blue:0.62 alpha:1.0];
     unitAccessoryItem.imageNormal = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
-    unitAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
+    unitAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge_highlighted" leftCap:4 topCap:4];
 
     // creates the currency accessory item
     HMAccessoryItem *currencyAccessoryItem = [[HMAccessoryItem alloc] init];
     currencyAccessoryItem.description = @"EUR";
     currencyAccessoryItem.textColorNormal = [HMColor whiteColor];
+    currencyAccessoryItem.textColorHighlighted = [HMColor colorWithRed:0.54 green:0.56 blue:0.62 alpha:1.0];
     currencyAccessoryItem.imageNormal = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
-    currencyAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
+    currencyAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge_highlighted" leftCap:4 topCap:4];
 
     // creates the title item
     HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];

@@ -119,8 +119,9 @@
         HMAccessoryItem *stockAccessoryItem = [[HMAccessoryItem alloc] init];
         stockAccessoryItem.description = storeStockOnHand;
         stockAccessoryItem.textColorNormal = [HMColor whiteColor];
+        stockAccessoryItem.textColorHighlighted = [HMColor colorWithRed:0.54 green:0.56 blue:0.62 alpha:1.0];
         stockAccessoryItem.imageNormal = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
-        stockAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
+        stockAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge_highlighted" leftCap:4 topCap:4];
 
         // creates the inventory line string table cell item
         HMConstantStringTableCellItem *inventoryLineItem = [[HMConstantStringTableCellItem alloc] initWithIdentifier:objectIdString];
@@ -270,8 +271,9 @@
     HMAccessoryItem *stockAccessoryItem = [[HMAccessoryItem alloc] init];
     stockAccessoryItem.description = @"0";
     stockAccessoryItem.textColorNormal = [HMColor whiteColor];
+    stockAccessoryItem.textColorHighlighted = [HMColor colorWithRed:0.54 green:0.56 blue:0.62 alpha:1.0];
     stockAccessoryItem.imageNormal = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
-    stockAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
+    stockAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge_highlighted" leftCap:4 topCap:4];
 
     // creates the inventory line item
     HMConstantStringTableCellItem *inventoryLineItem = [[[HMConstantStringTableCellItem alloc] initWithIdentifier:identifier] autorelease];

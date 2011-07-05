@@ -32,7 +32,9 @@
 		46551BF913C313680013B005 /* disclosure_indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 46551BF513C313680013B005 /* disclosure_indicator.png */; };
 		46551BFA13C313680013B005 /* disclosure_indicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46551BF613C313680013B005 /* disclosure_indicator@2x.png */; };
 		46551BFD13C313750013B005 /* badge.png in Resources */ = {isa = PBXBuildFile; fileRef = 46551BFB13C313750013B005 /* badge.png */; };
-		46551BFE13C313750013B005 /* badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46551BFC13C313750013B005 /* badge@2x.png */; };
+		46551C1813C3460D0013B005 /* badge_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 46551C1513C3460D0013B005 /* badge_highlighted.png */; };
+		46551C1913C3460D0013B005 /* badge_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46551C1613C3460D0013B005 /* badge_highlighted@2x.png */; };
+		46551C1A13C3460D0013B005 /* badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46551C1713C3460D0013B005 /* badge@2x.png */; };
 		46B5EAAA13BBA1A7001D2B81 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B5EAA913BBA1A7001D2B81 /* AssetsLibrary.framework */; };
 		A57A09B71355A7840098A56A /* SaleLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A57A09B61355A7820098A56A /* SaleLineViewController.m */; };
 		A57A09BA1355A8F00098A56A /* SaleLineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A57A09B91355A8F00098A56A /* SaleLineViewController.xib */; };
@@ -287,7 +289,9 @@
 		46551BF513C313680013B005 /* disclosure_indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = disclosure_indicator.png; path = disclosure_indicator/disclosure_indicator.png; sourceTree = "<group>"; };
 		46551BF613C313680013B005 /* disclosure_indicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "disclosure_indicator@2x.png"; path = "disclosure_indicator/disclosure_indicator@2x.png"; sourceTree = "<group>"; };
 		46551BFB13C313750013B005 /* badge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = badge.png; path = badge/badge.png; sourceTree = "<group>"; };
-		46551BFC13C313750013B005 /* badge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "badge@2x.png"; path = "badge/badge@2x.png"; sourceTree = "<group>"; };
+		46551C1513C3460D0013B005 /* badge_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = badge_highlighted.png; path = badge/badge_highlighted.png; sourceTree = "<group>"; };
+		46551C1613C3460D0013B005 /* badge_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "badge_highlighted@2x.png"; path = "badge/badge_highlighted@2x.png"; sourceTree = "<group>"; };
+		46551C1713C3460D0013B005 /* badge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "badge@2x.png"; path = "badge/badge@2x.png"; sourceTree = "<group>"; };
 		46B5EAA913BBA1A7001D2B81 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		A57A09B51355A7810098A56A /* SaleLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SaleLineViewController.h; path = classes/SaleLineViewController.h; sourceTree = "<group>"; };
 		A57A09B61355A7820098A56A /* SaleLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SaleLineViewController.m; path = classes/SaleLineViewController.m; sourceTree = "<group>"; };
@@ -530,8 +534,10 @@
 		46551BF213C3126C0013B005 /* Badge */ = {
 			isa = PBXGroup;
 			children = (
+				46551C1513C3460D0013B005 /* badge_highlighted.png */,
+				46551C1613C3460D0013B005 /* badge_highlighted@2x.png */,
+				46551C1713C3460D0013B005 /* badge@2x.png */,
 				46551BFB13C313750013B005 /* badge.png */,
-				46551BFC13C313750013B005 /* badge@2x.png */,
 			);
 			name = Badge;
 			sourceTree = "<group>";
@@ -1514,7 +1520,9 @@
 				46551BF913C313680013B005 /* disclosure_indicator.png in Resources */,
 				46551BFA13C313680013B005 /* disclosure_indicator@2x.png in Resources */,
 				46551BFD13C313750013B005 /* badge.png in Resources */,
-				46551BFE13C313750013B005 /* badge@2x.png in Resources */,
+				46551C1813C3460D0013B005 /* badge_highlighted.png in Resources */,
+				46551C1913C3460D0013B005 /* badge_highlighted@2x.png in Resources */,
+				46551C1A13C3460D0013B005 /* badge@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
