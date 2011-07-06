@@ -96,8 +96,8 @@
     // creates the currency accessory item
     HMAccessoryItem *currencyAccessoryItem = [[HMAccessoryItem alloc] init];
     currencyAccessoryItem.description = @"EUR";
-    currencyAccessoryItem.textColorNormal = [HMColor whiteColor];
-    currencyAccessoryItem.textColorHighlighted = [HMColor colorWithRed:0.54 green:0.56 blue:0.62 alpha:1.0];
+    currencyAccessoryItem.descriptionColor = [HMColor whiteColor];
+    currencyAccessoryItem.descriptionColorHighlighted = [HMColor colorWithRed:0.54 green:0.56 blue:0.62 alpha:1.0];
     currencyAccessoryItem.imageNormal = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
     currencyAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge_highlighted" leftCap:4 topCap:4];
 
@@ -213,8 +213,8 @@
         // creates the currency accessory item
         HMAccessoryItem *quantityAccessoryItem = [[HMAccessoryItem alloc] init];
         quantityAccessoryItem.description = quantityString;
-        quantityAccessoryItem.textColorNormal = [HMColor whiteColor];
-        quantityAccessoryItem.textColorHighlighted = [HMColor colorWithRed:0.54 green:0.56 blue:0.62 alpha:1.0];
+        quantityAccessoryItem.descriptionColor = [HMColor whiteColor];
+        quantityAccessoryItem.descriptionColorHighlighted = [HMColor colorWithRed:0.54 green:0.56 blue:0.62 alpha:1.0];
         quantityAccessoryItem.imageNormal = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
         quantityAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge_highlighted" leftCap:4 topCap:4];
 
