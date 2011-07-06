@@ -93,6 +93,13 @@
     // calculates the price vat
     NSNumber *priceVat = [NSNumber numberWithFloat:(priceNumber.floatValue + vatNumber.floatValue)];
 
+    // creates the colors
+    HMColor *lightGreenColor = [HMColor colorWithRed:0.66 green:0.85 blue:0.36 alpha:1];
+    HMColor *darkGreenColor = [HMColor colorWithRed:0.23 green:0.62 blue:0.27 alpha:1];
+
+    // creates the background colors
+    NSArray *selectedBackgroundColors = [[NSArray alloc] initWithObjects:lightGreenColor, darkGreenColor, nil];
+
     // creates the currency accessory item
     HMAccessoryItem *currencyAccessoryItem = [[HMAccessoryItem alloc] init];
     currencyAccessoryItem.description = @"EUR";
@@ -130,6 +137,7 @@
     storeItem.readViewController = [StoreViewController class];
     storeItem.readNibName = @"StoreViewController";
     storeItem.selectable = YES;
+    storeItem.selectedBackgroundColors = selectedBackgroundColors;
 
     // creates the seller string table cell
     HMStringTableCellItem *sellerItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"seller"];
@@ -140,6 +148,7 @@
     sellerItem.readViewController = [EmployeeViewController class];
     sellerItem.readNibName = @"EmployeeViewController";
     sellerItem.selectable = YES;
+    sellerItem.selectedBackgroundColors = selectedBackgroundColors;
 
     // creates the discount vat string table cell
     HMStringTableCellItem *discountVatItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"discount_vat"];
@@ -226,6 +235,7 @@
         saleLineItem.readViewController = [SaleLineViewController class];
         saleLineItem.readNibName = @"SaleLineViewController";
         saleLineItem.selectable = YES;
+        saleLineItem.selectedBackgroundColors = selectedBackgroundColors;
 
         // adds the sale line item to
         // the second section item group
@@ -273,6 +283,7 @@
     [titleItem release];
     [disclosureIndicatorAccessoryItem release];
     [currencyAccessoryItem release];
+    [selectedBackgroundColors release];
 }
 
 - (NSMutableArray *)convertRemoteGroup:(HMItemOperationType)operationType {

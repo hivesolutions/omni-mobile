@@ -81,6 +81,13 @@
     // calculates the unit price vat
     float unitPriceVat = unitPriceNumber.floatValue + unitVatNumber.floatValue;
 
+    // creates the colors
+    HMColor *lightGreenColor = [HMColor colorWithRed:0.66 green:0.85 blue:0.36 alpha:1];
+    HMColor *darkGreenColor = [HMColor colorWithRed:0.23 green:0.62 blue:0.27 alpha:1];
+
+    // creates the background colors
+    NSArray *selectedBackgroundColors = [[NSArray alloc] initWithObjects:lightGreenColor, darkGreenColor, nil];
+
     // creates the currency accessory item
     HMAccessoryItem *currencyAccessoryItem = [[HMAccessoryItem alloc] init];
     currencyAccessoryItem.description = @"EUR";
@@ -144,6 +151,7 @@
     merchandiseItem.selectable = YES;
     merchandiseItem.readViewController = [InventoryItemViewController class];
     merchandiseItem.readNibName = @"InventoryItemViewController";
+    merchandiseItem.selectedBackgroundColors = selectedBackgroundColors;
 
     // creates the sections item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
@@ -195,6 +203,7 @@
     [disclosureIndicatorAccessoryItem release];
     [unitAccessoryItem release];
     [currencyAccessoryItem release];
+    [selectedBackgroundColors release];
 }
 
 - (NSMutableArray *)convertRemoteGroup:(HMItemOperationType)operationType {

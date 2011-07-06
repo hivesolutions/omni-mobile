@@ -100,6 +100,14 @@
     [imageView setImage:logoImage];
     self.navigationItem.titleView = imageView;
 
+    // creates the colors
+    HMColor *borderColor = [HMColor colorWithRed:0.4 green:0.4 blue:0.4 alpha:1];
+    HMColor *lightGreenColor = [HMColor colorWithRed:0.66 green:0.85 blue:0.36 alpha:1];
+    HMColor *darkGreenColor = [HMColor colorWithRed:0.23 green:0.62 blue:0.27 alpha:1];
+
+    // creates the background colors
+    NSArray *selectedBackgroundColors = [[NSArray alloc] initWithObjects:lightGreenColor, darkGreenColor, nil];
+
     // creates the disclosure indicator accessory item
     HMAccessoryItem *disclosureIndicatorAccessoryItem = [[HMAccessoryItem alloc] init];
     disclosureIndicatorAccessoryItem.imageNormal = [HMImage imageNamed:@"disclosure_indicator"];
@@ -113,6 +121,8 @@
     usersItem.highlightedIcon = [HMImage imageNamed:@"person_icon_white.png"];
     usersItem.accessory = disclosureIndicatorAccessoryItem;
     usersItem.selectable = YES;
+    usersItem.selectedBackgroundColors = selectedBackgroundColors;
+    usersItem.borderColor = borderColor;
 
     // creates the sales button item
     HMTableCellItem *salesItem = [[HMTableCellItem alloc] initWithIdentifier:@"sales"];
@@ -122,6 +132,8 @@
     salesItem.highlightedIcon = [HMImage imageNamed:@"box_up_icon_white.png"];
     salesItem.accessory = disclosureIndicatorAccessoryItem;
     salesItem.selectable = YES;
+    salesItem.selectedBackgroundColors = selectedBackgroundColors;
+    salesItem.borderColor = borderColor;
 
     // creates the purchases button item
     HMTableCellItem *purchasesItem = [[HMTableCellItem alloc] initWithIdentifier:@"purchases"];
@@ -131,6 +143,8 @@
     purchasesItem.highlightedIcon = [HMImage imageNamed:@"box_down_icon_white.png"];
     purchasesItem.accessory = disclosureIndicatorAccessoryItem;
     purchasesItem.selectable = YES;
+    purchasesItem.selectedBackgroundColors = selectedBackgroundColors;
+    purchasesItem.borderColor = borderColor;
 
     // creates the inventory button item
     HMTableCellItem *inventoryItem = [[HMTableCellItem alloc] initWithIdentifier:@"inventory"];
@@ -140,6 +154,8 @@
     inventoryItem.highlightedIcon = [HMImage imageNamed:@"box_icon_white.png"];
     inventoryItem.accessory = disclosureIndicatorAccessoryItem;
     inventoryItem.selectable = YES;
+    inventoryItem.selectedBackgroundColors = selectedBackgroundColors;
+    inventoryItem.borderColor = borderColor;
 
     // creates the stores button item
     HMTableCellItem *storesItem = [[HMTableCellItem alloc] initWithIdentifier:@"stores"];
@@ -149,6 +165,8 @@
     storesItem.highlightedIcon = [HMImage imageNamed:@"building_icon_white.png"];
     storesItem.accessory = disclosureIndicatorAccessoryItem;
     storesItem.selectable = YES;
+    storesItem.selectedBackgroundColors = selectedBackgroundColors;
+    storesItem.borderColor = borderColor;
 
     // creates the employees button item
     HMTableCellItem *employeesItem = [[HMTableCellItem alloc] initWithIdentifier:@"employees"];
@@ -158,6 +176,8 @@
     employeesItem.highlightedIcon = [HMImage imageNamed:@"person_icon_white.png"];
     employeesItem.accessory = disclosureIndicatorAccessoryItem;
     employeesItem.selectable = YES;
+    employeesItem.selectedBackgroundColors = selectedBackgroundColors;
+    employeesItem.borderColor = borderColor;
 
     // creates the highlights button item
     HMTableCellItem *highlightsItem = [[HMTableCellItem alloc] initWithIdentifier:@"highlights"];
@@ -167,6 +187,8 @@
     highlightsItem.highlightedIcon = [HMImage imageNamed:@"megaphone_icon_white.png"];
     highlightsItem.accessory = disclosureIndicatorAccessoryItem;
     highlightsItem.selectable = YES;
+    highlightsItem.selectedBackgroundColors = selectedBackgroundColors;
+    highlightsItem.borderColor = borderColor;
 
     // creates the options menu button item
     HMTableCellItem *optionsMenuItem = [[HMTableCellItem alloc] initWithIdentifier:@"options_menu"];
@@ -176,6 +198,8 @@
     optionsMenuItem.highlightedIcon = [HMImage imageNamed:@"credits_icon_white.png"];
     optionsMenuItem.accessory = disclosureIndicatorAccessoryItem;
     optionsMenuItem.selectable = YES;
+    optionsMenuItem.selectedBackgroundColors = selectedBackgroundColors;
+    optionsMenuItem.borderColor = borderColor;
 
     // creates the sales week button item
     HMTableCellItem *salesWeekItem = [[HMTableCellItem alloc] initWithIdentifier:@"sales_week"];
@@ -185,6 +209,8 @@
     salesWeekItem.highlightedIcon = [HMImage imageNamed:@"dashboard_icon_white.png"];
     salesWeekItem.accessory = disclosureIndicatorAccessoryItem;
     salesWeekItem.selectable = YES;
+    salesWeekItem.selectedBackgroundColors = selectedBackgroundColors;
+    salesWeekItem.borderColor = borderColor;
 
     // creates the credits button item
     HMTableCellItem *creditsItem = [[HMTableCellItem alloc] initWithIdentifier:@"credits"];
@@ -194,11 +220,15 @@
     creditsItem.highlightedIcon = [HMImage imageNamed:@"credits_icon_white.png"];
     creditsItem.accessory = disclosureIndicatorAccessoryItem;
     creditsItem.selectable = YES;
+    creditsItem.selectedBackgroundColors = selectedBackgroundColors;
+    creditsItem.borderColor = borderColor;
 
     // creates the notifications button item
     HMTableCellItem *notificationsItem = [[HMTableCellItem alloc] initWithIdentifier:@"notifications"];
     notificationsItem.name = NSLocalizedString(@"Notifications", @"Notifications");
     notificationsItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
+    notificationsItem.selectedBackgroundColors = selectedBackgroundColors;
+    notificationsItem.borderColor = borderColor;
 
     // creates the section item groups
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
@@ -254,6 +284,7 @@
     [salesItem release];
     [usersItem release];
     [disclosureIndicatorAccessoryItem release];
+    [selectedBackgroundColors release];
     [imageView release];
     [logoutBarButton release];
     [accountBarButton release];

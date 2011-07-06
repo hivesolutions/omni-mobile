@@ -65,6 +65,13 @@
     NSDictionary *primaryMedia = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"primary_media"]);
     NSString *base64Data = AVOID_NULL([primaryMedia objectForKey:@"base_64_data"]);
 
+    // creates the colors
+    HMColor *lightGreenColor = [HMColor colorWithRed:0.66 green:0.85 blue:0.36 alpha:1];
+    HMColor *darkGreenColor = [HMColor colorWithRed:0.23 green:0.62 blue:0.27 alpha:1];
+
+    // creates the background colors
+    NSArray *selectedBackgroundColors = [[NSArray alloc] initWithObjects:lightGreenColor, darkGreenColor, nil];
+
     // creates the title item
     HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
     titleItem.defaultValue = NSLocalizedString(@"Name", @"Name");
@@ -89,6 +96,7 @@
     firstSectionItemGroup.addViewController = [StoresViewController class];
     firstSectionItemGroup.addNibName = @"StoresViewController";
     firstSectionItemGroup.tableCellItemCreationDelegate = self;
+    firstSectionItemGroup.selectedBackgroundColors = selectedBackgroundColors;
 
     // creates the menu list group
     HMItemGroup *menuListGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu_list"];
@@ -137,6 +145,7 @@
         inventoryLineItem.deleteActionType = HMTableCellItemDeleteActionTypeDelete;
         inventoryLineItem.readViewController = [InventoryItemStoreViewController class];
         inventoryLineItem.readNibName = @"InventoryItemStoreViewController";
+        inventoryLineItem.selectedBackgroundColors = selectedBackgroundColors;
 
         // populates the first section item group
         [firstSectionItemGroup addItem:inventoryLineItem];
@@ -164,6 +173,7 @@
     [imageItem release];
     [subTitleItem release];
     [titleItem release];
+    [selectedBackgroundColors release];
 }
 
 - (NSMutableArray *)convertRemoteGroup:(HMItemOperationType)operationType {
@@ -267,6 +277,13 @@
                                    contactableOrganizationalHierarchyTreeNode, @"contactable_organizational_hierarchy_tree_node",
                                    nil];
 
+    // creates the colors
+    HMColor *lightGreenColor = [HMColor colorWithRed:0.66 green:0.85 blue:0.36 alpha:1];
+    HMColor *darkGreenColor = [HMColor colorWithRed:0.23 green:0.62 blue:0.27 alpha:1];
+
+    // creates the background colors
+    NSArray *selectedBackgroundColors = [[NSArray alloc] initWithObjects:lightGreenColor, darkGreenColor, nil];
+
     // creates the stock accessory item
     HMAccessoryItem *stockAccessoryItem = [[HMAccessoryItem alloc] init];
     stockAccessoryItem.description = @"0";
@@ -290,9 +307,11 @@
     inventoryLineItem.deleteActionType = HMTableCellItemDeleteActionTypeDelete;
     inventoryLineItem.readViewController = [InventoryItemStoreViewController class];
     inventoryLineItem.readNibName = @"InventoryItemStoreViewController";
+    inventoryLineItem.selectedBackgroundColors = selectedBackgroundColors;
 
     // releases the objects
     [stockAccessoryItem release];
+    [selectedBackgroundColors release];
 
     // returns the inventory line item
     return inventoryLineItem;
