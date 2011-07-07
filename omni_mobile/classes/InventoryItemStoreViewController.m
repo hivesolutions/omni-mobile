@@ -71,6 +71,9 @@
     NSNumber *priceValue = AVOID_NULL_NUMBER([price objectForKey:@"value"]);
     NSNumber *retailPriceValue = AVOID_NULL_NUMBER([retailPrice objectForKey:@"value"]);
 
+    // creates the colors
+    HMColor *backgroundColor = [HMColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1.0];
+
     // creates the unit accessory item
     HMAccessoryItem *unitAccessoryItem = [[HMAccessoryItem alloc] init];
     unitAccessoryItem.description = @"UN";
@@ -88,12 +91,16 @@
     currencyAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge_highlighted" leftCap:4 topCap:4];
 
     // creates the title item
-    HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
+    HMStringTableCellItem *titleItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"title"];
     titleItem.description = merchandiseCompanyProductCode;
+    titleItem.clearable = YES;
+    titleItem.backgroundColor = backgroundColor;
 
     // creates the subtitle item
-    HMItem *subTitleItem = [[HMItem alloc] initWithIdentifier:@"subTitle"];
+    HMStringTableCellItem *subTitleItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"subTitle"];
     subTitleItem.description = storeName;
+    subTitleItem.clearable = YES;
+    subTitleItem.backgroundColor = backgroundColor;
 
     // creates the image item
     HMItem *imageItem = [[HMItem alloc] initWithIdentifier:@"image"];

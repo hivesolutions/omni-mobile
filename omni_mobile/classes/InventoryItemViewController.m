@@ -66,6 +66,7 @@
     NSString *base64Data = AVOID_NULL([primaryMedia objectForKey:@"base_64_data"]);
 
     // creates the colors
+    HMColor *backgroundColor = [HMColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1.0];
     HMColor *lightGreenColor = [HMColor colorWithRed:0.66 green:0.85 blue:0.36 alpha:1];
     HMColor *darkGreenColor = [HMColor colorWithRed:0.23 green:0.62 blue:0.27 alpha:1];
 
@@ -73,14 +74,18 @@
     NSArray *selectedBackgroundColors = [[NSArray alloc] initWithObjects:lightGreenColor, darkGreenColor, nil];
 
     // creates the title item
-    HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
+    HMStringTableCellItem *titleItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"title"];
     titleItem.defaultValue = NSLocalizedString(@"Name", @"Name");
     titleItem.description = name;
+    titleItem.clearable = YES;
+    titleItem.backgroundColor = backgroundColor;
 
     // creates the subtitle item
-    HMItem *subTitleItem = [[HMItem alloc] initWithIdentifier:@"subTitle"];
+    HMStringTableCellItem *subTitleItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"subTitle"];
     subTitleItem.defaultValue = NSLocalizedString(@"Code", @"Code");
     subTitleItem.description = companyProductCode;
+    subTitleItem.clearable = YES;
+    subTitleItem.backgroundColor = backgroundColor;
 
     // creates the image item
     HMItem *imageItem = [[HMItem alloc] initWithIdentifier:@"image"];
@@ -96,6 +101,7 @@
     firstSectionItemGroup.addViewController = [StoresViewController class];
     firstSectionItemGroup.addNibName = @"StoresViewController";
     firstSectionItemGroup.tableCellItemCreationDelegate = self;
+    firstSectionItemGroup.backgroundColor = backgroundColor;
     firstSectionItemGroup.selectedBackgroundColors = selectedBackgroundColors;
 
     // creates the menu list group
@@ -145,6 +151,7 @@
         inventoryLineItem.deleteActionType = HMTableCellItemDeleteActionTypeDelete;
         inventoryLineItem.readViewController = [InventoryItemStoreViewController class];
         inventoryLineItem.readNibName = @"InventoryItemStoreViewController";
+        inventoryLineItem.backgroundColor = backgroundColor;
         inventoryLineItem.selectedBackgroundColors = selectedBackgroundColors;
 
         // populates the first section item group
@@ -278,6 +285,7 @@
                                    nil];
 
     // creates the colors
+    HMColor *backgroundColor = [HMColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1.0];
     HMColor *lightGreenColor = [HMColor colorWithRed:0.66 green:0.85 blue:0.36 alpha:1];
     HMColor *darkGreenColor = [HMColor colorWithRed:0.23 green:0.62 blue:0.27 alpha:1];
 
@@ -291,6 +299,7 @@
     stockAccessoryItem.descriptionColorHighlighted = [HMColor colorWithRed:0.54 green:0.56 blue:0.62 alpha:1.0];
     stockAccessoryItem.imageNormal = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
     stockAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge_highlighted" leftCap:4 topCap:4];
+    stockAccessoryItem.backgroundColor = backgroundColor;
 
     // creates the inventory line item
     HMConstantStringTableCellItem *inventoryLineItem = [[[HMConstantStringTableCellItem alloc] initWithIdentifier:identifier] autorelease];
@@ -307,6 +316,7 @@
     inventoryLineItem.deleteActionType = HMTableCellItemDeleteActionTypeDelete;
     inventoryLineItem.readViewController = [InventoryItemStoreViewController class];
     inventoryLineItem.readNibName = @"InventoryItemStoreViewController";
+    inventoryLineItem.backgroundColor = backgroundColor;
     inventoryLineItem.selectedBackgroundColors = selectedBackgroundColors;
 
     // releases the objects

@@ -82,6 +82,7 @@
     float unitPriceVat = unitPriceNumber.floatValue + unitVatNumber.floatValue;
 
     // creates the colors
+    HMColor *backgroundColor = [HMColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1.0];
     HMColor *lightGreenColor = [HMColor colorWithRed:0.66 green:0.85 blue:0.36 alpha:1];
     HMColor *darkGreenColor = [HMColor colorWithRed:0.23 green:0.62 blue:0.27 alpha:1];
 
@@ -110,12 +111,16 @@
     disclosureIndicatorAccessoryItem.imageHighlighted = [HMImage imageNamed:@"disclosure_indicator_highlighted"];
 
     // creates the title item
-    HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
+    HMStringTableCellItem *titleItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"title"];
     titleItem.description = saleIdentifier;
+    titleItem.clearable = YES;
+    titleItem.backgroundColor = backgroundColor;
 
     // creates the subtitle item
-    HMItem *subTitleItem = [[HMItem alloc] initWithIdentifier:@"subTitle"];
+    HMStringTableCellItem *subTitleItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"subTitle"];
     subTitleItem.description = merchandiseCompanyProductCode;
+    subTitleItem.clearable = YES;
+    subTitleItem.backgroundColor = backgroundColor;
 
     // creates the image item
     HMItem *imageItem = [[HMItem alloc] initWithIdentifier:@"image"];
@@ -129,18 +134,21 @@
     unitPriceVatItem.name = NSLocalizedString(@"Unit Price VAT", @"Unit Price VAT");
     unitPriceVatItem.description = [NSString stringWithFormat:@"%.2f", unitPriceVat];
     unitPriceVatItem.accessory = currencyAccessoryItem;
+    unitPriceVatItem.backgroundColor = backgroundColor;
 
     // creates the discount vat table cell
     HMStringTableCellItem *discountVatItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"discount_vat"];
     discountVatItem.name = NSLocalizedString(@"Discount VAT", @"Discount VAT");
     discountVatItem.description = [NSString stringWithFormat:@"%.2f", unitDiscountVatNumber.floatValue];
     discountVatItem.accessory = currencyAccessoryItem;
+    discountVatItem.backgroundColor = backgroundColor;
 
     // creates the quantity table cell
     HMStringTableCellItem *quantityItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"quantity"];
     quantityItem.name = NSLocalizedString(@"Quantity", @"Quantity");
     quantityItem.description = [NSString stringWithFormat:@"%d", quantityNumber.intValue];
     quantityItem.accessory = unitAccessoryItem;
+    quantityItem.backgroundColor = backgroundColor;
 
     // creates the merchandise table cell
     HMStringTableCellItem *merchandiseItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"merchandise"];
@@ -151,6 +159,7 @@
     merchandiseItem.selectable = YES;
     merchandiseItem.readViewController = [InventoryItemViewController class];
     merchandiseItem.readNibName = @"InventoryItemViewController";
+    merchandiseItem.backgroundColor = backgroundColor;
     merchandiseItem.selectedBackgroundColors = selectedBackgroundColors;
 
     // creates the sections item group

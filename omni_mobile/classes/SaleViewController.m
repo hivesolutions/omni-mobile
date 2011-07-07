@@ -94,6 +94,7 @@
     NSNumber *priceVat = [NSNumber numberWithFloat:(priceNumber.floatValue + vatNumber.floatValue)];
 
     // creates the colors
+    HMColor *backgroundColor = [HMColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1.0];
     HMColor *lightGreenColor = [HMColor colorWithRed:0.66 green:0.85 blue:0.36 alpha:1];
     HMColor *darkGreenColor = [HMColor colorWithRed:0.23 green:0.62 blue:0.27 alpha:1];
 
@@ -114,12 +115,16 @@
     disclosureIndicatorAccessoryItem.imageHighlighted = [HMImage imageNamed:@"disclosure_indicator_highlighted"];
 
     // creates the title item
-    HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
+    HMStringTableCellItem *titleItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"title"];
     titleItem.description = saleIdentifier;
+    titleItem.clearable = YES;
+    titleItem.backgroundColor = backgroundColor;
 
     // creates the subtitle item
-    HMItem *subTitleItem = [[HMItem alloc] initWithIdentifier:@"subTitle"];
+    HMStringTableCellItem *subTitleItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"subTitle"];
     subTitleItem.description = dateString;
+    subTitleItem.clearable = YES;
+    subTitleItem.backgroundColor = backgroundColor;
 
     // creates the image item
     HMItem *imageItem = [[HMItem alloc] initWithIdentifier:@"image"];
@@ -137,6 +142,7 @@
     storeItem.readViewController = [StoreViewController class];
     storeItem.readNibName = @"StoreViewController";
     storeItem.selectable = YES;
+    storeItem.backgroundColor = backgroundColor;
     storeItem.selectedBackgroundColors = selectedBackgroundColors;
 
     // creates the seller string table cell
@@ -148,30 +154,35 @@
     sellerItem.readViewController = [EmployeeViewController class];
     sellerItem.readNibName = @"EmployeeViewController";
     sellerItem.selectable = YES;
+    sellerItem.backgroundColor = backgroundColor;
     sellerItem.selectedBackgroundColors = selectedBackgroundColors;
 
     // creates the discount vat string table cell
     HMStringTableCellItem *discountVatItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"discount_vat"];
     discountVatItem.name = NSLocalizedString(@"Discount VAT", @"Discount VAT");
     discountVatItem.description = [NSString stringWithFormat:@"%.2f", discountVatNumber.floatValue];
+    discountVatItem.backgroundColor = backgroundColor;
     discountVatItem.accessory = currencyAccessoryItem;
 
     // creates the price string table cell
     HMStringTableCellItem *priceItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"price"];
     priceItem.name = NSLocalizedString(@"Total", @"Total");
     priceItem.description = [NSString stringWithFormat:@"%.2f", priceNumber.floatValue];
+    priceItem.backgroundColor = backgroundColor;
     priceItem.accessory = currencyAccessoryItem;
 
     // creates the vat string table cell
     HMStringTableCellItem *vatItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"vat"];
     vatItem.name = NSLocalizedString(@"VAT", @"VAT");
     vatItem.description = [NSString stringWithFormat:@"%.2f", vatNumber.floatValue];
+    vatItem.backgroundColor = backgroundColor;
     vatItem.accessory = currencyAccessoryItem;
 
     // creates the price vat string table cell
     HMStringTableCellItem *priceVatItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"price_vat"];
     priceVatItem.name = NSLocalizedString(@"Total VAT", @"Total VAT");
     priceVatItem.description = [NSString stringWithFormat:@"%.2f", priceVat.floatValue];
+    priceVatItem.backgroundColor = backgroundColor;
     priceVatItem.accessory = currencyAccessoryItem;
 
     // creates the customer name string table cell
@@ -179,6 +190,7 @@
     customerItem.name = NSLocalizedString(@"Customer", @"Customer");
     customerItem.description = isPersonAnonymous ? NSLocalizedString(@"Anonymous", @"Anonymous") : personBuyerName;
     customerItem.selectable = NO;
+    customerItem.backgroundColor = backgroundColor;
 
     // creates the first section item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
@@ -235,6 +247,7 @@
         saleLineItem.readViewController = [SaleLineViewController class];
         saleLineItem.readNibName = @"SaleLineViewController";
         saleLineItem.selectable = YES;
+        saleLineItem.backgroundColor = backgroundColor;
         saleLineItem.selectedBackgroundColors = selectedBackgroundColors;
 
         // adds the sale line item to

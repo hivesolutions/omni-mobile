@@ -85,6 +85,9 @@
     int commissionPercentageInteger = commissionPercentageNumber.intValue;
     NSString *commissionString = [NSString stringWithFormat:@"%d", commissionPercentageInteger];
 
+    // creates the colors
+    HMColor *backgroundColor = [HMColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1.0];
+
     // creates the percentage accessory item
     HMAccessoryItem *percentageAccessoryItem = [[HMAccessoryItem alloc] init];
     percentageAccessoryItem.description = @"%";
@@ -94,13 +97,17 @@
     percentageAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge_highlighted" leftCap:4 topCap:4];
 
     // creates the title item
-    HMItem *titleItem = [[HMItem alloc] initWithIdentifier:@"title"];
+    HMStringTableCellItem *titleItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"title"];
     titleItem.defaultValue = NSLocalizedString(@"Name", @"Name");
     titleItem.description = name;
+    titleItem.clearable = YES;
+    titleItem.backgroundColor = backgroundColor;
 
     // creates the subtitle item
-    HMItem *subTitleItem = [[HMItem alloc] initWithIdentifier:@"subTitle"];
+    HMStringTableCellItem *subTitleItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"subTitle"];
     subTitleItem.description = @"";
+    subTitleItem.clearable = YES;
+    subTitleItem.backgroundColor = backgroundColor;
 
     // creates the image item
     HMItem *imageItem = [[HMItem alloc] initWithIdentifier:@"image"];
@@ -115,27 +122,32 @@
     streetNameItem.name = NSLocalizedString(@"Street Name", @"Street Name");
     streetNameItem.description = streetName;
     streetNameItem.multipleLines = YES;
+    streetNameItem.backgroundColor = backgroundColor;
 
     // creates the country string table cell item
     HMStringTableCellItem *countryItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"country"];
     countryItem.name = NSLocalizedString(@"Country", @"Country");
     countryItem.description = country;
+    countryItem.backgroundColor = backgroundColor;
 
     // creates the phone number string table cell item
     HMStringTableCellItem *phoneNumberItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"phone_number"];
     phoneNumberItem.name = NSLocalizedString(@"Phone", @"Phone");
     phoneNumberItem.description = phoneNumber;
+    phoneNumberItem.backgroundColor = backgroundColor;
 
     // creates the email string table cell item
     HMStringTableCellItem *emailItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"email"];
     emailItem.name = NSLocalizedString(@"E-mail", @"E-mail");
     emailItem.description = email;
+    emailItem.backgroundColor = backgroundColor;
 
     // creates the commission string table cell item
     HMStringTableCellItem *commissionItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"commission"];
     commissionItem.name = NSLocalizedString(@"Commission", @"Commission");
     commissionItem.description = commissionString;
     commissionItem.accessory = percentageAccessoryItem;
+    commissionItem.backgroundColor = backgroundColor;
 
     // creates the first section item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
