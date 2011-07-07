@@ -82,33 +82,41 @@
     float unitPriceVat = unitPriceNumber.floatValue + unitVatNumber.floatValue;
 
     // creates the colors
-    HMColor *backgroundColor = [HMColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1.0];
-    HMColor *lightGreenColor = [HMColor colorWithRed:0.66 green:0.85 blue:0.36 alpha:1];
-    HMColor *darkGreenColor = [HMColor colorWithRed:0.23 green:0.62 blue:0.27 alpha:1];
+    HMColor *lightGreenColor = [[HMColor alloc] initWithColorRed:0.66 green:0.85 blue:0.36 alpha:1];
+    HMColor *darkGreenColor = [[HMColor alloc] initWithColorRed:0.23 green:0.62 blue:0.27 alpha:1];
+    HMColor *descriptionColor = [[HMColor alloc] initWithColorRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+    HMColor *descriptionColorHighlighted = [[HMColor alloc] initWithColorRed:0.54 green:0.56 blue:0.62 alpha:1.0];
+    HMColor *backgroundColor = [[HMColor alloc] initWithColorRed:0.98 green:0.98 blue:0.98 alpha:1.0];
 
     // creates the background colors
     NSArray *selectedBackgroundColors = [[NSArray alloc] initWithObjects:lightGreenColor, darkGreenColor, nil];
 
+    // creates the images
+    HMImage *badgeImage = [[HMImage alloc] initWithImageName:@"badge" leftCap:4 topCap:4];
+    HMImage *badgeHighlightedImage = [[HMImage alloc] initWithImageName:@"badge_highlighted" leftCap:4 topCap:4];
+    HMImage *disclosureIndicatorImage = [[HMImage alloc] initWithImageName:@"disclosure_indicator"];
+    HMImage *disclosureIndicatorHighlightedImage = [[HMImage alloc] initWithImageName:@"disclosure_indicator_highlighted"];
+
     // creates the currency accessory item
     HMAccessoryItem *currencyAccessoryItem = [[HMAccessoryItem alloc] init];
     currencyAccessoryItem.description = @"EUR";
-    currencyAccessoryItem.descriptionColor = [HMColor whiteColor];
-    currencyAccessoryItem.descriptionColorHighlighted = [HMColor colorWithRed:0.54 green:0.56 blue:0.62 alpha:1.0];
-    currencyAccessoryItem.imageNormal = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
-    currencyAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge_highlighted" leftCap:4 topCap:4];
+    currencyAccessoryItem.descriptionColor = descriptionColor;
+    currencyAccessoryItem.descriptionColorHighlighted = descriptionColorHighlighted;
+    currencyAccessoryItem.imageNormal = badgeImage;
+    currencyAccessoryItem.imageHighlighted = badgeHighlightedImage;
 
     // creates the unit accessory item
     HMAccessoryItem *unitAccessoryItem = [[HMAccessoryItem alloc] init];
     unitAccessoryItem.description = @"UN";
-    unitAccessoryItem.descriptionColor = [HMColor whiteColor];
-    unitAccessoryItem.descriptionColorHighlighted = [HMColor colorWithRed:0.54 green:0.56 blue:0.62 alpha:1.0];
-    unitAccessoryItem.imageNormal = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
-    unitAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge_highlighted" leftCap:4 topCap:4];
+    unitAccessoryItem.descriptionColor = descriptionColor;
+    unitAccessoryItem.descriptionColorHighlighted = descriptionColorHighlighted;
+    unitAccessoryItem.imageNormal = badgeImage;
+    unitAccessoryItem.imageHighlighted = badgeHighlightedImage;
 
     // creates the disclosure indicator accessory item
     HMAccessoryItem *disclosureIndicatorAccessoryItem = [[HMAccessoryItem alloc] init];
-    disclosureIndicatorAccessoryItem.imageNormal = [HMImage imageNamed:@"disclosure_indicator"];
-    disclosureIndicatorAccessoryItem.imageHighlighted = [HMImage imageNamed:@"disclosure_indicator_highlighted"];
+    disclosureIndicatorAccessoryItem.imageNormal = disclosureIndicatorImage;
+    disclosureIndicatorAccessoryItem.imageHighlighted = disclosureIndicatorHighlightedImage;
 
     // creates the title item
     HMStringTableCellItem *titleItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"title"];
@@ -213,6 +221,15 @@
     [unitAccessoryItem release];
     [currencyAccessoryItem release];
     [selectedBackgroundColors release];
+    [backgroundColor release];
+    [descriptionColorHighlighted release];
+    [descriptionColor release];
+    [darkGreenColor release];
+    [lightGreenColor release];
+    [disclosureIndicatorHighlightedImage release];
+    [disclosureIndicatorImage release];
+    [badgeHighlightedImage release];
+    [badgeImage release];
 }
 
 - (NSMutableArray *)convertRemoteGroup:(HMItemOperationType)operationType {

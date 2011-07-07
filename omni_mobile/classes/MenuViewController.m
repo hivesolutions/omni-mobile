@@ -101,24 +101,44 @@
     self.navigationItem.titleView = imageView;
 
     // creates the colors
-    HMColor *backgroundColor = [HMColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1.0];
-    HMColor *lightGreenColor = [HMColor colorWithRed:0.66 green:0.85 blue:0.36 alpha:1];
-    HMColor *darkGreenColor = [HMColor colorWithRed:0.23 green:0.62 blue:0.27 alpha:1];
+    HMColor *lightGreenColor = [[HMColor alloc] initWithColorRed:0.66 green:0.85 blue:0.36 alpha:1];
+    HMColor *darkGreenColor = [[HMColor alloc] initWithColorRed:0.23 green:0.62 blue:0.27 alpha:1];
+    HMColor *backgroundColor = [[HMColor alloc] initWithColorRed:0.98 green:0.98 blue:0.98 alpha:1.0];
 
     // creates the background colors
     NSArray *selectedBackgroundColors = [[NSArray alloc] initWithObjects:lightGreenColor, darkGreenColor, nil];
 
+    // creates the images
+    HMImage *disclosureIndicatorImage = [[HMImage alloc] initWithImageName:@"disclosure_indicator"];
+    HMImage *disclosureIndicatorHighlightedImage = [[HMImage alloc] initWithImageName:@"disclosure_indicator_highlighted"];
+    HMImage *personIconImage = [[HMImage alloc] initWithImageName:@"person_icon.png"];
+    HMImage *personIconWhiteImage = [[HMImage alloc] initWithImageName:@"person_icon_white.png"];
+    HMImage *boxUpIconImage = [[HMImage alloc] initWithImageName:@"box_up_icon.png"];
+    HMImage *boxUpIconWhiteImage = [[HMImage alloc] initWithImageName:@"box_up_icon_white.png"];
+    HMImage *boxDownIconImage = [[HMImage alloc] initWithImageName:@"box_down_icon.png"];
+    HMImage *boxDownIconWhiteImage = [[HMImage alloc] initWithImageName:@"box_down_icon_white.png"];
+    HMImage *boxIconImage = [[HMImage alloc] initWithImageName:@"box_icon.png"];
+    HMImage *boxIconWhiteImage = [[HMImage alloc] initWithImageName:@"box_icon_white.png"];
+    HMImage *buildingIconImage = [[HMImage alloc] initWithImageName:@"building_icon.png"];
+    HMImage *buildingIconWhiteImage = [[HMImage alloc] initWithImageName:@"building_icon_white.png"];
+    HMImage *megaphoneIconImage = [[HMImage alloc] initWithImageName:@"megaphone_icon.png"];
+    HMImage *megaphoneIconWhiteImage = [[HMImage alloc] initWithImageName:@"megaphone_icon_white.png"];
+    HMImage *creditsIconImage = [[HMImage alloc] initWithImageName:@"credits_icon.png"];
+    HMImage *creditsIconWhiteImage = [[HMImage alloc] initWithImageName:@"credits_icon_white.png"];
+    HMImage *dashboardIconImage = [[HMImage alloc] initWithImageName:@"dashboard_icon.png"];
+    HMImage *dashboardIconWhiteImage = [[HMImage alloc] initWithImageName:@"dashboard_icon_white.png"];
+
     // creates the disclosure indicator accessory item
     HMAccessoryItem *disclosureIndicatorAccessoryItem = [[HMAccessoryItem alloc] init];
-    disclosureIndicatorAccessoryItem.imageNormal = [HMImage imageNamed:@"disclosure_indicator"];
-    disclosureIndicatorAccessoryItem.imageHighlighted = [HMImage imageNamed:@"disclosure_indicator_highlighted"];
+    disclosureIndicatorAccessoryItem.imageNormal = disclosureIndicatorImage;
+    disclosureIndicatorAccessoryItem.imageHighlighted = disclosureIndicatorHighlightedImage;
 
     // creates the users button item
     HMTableCellItem *usersItem = [[HMTableCellItem alloc] initWithIdentifier:@"users"];
     usersItem.name = NSLocalizedString(@"Users", @"Users");
     usersItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
-    usersItem.icon = [HMImage imageNamed:@"person_icon.png"];
-    usersItem.highlightedIcon = [HMImage imageNamed:@"person_icon_white.png"];
+    usersItem.icon = personIconImage;
+    usersItem.highlightedIcon = personIconWhiteImage;
     usersItem.accessory = disclosureIndicatorAccessoryItem;
     usersItem.selectable = YES;
     usersItem.selectedBackgroundColors = selectedBackgroundColors;
@@ -128,8 +148,8 @@
     HMTableCellItem *salesItem = [[HMTableCellItem alloc] initWithIdentifier:@"sales"];
     salesItem.name = NSLocalizedString(@"Sales", @"Sales");
     salesItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
-    salesItem.icon = [HMImage imageNamed:@"box_up_icon.png"];
-    salesItem.highlightedIcon = [HMImage imageNamed:@"box_up_icon_white.png"];
+    salesItem.icon = boxUpIconImage;
+    salesItem.highlightedIcon = boxUpIconWhiteImage;
     salesItem.accessory = disclosureIndicatorAccessoryItem;
     salesItem.selectable = YES;
     salesItem.backgroundColor = backgroundColor;
@@ -139,8 +159,8 @@
     HMTableCellItem *purchasesItem = [[HMTableCellItem alloc] initWithIdentifier:@"purchases"];
     purchasesItem.name = NSLocalizedString(@"Purchases", @"Purchases");
     purchasesItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
-    purchasesItem.icon = [HMImage imageNamed:@"box_down_icon.png"];
-    purchasesItem.highlightedIcon = [HMImage imageNamed:@"box_down_icon_white.png"];
+    purchasesItem.icon = boxDownIconImage;
+    purchasesItem.highlightedIcon = boxDownIconWhiteImage;
     purchasesItem.accessory = disclosureIndicatorAccessoryItem;
     purchasesItem.selectable = YES;
     purchasesItem.backgroundColor = backgroundColor;
@@ -150,8 +170,8 @@
     HMTableCellItem *inventoryItem = [[HMTableCellItem alloc] initWithIdentifier:@"inventory"];
     inventoryItem.name = NSLocalizedString(@"Inventory", @"Inventory");
     inventoryItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
-    inventoryItem.icon = [HMImage imageNamed:@"box_icon.png"];
-    inventoryItem.highlightedIcon = [HMImage imageNamed:@"box_icon_white.png"];
+    inventoryItem.icon = boxIconImage;
+    inventoryItem.highlightedIcon = boxIconWhiteImage;
     inventoryItem.accessory = disclosureIndicatorAccessoryItem;
     inventoryItem.selectable = YES;
     inventoryItem.backgroundColor = backgroundColor;
@@ -161,8 +181,8 @@
     HMTableCellItem *storesItem = [[HMTableCellItem alloc] initWithIdentifier:@"stores"];
     storesItem.name = NSLocalizedString(@"Stores", @"Stores");
     storesItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
-    storesItem.icon = [HMImage imageNamed:@"building_icon.png"];
-    storesItem.highlightedIcon = [HMImage imageNamed:@"building_icon_white.png"];
+    storesItem.icon = buildingIconImage;
+    storesItem.highlightedIcon = buildingIconWhiteImage;
     storesItem.accessory = disclosureIndicatorAccessoryItem;
     storesItem.selectable = YES;
     storesItem.backgroundColor = backgroundColor;
@@ -172,8 +192,8 @@
     HMTableCellItem *employeesItem = [[HMTableCellItem alloc] initWithIdentifier:@"employees"];
     employeesItem.name = NSLocalizedString(@"Employees", @"Employees");
     employeesItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
-    employeesItem.icon = [HMImage imageNamed:@"person_icon.png"];
-    employeesItem.highlightedIcon = [HMImage imageNamed:@"person_icon_white.png"];
+    employeesItem.icon = personIconImage;
+    employeesItem.highlightedIcon = personIconWhiteImage;
     employeesItem.accessory = disclosureIndicatorAccessoryItem;
     employeesItem.selectable = YES;
     employeesItem.backgroundColor = backgroundColor;
@@ -183,8 +203,8 @@
     HMTableCellItem *highlightsItem = [[HMTableCellItem alloc] initWithIdentifier:@"highlights"];
     highlightsItem.name = NSLocalizedString(@"Highlights", @"Highlights");
     highlightsItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
-    highlightsItem.icon = [HMImage imageNamed:@"megaphone_icon.png"];
-    highlightsItem.highlightedIcon = [HMImage imageNamed:@"megaphone_icon_white.png"];
+    highlightsItem.icon = megaphoneIconImage;
+    highlightsItem.highlightedIcon = megaphoneIconWhiteImage;
     highlightsItem.accessory = disclosureIndicatorAccessoryItem;
     highlightsItem.selectable = YES;
     highlightsItem.backgroundColor = backgroundColor;
@@ -194,8 +214,8 @@
     HMTableCellItem *optionsMenuItem = [[HMTableCellItem alloc] initWithIdentifier:@"options_menu"];
     optionsMenuItem.name = NSLocalizedString(@"Options Menu", @"Options Menu");
     optionsMenuItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
-    optionsMenuItem.icon = [HMImage imageNamed:@"credits_icon.png"];
-    optionsMenuItem.highlightedIcon = [HMImage imageNamed:@"credits_icon_white.png"];
+    optionsMenuItem.icon = creditsIconImage;
+    optionsMenuItem.highlightedIcon = creditsIconWhiteImage;
     optionsMenuItem.accessory = disclosureIndicatorAccessoryItem;
     optionsMenuItem.selectable = YES;
     optionsMenuItem.backgroundColor = backgroundColor;
@@ -205,8 +225,8 @@
     HMTableCellItem *salesWeekItem = [[HMTableCellItem alloc] initWithIdentifier:@"sales_week"];
     salesWeekItem.name = NSLocalizedString(@"Sales Week", @"Sales Week");
     salesWeekItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
-    salesWeekItem.icon = [HMImage imageNamed:@"dashboard_icon.png"];
-    salesWeekItem.highlightedIcon = [HMImage imageNamed:@"dashboard_icon_white.png"];
+    salesWeekItem.icon = dashboardIconImage;
+    salesWeekItem.highlightedIcon = dashboardIconWhiteImage;
     salesWeekItem.accessory = disclosureIndicatorAccessoryItem;
     salesWeekItem.selectable = YES;
     salesWeekItem.backgroundColor = backgroundColor;
@@ -216,8 +236,8 @@
     HMTableCellItem *creditsItem = [[HMTableCellItem alloc] initWithIdentifier:@"credits"];
     creditsItem.name = NSLocalizedString(@"Credits", @"Credits");
     creditsItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
-    creditsItem.icon = [HMImage imageNamed:@"credits_icon.png"];
-    creditsItem.highlightedIcon = [HMImage imageNamed:@"credits_icon_white.png"];
+    creditsItem.icon = creditsIconImage;
+    creditsItem.highlightedIcon = creditsIconWhiteImage;
     creditsItem.accessory = disclosureIndicatorAccessoryItem;
     creditsItem.selectable = YES;
     creditsItem.backgroundColor = backgroundColor;
@@ -288,6 +308,27 @@
     [imageView release];
     [logoutBarButton release];
     [accountBarButton release];
+    [backgroundColor release];
+    [darkGreenColor release];
+    [lightGreenColor release];
+    [dashboardIconWhiteImage release];
+    [dashboardIconImage release];
+    [creditsIconWhiteImage release];
+    [creditsIconImage release];
+    [megaphoneIconWhiteImage release];
+    [megaphoneIconImage release];
+    [buildingIconWhiteImage release];
+    [buildingIconImage release];
+    [boxIconWhiteImage release];
+    [boxIconImage release];
+    [boxDownIconWhiteImage release];
+    [boxDownIconImage release];
+    [boxUpIconWhiteImage release];
+    [boxUpIconImage release];
+    [personIconWhiteImage release];
+    [personIconImage release];
+    [disclosureIndicatorHighlightedImage release];
+    [disclosureIndicatorImage release];
 }
 
 - (void)initBackgroundView {

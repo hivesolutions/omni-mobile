@@ -66,12 +66,20 @@
     NSString *base64Data = AVOID_NULL([primaryMedia objectForKey:@"base_64_data"]);
 
     // creates the colors
-    HMColor *backgroundColor = [HMColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1.0];
-    HMColor *lightGreenColor = [HMColor colorWithRed:0.66 green:0.85 blue:0.36 alpha:1];
-    HMColor *darkGreenColor = [HMColor colorWithRed:0.23 green:0.62 blue:0.27 alpha:1];
+    HMColor *lightGreenColor = [[HMColor alloc] initWithColorRed:0.66 green:0.85 blue:0.36 alpha:1];
+    HMColor *darkGreenColor = [[HMColor alloc] initWithColorRed:0.23 green:0.62 blue:0.27 alpha:1];
+    HMColor *backgroundColor = [[HMColor alloc] initWithColorRed:0.98 green:0.98 blue:0.98 alpha:1.0];
+    HMColor *descriptionColor = [[HMColor alloc] initWithColorRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+    HMColor *descriptionColorHighlighted = [[HMColor alloc] initWithColorRed:0.54 green:0.56 blue:0.62 alpha:1.0];
 
     // creates the background colors
     NSArray *selectedBackgroundColors = [[NSArray alloc] initWithObjects:lightGreenColor, darkGreenColor, nil];
+
+    // creates the images
+    HMImage *badgeImage = [[HMImage alloc] initWithImageName:@"badge" leftCap:4 topCap:4];
+    HMImage *badgeHighlightedImage = [[HMImage alloc] initWithImageName:@"badge_highlighted" leftCap:4 topCap:4];
+    HMImage *buildingImage = [[HMImage alloc] initWithImageName:@"building.png"];
+    HMImage *buildingWhiteImage = [[HMImage alloc] initWithImageName:@"building_white.png"];
 
     // creates the title item
     HMStringTableCellItem *titleItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"title"];
@@ -132,17 +140,17 @@
         // creates the stock accessory item
         HMAccessoryItem *stockAccessoryItem = [[HMAccessoryItem alloc] init];
         stockAccessoryItem.description = storeStockOnHand;
-        stockAccessoryItem.descriptionColor = [HMColor whiteColor];
-        stockAccessoryItem.descriptionColorHighlighted = [HMColor colorWithRed:0.54 green:0.56 blue:0.62 alpha:1.0];
-        stockAccessoryItem.imageNormal = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
-        stockAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge_highlighted" leftCap:4 topCap:4];
+        stockAccessoryItem.descriptionColor = descriptionColor;
+        stockAccessoryItem.descriptionColorHighlighted = descriptionColorHighlighted;
+        stockAccessoryItem.imageNormal = badgeImage;
+        stockAccessoryItem.imageHighlighted = badgeHighlightedImage;
 
         // creates the inventory line string table cell item
         HMConstantStringTableCellItem *inventoryLineItem = [[HMConstantStringTableCellItem alloc] initWithIdentifier:objectIdString];
         inventoryLineItem.description = storeName;
         inventoryLineItem.data = inventoryLine;
-        inventoryLineItem.icon = [HMImage imageNamed:@"building.png"];
-        inventoryLineItem.highlightedIcon = [HMImage imageNamed:@"building_white.png"];
+        inventoryLineItem.icon = buildingImage;
+        inventoryLineItem.highlightedIcon = buildingWhiteImage;
         inventoryLineItem.accessory = stockAccessoryItem;
         inventoryLineItem.selectable = YES;
         inventoryLineItem.selectableEdit = NO;
@@ -180,7 +188,16 @@
     [imageItem release];
     [subTitleItem release];
     [titleItem release];
+    [buildingWhiteImage release];
+    [buildingImage release];
+    [badgeHighlightedImage release];
+    [badgeImage release];
     [selectedBackgroundColors release];
+    [descriptionColorHighlighted release];
+    [descriptionColor release];
+    [backgroundColor release];
+    [darkGreenColor release];
+    [lightGreenColor release];
 }
 
 - (NSMutableArray *)convertRemoteGroup:(HMItemOperationType)operationType {
@@ -285,20 +302,28 @@
                                    nil];
 
     // creates the colors
-    HMColor *backgroundColor = [HMColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1.0];
-    HMColor *lightGreenColor = [HMColor colorWithRed:0.66 green:0.85 blue:0.36 alpha:1];
-    HMColor *darkGreenColor = [HMColor colorWithRed:0.23 green:0.62 blue:0.27 alpha:1];
+    HMColor *lightGreenColor = [[HMColor alloc] initWithColorRed:0.66 green:0.85 blue:0.36 alpha:1];
+    HMColor *darkGreenColor = [[HMColor alloc] initWithColorRed:0.23 green:0.62 blue:0.27 alpha:1];
+    HMColor *backgroundColor = [[HMColor alloc] initWithColorRed:0.98 green:0.98 blue:0.98 alpha:1.0];
+    HMColor *descriptionColor = [[HMColor alloc] initWithColorRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+    HMColor *descriptionColorHighlighted = [[HMColor alloc] initWithColorRed:0.54 green:0.56 blue:0.62 alpha:1.0];
 
     // creates the background colors
     NSArray *selectedBackgroundColors = [[NSArray alloc] initWithObjects:lightGreenColor, darkGreenColor, nil];
 
+    // creates the images
+    HMImage *badgeImage = [[HMImage alloc] initWithImageName:@"badge" leftCap:4 topCap:4];
+    HMImage *badgeHighlightedImage = [[HMImage alloc] initWithImageName:@"badge_highlighted" leftCap:4 topCap:4];
+    HMImage *buildingImage = [[HMImage alloc] initWithImageName:@"building.png"];
+    HMImage *buildingWhiteImage = [[HMImage alloc] initWithImageName:@"building_white.png"];
+
     // creates the stock accessory item
     HMAccessoryItem *stockAccessoryItem = [[HMAccessoryItem alloc] init];
     stockAccessoryItem.description = @"0";
-    stockAccessoryItem.descriptionColor = [HMColor whiteColor];
-    stockAccessoryItem.descriptionColorHighlighted = [HMColor colorWithRed:0.54 green:0.56 blue:0.62 alpha:1.0];
-    stockAccessoryItem.imageNormal = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
-    stockAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge_highlighted" leftCap:4 topCap:4];
+    stockAccessoryItem.descriptionColor = descriptionColor;
+    stockAccessoryItem.descriptionColorHighlighted = descriptionColorHighlighted;
+    stockAccessoryItem.imageNormal = badgeImage;
+    stockAccessoryItem.imageHighlighted = badgeHighlightedImage;
     stockAccessoryItem.backgroundColor = backgroundColor;
 
     // creates the inventory line item
@@ -306,8 +331,8 @@
     inventoryLineItem.transientState = HMItemStateNew;
     inventoryLineItem.description = storeName;
     inventoryLineItem.data = inventoryLine;
-    inventoryLineItem.icon = [HMImage imageNamed:@"building.png"];
-    inventoryLineItem.highlightedIcon = [HMImage imageNamed:@"building_white.png"];
+    inventoryLineItem.icon = buildingImage;
+    inventoryLineItem.highlightedIcon = buildingWhiteImage;
     inventoryLineItem.accessory = stockAccessoryItem;
     inventoryLineItem.selectable = YES;
     inventoryLineItem.selectableEdit = NO;
@@ -322,6 +347,15 @@
     // releases the objects
     [stockAccessoryItem release];
     [selectedBackgroundColors release];
+    [descriptionColorHighlighted release];
+    [descriptionColor release];
+    [backgroundColor release];
+    [darkGreenColor release];
+    [lightGreenColor release];
+    [buildingWhiteImage release];
+    [buildingImage release];
+    [badgeHighlightedImage release];
+    [badgeImage release];
 
     // returns the inventory line item
     return inventoryLineItem;

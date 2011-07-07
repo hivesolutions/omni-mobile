@@ -86,15 +86,21 @@
     NSString *commissionString = [NSString stringWithFormat:@"%d", commissionPercentageInteger];
 
     // creates the colors
-    HMColor *backgroundColor = [HMColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1.0];
+    HMColor *backgroundColor = [[HMColor alloc] initWithColorRed:0.98 green:0.98 blue:0.98 alpha:1.0];
+    HMColor *descriptionColor = [[HMColor alloc] initWithColorRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+    HMColor *descriptionColorHighlighted = [[HMColor alloc] initWithColorRed:0.54 green:0.56 blue:0.62 alpha:1.0];
+
+    // creates the images
+    HMImage *badgeImage = [[HMImage alloc] initWithImageName:@"badge" leftCap:4 topCap:4];
+    HMImage *badgeHighlightedImage = [[HMImage alloc] initWithImageName:@"badge_highlighted" leftCap:4 topCap:4];
 
     // creates the percentage accessory item
     HMAccessoryItem *percentageAccessoryItem = [[HMAccessoryItem alloc] init];
     percentageAccessoryItem.description = @"%";
-    percentageAccessoryItem.descriptionColor = [HMColor whiteColor];
-    percentageAccessoryItem.descriptionColorHighlighted = [HMColor colorWithRed:0.54 green:0.56 blue:0.62 alpha:1.0];
-    percentageAccessoryItem.imageNormal = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
-    percentageAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge_highlighted" leftCap:4 topCap:4];
+    percentageAccessoryItem.descriptionColor = descriptionColor;
+    percentageAccessoryItem.descriptionColorHighlighted = descriptionColorHighlighted;
+    percentageAccessoryItem.imageNormal = badgeImage;
+    percentageAccessoryItem.imageHighlighted = badgeHighlightedImage;
 
     // creates the title item
     HMStringTableCellItem *titleItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"title"];
@@ -210,6 +216,11 @@
     [subTitleItem release];
     [titleItem release];
     [percentageAccessoryItem release];
+    [descriptionColorHighlighted release];
+    [descriptionColor release];
+    [backgroundColor release];
+    [badgeHighlightedImage release];
+    [badgeImage release];
 }
 
 - (NSMutableArray *)convertRemoteGroup:(HMItemOperationType)operationType {

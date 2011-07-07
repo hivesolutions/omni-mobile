@@ -132,6 +132,9 @@
     [imageView setImage:logoImage];
     self.navigationItem.titleView = imageView;
 
+    // creates the white color
+    HMColor *whiteColor = [[HMColor alloc] initWithColorRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+
     // creates the username string item
     HMStringTableCellItem *usernameItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"username"];
     usernameItem.indentable = NO;
@@ -157,7 +160,7 @@
     // customizes the first section footer item
     HMLabelItem *firstSectionFooterItem = firstSectionItemGroup.footer;
     firstSectionFooterItem.descriptionFont.size = 14;
-    firstSectionFooterItem.descriptionColor = [HMColor whiteColor];
+    firstSectionFooterItem.descriptionColor = whiteColor;
     firstSectionFooterItem.descriptionShadowColor = nil;
     firstSectionFooterItem.textAlignment = HMLabelItemTextAlignmentCenter;
 
@@ -193,6 +196,7 @@
     [firstSectionItemGroup release];
     [passwordItem release];
     [usernameItem release];
+    [whiteColor release];
     [imageView release];
     [backgroundView release];
     [remoteAbstraction release];

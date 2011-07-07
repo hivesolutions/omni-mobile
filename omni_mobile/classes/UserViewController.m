@@ -86,17 +86,21 @@
     BOOL isDefaultFunctionalUnitAvailable = defaultFunctionalUnit.count == 0 ? NO : YES;
 
     // creates the colors
-    HMColor *backgroundColor = [HMColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1.0];
-    HMColor *lightGreenColor = [HMColor colorWithRed:0.66 green:0.85 blue:0.36 alpha:1];
-    HMColor *darkGreenColor = [HMColor colorWithRed:0.23 green:0.62 blue:0.27 alpha:1];
+    HMColor *backgroundColor = [[HMColor alloc] initWithColorRed:0.98 green:0.98 blue:0.98 alpha:1.0];
+    HMColor *lightGreenColor = [[HMColor alloc] initWithColorRed:0.66 green:0.85 blue:0.36 alpha:1];
+    HMColor *darkGreenColor = [[HMColor alloc] initWithColorRed:0.23 green:0.62 blue:0.27 alpha:1];
 
     // creates the background colors
     NSArray *selectedBackgroundColors = [[NSArray alloc] initWithObjects:lightGreenColor, darkGreenColor, nil];
 
+    // creates the images
+    HMImage *disclosureIndicatorImage = [[HMImage alloc] initWithImageName:@"disclosure_indicator"];
+    HMImage *disclosureIndicatorHighlightedImage = [[HMImage alloc] initWithImageName:@"disclosure_indicator_highlighted"];
+
     // creates the disclosure indicator accessory item
     HMAccessoryItem *disclosureIndicatorAccessoryItem = [[HMAccessoryItem alloc] init];
-    disclosureIndicatorAccessoryItem.imageNormal = [HMImage imageNamed:@"disclosure_indicator"];
-    disclosureIndicatorAccessoryItem.imageHighlighted = [HMImage imageNamed:@"disclosure_indicator_highlighted"];
+    disclosureIndicatorAccessoryItem.imageNormal = disclosureIndicatorImage;
+    disclosureIndicatorAccessoryItem.imageHighlighted = disclosureIndicatorHighlightedImage;
 
     // creates the title item
     HMStringTableCellItem *titleItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"title"];
@@ -237,6 +241,11 @@
     [titleItem release];
     [disclosureIndicatorAccessoryItem release];
     [selectedBackgroundColors release];
+    [darkGreenColor release];
+    [lightGreenColor release];
+    [backgroundColor release];
+    [disclosureIndicatorHighlightedImage release];
+    [disclosureIndicatorImage release];
 }
 
 - (NSMutableArray *)convertRemoteGroup:(HMItemOperationType)operationType {

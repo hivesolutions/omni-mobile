@@ -70,7 +70,7 @@
     NSString *base64Data = AVOID_NULL([primaryMedia objectForKey:@"base_64_data"]);
 
     // creates the colors
-    HMColor *backgroundColor = [HMColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1.0];
+    HMColor *backgroundColor = [[HMColor alloc] initWithColorRed:0.98 green:0.98 blue:0.98 alpha:1.0];
 
     // creates the title item
     HMStringTableCellItem *titleItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"title"];
@@ -169,6 +169,7 @@
     [imageItem release];
     [subTitleItem release];
     [titleItem release];
+    [backgroundColor release];
 }
 
 - (NSMutableArray *)convertRemoteGroup:(HMItemOperationType)operationType {

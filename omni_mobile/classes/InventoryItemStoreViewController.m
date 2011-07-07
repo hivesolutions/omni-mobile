@@ -72,23 +72,29 @@
     NSNumber *retailPriceValue = AVOID_NULL_NUMBER([retailPrice objectForKey:@"value"]);
 
     // creates the colors
-    HMColor *backgroundColor = [HMColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1.0];
+    HMColor *backgroundColor = [[HMColor alloc] initWithColorRed:0.98 green:0.98 blue:0.98 alpha:1.0];
+    HMColor *descriptionColor = [[HMColor alloc] initWithColorRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+    HMColor *descriptionColorHighlighted = [[HMColor alloc] initWithColorRed:0.54 green:0.56 blue:0.62 alpha:1.0];
+
+    // creates the images
+    HMImage *badgeImage = [[HMImage alloc] initWithImageName:@"badge" leftCap:4 topCap:4];
+    HMImage *badgeHighlightedImage = [[HMImage alloc] initWithImageName:@"badge_highlighted" leftCap:4 topCap:4];
 
     // creates the unit accessory item
     HMAccessoryItem *unitAccessoryItem = [[HMAccessoryItem alloc] init];
     unitAccessoryItem.description = @"UN";
-    unitAccessoryItem.descriptionColor = [HMColor whiteColor];
-    unitAccessoryItem.descriptionColorHighlighted = [HMColor colorWithRed:0.54 green:0.56 blue:0.62 alpha:1.0];
-    unitAccessoryItem.imageNormal = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
-    unitAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge_highlighted" leftCap:4 topCap:4];
+    unitAccessoryItem.descriptionColor = descriptionColor;
+    unitAccessoryItem.descriptionColorHighlighted = descriptionColorHighlighted;
+    unitAccessoryItem.imageNormal = badgeImage;
+    unitAccessoryItem.imageHighlighted = badgeHighlightedImage;
 
     // creates the currency accessory item
     HMAccessoryItem *currencyAccessoryItem = [[HMAccessoryItem alloc] init];
     currencyAccessoryItem.description = @"EUR";
-    currencyAccessoryItem.descriptionColor = [HMColor whiteColor];
-    currencyAccessoryItem.descriptionColorHighlighted = [HMColor colorWithRed:0.54 green:0.56 blue:0.62 alpha:1.0];
-    currencyAccessoryItem.imageNormal = [HMImage imageNamed:@"badge" leftCap:4 topCap:4];
-    currencyAccessoryItem.imageHighlighted = [HMImage imageNamed:@"badge_highlighted" leftCap:4 topCap:4];
+    currencyAccessoryItem.descriptionColor = descriptionColor;
+    currencyAccessoryItem.descriptionColorHighlighted = descriptionColorHighlighted;
+    currencyAccessoryItem.imageNormal = badgeImage;
+    currencyAccessoryItem.imageHighlighted = badgeHighlightedImage;
 
     // creates the title item
     HMStringTableCellItem *titleItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"title"];
@@ -114,18 +120,21 @@
     stockOnHandItem.name = NSLocalizedString(@"Stock", @"Stock");
     stockOnHandItem.description = [NSString stringWithFormat:@"%d", stockOnHand.intValue];
     stockOnHandItem.accessory = unitAccessoryItem;
+    stockOnHandItem.backgroundColor = backgroundColor;
 
     // creates the price string table cell
     HMConstantStringTableCellItem *priceItem = [[HMConstantStringTableCellItem alloc] initWithIdentifier:@"price"];
     priceItem.name = NSLocalizedString(@"Price", @"Price");
     priceItem.description = [NSString stringWithFormat:@"%.2f", priceValue.floatValue];
     priceItem.accessory = currencyAccessoryItem;
+    priceItem.backgroundColor = backgroundColor;
 
     // creates the retail price string table cell
     HMStringTableCellItem *retailPriceItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"retail_price"];
     retailPriceItem.name = NSLocalizedString(@"Retail Price", @"Retail Price");
     retailPriceItem.description = [NSString stringWithFormat:@"%.2f", retailPriceValue.floatValue];
     retailPriceItem.accessory = currencyAccessoryItem;
+    retailPriceItem.backgroundColor = backgroundColor;
 
     // creates the sections item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
@@ -169,6 +178,11 @@
     [titleItem release];
     [currencyAccessoryItem release];
     [unitAccessoryItem release];
+    [descriptionColorHighlighted release];
+    [descriptionColor release];
+    [backgroundColor release];
+    [badgeHighlightedImage release];
+    [badgeImage release];
 }
 
 - (NSMutableArray *)convertRemoteGroup:(HMItemOperationType)operationType {
