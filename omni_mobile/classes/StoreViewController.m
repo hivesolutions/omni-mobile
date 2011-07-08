@@ -98,7 +98,7 @@
     streetNameItem.name = NSLocalizedString(@"Street Name", @"Street Name");
     streetNameItem.nameAlignment = HMTextAlignmentRight;
     streetNameItem.description = streetName;
-    streetNameItem.descriptionNumberLines = [NSNumber numberWithInt:0];
+    streetNameItem.multipleLines = YES;
     streetNameItem.backgroundColor = backgroundColor;
 
     // creates the country string table cell item
