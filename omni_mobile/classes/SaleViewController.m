@@ -94,9 +94,10 @@
     NSNumber *priceVat = [NSNumber numberWithFloat:(priceNumber.floatValue + vatNumber.floatValue)];
 
     // creates the colors
+    HMColor *blackColor = [[HMColor alloc] initWithColorRed:0.0 green:0.0 blue:0.0 alpha:1];
     HMColor *lightGreenColor = [[HMColor alloc] initWithColorRed:0.66 green:0.85 blue:0.36 alpha:1];
     HMColor *darkGreenColor = [[HMColor alloc] initWithColorRed:0.23 green:0.62 blue:0.27 alpha:1];
-    HMColor *backgroundColor = [[HMColor alloc] initWithColorRed:0.98 green:0.98 blue:0.98 alpha:1.0];
+    HMColor *backgroundColor = [[HMColor alloc] initWithColorRed:0.96 green:0.96 blue:0.96 alpha:1.0];
     HMColor *descriptionColor = [[HMColor alloc] initWithColorRed:1.0 green:1.0 blue:1.0 alpha:1.0];
     HMColor *descriptionColorHighlighted = [[HMColor alloc] initWithColorRed:0.54 green:0.56 blue:0.62 alpha:1.0];
 
@@ -144,6 +145,7 @@
     // creates the store string table cell
     HMStringTableCellItem *storeItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"store"];
     storeItem.name = NSLocalizedString(@"Store", @"Store");
+    storeItem.nameAlignment = HMTextAlignmentRight;
     storeItem.data = sellerStockholder;
     storeItem.description = sellerStockHolderName;
     storeItem.accessory = disclosureIndicatorAccessoryItem;
@@ -156,6 +158,7 @@
     // creates the seller string table cell
     HMStringTableCellItem *sellerItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"seller"];
     sellerItem.name = NSLocalizedString(@"Seller", @"Seller");
+    sellerItem.nameAlignment = HMTextAlignmentRight;
     sellerItem.data = seller;
     sellerItem.description = sellerName;
     sellerItem.accessory = disclosureIndicatorAccessoryItem;
@@ -168,6 +171,7 @@
     // creates the discount vat string table cell
     HMStringTableCellItem *discountVatItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"discount_vat"];
     discountVatItem.name = NSLocalizedString(@"Discount VAT", @"Discount VAT");
+    discountVatItem.nameAlignment = HMTextAlignmentRight;
     discountVatItem.description = [NSString stringWithFormat:@"%.2f", discountVatNumber.floatValue];
     discountVatItem.backgroundColor = backgroundColor;
     discountVatItem.accessory = currencyAccessoryItem;
@@ -175,6 +179,7 @@
     // creates the price string table cell
     HMStringTableCellItem *priceItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"price"];
     priceItem.name = NSLocalizedString(@"Total", @"Total");
+    priceItem.nameAlignment = HMTextAlignmentRight;
     priceItem.description = [NSString stringWithFormat:@"%.2f", priceNumber.floatValue];
     priceItem.backgroundColor = backgroundColor;
     priceItem.accessory = currencyAccessoryItem;
@@ -182,6 +187,7 @@
     // creates the vat string table cell
     HMStringTableCellItem *vatItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"vat"];
     vatItem.name = NSLocalizedString(@"VAT", @"VAT");
+    vatItem.nameAlignment = HMTextAlignmentRight;
     vatItem.description = [NSString stringWithFormat:@"%.2f", vatNumber.floatValue];
     vatItem.backgroundColor = backgroundColor;
     vatItem.accessory = currencyAccessoryItem;
@@ -189,6 +195,7 @@
     // creates the price vat string table cell
     HMStringTableCellItem *priceVatItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"price_vat"];
     priceVatItem.name = NSLocalizedString(@"Total VAT", @"Total VAT");
+    priceVatItem.nameAlignment = HMTextAlignmentRight;
     priceVatItem.description = [NSString stringWithFormat:@"%.2f", priceVat.floatValue];
     priceVatItem.backgroundColor = backgroundColor;
     priceVatItem.accessory = currencyAccessoryItem;
@@ -196,6 +203,7 @@
     // creates the customer name string table cell
     HMStringTableCellItem *customerItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"customer"];
     customerItem.name = NSLocalizedString(@"Customer", @"Customer");
+    customerItem.nameAlignment = HMTextAlignmentRight;
     customerItem.description = isPersonAnonymous ? NSLocalizedString(@"Anonymous", @"Anonymous") : personBuyerName;
     customerItem.selectable = NO;
     customerItem.backgroundColor = backgroundColor;
@@ -250,6 +258,7 @@
         // creates the sale line item
         HMStringTableCellItem *saleLineItem = [[HMStringTableCellItem alloc] initWithIdentifier:objectIdString];
         saleLineItem.description = merchandiseCompanyProductCode;
+        saleLineItem.descriptionColor = blackColor;
         saleLineItem.data = saleLine;
         saleLineItem.accessory = quantityAccessoryItem;
         saleLineItem.readViewController = [SaleLineViewController class];
@@ -310,6 +319,7 @@
     [backgroundColor release];
     [darkGreenColor release];
     [lightGreenColor release];
+    [blackColor release];
     [disclosureIndicatorHighlightedImage release];
     [disclosureIndicatorImage release];
     [badgeHighlightedImage release];

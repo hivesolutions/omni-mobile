@@ -101,9 +101,10 @@
     self.navigationItem.titleView = imageView;
 
     // creates the colors
+    HMColor *blackColor = [[HMColor alloc] initWithColorRed:0.0 green:0.0 blue:0.0 alpha:1];
     HMColor *lightGreenColor = [[HMColor alloc] initWithColorRed:0.66 green:0.85 blue:0.36 alpha:1];
     HMColor *darkGreenColor = [[HMColor alloc] initWithColorRed:0.23 green:0.62 blue:0.27 alpha:1];
-    HMColor *backgroundColor = [[HMColor alloc] initWithColorRed:0.98 green:0.98 blue:0.98 alpha:1.0];
+    HMColor *backgroundColor = [[HMColor alloc] initWithColorRed:0.96 green:0.96 blue:0.96 alpha:1.0];
 
     // creates the background colors
     NSArray *selectedBackgroundColors = [[NSArray alloc] initWithObjects:lightGreenColor, darkGreenColor, nil];
@@ -136,7 +137,8 @@
     // creates the users button item
     HMTableCellItem *usersItem = [[HMTableCellItem alloc] initWithIdentifier:@"users"];
     usersItem.name = NSLocalizedString(@"Users", @"Users");
-    usersItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
+    usersItem.nameFont.size = MENU_VIEW_CONTROLLER_ITEM_NAME_FONT_SIZE;
+    usersItem.nameColor = blackColor;
     usersItem.icon = personIconImage;
     usersItem.highlightedIcon = personIconWhiteImage;
     usersItem.accessory = disclosureIndicatorAccessoryItem;
@@ -147,7 +149,8 @@
     // creates the sales button item
     HMTableCellItem *salesItem = [[HMTableCellItem alloc] initWithIdentifier:@"sales"];
     salesItem.name = NSLocalizedString(@"Sales", @"Sales");
-    salesItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
+    salesItem.nameFont.size = MENU_VIEW_CONTROLLER_ITEM_NAME_FONT_SIZE;
+    salesItem.nameColor = blackColor;
     salesItem.icon = boxUpIconImage;
     salesItem.highlightedIcon = boxUpIconWhiteImage;
     salesItem.accessory = disclosureIndicatorAccessoryItem;
@@ -158,7 +161,8 @@
     // creates the purchases button item
     HMTableCellItem *purchasesItem = [[HMTableCellItem alloc] initWithIdentifier:@"purchases"];
     purchasesItem.name = NSLocalizedString(@"Purchases", @"Purchases");
-    purchasesItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
+    purchasesItem.nameFont.size = MENU_VIEW_CONTROLLER_ITEM_NAME_FONT_SIZE;
+    purchasesItem.nameColor = blackColor;
     purchasesItem.icon = boxDownIconImage;
     purchasesItem.highlightedIcon = boxDownIconWhiteImage;
     purchasesItem.accessory = disclosureIndicatorAccessoryItem;
@@ -169,7 +173,8 @@
     // creates the inventory button item
     HMTableCellItem *inventoryItem = [[HMTableCellItem alloc] initWithIdentifier:@"inventory"];
     inventoryItem.name = NSLocalizedString(@"Inventory", @"Inventory");
-    inventoryItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
+    inventoryItem.nameFont.size = MENU_VIEW_CONTROLLER_ITEM_NAME_FONT_SIZE;
+    inventoryItem.nameColor = blackColor;
     inventoryItem.icon = boxIconImage;
     inventoryItem.highlightedIcon = boxIconWhiteImage;
     inventoryItem.accessory = disclosureIndicatorAccessoryItem;
@@ -180,7 +185,8 @@
     // creates the stores button item
     HMTableCellItem *storesItem = [[HMTableCellItem alloc] initWithIdentifier:@"stores"];
     storesItem.name = NSLocalizedString(@"Stores", @"Stores");
-    storesItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
+    storesItem.nameFont.size = MENU_VIEW_CONTROLLER_ITEM_NAME_FONT_SIZE;
+    storesItem.nameColor = blackColor;
     storesItem.icon = buildingIconImage;
     storesItem.highlightedIcon = buildingIconWhiteImage;
     storesItem.accessory = disclosureIndicatorAccessoryItem;
@@ -191,7 +197,8 @@
     // creates the employees button item
     HMTableCellItem *employeesItem = [[HMTableCellItem alloc] initWithIdentifier:@"employees"];
     employeesItem.name = NSLocalizedString(@"Employees", @"Employees");
-    employeesItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
+    employeesItem.nameFont.size = MENU_VIEW_CONTROLLER_ITEM_NAME_FONT_SIZE;
+    employeesItem.nameColor = blackColor;
     employeesItem.icon = personIconImage;
     employeesItem.highlightedIcon = personIconWhiteImage;
     employeesItem.accessory = disclosureIndicatorAccessoryItem;
@@ -202,7 +209,8 @@
     // creates the highlights button item
     HMTableCellItem *highlightsItem = [[HMTableCellItem alloc] initWithIdentifier:@"highlights"];
     highlightsItem.name = NSLocalizedString(@"Highlights", @"Highlights");
-    highlightsItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
+    highlightsItem.nameFont.size = MENU_VIEW_CONTROLLER_ITEM_NAME_FONT_SIZE;
+    highlightsItem.nameColor = blackColor;
     highlightsItem.icon = megaphoneIconImage;
     highlightsItem.highlightedIcon = megaphoneIconWhiteImage;
     highlightsItem.accessory = disclosureIndicatorAccessoryItem;
@@ -213,7 +221,8 @@
     // creates the options menu button item
     HMTableCellItem *optionsMenuItem = [[HMTableCellItem alloc] initWithIdentifier:@"options_menu"];
     optionsMenuItem.name = NSLocalizedString(@"Options Menu", @"Options Menu");
-    optionsMenuItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
+    optionsMenuItem.nameFont.size = MENU_VIEW_CONTROLLER_ITEM_NAME_FONT_SIZE;
+    optionsMenuItem.nameColor = blackColor;
     optionsMenuItem.icon = creditsIconImage;
     optionsMenuItem.highlightedIcon = creditsIconWhiteImage;
     optionsMenuItem.accessory = disclosureIndicatorAccessoryItem;
@@ -224,7 +233,8 @@
     // creates the sales week button item
     HMTableCellItem *salesWeekItem = [[HMTableCellItem alloc] initWithIdentifier:@"sales_week"];
     salesWeekItem.name = NSLocalizedString(@"Sales Week", @"Sales Week");
-    salesWeekItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
+    salesWeekItem.nameFont.size = MENU_VIEW_CONTROLLER_ITEM_NAME_FONT_SIZE;
+    salesWeekItem.nameColor = blackColor;
     salesWeekItem.icon = dashboardIconImage;
     salesWeekItem.highlightedIcon = dashboardIconWhiteImage;
     salesWeekItem.accessory = disclosureIndicatorAccessoryItem;
@@ -235,7 +245,8 @@
     // creates the credits button item
     HMTableCellItem *creditsItem = [[HMTableCellItem alloc] initWithIdentifier:@"credits"];
     creditsItem.name = NSLocalizedString(@"Credits", @"Credits");
-    creditsItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
+    creditsItem.nameFont.size = MENU_VIEW_CONTROLLER_ITEM_NAME_FONT_SIZE;
+    creditsItem.nameColor = blackColor;
     creditsItem.icon = creditsIconImage;
     creditsItem.highlightedIcon = creditsIconWhiteImage;
     creditsItem.accessory = disclosureIndicatorAccessoryItem;
@@ -246,7 +257,8 @@
     // creates the notifications button item
     HMTableCellItem *notificationsItem = [[HMTableCellItem alloc] initWithIdentifier:@"notifications"];
     notificationsItem.name = NSLocalizedString(@"Notifications", @"Notifications");
-    notificationsItem.descriptionFont.size = MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE;
+    notificationsItem.nameFont.size = MENU_VIEW_CONTROLLER_ITEM_NAME_FONT_SIZE;
+    notificationsItem.nameColor = blackColor;
     notificationsItem.backgroundColor = backgroundColor;
     notificationsItem.selectedBackgroundColors = selectedBackgroundColors;
 
@@ -311,6 +323,7 @@
     [backgroundColor release];
     [darkGreenColor release];
     [lightGreenColor release];
+    [blackColor release];
     [dashboardIconWhiteImage release];
     [dashboardIconImage release];
     [creditsIconWhiteImage release];

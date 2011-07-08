@@ -86,7 +86,7 @@
     NSString *commissionString = [NSString stringWithFormat:@"%d", commissionPercentageInteger];
 
     // creates the colors
-    HMColor *backgroundColor = [[HMColor alloc] initWithColorRed:0.98 green:0.98 blue:0.98 alpha:1.0];
+    HMColor *backgroundColor = [[HMColor alloc] initWithColorRed:0.96 green:0.96 blue:0.96 alpha:1.0];
     HMColor *descriptionColor = [[HMColor alloc] initWithColorRed:1.0 green:1.0 blue:1.0 alpha:1.0];
     HMColor *descriptionColorHighlighted = [[HMColor alloc] initWithColorRed:0.54 green:0.56 blue:0.62 alpha:1.0];
 
@@ -126,6 +126,7 @@
     // creates the street name string table cell item
     HMStringTableCellItem *streetNameItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"street_name"];
     streetNameItem.name = NSLocalizedString(@"Street Name", @"Street Name");
+    streetNameItem.nameAlignment = HMTextAlignmentRight;
     streetNameItem.description = streetName;
     streetNameItem.multipleLines = YES;
     streetNameItem.backgroundColor = backgroundColor;
@@ -133,24 +134,28 @@
     // creates the country string table cell item
     HMStringTableCellItem *countryItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"country"];
     countryItem.name = NSLocalizedString(@"Country", @"Country");
+    countryItem.nameAlignment = HMTextAlignmentRight;
     countryItem.description = country;
     countryItem.backgroundColor = backgroundColor;
 
     // creates the phone number string table cell item
     HMStringTableCellItem *phoneNumberItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"phone_number"];
     phoneNumberItem.name = NSLocalizedString(@"Phone", @"Phone");
+    phoneNumberItem.nameAlignment = HMTextAlignmentRight;
     phoneNumberItem.description = phoneNumber;
     phoneNumberItem.backgroundColor = backgroundColor;
 
     // creates the email string table cell item
     HMStringTableCellItem *emailItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"email"];
     emailItem.name = NSLocalizedString(@"E-mail", @"E-mail");
+    emailItem.nameAlignment = HMTextAlignmentRight;
     emailItem.description = email;
     emailItem.backgroundColor = backgroundColor;
 
     // creates the commission string table cell item
     HMStringTableCellItem *commissionItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"commission"];
     commissionItem.name = NSLocalizedString(@"Commission", @"Commission");
+    commissionItem.nameAlignment = HMTextAlignmentRight;
     commissionItem.description = commissionString;
     commissionItem.accessory = percentageAccessoryItem;
     commissionItem.backgroundColor = backgroundColor;

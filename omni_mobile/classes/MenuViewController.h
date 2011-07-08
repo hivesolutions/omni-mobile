@@ -37,7 +37,7 @@
 /**
  * The description font size for menu items.
  */
-#define MENU_VIEW_CONTROLLER_ITEM_DESCRIPTION_FONT_SIZE 17
+#define MENU_VIEW_CONTROLLER_ITEM_NAME_FONT_SIZE 17
 
 @interface MenuViewController : HMTableViewController<HMItemTableViewProvider, HMItemTableViewDelegate> {
     @private

@@ -72,7 +72,7 @@
     NSNumber *retailPriceValue = AVOID_NULL_NUMBER([retailPrice objectForKey:@"value"]);
 
     // creates the colors
-    HMColor *backgroundColor = [[HMColor alloc] initWithColorRed:0.98 green:0.98 blue:0.98 alpha:1.0];
+    HMColor *backgroundColor = [[HMColor alloc] initWithColorRed:0.96 green:0.96 blue:0.96 alpha:1.0];
     HMColor *descriptionColor = [[HMColor alloc] initWithColorRed:1.0 green:1.0 blue:1.0 alpha:1.0];
     HMColor *descriptionColorHighlighted = [[HMColor alloc] initWithColorRed:0.54 green:0.56 blue:0.62 alpha:1.0];
 
@@ -118,6 +118,7 @@
     // creates the stock on hand string table cell
     HMStringTableCellItem *stockOnHandItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"stock_on_hand"];
     stockOnHandItem.name = NSLocalizedString(@"Stock", @"Stock");
+    stockOnHandItem.nameAlignment = HMTextAlignmentRight;
     stockOnHandItem.description = [NSString stringWithFormat:@"%d", stockOnHand.intValue];
     stockOnHandItem.accessory = unitAccessoryItem;
     stockOnHandItem.backgroundColor = backgroundColor;
@@ -125,6 +126,7 @@
     // creates the price string table cell
     HMConstantStringTableCellItem *priceItem = [[HMConstantStringTableCellItem alloc] initWithIdentifier:@"price"];
     priceItem.name = NSLocalizedString(@"Price", @"Price");
+    priceItem.nameAlignment = HMTextAlignmentRight;
     priceItem.description = [NSString stringWithFormat:@"%.2f", priceValue.floatValue];
     priceItem.accessory = currencyAccessoryItem;
     priceItem.backgroundColor = backgroundColor;
@@ -132,6 +134,7 @@
     // creates the retail price string table cell
     HMStringTableCellItem *retailPriceItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"retail_price"];
     retailPriceItem.name = NSLocalizedString(@"Retail Price", @"Retail Price");
+    retailPriceItem.nameAlignment = HMTextAlignmentRight;
     retailPriceItem.description = [NSString stringWithFormat:@"%.2f", retailPriceValue.floatValue];
     retailPriceItem.accessory = currencyAccessoryItem;
     retailPriceItem.backgroundColor = backgroundColor;

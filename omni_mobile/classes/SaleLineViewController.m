@@ -86,7 +86,7 @@
     HMColor *darkGreenColor = [[HMColor alloc] initWithColorRed:0.23 green:0.62 blue:0.27 alpha:1];
     HMColor *descriptionColor = [[HMColor alloc] initWithColorRed:1.0 green:1.0 blue:1.0 alpha:1.0];
     HMColor *descriptionColorHighlighted = [[HMColor alloc] initWithColorRed:0.54 green:0.56 blue:0.62 alpha:1.0];
-    HMColor *backgroundColor = [[HMColor alloc] initWithColorRed:0.98 green:0.98 blue:0.98 alpha:1.0];
+    HMColor *backgroundColor = [[HMColor alloc] initWithColorRed:0.96 green:0.96 blue:0.96 alpha:1.0];
 
     // creates the background colors
     NSArray *selectedBackgroundColors = [[NSArray alloc] initWithObjects:lightGreenColor, darkGreenColor, nil];
@@ -140,6 +140,7 @@
     // creates the unit price table cell
     HMStringTableCellItem *unitPriceVatItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"unit_price"];
     unitPriceVatItem.name = NSLocalizedString(@"Unit Price VAT", @"Unit Price VAT");
+    unitPriceVatItem.nameAlignment = HMTextAlignmentRight;
     unitPriceVatItem.description = [NSString stringWithFormat:@"%.2f", unitPriceVat];
     unitPriceVatItem.accessory = currencyAccessoryItem;
     unitPriceVatItem.backgroundColor = backgroundColor;
@@ -147,6 +148,7 @@
     // creates the discount vat table cell
     HMStringTableCellItem *discountVatItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"discount_vat"];
     discountVatItem.name = NSLocalizedString(@"Discount VAT", @"Discount VAT");
+    discountVatItem.nameAlignment = HMTextAlignmentRight;
     discountVatItem.description = [NSString stringWithFormat:@"%.2f", unitDiscountVatNumber.floatValue];
     discountVatItem.accessory = currencyAccessoryItem;
     discountVatItem.backgroundColor = backgroundColor;
@@ -154,6 +156,7 @@
     // creates the quantity table cell
     HMStringTableCellItem *quantityItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"quantity"];
     quantityItem.name = NSLocalizedString(@"Quantity", @"Quantity");
+    quantityItem.nameAlignment = HMTextAlignmentRight;
     quantityItem.description = [NSString stringWithFormat:@"%d", quantityNumber.intValue];
     quantityItem.accessory = unitAccessoryItem;
     quantityItem.backgroundColor = backgroundColor;
@@ -161,6 +164,7 @@
     // creates the merchandise table cell
     HMStringTableCellItem *merchandiseItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"merchandise"];
     merchandiseItem.name = NSLocalizedString(@"Merchandise", @"Merchandise");
+    merchandiseItem.nameAlignment = HMTextAlignmentRight;
     merchandiseItem.description = merchandiseCompanyProductCode;
     merchandiseItem.data = merchandise;
     merchandiseItem.accessory = disclosureIndicatorAccessoryItem;

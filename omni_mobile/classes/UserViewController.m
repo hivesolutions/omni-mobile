@@ -86,7 +86,7 @@
     BOOL isDefaultFunctionalUnitAvailable = defaultFunctionalUnit.count == 0 ? NO : YES;
 
     // creates the colors
-    HMColor *backgroundColor = [[HMColor alloc] initWithColorRed:0.98 green:0.98 blue:0.98 alpha:1.0];
+    HMColor *backgroundColor = [[HMColor alloc] initWithColorRed:0.96 green:0.96 blue:0.96 alpha:1.0];
     HMColor *lightGreenColor = [[HMColor alloc] initWithColorRed:0.66 green:0.85 blue:0.36 alpha:1];
     HMColor *darkGreenColor = [[HMColor alloc] initWithColorRed:0.23 green:0.62 blue:0.27 alpha:1];
 
@@ -126,6 +126,7 @@
     // creates the password string table cell
     HMStringTableCellItem *passwordItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"password"];
     passwordItem.name = NSLocalizedString(@"Password", @"Password");
+    passwordItem.nameAlignment = HMTextAlignmentRight;
     passwordItem.description = password;
     passwordItem.secure = YES;
     passwordItem.backgroundColor = backgroundColor;
@@ -133,18 +134,21 @@
     // creates the email string table cell
     HMStringTableCellItem *emailItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"email"];
     emailItem.name = NSLocalizedString(@"E-mail", @"E-mail");
+    emailItem.nameAlignment = HMTextAlignmentRight;
     emailItem.description = email;
     emailItem.backgroundColor = backgroundColor;
 
     // creates the secret question string table cell
     HMStringTableCellItem *secretQuestionItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"secret_question"];
     secretQuestionItem.name = NSLocalizedString(@"Question", @"Question");
+    secretQuestionItem.nameAlignment = HMTextAlignmentRight;
     secretQuestionItem.description = secretQuestion;
     secretQuestionItem.backgroundColor = backgroundColor;
 
     // creates the secret answer string table cell
     HMStringTableCellItem *secretAnswerItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"secret_answer"];
     secretAnswerItem.name = NSLocalizedString(@"Answer", @"Answer");
+    secretAnswerItem.nameAlignment = HMTextAlignmentRight;
     secretAnswerItem.description = secretAnswer;
     secretAnswerItem.secure = YES;
     secretAnswerItem.backgroundColor = backgroundColor;
@@ -152,6 +156,7 @@
     // creates the default functional unit string table cell
     HMConstantStringTableCellItem *defaultFunctionalUnitItem = [[HMConstantStringTableCellItem alloc] initWithIdentifier:@"stores"];
     defaultFunctionalUnitItem.name = NSLocalizedString(@"Store", @"Store");
+    defaultFunctionalUnitItem.nameAlignment = HMTextAlignmentRight;
     defaultFunctionalUnitItem.description = defaultFunctionalUnitName;
     defaultFunctionalUnitItem.data = isDefaultFunctionalUnitAvailable ? defaultFunctionalUnit : nil;
     defaultFunctionalUnitItem.accessory = disclosureIndicatorAccessoryItem;
@@ -169,6 +174,7 @@
     // creates the employee string table cell
     HMConstantStringTableCellItem *employeeItem = [[HMConstantStringTableCellItem alloc] initWithIdentifier:@"employee"];
     employeeItem.name = NSLocalizedString(@"Employee", @"Employee");
+    employeeItem.nameAlignment = HMTextAlignmentRight;
     employeeItem.description = personName;
     employeeItem.data = isPersonAvailable ? person : nil;
     employeeItem.accessory = disclosureIndicatorAccessoryItem;
