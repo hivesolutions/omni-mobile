@@ -149,8 +149,8 @@
         HMConstantStringTableCellItem *inventoryLineItem = [[HMConstantStringTableCellItem alloc] initWithIdentifier:objectIdString];
         inventoryLineItem.description = storeName;
         inventoryLineItem.data = inventoryLine;
-        inventoryLineItem.icon = buildingImage;
-        inventoryLineItem.highlightedIcon = buildingWhiteImage;
+        inventoryLineItem.iconNormal =  buildingImage;
+        inventoryLineItem.iconHighlighted = buildingWhiteImage;
         inventoryLineItem.accessory = stockAccessoryItem;
         inventoryLineItem.selectable = YES;
         inventoryLineItem.selectableEdit = NO;
@@ -331,8 +331,8 @@
     inventoryLineItem.transientState = HMItemStateNew;
     inventoryLineItem.description = storeName;
     inventoryLineItem.data = inventoryLine;
-    inventoryLineItem.icon = buildingImage;
-    inventoryLineItem.highlightedIcon = buildingWhiteImage;
+    inventoryLineItem.iconNormal =  buildingImage;
+    inventoryLineItem.iconHighlighted = buildingWhiteImage;
     inventoryLineItem.accessory = stockAccessoryItem;
     inventoryLineItem.selectable = YES;
     inventoryLineItem.selectableEdit = NO;
