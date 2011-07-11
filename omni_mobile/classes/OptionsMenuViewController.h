@@ -25,6 +25,10 @@
 
 #import "Dependencies.h"
 
+/**
+ * The controller used to
+ * display the options menu.
+ */
 @interface OptionsMenuViewController : UIViewController {
 }
 

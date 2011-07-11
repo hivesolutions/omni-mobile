@@ -25,6 +25,10 @@
 
 #import "Dependencies.h"
 
+/**
+ * The controller used to view
+ * and update an item's inventory line.
+ */
 @interface InventoryItemStoreViewController : HMRemoteHeaderItemTableViewController {
     NSString *_identifier;
 }

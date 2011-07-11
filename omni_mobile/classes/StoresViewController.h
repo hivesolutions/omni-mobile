@@ -27,6 +27,10 @@
 
 #import "StoreViewController.h"
 
+/**
+ * The controller used to list
+ * and select stores.
+ */
 @interface StoresViewController : HMRemoteTableViewController {
 }
 

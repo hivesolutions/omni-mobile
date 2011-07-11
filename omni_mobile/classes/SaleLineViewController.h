@@ -27,6 +27,10 @@
 
 #import "InventoryItemViewController.h"
 
+/**
+ * The controller used to
+ * view a sale line.
+ */
 @interface SaleLineViewController : HMRemoteHeaderItemTableViewController {
 }
 

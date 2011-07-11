@@ -27,6 +27,10 @@
 
 #import "InventoryItemViewController.h"
 
+/**
+ * The controller used to
+ * list and select inventory.
+ */
 @interface InventoryViewController : HMRemoteTableViewController {
 }
 

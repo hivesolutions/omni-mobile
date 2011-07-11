@@ -25,6 +25,10 @@
 
 #import "Dependencies.h"
 
+/**
+ * The controller used to
+ * list and selected users.
+ */
 @interface UsersViewController : HMRemoteTableViewController {
 }
 

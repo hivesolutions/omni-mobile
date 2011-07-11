@@ -28,6 +28,10 @@
 #import "InventoryItemStoreViewController.h"
 #import "StoresViewController.h"
 
+/**
+ * The controller used to view
+ * and update an item and its inventory.
+ */
 @interface InventoryItemViewController : HMRemoteHeaderItemTableViewController<HMTableCellItemCreationDelegate> {
 }
 

@@ -27,6 +27,10 @@
 
 #import "EmployeeViewController.h"
 
+/**
+ * The controller used to
+ * list and select an employee.
+ */
 @interface EmployeesViewController : HMRemoteTableViewController {
 }
 

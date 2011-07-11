@@ -25,6 +25,10 @@
 
 #import "Dependencies.h"
 
+/**
+ * The controller used to view
+ * and update an employee.
+ */
 @interface EmployeeViewController : HMRemoteHeaderItemTableViewController {
 }
 

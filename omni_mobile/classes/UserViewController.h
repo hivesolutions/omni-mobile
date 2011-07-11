@@ -27,6 +27,10 @@
 
 #import "EmployeesViewController.h"
 
+/**
+ * The controller used to view
+ * and update an user.
+ */
 @interface UserViewController : HMRemoteHeaderItemTableViewController {
 }
 

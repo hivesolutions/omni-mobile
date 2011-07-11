@@ -33,6 +33,10 @@
  */
 #define SALE_VIEW_CONTROLLER_ITEM_NAME_FONT_SIZE 17
 
+/**
+ * The controller used to
+ * view and update a sale.
+ */
 @interface SaleViewController : HMRemoteHeaderItemTableViewController {
 }
 

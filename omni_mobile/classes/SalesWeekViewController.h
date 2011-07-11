@@ -25,6 +25,10 @@
 
 #import "Dependencies.h"
 
+/**
+ * The controller used to
+ * view a sales week.
+ */
 @interface SalesWeekViewController : UIViewController {
 }
 

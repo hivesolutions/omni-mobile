@@ -27,6 +27,10 @@
 
 #import "SaleViewController.h"
 
+/**
+ * The controller used to
+ * list and select sales.
+ */
 @interface SalesViewController : HMRemoteTableViewController {
 }
 

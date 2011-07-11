@@ -25,6 +25,10 @@
 
 #import "Dependencies.h"
 
+/**
+ * The controller used to
+ * display the credits.
+ */
 @interface CreditsViewController : UIViewController {
 }
 
