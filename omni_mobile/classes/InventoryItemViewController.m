@@ -71,6 +71,10 @@
     HMColor *backgroundColor = [[HMColor alloc] initWithColorRed:0.96 green:0.96 blue:0.96 alpha:1.0];
     HMColor *descriptionColor = [[HMColor alloc] initWithColorRed:1.0 green:1.0 blue:1.0 alpha:1.0];
     HMColor *descriptionColorHighlighted = [[HMColor alloc] initWithColorRed:0.54 green:0.56 blue:0.62 alpha:1.0];
+    HMColor *firstSectionItemGroupDescriptionColor = [[HMColor alloc] initWithColorRed:0.32 green:0.4 blue:0.57 alpha:1.0];
+
+    // creates the fonts
+    HMFont *firstSectionItemGroupDescriptionFont = [[HMFont alloc] initWithFontName:@"Helvetica-Bold" size:13];
 
     // creates the background colors
     NSArray *selectedBackgroundColors = [[NSArray alloc] initWithObjects:lightGreenColor, darkGreenColor, nil];
@@ -105,12 +109,14 @@
 
     // creates the first section item group
     HMTableMutableSectionItemGroup *firstSectionItemGroup = [[HMTableMutableSectionItemGroup alloc] initWithIdentifier:@"stores"];
-    firstSectionItemGroup.name = NSLocalizedString(@"Add Inventory Line", @"Add Inventory Line");
     firstSectionItemGroup.addViewController = [StoresViewController class];
     firstSectionItemGroup.addNibName = @"StoresViewController";
     firstSectionItemGroup.tableCellItemCreationDelegate = self;
-    firstSectionItemGroup.backgroundColor = backgroundColor;
-    firstSectionItemGroup.selectedBackgroundColors = selectedBackgroundColors;
+    firstSectionItemGroup.addTableCellItem.description = NSLocalizedString(@"Add Inventory Line", @"Add Inventory Line");
+    firstSectionItemGroup.addTableCellItem.descriptionFont = firstSectionItemGroupDescriptionFont;
+    firstSectionItemGroup.addTableCellItem.descriptionColor = firstSectionItemGroupDescriptionColor;
+    firstSectionItemGroup.addTableCellItem.backgroundColor = backgroundColor;
+    firstSectionItemGroup.addTableCellItem.selectedBackgroundColors = selectedBackgroundColors;
 
     // creates the menu list group
     HMItemGroup *menuListGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu_list"];
@@ -193,6 +199,8 @@
     [badgeHighlightedImage release];
     [badgeImage release];
     [selectedBackgroundColors release];
+    [firstSectionItemGroupDescriptionFont release];
+    [firstSectionItemGroupDescriptionColor release];
     [descriptionColorHighlighted release];
     [descriptionColor release];
     [backgroundColor release];

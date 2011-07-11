@@ -100,9 +100,14 @@
     HMColor *backgroundColor = [[HMColor alloc] initWithColorRed:0.96 green:0.96 blue:0.96 alpha:1.0];
     HMColor *descriptionColor = [[HMColor alloc] initWithColorRed:1.0 green:1.0 blue:1.0 alpha:1.0];
     HMColor *descriptionColorHighlighted = [[HMColor alloc] initWithColorRed:0.54 green:0.56 blue:0.62 alpha:1.0];
+    HMColor *sectionHeaderDescriptionColor = [[HMColor alloc] initWithColorRed:0.29 green:0.34 blue:0.42 alpha:1.0];
+    HMColor *sectionHeaderDescriptionShadowColor = [[HMColor alloc] initWithColorRed:1.0 green:1.0 blue:1.0 alpha:1.0];
 
     // creates the background colors
     NSArray *selectedBackgroundColors = [[NSArray alloc] initWithObjects:lightGreenColor, darkGreenColor, nil];
+
+    // creates the fonts
+    HMFont *sectionHeaderFont = [[HMFont alloc] initWithFontName:@"Helvetica" size:15];
 
     // creates the images
     HMImage *badgeImage = [[HMImage alloc] initWithImageName:@"badge" leftCap:4 topCap:4];
@@ -211,14 +216,23 @@
     // creates the first section item group
     HMTableSectionItemGroup *firstSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"first_section"];
     firstSectionItemGroup.headerString = NSLocalizedString(@"Sale Details", @"Sale Details");
+    firstSectionItemGroup.header.descriptionFont = sectionHeaderFont;
+    firstSectionItemGroup.header.descriptionColor = sectionHeaderDescriptionColor;
+    firstSectionItemGroup.header.descriptionShadowColor = sectionHeaderDescriptionShadowColor;
 
     // creates the second section item group
     HMTableSectionItemGroup *secondSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"second_section"];
     secondSectionItemGroup.headerString = NSLocalizedString(@"Sale Lines", @"Sale Lines");
+    secondSectionItemGroup.header.descriptionFont = sectionHeaderFont;
+    secondSectionItemGroup.header.descriptionColor = sectionHeaderDescriptionColor;
+    secondSectionItemGroup.header.descriptionShadowColor = sectionHeaderDescriptionShadowColor;
 
     // creates remaining section item groups
     HMTableSectionItemGroup *thirdSectionItemGroup = [[HMTableSectionItemGroup alloc] initWithIdentifier:@"third_section"];
     thirdSectionItemGroup.headerString = NSLocalizedString(@"Sale Values", @"Sale Values");
+    thirdSectionItemGroup.header.descriptionFont = sectionHeaderFont;
+    thirdSectionItemGroup.header.descriptionColor = sectionHeaderDescriptionColor;
+    thirdSectionItemGroup.header.descriptionShadowColor = sectionHeaderDescriptionShadowColor;
 
     // creates the menu list group
     HMItemGroup *menuListGroup = [[HMItemGroup alloc] initWithIdentifier:@"menu_list"];
@@ -313,7 +327,10 @@
     [titleItem release];
     [disclosureIndicatorAccessoryItem release];
     [currencyAccessoryItem release];
+    [sectionHeaderFont release];
     [selectedBackgroundColors release];
+    [sectionHeaderDescriptionShadowColor release];
+    [sectionHeaderDescriptionColor release];
     [descriptionColorHighlighted release];
     [descriptionColor release];
     [backgroundColor release];
