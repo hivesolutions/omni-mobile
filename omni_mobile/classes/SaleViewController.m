@@ -107,7 +107,7 @@
     NSArray *selectedBackgroundColors = [[NSArray alloc] initWithObjects:lightGreenColor, darkGreenColor, nil];
 
     // creates the fonts
-    HMFont *sectionHeaderFont = [[HMFont alloc] initWithFontName:@"Helvetica" size:15];
+    HMFont *sectionHeaderFont = [[HMFont alloc] initWithFontName:@"Helvetica-Bold" size:15];
 
     // creates the images
     HMImage *badgeImage = [[HMImage alloc] initWithImageName:@"badge" leftCap:4 topCap:4];
