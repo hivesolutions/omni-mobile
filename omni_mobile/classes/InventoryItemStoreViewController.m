@@ -89,12 +89,20 @@
     unitAccessoryItem.imageHighlighted = badgeHighlightedImage;
 
     // creates the currency accessory item
-    HMAccessoryItem *currencyAccessoryItem = [[HMAccessoryItem alloc] init];
-    currencyAccessoryItem.description = @"EUR";
-    currencyAccessoryItem.descriptionColor = descriptionColor;
-    currencyAccessoryItem.descriptionColorHighlighted = descriptionColorHighlighted;
-    currencyAccessoryItem.imageNormal = badgeImage;
-    currencyAccessoryItem.imageHighlighted = badgeHighlightedImage;
+    HMAccessoryItem *priceCurrencyAccessoryItem = [[HMAccessoryItem alloc] init];
+    priceCurrencyAccessoryItem.description = @"EUR";
+    priceCurrencyAccessoryItem.descriptionColor = descriptionColor;
+    priceCurrencyAccessoryItem.descriptionColorHighlighted = descriptionColorHighlighted;
+    priceCurrencyAccessoryItem.imageNormal = badgeImage;
+    priceCurrencyAccessoryItem.imageHighlighted = badgeHighlightedImage;
+
+    // creates the currency accessory item
+    HMAccessoryItem *retailPriceCurrencyAccessoryItem = [[HMAccessoryItem alloc] init];
+    retailPriceCurrencyAccessoryItem.description = @"EUR";
+    retailPriceCurrencyAccessoryItem.descriptionColor = descriptionColor;
+    retailPriceCurrencyAccessoryItem.descriptionColorHighlighted = descriptionColorHighlighted;
+    retailPriceCurrencyAccessoryItem.imageNormal = badgeImage;
+    retailPriceCurrencyAccessoryItem.imageHighlighted = badgeHighlightedImage;
 
     // creates the title item
     HMStringTableCellItem *titleItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"title"];
@@ -128,7 +136,7 @@
     priceItem.name = NSLocalizedString(@"Price", @"Price");
     priceItem.nameAlignment = HMTextAlignmentRight;
     priceItem.description = [NSString stringWithFormat:@"%.2f", priceValue.floatValue];
-    priceItem.accessory = currencyAccessoryItem;
+    priceItem.accessory = priceCurrencyAccessoryItem;
     priceItem.backgroundColor = backgroundColor;
 
     // creates the retail price string table cell
@@ -136,7 +144,7 @@
     retailPriceItem.name = NSLocalizedString(@"Retail Price", @"Retail Price");
     retailPriceItem.nameAlignment = HMTextAlignmentRight;
     retailPriceItem.description = [NSString stringWithFormat:@"%.2f", retailPriceValue.floatValue];
-    retailPriceItem.accessory = currencyAccessoryItem;
+    retailPriceItem.accessory = retailPriceCurrencyAccessoryItem;
     retailPriceItem.backgroundColor = backgroundColor;
 
     // creates the sections item group
@@ -179,7 +187,8 @@
     [imageItem release];
     [subTitleItem release];
     [titleItem release];
-    [currencyAccessoryItem release];
+    [retailPriceCurrencyAccessoryItem release];
+    [priceCurrencyAccessoryItem release];
     [unitAccessoryItem release];
     [descriptionColorHighlighted release];
     [descriptionColor release];

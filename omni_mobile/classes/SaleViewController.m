@@ -115,18 +115,47 @@
     HMImage *disclosureIndicatorImage = [[HMImage alloc] initWithImageName:@"disclosure_indicator"];
     HMImage *disclosureIndicatorHighlightedImage = [[HMImage alloc] initWithImageName:@"disclosure_indicator_highlighted"];
 
-    // creates the currency accessory item
-    HMAccessoryItem *currencyAccessoryItem = [[HMAccessoryItem alloc] init];
-    currencyAccessoryItem.description = @"EUR";
-    currencyAccessoryItem.descriptionColor = descriptionColor;
-    currencyAccessoryItem.descriptionColorHighlighted = descriptionColorHighlighted;
-    currencyAccessoryItem.imageNormal = badgeImage;
-    currencyAccessoryItem.imageHighlighted = badgeHighlightedImage;
+    // creates the discoutn vat currency accessory item
+    HMAccessoryItem *discountVatCurrencyAccessoryItem = [[HMAccessoryItem alloc] init];
+    discountVatCurrencyAccessoryItem.description = @"EUR";
+    discountVatCurrencyAccessoryItem.descriptionColor = descriptionColor;
+    discountVatCurrencyAccessoryItem.descriptionColorHighlighted = descriptionColorHighlighted;
+    discountVatCurrencyAccessoryItem.imageNormal = badgeImage;
+    discountVatCurrencyAccessoryItem.imageHighlighted = badgeHighlightedImage;
 
-    // creates the disclosure indicator accessory item
-    HMAccessoryItem *disclosureIndicatorAccessoryItem = [[HMAccessoryItem alloc] init];
-    disclosureIndicatorAccessoryItem.imageNormal = disclosureIndicatorImage;
-    disclosureIndicatorAccessoryItem.imageHighlighted = disclosureIndicatorHighlightedImage;
+    // creates the price currency accessory item
+    HMAccessoryItem *priceCurrencyAccessoryItem = [[HMAccessoryItem alloc] init];
+    priceCurrencyAccessoryItem.description = @"EUR";
+    priceCurrencyAccessoryItem.descriptionColor = descriptionColor;
+    priceCurrencyAccessoryItem.descriptionColorHighlighted = descriptionColorHighlighted;
+    priceCurrencyAccessoryItem.imageNormal = badgeImage;
+    priceCurrencyAccessoryItem.imageHighlighted = badgeHighlightedImage;
+
+    // creates the vat currency accessory item
+    HMAccessoryItem *vatCurrencyAccessoryItem = [[HMAccessoryItem alloc] init];
+    vatCurrencyAccessoryItem.description = @"EUR";
+    vatCurrencyAccessoryItem.descriptionColor = descriptionColor;
+    vatCurrencyAccessoryItem.descriptionColorHighlighted = descriptionColorHighlighted;
+    vatCurrencyAccessoryItem.imageNormal = badgeImage;
+    vatCurrencyAccessoryItem.imageHighlighted = badgeHighlightedImage;
+
+    // creates the price vat currency accessory item
+    HMAccessoryItem *priceVatCurrencyAccessoryItem = [[HMAccessoryItem alloc] init];
+    priceVatCurrencyAccessoryItem.description = @"EUR";
+    priceVatCurrencyAccessoryItem.descriptionColor = descriptionColor;
+    priceVatCurrencyAccessoryItem.descriptionColorHighlighted = descriptionColorHighlighted;
+    priceVatCurrencyAccessoryItem.imageNormal = badgeImage;
+    priceVatCurrencyAccessoryItem.imageHighlighted = badgeHighlightedImage;
+
+    // creates the store disclosure indicator accessory item
+    HMAccessoryItem *storeDisclosureIndicatorAccessoryItem = [[HMAccessoryItem alloc] init];
+    storeDisclosureIndicatorAccessoryItem.imageNormal = disclosureIndicatorImage;
+    storeDisclosureIndicatorAccessoryItem.imageHighlighted = disclosureIndicatorHighlightedImage;
+
+    // creates the seller disclosure indicator accessory item
+    HMAccessoryItem *sellerDisclosureIndicatorAccessoryItem = [[HMAccessoryItem alloc] init];
+    sellerDisclosureIndicatorAccessoryItem.imageNormal = disclosureIndicatorImage;
+    sellerDisclosureIndicatorAccessoryItem.imageHighlighted = disclosureIndicatorHighlightedImage;
 
     // creates the title item
     HMStringTableCellItem *titleItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"title"];
@@ -153,7 +182,7 @@
     storeItem.nameAlignment = HMTextAlignmentRight;
     storeItem.data = sellerStockholder;
     storeItem.description = sellerStockHolderName;
-    storeItem.accessory = disclosureIndicatorAccessoryItem;
+    storeItem.accessory = storeDisclosureIndicatorAccessoryItem;
     storeItem.readViewController = [StoreViewController class];
     storeItem.readNibName = @"StoreViewController";
     storeItem.selectable = YES;
@@ -166,7 +195,7 @@
     sellerItem.nameAlignment = HMTextAlignmentRight;
     sellerItem.data = seller;
     sellerItem.description = sellerName;
-    sellerItem.accessory = disclosureIndicatorAccessoryItem;
+    sellerItem.accessory = sellerDisclosureIndicatorAccessoryItem;
     sellerItem.readViewController = [EmployeeViewController class];
     sellerItem.readNibName = @"EmployeeViewController";
     sellerItem.selectable = YES;
@@ -179,7 +208,7 @@
     discountVatItem.nameAlignment = HMTextAlignmentRight;
     discountVatItem.description = [NSString stringWithFormat:@"%.2f", discountVatNumber.floatValue];
     discountVatItem.backgroundColor = backgroundColor;
-    discountVatItem.accessory = currencyAccessoryItem;
+    discountVatItem.accessory = discountVatCurrencyAccessoryItem;
 
     // creates the price string table cell
     HMStringTableCellItem *priceItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"price"];
@@ -187,7 +216,7 @@
     priceItem.nameAlignment = HMTextAlignmentRight;
     priceItem.description = [NSString stringWithFormat:@"%.2f", priceNumber.floatValue];
     priceItem.backgroundColor = backgroundColor;
-    priceItem.accessory = currencyAccessoryItem;
+    priceItem.accessory = priceCurrencyAccessoryItem;
 
     // creates the vat string table cell
     HMStringTableCellItem *vatItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"vat"];
@@ -195,7 +224,7 @@
     vatItem.nameAlignment = HMTextAlignmentRight;
     vatItem.description = [NSString stringWithFormat:@"%.2f", vatNumber.floatValue];
     vatItem.backgroundColor = backgroundColor;
-    vatItem.accessory = currencyAccessoryItem;
+    vatItem.accessory = vatCurrencyAccessoryItem;
 
     // creates the price vat string table cell
     HMStringTableCellItem *priceVatItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"price_vat"];
@@ -203,7 +232,7 @@
     priceVatItem.nameAlignment = HMTextAlignmentRight;
     priceVatItem.description = [NSString stringWithFormat:@"%.2f", priceVat.floatValue];
     priceVatItem.backgroundColor = backgroundColor;
-    priceVatItem.accessory = currencyAccessoryItem;
+    priceVatItem.accessory = priceVatCurrencyAccessoryItem;
 
     // creates the customer name string table cell
     HMStringTableCellItem *customerItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"customer"];
@@ -325,8 +354,12 @@
     [imageItem release];
     [subTitleItem release];
     [titleItem release];
-    [disclosureIndicatorAccessoryItem release];
-    [currencyAccessoryItem release];
+    [sellerDisclosureIndicatorAccessoryItem release];
+    [storeDisclosureIndicatorAccessoryItem release];
+    [priceVatCurrencyAccessoryItem release];
+    [vatCurrencyAccessoryItem release];
+    [priceCurrencyAccessoryItem release];
+    [discountVatCurrencyAccessoryItem release];
     [sectionHeaderFont release];
     [selectedBackgroundColors release];
     [sectionHeaderDescriptionShadowColor release];

@@ -97,10 +97,15 @@
     HMImage *disclosureIndicatorImage = [[HMImage alloc] initWithImageName:@"disclosure_indicator"];
     HMImage *disclosureIndicatorHighlightedImage = [[HMImage alloc] initWithImageName:@"disclosure_indicator_highlighted"];
 
-    // creates the disclosure indicator accessory item
-    HMAccessoryItem *disclosureIndicatorAccessoryItem = [[HMAccessoryItem alloc] init];
-    disclosureIndicatorAccessoryItem.imageNormal = disclosureIndicatorImage;
-    disclosureIndicatorAccessoryItem.imageHighlighted = disclosureIndicatorHighlightedImage;
+    // creates the functional unit disclosure indicator accessory item
+    HMAccessoryItem *functionalUnitDisclosureIndicatorAccessoryItem = [[HMAccessoryItem alloc] init];
+    functionalUnitDisclosureIndicatorAccessoryItem.imageNormal = disclosureIndicatorImage;
+    functionalUnitDisclosureIndicatorAccessoryItem.imageHighlighted = disclosureIndicatorHighlightedImage;
+
+    // creates the employee disclosure indicator accessory item
+    HMAccessoryItem *employeeDisclosureIndicatorAccessoryItem = [[HMAccessoryItem alloc] init];
+    employeeDisclosureIndicatorAccessoryItem.imageNormal = disclosureIndicatorImage;
+    employeeDisclosureIndicatorAccessoryItem.imageHighlighted = disclosureIndicatorHighlightedImage;
 
     // creates the title item
     HMStringTableCellItem *titleItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"title"];
@@ -159,7 +164,7 @@
     defaultFunctionalUnitItem.nameAlignment = HMTextAlignmentRight;
     defaultFunctionalUnitItem.description = defaultFunctionalUnitName;
     defaultFunctionalUnitItem.data = isDefaultFunctionalUnitAvailable ? defaultFunctionalUnit : nil;
-    defaultFunctionalUnitItem.accessory = disclosureIndicatorAccessoryItem;
+    defaultFunctionalUnitItem.accessory = functionalUnitDisclosureIndicatorAccessoryItem;
     defaultFunctionalUnitItem.readViewController = [StoreViewController class];
     defaultFunctionalUnitItem.readNibName = @"StoreViewController";
     defaultFunctionalUnitItem.editViewController = [StoresViewController class];
@@ -177,7 +182,7 @@
     employeeItem.nameAlignment = HMTextAlignmentRight;
     employeeItem.description = personName;
     employeeItem.data = isPersonAvailable ? person : nil;
-    employeeItem.accessory = disclosureIndicatorAccessoryItem;
+    employeeItem.accessory = employeeDisclosureIndicatorAccessoryItem;
     employeeItem.readViewController = [EmployeeViewController class];
     employeeItem.readNibName = @"EmployeeViewController";
     employeeItem.editViewController = [EmployeesViewController class];
@@ -245,7 +250,8 @@
     [imageItem release];
     [subTitleItem release];
     [titleItem release];
-    [disclosureIndicatorAccessoryItem release];
+    [employeeDisclosureIndicatorAccessoryItem release];
+    [functionalUnitDisclosureIndicatorAccessoryItem release];
     [selectedBackgroundColors release];
     [darkGreenColor release];
     [lightGreenColor release];

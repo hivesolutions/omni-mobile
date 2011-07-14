@@ -129,10 +129,60 @@
     HMImage *dashboardIconImage = [[HMImage alloc] initWithImageName:@"dashboard_icon.png"];
     HMImage *dashboardIconWhiteImage = [[HMImage alloc] initWithImageName:@"dashboard_icon_white.png"];
 
-    // creates the disclosure indicator accessory item
-    HMAccessoryItem *disclosureIndicatorAccessoryItem = [[HMAccessoryItem alloc] init];
-    disclosureIndicatorAccessoryItem.imageNormal = disclosureIndicatorImage;
-    disclosureIndicatorAccessoryItem.imageHighlighted = disclosureIndicatorHighlightedImage;
+    // creates the users disclosure indicator accessory item
+    HMAccessoryItem *usersDisclosureIndicatorAccessoryItem = [[HMAccessoryItem alloc] init];
+    usersDisclosureIndicatorAccessoryItem.imageNormal = disclosureIndicatorImage;
+    usersDisclosureIndicatorAccessoryItem.imageHighlighted = disclosureIndicatorHighlightedImage;
+
+    // creates the sales disclosure indicator accessory item
+    HMAccessoryItem *salesDisclosureIndicatorAccessoryItem = [[HMAccessoryItem alloc] init];
+    salesDisclosureIndicatorAccessoryItem.imageNormal = disclosureIndicatorImage;
+    salesDisclosureIndicatorAccessoryItem.imageHighlighted = disclosureIndicatorHighlightedImage;
+
+    // creates the purchase disclosure indicator accessory item
+    HMAccessoryItem *purchaseDisclosureIndicatorAccessoryItem = [[HMAccessoryItem alloc] init];
+    purchaseDisclosureIndicatorAccessoryItem.imageNormal = disclosureIndicatorImage;
+    purchaseDisclosureIndicatorAccessoryItem.imageHighlighted = disclosureIndicatorHighlightedImage;
+
+    // creates the inventory disclosure indicator accessory item
+    HMAccessoryItem *inventoryDisclosureIndicatorAccessoryItem = [[HMAccessoryItem alloc] init];
+    inventoryDisclosureIndicatorAccessoryItem.imageNormal = disclosureIndicatorImage;
+    inventoryDisclosureIndicatorAccessoryItem.imageHighlighted = disclosureIndicatorHighlightedImage;
+
+    // creates the store disclosure indicator accessory item
+    HMAccessoryItem *storeDisclosureIndicatorAccessoryItem = [[HMAccessoryItem alloc] init];
+    storeDisclosureIndicatorAccessoryItem.imageNormal = disclosureIndicatorImage;
+    storeDisclosureIndicatorAccessoryItem.imageHighlighted = disclosureIndicatorHighlightedImage;
+
+    // creates the employee disclosure indicator accessory item
+    HMAccessoryItem *employeeDisclosureIndicatorAccessoryItem = [[HMAccessoryItem alloc] init];
+    employeeDisclosureIndicatorAccessoryItem.imageNormal = disclosureIndicatorImage;
+    employeeDisclosureIndicatorAccessoryItem.imageHighlighted = disclosureIndicatorHighlightedImage;
+
+    // creates the highlights disclosure indicator accessory item
+    HMAccessoryItem *highlightsDisclosureIndicatorAccessoryItem = [[HMAccessoryItem alloc] init];
+    highlightsDisclosureIndicatorAccessoryItem.imageNormal = disclosureIndicatorImage;
+    highlightsDisclosureIndicatorAccessoryItem.imageHighlighted = disclosureIndicatorHighlightedImage;
+
+    // creates the options disclosure indicator accessory item
+    HMAccessoryItem *optionsDisclosureIndicatorAccessoryItem = [[HMAccessoryItem alloc] init];
+    optionsDisclosureIndicatorAccessoryItem.imageNormal = disclosureIndicatorImage;
+    optionsDisclosureIndicatorAccessoryItem.imageHighlighted = disclosureIndicatorHighlightedImage;
+
+    // creates the sales week disclosure indicator accessory item
+    HMAccessoryItem *salesWeekDisclosureIndicatorAccessoryItem = [[HMAccessoryItem alloc] init];
+    salesWeekDisclosureIndicatorAccessoryItem.imageNormal = disclosureIndicatorImage;
+    salesWeekDisclosureIndicatorAccessoryItem.imageHighlighted = disclosureIndicatorHighlightedImage;
+
+    // creates the credits disclosure indicator accessory item
+    HMAccessoryItem *creditsDisclosureIndicatorAccessoryItem = [[HMAccessoryItem alloc] init];
+    creditsDisclosureIndicatorAccessoryItem.imageNormal = disclosureIndicatorImage;
+    creditsDisclosureIndicatorAccessoryItem.imageHighlighted = disclosureIndicatorHighlightedImage;
+
+    // creates the notifications disclosure indicator accessory item
+    HMAccessoryItem *notificationsDisclosureIndicatorAccessoryItem = [[HMAccessoryItem alloc] init];
+    notificationsDisclosureIndicatorAccessoryItem.imageNormal = disclosureIndicatorImage;
+    notificationsDisclosureIndicatorAccessoryItem.imageHighlighted = disclosureIndicatorHighlightedImage;
 
     // creates the users button item
     HMTableCellItem *usersItem = [[HMTableCellItem alloc] initWithIdentifier:@"users"];
@@ -141,7 +191,7 @@
     usersItem.nameColor = blackColor;
     usersItem.iconNormal =  personIconImage;
     usersItem.iconHighlighted = personIconWhiteImage;
-    usersItem.accessory = disclosureIndicatorAccessoryItem;
+    usersItem.accessory = usersDisclosureIndicatorAccessoryItem;
     usersItem.selectable = YES;
     usersItem.selectedBackgroundColors = selectedBackgroundColors;
     usersItem.backgroundColor = backgroundColor;
@@ -153,7 +203,7 @@
     salesItem.nameColor = blackColor;
     salesItem.iconNormal =  boxUpIconImage;
     salesItem.iconHighlighted = boxUpIconWhiteImage;
-    salesItem.accessory = disclosureIndicatorAccessoryItem;
+    salesItem.accessory = salesDisclosureIndicatorAccessoryItem;
     salesItem.selectable = YES;
     salesItem.backgroundColor = backgroundColor;
     salesItem.selectedBackgroundColors = selectedBackgroundColors;
@@ -165,7 +215,7 @@
     purchasesItem.nameColor = blackColor;
     purchasesItem.iconNormal =  boxDownIconImage;
     purchasesItem.iconHighlighted = boxDownIconWhiteImage;
-    purchasesItem.accessory = disclosureIndicatorAccessoryItem;
+    purchasesItem.accessory = purchaseDisclosureIndicatorAccessoryItem;
     purchasesItem.selectable = YES;
     purchasesItem.backgroundColor = backgroundColor;
     purchasesItem.selectedBackgroundColors = selectedBackgroundColors;
@@ -177,7 +227,7 @@
     inventoryItem.nameColor = blackColor;
     inventoryItem.iconNormal =  boxIconImage;
     inventoryItem.iconHighlighted = boxIconWhiteImage;
-    inventoryItem.accessory = disclosureIndicatorAccessoryItem;
+    inventoryItem.accessory = inventoryDisclosureIndicatorAccessoryItem;
     inventoryItem.selectable = YES;
     inventoryItem.backgroundColor = backgroundColor;
     inventoryItem.selectedBackgroundColors = selectedBackgroundColors;
@@ -189,7 +239,7 @@
     storesItem.nameColor = blackColor;
     storesItem.iconNormal =  buildingIconImage;
     storesItem.iconHighlighted = buildingIconWhiteImage;
-    storesItem.accessory = disclosureIndicatorAccessoryItem;
+    storesItem.accessory = storeDisclosureIndicatorAccessoryItem;
     storesItem.selectable = YES;
     storesItem.backgroundColor = backgroundColor;
     storesItem.selectedBackgroundColors = selectedBackgroundColors;
@@ -201,7 +251,7 @@
     employeesItem.nameColor = blackColor;
     employeesItem.iconNormal =  personIconImage;
     employeesItem.iconHighlighted = personIconWhiteImage;
-    employeesItem.accessory = disclosureIndicatorAccessoryItem;
+    employeesItem.accessory = employeeDisclosureIndicatorAccessoryItem;
     employeesItem.selectable = YES;
     employeesItem.backgroundColor = backgroundColor;
     employeesItem.selectedBackgroundColors = selectedBackgroundColors;
@@ -213,7 +263,7 @@
     highlightsItem.nameColor = blackColor;
     highlightsItem.iconNormal =  megaphoneIconImage;
     highlightsItem.iconHighlighted = megaphoneIconWhiteImage;
-    highlightsItem.accessory = disclosureIndicatorAccessoryItem;
+    highlightsItem.accessory = highlightsDisclosureIndicatorAccessoryItem;
     highlightsItem.selectable = YES;
     highlightsItem.backgroundColor = backgroundColor;
     highlightsItem.selectedBackgroundColors = selectedBackgroundColors;
@@ -225,7 +275,7 @@
     optionsMenuItem.nameColor = blackColor;
     optionsMenuItem.iconNormal =  creditsIconImage;
     optionsMenuItem.iconHighlighted = creditsIconWhiteImage;
-    optionsMenuItem.accessory = disclosureIndicatorAccessoryItem;
+    optionsMenuItem.accessory = optionsDisclosureIndicatorAccessoryItem;
     optionsMenuItem.selectable = YES;
     optionsMenuItem.backgroundColor = backgroundColor;
     optionsMenuItem.selectedBackgroundColors = selectedBackgroundColors;
@@ -237,7 +287,7 @@
     salesWeekItem.nameColor = blackColor;
     salesWeekItem.iconNormal =  dashboardIconImage;
     salesWeekItem.iconHighlighted = dashboardIconWhiteImage;
-    salesWeekItem.accessory = disclosureIndicatorAccessoryItem;
+    salesWeekItem.accessory = salesWeekDisclosureIndicatorAccessoryItem;
     salesWeekItem.selectable = YES;
     salesWeekItem.backgroundColor = backgroundColor;
     salesWeekItem.selectedBackgroundColors = selectedBackgroundColors;
@@ -249,7 +299,7 @@
     creditsItem.nameColor = blackColor;
     creditsItem.iconNormal =  creditsIconImage;
     creditsItem.iconHighlighted = creditsIconWhiteImage;
-    creditsItem.accessory = disclosureIndicatorAccessoryItem;
+    creditsItem.accessory = creditsDisclosureIndicatorAccessoryItem;
     creditsItem.selectable = YES;
     creditsItem.backgroundColor = backgroundColor;
     creditsItem.selectedBackgroundColors = selectedBackgroundColors;
@@ -315,7 +365,17 @@
     [purchasesItem release];
     [salesItem release];
     [usersItem release];
-    [disclosureIndicatorAccessoryItem release];
+    [notificationsDisclosureIndicatorAccessoryItem release];
+    [creditsDisclosureIndicatorAccessoryItem release];
+    [salesWeekDisclosureIndicatorAccessoryItem release];
+    [optionsDisclosureIndicatorAccessoryItem release];
+    [highlightsDisclosureIndicatorAccessoryItem release];
+    [employeeDisclosureIndicatorAccessoryItem release];
+    [storeDisclosureIndicatorAccessoryItem release];
+    [inventoryDisclosureIndicatorAccessoryItem release];
+    [purchaseDisclosureIndicatorAccessoryItem release];
+    [salesDisclosureIndicatorAccessoryItem release];
+    [usersDisclosureIndicatorAccessoryItem release];
     [selectedBackgroundColors release];
     [imageView release];
     [logoutBarButton release];

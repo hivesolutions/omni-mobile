@@ -97,13 +97,21 @@
     HMImage *disclosureIndicatorImage = [[HMImage alloc] initWithImageName:@"disclosure_indicator"];
     HMImage *disclosureIndicatorHighlightedImage = [[HMImage alloc] initWithImageName:@"disclosure_indicator_highlighted"];
 
-    // creates the currency accessory item
-    HMAccessoryItem *currencyAccessoryItem = [[HMAccessoryItem alloc] init];
-    currencyAccessoryItem.description = @"EUR";
-    currencyAccessoryItem.descriptionColor = descriptionColor;
-    currencyAccessoryItem.descriptionColorHighlighted = descriptionColorHighlighted;
-    currencyAccessoryItem.imageNormal = badgeImage;
-    currencyAccessoryItem.imageHighlighted = badgeHighlightedImage;
+    // creates the unit price currency accessory item
+    HMAccessoryItem *unitPriceCurrencyAccessoryItem = [[HMAccessoryItem alloc] init];
+    unitPriceCurrencyAccessoryItem.description = @"EUR";
+    unitPriceCurrencyAccessoryItem.descriptionColor = descriptionColor;
+    unitPriceCurrencyAccessoryItem.descriptionColorHighlighted = descriptionColorHighlighted;
+    unitPriceCurrencyAccessoryItem.imageNormal = badgeImage;
+    unitPriceCurrencyAccessoryItem.imageHighlighted = badgeHighlightedImage;
+
+    // creates the discount vat currency accessory item
+    HMAccessoryItem *discountVatCurrencyAccessoryItem = [[HMAccessoryItem alloc] init];
+    discountVatCurrencyAccessoryItem.description = @"EUR";
+    discountVatCurrencyAccessoryItem.descriptionColor = descriptionColor;
+    discountVatCurrencyAccessoryItem.descriptionColorHighlighted = descriptionColorHighlighted;
+    discountVatCurrencyAccessoryItem.imageNormal = badgeImage;
+    discountVatCurrencyAccessoryItem.imageHighlighted = badgeHighlightedImage;
 
     // creates the unit accessory item
     HMAccessoryItem *unitAccessoryItem = [[HMAccessoryItem alloc] init];
@@ -142,7 +150,7 @@
     unitPriceVatItem.name = NSLocalizedString(@"Unit Price VAT", @"Unit Price VAT");
     unitPriceVatItem.nameAlignment = HMTextAlignmentRight;
     unitPriceVatItem.description = [NSString stringWithFormat:@"%.2f", unitPriceVat];
-    unitPriceVatItem.accessory = currencyAccessoryItem;
+    unitPriceVatItem.accessory = unitPriceCurrencyAccessoryItem;
     unitPriceVatItem.backgroundColor = backgroundColor;
 
     // creates the discount vat table cell
@@ -150,7 +158,7 @@
     discountVatItem.name = NSLocalizedString(@"Discount VAT", @"Discount VAT");
     discountVatItem.nameAlignment = HMTextAlignmentRight;
     discountVatItem.description = [NSString stringWithFormat:@"%.2f", unitDiscountVatNumber.floatValue];
-    discountVatItem.accessory = currencyAccessoryItem;
+    discountVatItem.accessory = discountVatCurrencyAccessoryItem;
     discountVatItem.backgroundColor = backgroundColor;
 
     // creates the quantity table cell
@@ -223,7 +231,8 @@
     [titleItem release];
     [disclosureIndicatorAccessoryItem release];
     [unitAccessoryItem release];
-    [currencyAccessoryItem release];
+    [discountVatCurrencyAccessoryItem release];
+    [unitPriceCurrencyAccessoryItem release];
     [selectedBackgroundColors release];
     [backgroundColor release];
     [descriptionColorHighlighted release];
