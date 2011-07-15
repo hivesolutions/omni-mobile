@@ -16,7 +16,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Hive Omni Erp. If not, see <http://www.gnu.org/licenses/>.
 
-// __author__    = Lu’s Martinho <lmartinho@hive.pt>
+// __author__    = Luâ€™s Martinho <lmartinho@hive.pt>
 // __version__   = 1.0.0
 // __revision__  = $LastChangedRevision: 2390 $
 // __date__      = $LastChangedDate: 2009-04-02 08:36:50 +0100 (qui, 02 Abr 2009) $
