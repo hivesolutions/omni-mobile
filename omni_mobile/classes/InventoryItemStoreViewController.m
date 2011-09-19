@@ -213,7 +213,7 @@
 
     // sets the items in the remote data
     [remoteData addObject:[NSArray arrayWithObjects:@"inventory_line[stock_on_hand]", AVOID_NIL(stockItem.description, NSString), nil]];
-    [remoteData addObject:[NSArray arrayWithObjects:@"inventory_line[_parameters][retail_price]", AVOID_NIL(retailPriceItem.description, NSString), nil]];
+    [remoteData addObject:[NSArray arrayWithObjects:@"inventory_line[retail_price][value]", AVOID_NIL(retailPriceItem.description, NSString), nil]];
 
     // returns the remote data
     return remoteData;
