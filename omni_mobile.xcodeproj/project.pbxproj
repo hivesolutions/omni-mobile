@@ -35,7 +35,6 @@
 		46551C1813C3460D0013B005 /* badge_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 46551C1513C3460D0013B005 /* badge_highlighted.png */; };
 		46551C1913C3460D0013B005 /* badge_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46551C1613C3460D0013B005 /* badge_highlighted@2x.png */; };
 		46551C1A13C3460D0013B005 /* badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46551C1713C3460D0013B005 /* badge@2x.png */; };
-		46B5EAAA13BBA1A7001D2B81 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B5EAA913BBA1A7001D2B81 /* AssetsLibrary.framework */; };
 		A57A09B71355A7840098A56A /* SaleLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A57A09B61355A7820098A56A /* SaleLineViewController.m */; };
 		A57A09BA1355A8F00098A56A /* SaleLineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A57A09B91355A8F00098A56A /* SaleLineViewController.xib */; };
 		C206D5B61354A12000B9FEB3 /* credits_background.png in Resources */ = {isa = PBXBuildFile; fileRef = C206D5B01354A12000B9FEB3 /* credits_background.png */; };
@@ -292,7 +291,6 @@
 		46551C1513C3460D0013B005 /* badge_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = badge_highlighted.png; path = badge/badge_highlighted.png; sourceTree = "<group>"; };
 		46551C1613C3460D0013B005 /* badge_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "badge_highlighted@2x.png"; path = "badge/badge_highlighted@2x.png"; sourceTree = "<group>"; };
 		46551C1713C3460D0013B005 /* badge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "badge@2x.png"; path = "badge/badge@2x.png"; sourceTree = "<group>"; };
-		46B5EAA913BBA1A7001D2B81 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		A57A09B51355A7810098A56A /* SaleLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SaleLineViewController.h; path = classes/SaleLineViewController.h; sourceTree = "<group>"; };
 		A57A09B61355A7820098A56A /* SaleLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SaleLineViewController.m; path = classes/SaleLineViewController.m; sourceTree = "<group>"; };
 		A57A09B91355A8F00098A56A /* SaleLineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SaleLineViewController.xib; path = nibs/SaleLineViewController.xib; sourceTree = "<group>"; };
@@ -492,7 +490,6 @@
 				C28EFF3B13295A31007CBA34 /* UIKit.framework in Frameworks */,
 				C28EFF3D13295A31007CBA34 /* Foundation.framework in Frameworks */,
 				C28EFF3F13295A31007CBA34 /* CoreGraphics.framework in Frameworks */,
-				46B5EAAA13BBA1A7001D2B81 /* AssetsLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1035,7 +1032,6 @@
 		C28EFF3913295A31007CBA34 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				46B5EAA913BBA1A7001D2B81 /* AssetsLibrary.framework */,
 				A57BEA56132E72F0000478F7 /* QuartzCore.framework */,
 				C28EFF3A13295A31007CBA34 /* UIKit.framework */,
 				C28EFF3C13295A31007CBA34 /* Foundation.framework */,
@@ -1300,6 +1296,9 @@
 /* Begin PBXProject section */
 		C28EFF2D13295A31007CBA34 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = C28EFF3013295A31007CBA34 /* Build configuration list for PBXProject "omni_mobile" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
