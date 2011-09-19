@@ -68,10 +68,8 @@
 
     // retrieves the remote data attributes
     NSString *username = AVOID_NULL([remoteData objectForKey:@"username"]);
-    NSString *password = AVOID_NULL([remoteData objectForKey:@"password_hash"]);
     NSString *email = AVOID_NULL([remoteData objectForKey:@"email"]);
     NSString *secretQuestion = AVOID_NULL([remoteData objectForKey:@"secret_question"]);
-    NSString *secretAnswer = AVOID_NULL([remoteData objectForKey:@"secret_answer_hash"]);
     NSDictionary *person = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"person"]);
     NSString *personName = AVOID_NULL([person objectForKey:@"name"]);
     NSDictionary *defaultFunctionalUnit = AVOID_NULL_DICTIONARY([remoteData objectForKey:@"default_functional_unit"]);
@@ -132,7 +130,6 @@
     HMStringTableCellItem *passwordItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"password"];
     passwordItem.name = NSLocalizedString(@"Password", @"Password");
     passwordItem.nameAlignment = HMTextAlignmentRight;
-    passwordItem.description = password;
     passwordItem.secure = YES;
     passwordItem.backgroundColor = backgroundColor;
 
@@ -154,7 +151,6 @@
     HMStringTableCellItem *secretAnswerItem = [[HMStringTableCellItem alloc] initWithIdentifier:@"secret_answer"];
     secretAnswerItem.name = NSLocalizedString(@"Answer", @"Answer");
     secretAnswerItem.nameAlignment = HMTextAlignmentRight;
-    secretAnswerItem.description = secretAnswer;
     secretAnswerItem.secure = YES;
     secretAnswerItem.backgroundColor = backgroundColor;
 

@@ -30,6 +30,13 @@
  * display the credits.
  */
 @interface CreditsViewController : UIViewController {
+    @private
+    UILabel *_dateLabel;
 }
+
+/**
+ * The credit panel's date label.
+ */
+@property (nonatomic, retain) IBOutlet UILabel *dateLabel;
 
 @end

@@ -27,6 +27,8 @@
 
 @implementation CreditsViewController
 
+@synthesize dateLabel = _dateLabel;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     // calls the super
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -40,11 +42,28 @@
     // creates the backgroun color with the pattern image
     UIColor *backgroundColor = [UIColor colorWithPatternImage:backgroundPatternImage];
 
+    // creates a string representation of the date
+    NSString *dateString = [[NSString alloc] initWithCString:__DATE__ encoding:NSUTF8StringEncoding];
+
     // sets the view background color
     self.view.backgroundColor = backgroundColor;
 
+    // sets the date in the date label
+    self.dateLabel.text = dateString;
+
+    // releases the objects
+    [dateString release];
+
     // returns self
     return self;
+}
+
+- (void) dealloc {
+    // releases the date label
+    [_dateLabel release];
+
+    // calls the super
+    [super dealloc];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
