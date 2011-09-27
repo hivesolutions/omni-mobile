@@ -297,6 +297,7 @@
 
     // sets the items in the remote data
     [remoteData addObject:[NSArray arrayWithObjects:@"user[username]", AVOID_NIL(usernameItem.description, NSString), nil]];
+    [remoteData addObject:[NSArray arrayWithObjects:@"user[type]", @"3", nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"user[email]", AVOID_NIL(emailItem.description, NSString), nil]];
     [remoteData addObject:[NSArray arrayWithObjects:@"user[secret_question]", AVOID_NIL(secretQuestion.description, NSString), nil]];
 
