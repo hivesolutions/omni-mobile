@@ -129,7 +129,7 @@
     NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
 
     // sets the preferences default values
-    [self setPreferencesDefaultValue:preferences defaultValue:@"http://erp.startomni.com:8080/colony_dynamic/rest/mvc/omni" key:@"baseUrl"];
+    [self setPreferencesDefaultValue:preferences defaultValue:@"http://erp.startomni.com:8080/dynamic/rest/mvc/omni" key:@"baseUrl"];
     [self setPreferencesDefaultValue:preferences defaultValue:[NSNumber numberWithInt:1] key:@"backgroundImage"];
 
     // syncs the preferences
