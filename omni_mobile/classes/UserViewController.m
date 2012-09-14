@@ -37,7 +37,7 @@
 }
 
 - (NSString *)getRemoteUrlForOperation:(HMItemOperationType)operationType {
-    return [self.entityAbstraction getRemoteUrlForOperation:operationType entityName:@"users" serializerName:@"json"];
+    return [self.entityAbstraction getRemoteUrlForOperation:operationType entityName:@"system_users" serializerName:@"json"];
 }
 
 - (NSString *)getItemName {
