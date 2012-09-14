@@ -37,7 +37,7 @@
 }
 
 - (NSString *)getRemoteUrlForOperation:(HMItemOperationType)operationType {
-    return [self.entityAbstraction getRemoteUrlForOperation:operationType entityName:@"transactional_merchandise" serializerName:@"json"];
+    return [self.entityAbstraction getRemoteUrlForOperation:operationType entityName:@"transactional_merchandises" serializerName:@"json"];
 }
 
 - (void)processEmpty {
@@ -135,12 +135,12 @@
         // retrieves the inventory line information
         NSNumber *objectId = AVOID_NULL_NUMBER([inventoryLine objectForKey:@"object_id"]);
         NSString *objectIdString = objectId.stringValue;
-        NSDictionary *contactableOrganizationalHierarchyTreeNode = AVOID_NULL_DICTIONARY([inventoryLine objectForKey:@"contactable_organizational_hierarchy_tree_node"]);
+        NSDictionary *functionalUnit = AVOID_NULL_DICTIONARY([inventoryLine objectForKey:@"functional_unit"]);
         NSNumber *stockOnHandNumber = AVOID_NULL_NUMBER([inventoryLine objectForKey:@"stock_on_hand"]);
         int stockOnHand = stockOnHandNumber.intValue;
 
         // retrieves the store information
-        NSString *storeName = AVOID_NULL([contactableOrganizationalHierarchyTreeNode objectForKey:@"name"]);
+        NSString *storeName = AVOID_NULL([functionalUnit objectForKey:@"name"]);
         NSString *storeStockOnHand = [NSString stringWithFormat:@"%d", stockOnHand];
 
         // creates the stock accessory item
@@ -242,12 +242,12 @@
         }
 
         // retrieves the inventory line's attributes
-        NSDictionary *inventoryLineContactableOrganizationalHierarchyTreeNode = [inventoryLineItemData objectForKey:@"contactable_organizational_hierarchy_tree_node"];
-        NSNumber *inventoryLineContactableOrganizationalHierarchyTreeNodeObjectId = [inventoryLineContactableOrganizationalHierarchyTreeNode objectForKey:@"object_id"];
-        NSString *inventoryLineContactableOrganizationalHierarchyTreeNodeObjectIdString = [NSString stringWithFormat:@"%d", inventoryLineContactableOrganizationalHierarchyTreeNodeObjectId.intValue];
+        NSDictionary *inventoryLineFunctionalUnit = [inventoryLineItemData objectForKey:@"functional_unit"];
+        NSNumber *inventoryLineInventoryLineFunctionalUnitObjectId = [inventoryLineFunctionalUnit objectForKey:@"object_id"];
+        NSString *inventoryLineInventoryLineFunctionalUnitObjectIdString = [NSString stringWithFormat:@"%d", inventoryLineInventoryLineFunctionalUnitObjectId.intValue];
 
         // sets the items in the remote data
-        [remoteData addObject:[NSArray arrayWithObjects:@"transactional_merchandise[inventory_lines][][contactable_organizational_hierarchy_tree_node][object_id]", AVOID_NIL(inventoryLineContactableOrganizationalHierarchyTreeNodeObjectIdString, NSString), nil]];
+        [remoteData addObject:[NSArray arrayWithObjects:@"transactional_merchandise[inventory_lines][][contactable_organizational_hierarchy_tree_node][object_id]", AVOID_NIL(inventoryLineInventoryLineFunctionalUnitObjectIdString, NSString), nil]];
     }
 
     // sets the items in the remote data
