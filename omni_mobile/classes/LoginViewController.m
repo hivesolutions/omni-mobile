@@ -257,10 +257,9 @@
 }
 
 - (void)remoteDidSucceed:(HMRemoteAbstraction *)remoteAbstraction data:(NSData *)data connection:(NSURLConnection *)connection response:(NSURLResponse *)response {
-    // creates a new json parser
+    // creates a new json parser and uses it to parse the
+    // received (remote) data and sets it into the instance
     SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
-
-    // parses the received (remote) data and sets it into the intance
     NSDictionary *remoteData = [jsonParser objectWithData:data];
 
     // casts the response as http response
@@ -268,31 +267,23 @@
 
     // in case the status code is valid
     if(httpResponse.statusCode == HTTP_VALID_STATUS_CODE) {
-        // retrieves the session id
+        // retrieves the various attributes from the remote data
+        // to be set in the current internal structures (preferences)
         NSString *sessionId = [remoteData objectForKey:@"session_id"];
-
-        // retrieves the username
         NSString *username = [remoteData objectForKey:@"username"];
-
-        // retrieves the object id
         NSNumber *objectId = [remoteData objectForKey:@"object_id"];
 
-        // prints an authentication message
+        // prints an authentication message, outputting the current
+        // session identifier in use
         NSLog(@"Authenticated with session id: %@", sessionId);
 
-        // retrieves the preferences
+        // retrieves the preferences structures (global wide for
+        // application) and sets the various attributes in it, then
+        // flushes its contents using the synchronize call
         NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
-
-        // sets the session id in the preferences
         [preferences setValue:sessionId forKey:@"sessionId"];
-
-        // sets the username in the preferences
         [preferences setValue:username forKey:@"username"];
-
-        // sets the object id in the preferences
         [preferences setValue:objectId forKey:@"objectId"];
-
-        // syncs the preferences
         [preferences synchronize];
 
         // in case the authentication delegate is set
