@@ -54,7 +54,9 @@
 - (void)loadSettings;
 
 /**
- * Loads the notifications system.
+ * Loads the notifications sub system (apn), this
+ * call should trigger the loading of the token
+ * identifier and generate a call.
  */
 - (void)loadNotifications;
 
