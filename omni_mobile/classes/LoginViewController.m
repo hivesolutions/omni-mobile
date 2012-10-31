@@ -286,9 +286,9 @@
         [preferences setValue:objectId forKey:@"objectId"];
         [preferences synchronize];
 
-        // in case the authentication delegate is set
+        // in case the authentication delegate is set, notifies it
+        // about the authentication complete (with success)
         if(self.authenticationDelegate) {
-            // notifies about the authentication complete (with success)
             [self.authenticationDelegate authenticationComplete:YES];
         }
 
