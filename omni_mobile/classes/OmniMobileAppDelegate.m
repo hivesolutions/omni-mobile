@@ -72,23 +72,24 @@
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)notificationToken {
-    // converts the notification token into hexadecimal
+    // converts the notification token into hexadecimal and then
+    // into a base 64 code to be used in text sending
     NSString *notificationTokenHexadecimal = [HMHexadecimalUtil hexlifyData:notificationToken];
-
-    // converts the notification token into base64
     NSString *notificationTokenBase64 = [HMBase64Util encodeBase64WithData:notificationToken];
 
-    // prints a debug message
+    // prints a debug message with the notification token values
+    // to be displayed
     NSLog(@"Registered with token: %@ / %@", notificationTokenHexadecimal, notificationTokenBase64);
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
-    // prints a debug message
+    // prints a debug message containing the error context
     NSLog(@"Error in registration: %@", error);
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInformation {
-    // retrievs the aps map
+    // retrievs the aps map item to alert abou the
+    // notification item
     NSDictionary *apsMap = [userInformation objectForKey:@"aps"];
 
     // prints a debug message
@@ -112,10 +113,8 @@
     NSDictionary *userInformation = [launchOptions objectForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"];
 
     // in case the user information is not defined
-    if(!userInformation) {
-        // returns immediately
-        return;
-    }
+    // must return immediately
+    if(!userInformation) { return; }
 
     // retrievs the aps map
     NSDictionary *apsMap = [userInformation objectForKey:@"aps"];
@@ -125,33 +124,33 @@
 }
 
 - (void)loadSettings {
-    // retrieves the preferences
+    // retrieves the preferences structure to be updated
     NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
 
-    // sets the preferences default values
-    [self setPreferencesDefaultValue:preferences defaultValue:@"http://erp.startomni.com:8080/dynamic/rest/mvc/omni" key:@"baseUrl"];
+    // sets the preferences default values, some of this values should
+    // be static and others dynamic (configuration oriented)
+    [self setPreferencesDefaultValue:preferences defaultValue:@"http://localhost:8080/dynamic/rest/mvc/omni" key:@"baseUrl"];
     [self setPreferencesDefaultValue:preferences defaultValue:[NSNumber numberWithInt:1] key:@"backgroundImage"];
 
-    // syncs the preferences
+    // syncs the preferences, updating the values in the cache
+    // should enforce changes in other users
     [preferences synchronize];
 }
 
 - (void)loadNotifications {
-    // retrieves the current application
+    // retrieves the current (shared) application, then creates the
+    // notification types for the notification registration and registers
+    // the current system for the remote notifications (callback pending)
     UIApplication *currentApplication = [UIApplication sharedApplication];
-
-    // creates the notification types for the notification registration
     UIRemoteNotificationType notificationTypes = UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound;
-
-    // registers for the notifications
     [currentApplication registerForRemoteNotificationTypes:notificationTypes];
 }
 
 - (void)saveSettings:(NSString *)data {
-    // retrieves the preferences
+    // retrieves the preferences and syncs it forcing the
+    // update of the current internal structures (should
+    // some time to update)
     NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
-
-    // syncs the preferences
     [preferences synchronize];
 }
 
