@@ -297,13 +297,10 @@
     }
     // otherwise there must be a problem
     else {
-        // retrieves the exception map
+        // retrieves the exception map and uses it to retrieve both
+        // the name of the exception and the message contained in it
         NSDictionary *exception = [remoteData objectForKey:@"exception"];
-
-        // retrieves the exception name
         NSString *exceptionName = [exception objectForKey:@"exception_name"];
-
-        // retrieves the exception message
         NSString *message = [exception objectForKey:@"message"];
 
         // prints the error message
