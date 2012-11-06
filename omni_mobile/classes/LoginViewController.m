@@ -307,7 +307,7 @@
         NSLog(@"Error with status: %d name: %@ and message: %@", httpResponse.statusCode, exceptionName, message);
 
         // creates the alert view to show the error message
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"LoginErrorName", @"LoginErrorName") message:NSLocalizedString(message, message) delegate:nil cancelButtonTitle:NSLocalizedString(@"Confirmar", @"Confirmar") otherButtonTitles: nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"LoginErrorName", @"LoginErrorName") message:NSLocalizedString(message, message) delegate:nil cancelButtonTitle:NSLocalizedString(@"Confirm", @"Confirm") otherButtonTitles: nil];
 
         // shows the alert view
         [alert show];
